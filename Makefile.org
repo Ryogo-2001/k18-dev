@@ -22,7 +22,8 @@ root_include	= $(shell $(root_config) --cflags)
 root_libs	= $(shell $(root_config) --libs) -lMinuit -lEG -lSpectrum
 #
 # HDDAQ Unpacker
-unpacker_config		= unpacker-config
+#unpacker_config		= unpacker-config
+unpacker_config		= /group/had/sks/software/unpacker/unpacker.elph2022/bin/unpacker-config
 unpacker_include	= $(shell $(unpacker_config) --include)
 unpacker_libs		= $(shell $(unpacker_config) --libs)
 #
