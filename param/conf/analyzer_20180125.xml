@@ -1,0 +1,19 @@
+#
+#  analyzer_20180113.conf
+#
+
+UNPACKER:	../UNPACK/unpacker.xml
+DIGIT:		../DIGIT/digit_data_20180125.xml
+CMAP:		../CMAP/channel_map_20180125.xml
+DCGEOM:		../DCGEO/DCGeomParam_E40_20170927
+DRFTPM:		../DCDRFT/DCDriftParam_02189
+TDCCALIB:	../DCTDC/DCTdcCalib_04124
+HDPRM:		../HDPRM/HodoParam_20180131
+HDPHC:		../HDPHC/HodoPHCParam_02189
+#MATRIX2D:	../MATRIX/matrix2d_pattern_20170418.txt
+#MATRIX3D:	../MATRIX/matrix3d_pattern_veto_20170418.txt
+#MASS:		../MASS/threshold_table_20170511_2.txt
+#MASS:		../MASS/threshold_table_20170527.txt
+MASS:		../MASS/threshold_table_20170529.txt
+USER:		../USER/user_20180111.txt
+#EMC:		../EMC/pos_20170602.txt

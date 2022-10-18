@@ -28,6 +28,28 @@ const Int_t NumOfSegHTOF  = 34;
 const Int_t NumOfSegBVH   =  4;
 const Int_t NumOfSegLAC   = 30;
 const Int_t NumOfSegWC    = 20;
+const Int_t DetIdE72BAC      =  201;
+const Int_t DetIdE72BACSUM   =  202;
+const Int_t DetIdKVC         =  203;
+const Int_t DetIdKVCSUM      =  204;
+const Int_t DetIdE90SAC      =  205;
+const Int_t DetIdE90SACSUM   =  206;
+const Int_t DetIdT4          =  207;
+const Int_t DetIdT5          =  208;
+const Int_t DetIdT6          =  209;
+const Int_t DetIdT7          =  210;
+const Int_t NumOfSegE72BAC      =  4;
+const Int_t NumOfSegE72BACSUM   =  1;
+const Int_t NumOfSegKVC         =  2;
+const Int_t NumOfSegKVCSUM      =  1;
+const Int_t NumOfSegE90SAC      =  6;
+const Int_t NumOfSegE90SACSUM   =  1;
+const Int_t NumOfSegT4          =  1;
+const Int_t NumOfSegT5          =  1;
+const Int_t NumOfSegT6          =  1;
+const Int_t NumOfSegT7          =  1;
+
+
 
 // Misc _______________________________________________________________
 const Int_t DetIdTrig       = 21;
@@ -40,83 +62,123 @@ const Int_t DetIdHulRM      = 83;
 const Int_t NumOfSegScaler  = 96;
 const Int_t NumOfPlaneVmeRm = 2;
 
+
+
 // Trigger Flag
 namespace trigger
 {
   enum ETriggerFlag
-  {
-    kL1SpillOn,
-    kL1SpillOff,
-    kSpillEnd,
-    kSpillOnEnd,
-    kCommonStopSdcOut,
-    kMatrix2D1,
-    kMatrix2D2,
-    kMatrix3D,
-    kBeamA,
-    kBeamB,
-    kBeamC,
-    kBeamD,
-    kBeamE,
-    kBeamF,
-    kTrigA,
-    kTrigB,
-    kTrigC,
-    kTrigD,
-    kTrigE,
-    kTrigF,
-    kTrigAPS,
-    kTrigBPS,
-    kTrigCPS,
-    kTrigDPS,
-    kTrigEPS,
-    kTrigFPS,
-    kLevel1A,
-    kLevel1B,
-    kClockPS,
-    kReserve2PS,
-    kLevel1OR,
-    kEssDischarge,
-    NTriggerFlag
-  };
-
+    {
+      kTrigAPS,
+      kTrigBPS,
+      kClockPS,
+      kLevel1OR,
+      kTrigB,
+      kL1SpillOn,
+      kL1SpillOff,
+      kSpillEnd,
+      kSpillOnEnd,
+      //      kTrigEPS,
+      //kTrigFPS,
+      kBeamA,
+      kCommonStopSdcOut,
+      NTriggerFlag
+      
+    };
   const std::vector<TString> STriggerFlag =
     {
-     "L1SpillOn",
-     "L1SpillOff",
-     "SpillEnd",
-     "SpillOnEnd",
-     "CommonStopSdcOut",
-     "Matrix2D1",
-     "Matrix2D2",
-     "Matrix3D",
-     "BeamA",
-     "BeamB",
-     "BeamC",
-     "BeamD",
-     "BeamE",
-     "BeamF",
-     "TrigA",
-     "TrigB",
-     "TrigC",
-     "TrigD",
-     "TrigE",
-     "TrigF",
-     "TrigA-PS",
-     "TrigB-PS",
-     "TrigC-PS",
-     "TrigD-PS",
-     "TrigE-PS",
-     "TrigF-PS",
-     "Level1A",
-     "Level1B",
-     "Clock-PS",
-     "Reserve2-PS",
-     "Level1OR",
-     "EssDischarge",
+      "TrigA-PS",
+      "TrigB-PS",
+      "Clock-PS",
+      "Level1OR",
+      "TrigB",
+      "L1SpillOn",
+      "L1SpillOff",
+      "SpillEnd",
+      "SpillOnEnd",
+      //"TrigE-PS",
+      //"TrigF-PS",
+      "BeamA",
+      "CommonStopSdcOut",
     };
+
+
+
+  // enum ETriggerFlag
+  // {
+  //   kL1SpillOn,
+  //   kL1SpillOff,
+  //   kSpillEnd,
+  //   kSpillOnEnd,
+  //   kCommonStopSdcOut,
+  //   kMatrix2D1,
+  //   kMatrix2D2,
+  //   kMatrix3D,
+  //   kBeamA,
+  //   kBeamB,
+  //   kBeamC,
+  //   kBeamD,
+  //   kBeamE,
+  //   kBeamF,
+  //   kTrigA,
+  //   kTrigB,
+  //   kTrigC,
+  //   kTrigD,
+  //   kTrigE,
+  //   kTrigF,
+  //   kTrigAPS,
+  //   kTrigBPS,
+  //   kTrigCPS,
+  //   kTrigDPS,
+  //   kTrigEPS,
+  //   kTrigFPS,
+  //   kLevel1A,
+  //   kLevel1B,
+  //   kClockPS,
+  //   kReserve2PS,
+  //   kLevel1OR,
+  //   kEssDischarge,
+  //   NTriggerFlag
+  // };
+
+  // const std::vector<TString> STriggerFlag =
+  //   {
+  //    "L1SpillOn",
+  //    "L1SpillOff",
+  //    "SpillEnd",
+  //    "SpillOnEnd",
+  //    "CommonStopSdcOut",
+  //    "Matrix2D1",
+  //    "Matrix2D2",
+  //    "Matrix3D",
+  //    "BeamA",
+  //    "BeamB",
+  //    "BeamC",
+  //    "BeamD",
+  //    "BeamE",
+  //    "BeamF",
+  //    "TrigA",
+  //    "TrigB",
+  //    "TrigC",
+  //    "TrigD",
+  //    "TrigE",
+  //    "TrigF",
+  //    "TrigA-PS",
+  //    "TrigB-PS",
+  //    "TrigC-PS",
+  //    "TrigD-PS",
+  //    "TrigE-PS",
+  //    "TrigF-PS",
+  //    "Level1A",
+  //    "Level1B",
+  //    "Clock-PS",
+  //    "Reserve2-PS",
+  //    "Level1OR",
+  //    "EssDischarge",
+  //   };
 }
 const Int_t NumOfSegTrig = trigger::NTriggerFlag;
+const Int_t NumOfSegTFlagElph = 5;
 
 const Int_t DetIdVmeCalib      = 999;
 const Int_t NumOfPlaneVmeCalib =   5;

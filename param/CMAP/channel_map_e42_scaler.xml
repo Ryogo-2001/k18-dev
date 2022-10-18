@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<channel_map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="schema/channel_map.xsd">
+
+  <DAQNode node_id="1" name="k18eb">
+    <!--________________________________________________________________-->
+    <HulMHTdc node_id="0x631" name="hul02misc-1">
+       <for var="ch" from="0" to="27"><for var="data" from="0" to="2">
+         <FE ch="ch" data="data"><D Device="LC" segment="ch" data="data + 1"/></FE>
+       </for></for>
+       <for var="ch" from="28" to="31"><for var="data" from="0" to="2">
+         <FE ch="ch" data="data"><D Device="SAC" segment="ch - 28" data="data + 1"/></FE>
+       </for></for>
+       <for var="ch" from="32" to="47"><for var="data" from="0" to="2">
+         <FE ch="ch" data="data"><D Device="TOF_HT" segment="ch - 32" data="data + 1"/></FE>
+       </for></for>
+       <for var="ch" from="48" to="63"><for var="data" from="0" to="2">
+         <FE ch="ch" data="data"><D Device="TFlag" segment="ch + 16" data="data + 1"/></FE>
+       </for></for>
+       <for var="ch" from="64" to="127"><for var="data" from="0" to="2">
+         <FE ch="ch" data="data"><D Device="TFlag" segment="ch - 64" data="data + 1"/></FE>
+       </for></for>
+    </HulMHTdc>
+    <!-- ________________________________________________________________ -->
+    <HulScaler node_id="0x601" name="hul01scr-1">
+      <for var="ch" from="0" to="63">
+    	  <FE ch="ch" data="0"><D Device="Scaler" plane="0" ch="ch" data="0"/></FE>
+      </for>
+      <for var="data" from="0" to="3">
+    	<FE ch="0" data="data + 1"><D Device="HUL-RM" plane="0" ch="0" data="data"/></FE>
+      </for>
+    </HulScaler>
+    <!-- ________________________________________________________________ -->
+    <HulScaler node_id="1701" name="hul04scr">
+      <for var="ch" from="0" to="63">
+    	  <FE ch="ch" data="0"><D Device="Scaler" plane="1" ch="ch" data="0"/></FE>
+      </for>
+      <for var="data" from="0" to="3">
+    	<FE ch="0" data="data + 1"><D Device="HUL-RM" plane="5" ch="0" data="data"/></FE>
+      </for>
+    </HulScaler>
+    <!-- ________________________________________________________________ -->
+    <HulScaler node_id="1703" name="hul05scr">
+      <for var="ch" from="0" to="63">
+    	  <FE ch="ch" data="0"><D Device="Scaler" plane="2" ch="ch" data="0"/></FE>
+      </for>
+      <for var="data" from="0" to="3">
+    	<FE ch="0" data="data + 1"><D Device="HUL-RM" plane="6" ch="0" data="data"/></FE>
+      </for>
+    </HulScaler>
+  </DAQNode>
+</channel_map>

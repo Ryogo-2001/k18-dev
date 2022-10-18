@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<digit_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	    xsi:noNamespaceSchemaLocation="schema/digit.xsd">
+
+<device id="0xff" name="null"/>
+
+<!--________________________________________________________________-->
+  <device id="110" name="BFT">
+    <plane id="0" name="upstream"><for var="seg" from="0" to="159">
+      <ch id="seg"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="1" name="downstream"><for var="seg" from="0" to="159">
+      <ch id="seg"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+  </device>
+
+<!--________________________________________________________________-->
+ <device id="3" name="BH1"><for var="seg" from="0" to="13">
+    <segment id="seg"><for var="UorD" from="0" to="1">
+      <ch id="UorD">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch></for>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->  
+  <device id="4" name="BH2"><for var="seg" from="0" to="4">
+    <segment id="seg">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="5" name="TOF"><for var="seg" from="0" to="31">
+    <segment id="seg"><for var="UorD" from="0" to="1">
+      <ch id="UorD">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch></for>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="7" name="LC"><for var="seg" from="0" to="27">
+    <segment id="seg"><for var="UorD" from="0" to="1">
+      <ch id="UorD">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch></for>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="9" name="BAC"><for var="seg" from="0" to="5">
+    <segment id="seg">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="10" name="BMW">
+    <segment id="0">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment>
+  </device>
+<!--________________________________________________________________-->
+ <device id="11" name="Misc"><for var="seg" from="0" to="25">
+    <segment id="seg">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="12" name="Matrix"><for var="seg" from="0" to="9">
+    <segment id="seg">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="8" name="GC">
+    <segment id="0">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment>
+    <segment id="1">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment>
+    <segment id="2">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment>
+  </device>
+<!--________________________________________________________________-->
+ <device id="24" name="SFV"><for var="seg" from="0" to="17">
+    <segment id="seg">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="25" name="TOFMT"><for var="seg" from="0" to="31">
+    <segment id="seg">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment></for>
+  </device>
+
+<!--________________________________________________________________-->
+ <device id="101" name="BC1">
+    <plane id="0" name="x0"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="1" name="u0"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="2" name="v0"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="3" name="x1"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="4" name="u1"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="5" name="v1"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+  <device id="102" name="BC2">
+    <plane id="0" name="v0"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="1" name="u0"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="2" name="x0"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="3" name="v1"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="4" name="u1"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="5" name="x1"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+  <device id="103" name="BC3">
+    <plane id="0" name="x0"><for var="wire" from="0" to="63">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="1" name="x1"><for var="wire" from="0" to="63">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="2" name="u0"><for var="wire" from="0" to="63">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="3" name="u1"><for var="wire" from="0" to="63">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="4" name="v0"><for var="wire" from="0" to="63">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="5" name="v1"><for var="wire" from="0" to="63">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+  <device id="104" name="BC4">
+    <plane id="0" name="x0"><for var="wire" from="0" to="63">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="1" name="x1"><for var="wire" from="0" to="63">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="2" name="u0"><for var="wire" from="0" to="63">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="3" name="u1"><for var="wire" from="0" to="63">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="4" name="v0"><for var="wire" from="0" to="63">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="5" name="v1"><for var="wire" from="0" to="63">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+  <device id="106" name="SDC2">
+    <plane id="0" name="x1"><for var="wire" from="0" to="95">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="1" name="x2"><for var="wire" from="0" to="95">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="2" name="v1"><for var="wire" from="0" to="95">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="3" name="v2"><for var="wire" from="0" to="95">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="4" name="u1"><for var="wire" from="0" to="95">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="5" name="u2"><for var="wire" from="0" to="95">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+    <device id="113" name="HDC">
+      <plane id="0" name="u1"><for var="wire" from="0" to="111">
+        <ch id="wire"><data id="0"/></ch></for>
+      </plane>
+      <plane id="1" name="u2"><for var="wire" from="0" to="111">
+        <ch id="wire"><data id="0"/></ch></for>
+      </plane>
+      <plane id="2" name="x1"><for var="wire" from="0" to="111">
+        <ch id="wire"><data id="0"/></ch></for>
+      </plane>
+      <plane id="3" name="x2"><for var="wire" from="0" to="111">
+        <ch id="wire"><data id="0"/></ch></for>
+      </plane>
+     </device>
+<!--________________________________________________________________-->
+  <device id="107" name="SDC3">
+    <plane id="0" name="v1"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="1" name="x1"><for var="wire" from="0" to="107">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="2" name="u1"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="3" name="v2"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="4" name="x2"><for var="wire" from="0" to="107">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="5" name="u2"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+  <device id="108" name="SDC4">
+    <plane id="0" name="v1"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="1" name="x1"><for var="wire" from="0" to="107">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="2" name="u1"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="3" name="v2"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="4" name="x2"><for var="wire" from="0" to="107">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="5" name="u2"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+
+<device id="50" name="TKO0"><for var="ma" from="0" to="23">
+    <plane id="ma"><segment id="0"><for var="sa" from="0" to="31">
+      <ch id="sa"><data id="0"/></ch></for></segment></plane></for>
+  </device>
+
+<device id="51" name="TKO1"><for var="ma" from="0" to="23">
+    <plane id="ma"><for var="sa" from="0" to="31">
+      <ch id="sa"><data id="0"/></ch></for></plane></for>
+  </device>
+
+ <device id="52" name="TKO2"><for var="ma" from="0" to="23">
+    <plane id="ma"><for var="sa" from="0" to="31">
+      <ch id="sa"><data id="0"/></ch></for></plane></for>
+  </device>
+
+  <device id="53" name="TKO3"><for var="ma" from="0" to="23">
+    <plane id="ma"><for var="sa" from="0" to="31">
+      <ch id="sa"><data id="0"/></ch></for></plane></for>
+  </device>
+
+  <device id="54" name="TKO4"><for var="ma" from="0" to="23">
+    <plane id="ma"><for var="sa" from="0" to="31">
+      <ch id="sa"><data id="0"/></ch></for></plane></for>
+  </device>
+
+  <device id="210" name="scaler">
+    <plane id="0"><for var="ch" from="0" to="31">
+      <ch id="ch"/></for>
+    </plane>
+    <plane id="1"><for var="ch" from="0" to="31">
+      <ch id="ch"/></for>
+    </plane>
+    <for var="id" from="2" to="8">
+      <plane id="id"><for var="ch" from="0" to="8">
+        <ch id="ch">
+          <data id="0" name="each"/>
+          <data id="1" name="pair"/>
+        </ch></for>
+      </plane></for>
+  </device>
+
+  <device id="211" name="reg">
+    <plane id="0" name="v01iocaen"><for var="ch" from="0" to="7">
+      <ch id="ch">
+        <data id="0" name="latch1"/>
+        <data id="1" name="latch2"/>
+        <data id="2" name="flipflop"/>
+        <data id="3" name="through"/>
+      </ch></for>
+    </plane>
+    <plane id="1" name="v01iorpv"><for var="ch" from="0" to="7">
+      <ch id="ch">
+        <data id="0" name="latch1"/>
+        <data id="1" name="latch2"/>
+        <data id="2" name="flipflop"/>
+        <data id="3" name="through"/>
+      </ch></for>
+    </plane>
+  </device>
+
+ <device id="81" name="VME-RM">
+    <plane id="0" name="vme03rm">
+      <ch id="0" name="tag">
+	<data id="0" name="event"/>
+	<data id="1" name="spill"/>
+	<data id="2" name="serial"/>
+	<data id="3" name="spill_end"/>
+      </ch>
+      <ch id="1" name="lock_bit">
+	<data id="0" name="event"/>
+	<data id="1" name="spill"/>
+	<data id="2" name="serial"/>
+	<data id="3" name="spill_end"/>
+      </ch>
+    </plane>
+  </device>
+
+</digit_data>
+

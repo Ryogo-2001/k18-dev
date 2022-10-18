@@ -1,0 +1,23 @@
+#
+#  analyzer_20180218.conf
+#
+
+UNPACKER:	../UNPACK/unpacker.xml
+DIGIT:		../DIGIT/digit_data_20180221.xml
+CMAP:		../CMAP/channel_map_20180221.xml
+BH2FLT:		../BH2FLT/BH2Filter_20180214
+DCGEOM:		../DCGEO/DCGeomParam_E40_20180128
+DRFTPM:		../DCDRFT/DCDriftParam_02189
+TDCCALIB:	../DCTDC/DCTdcCalib_04124
+HDPRM:		../HDPRM/HodoParam_20180131
+HDPHC:		../HDPHC/HodoPHCParam_02189
+KURAMA:		../KURAMA/KuramaFieldMap_E07_20170907
+# FLDNMR:		0.762269
+# FLDCALC:	0.750080
+#MATRIX2D:	../MATRIX/matrix2d_pattern_20170418.txt
+#MATRIX3D:	../MATRIX/matrix3d_pattern_veto_20170418.txt
+#MASS:		../MASS/threshold_table_20170511_2.txt
+#MASS:		../MASS/threshold_table_20170527.txt
+MASS:		../MASS/threshold_table_20170529.txt
+USER:		../USER/user_20180129.txt
+#EMC:		../EMC/pos_20170602.txt

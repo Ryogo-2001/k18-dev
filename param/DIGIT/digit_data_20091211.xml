@@ -1,0 +1,1250 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<digit_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	    xsi:noNamespaceSchemaLocation="schema/digit.xsd">
+
+<device id="0xff" name="null"/>
+
+<!-- Additional Detector -->
+  <device id="109" name="K6BDC">
+    <plane id="0" name="v0"><for var="wire" from="0" to="47">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="1" name="v1"><for var="wire" from="0" to="47">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="2" name="u0"><for var="wire" from="0" to="47">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="3" name="u1"><for var="wire" from="0" to="47">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="4" name="x0"><for var="wire" from="0" to="47">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="5" name="x1"><for var="wire" from="0" to="47">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+  </device>
+
+<!--________________________________________________________________-->
+ <device id="3" name="BH1"><for var="seg" from="0" to="10">
+    <segment id="seg"><for var="UorD" from="0" to="1">
+      <ch id="UorD">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch></for>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->  
+  <device id="4" name="BH2"><for var="seg" from="0" to="6">
+    <segment id="seg"><for var="UorD" from="0" to="1">
+      <ch id="UorD">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch></for>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="5" name="TOF"><for var="seg" from="0" to="31">
+    <segment id="seg"><for var="UorD" from="0" to="1">
+      <ch id="UorD">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch></for>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="6" name="AC"><for var="seg" from="0" to="19">
+    <segment id="seg"><for var="UorD" from="0" to="1">
+      <ch id="UorD">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch></for>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="7" name="LC"><for var="seg" from="0" to="27">
+    <segment id="seg"><for var="UorD" from="0" to="1">
+      <ch id="UorD">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch></for>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="9" name="BAC"><for var="seg" from="0" to="9">
+    <segment id="seg">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="10" name="YOON"><for var="seg" from="0" to="3">
+    <segment id="seg">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="8" name="GC">
+    <segment id="0">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment>
+  </device>
+<!--________________________________________________________________-->
+ <device id="11" name="Misc"><for var="seg" from="0" to="9">
+    <segment id="seg">
+      <ch id="0">
+        <data id="0" name="adc"/>
+        <data id="1" name="tdc"/>
+      </ch>
+    </segment></for>
+  </device>
+<!--________________________________________________________________-->
+ <device id="101" name="BC1">
+    <plane id="0" name="x0"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="1" name="u0"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="2" name="v0"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="3" name="x1"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="4" name="u1"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="5" name="v1"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+  <device id="102" name="BC2">
+    <plane id="0" name="v0"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="1" name="u0"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="2" name="x0"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="3" name="v1"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="4" name="u1"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="5" name="x1"><for var="wire" from="0" to="255">
+      <ch id="wire"><for var="data" from="0" to="1">
+        <data id="data"/></for></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+  <device id="103" name="BC3">
+    <plane id="0" name="x0"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="1" name="x1"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="2" name="u0"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="3" name="u1"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="4" name="v0"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="5" name="v1"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+  <device id="104" name="BC4">
+    <plane id="0" name="x0"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="1" name="x1"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="2" name="u0"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="3" name="u1"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="4" name="v0"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="5" name="v1"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+  <device id="105" name="SDC1">
+    <plane id="0" name="u1"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="1" name="u2"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="2" name="v1"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="3" name="v2"><for var="wire" from="0" to="63">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+  <device id="106" name="SDC2">
+    <plane id="0" name="v1"><for var="wire" from="0" to="95">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="1" name="v2"><for var="wire" from="0" to="95">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="2" name="u1"><for var="wire" from="0" to="95">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="3" name="u2"><for var="wire" from="0" to="95">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="4" name="x1"><for var="wire" from="0" to="95">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+    <plane id="5" name="x2"><for var="wire" from="0" to="95">
+      <ch id="wire"><for var="data" from="0" to="3">
+        <data id="data"/></for></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+  <device id="107" name="SDC3">
+    <plane id="0" name="v1"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="1" name="x1"><for var="wire" from="0" to="107">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="2" name="u1"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="3" name="v2"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="4" name="x2"><for var="wire" from="0" to="107">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="5" name="u2"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+  <device id="108" name="SDC4">
+    <plane id="0" name="v1"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="1" name="x1"><for var="wire" from="0" to="107">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="2" name="u1"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="3" name="v2"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="4" name="x2"><for var="wire" from="0" to="107">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+    <plane id="5" name="u2"><for var="wire" from="0" to="119">
+      <ch id="wire"><data id="0"/></ch></for>
+    </plane>
+  </device>
+<!--________________________________________________________________-->
+
+<device id="50" name="TKO0"><for var="ma" from="0" to="23">
+    <plane id="ma"><segment id="0"><for var="sa" from="0" to="31">
+      <ch id="sa"><data id="0"/></ch></for></segment></plane></for>
+  </device>
+
+<device id="51" name="TKO1"><for var="ma" from="0" to="23">
+    <plane id="ma"><for var="sa" from="0" to="31">
+      <ch id="sa"><data id="0"/></ch></for></plane></for>
+  </device>
+
+ <device id="52" name="TKO2"><for var="ma" from="0" to="23">
+    <plane id="ma"><for var="sa" from="0" to="31">
+      <ch id="sa"><data id="0"/></ch></for></plane></for>
+  </device>
+
+  <device id="53" name="TKO3"><for var="ma" from="0" to="23">
+    <plane id="ma"><for var="sa" from="0" to="31">
+      <ch id="sa"><data id="0"/></ch></for></plane></for>
+  </device>
+
+  <device id="54" name="TKO4"><for var="ma" from="0" to="23">
+    <plane id="ma"><for var="sa" from="0" to="31">
+      <ch id="sa"><data id="0"/></ch></for></plane></for>
+  </device>
+
+
+  <device id="55" name="TKO5">
+    <for var="ma" from="0" to="23">
+      <plane id="ma">
+	<for var="ch" from="0" to="127">
+	  <ch id="ch">
+	    <for var="data" from="0" to="3">
+	      <data id="data"/>
+	    </for>
+	  </ch>
+	</for>
+	<for var="ch" from="128" to="129">
+	  <ch id="ch">
+	    <for var="data" from="0" to="4">
+	      <data id="data"/>
+	    </for>
+	  </ch>
+	</for>
+      </plane>
+    </for> 
+  </device>
+ 
+  <device id="56" name="TKO6">
+    <for var="ma" from="0" to="23">
+      <plane id="ma">
+	<for var="ch" from="0" to="127">
+	  <ch id="ch">
+	    <for var="data" from="0" to="3">
+	      <data id="data"/>
+	    </for>
+	  </ch>
+	</for>
+	<for var="ch" from="128" to="129">
+	  <ch id="ch">
+	    <for var="data" from="0" to="4">
+	      <data id="data"/>
+	    </for>
+	  </ch>
+	</for>
+      </plane>
+    </for> 
+  </device>
+  <device id="57" name="TKO7">
+    <for var="ma" from="0" to="23">
+      <plane id="ma">
+	<for var="ch" from="0" to="127">
+	  <ch id="ch">
+	    <for var="data" from="0" to="3">
+	      <data id="data"/>
+	    </for>
+	  </ch>
+	</for>
+	<for var="ch" from="128" to="129">
+	  <ch id="ch">
+	    <for var="data" from="0" to="4">
+	      <data id="data"/>
+	    </for>
+	  </ch>
+	</for>
+      </plane>
+    </for> 
+  </device>
+
+
+  <device id="210" name="scaler">
+    <plane id="0"><for var="ch" from="0" to="31">
+      <ch id="ch"/></for>
+    </plane>
+    <plane id="1"><for var="ch" from="0" to="31">
+      <ch id="ch"/></for>
+    </plane>
+    <for var="id" from="2" to="8">
+      <plane id="id"><for var="ch" from="0" to="8">
+        <ch id="ch">
+          <data id="0" name="each"/>
+          <data id="1" name="pair"/>
+        </ch></for>
+      </plane></for>
+  </device>
+
+  <device id="211" name="reg">
+    <plane id="0" name="v02io"><for var="ch" from="0" to="7">
+      <ch id="ch">
+        <data id="0" name="latch1"/>
+        <data id="1" name="latch2"/>
+        <data id="2" name="flipflop"/>
+        <data id="3" name="through"/>
+      </ch></for>
+    </plane>
+  </device>
+
+
+
+<!--
+  <device id="0" name="TKO0"> 
+    <sub id="0" ch_num="32"/>
+    <sub id="1" ch_num="32"/>
+    <sub id="2" ch_num="32"/>
+    <sub id="3" ch_num="32"/>
+    <sub id="4" ch_num="32"/>
+    <sub id="5" ch_num="32"/>
+    <sub id="6" ch_num="32"/>
+    <sub id="7" ch_num="32"/>
+    <sub id="8" ch_num="32"/>
+    <sub id="9" ch_num="32"/>
+    <sub id="10" ch_num="32"/>
+    <sub id="11" ch_num="32"/>
+    <sub id="12" ch_num="32"/>
+    <sub id="13" ch_num="32"/>
+    <sub id="14" ch_num="32"/>
+    <sub id="15" ch_num="32"/>
+    <sub id="16" ch_num="32"/>
+    <sub id="17" ch_num="32"/>
+    <sub id="18" ch_num="32"/>
+    <sub id="19" ch_num="32"/>
+    <sub id="20" ch_num="32"/>
+    <sub id="21" ch_num="32"/>
+    <sub id="22" ch_num="32"/>
+    <sub id="23" ch_num="32"/>
+  </device>
+
+  <device id="1" name="TKO1"> 
+    <sub id="0" ch_num="32"/>
+    <sub id="1" ch_num="32"/>
+    <sub id="2" ch_num="32"/>
+    <sub id="3" ch_num="32"/>
+    <sub id="4" ch_num="32"/>
+    <sub id="5" ch_num="32"/>
+    <sub id="6" ch_num="32"/>
+    <sub id="7" ch_num="32"/>
+    <sub id="8" ch_num="32"/>
+    <sub id="9" ch_num="32"/>
+    <sub id="10" ch_num="32"/>
+    <sub id="11" ch_num="32"/>
+    <sub id="12" ch_num="32"/>
+    <sub id="13" ch_num="32"/>
+    <sub id="14" ch_num="32"/>
+    <sub id="15" ch_num="32"/>
+    <sub id="16" ch_num="32"/>
+    <sub id="17" ch_num="32"/>
+    <sub id="18" ch_num="32"/>
+    <sub id="19" ch_num="32"/>
+    <sub id="20" ch_num="32"/>
+    <sub id="21" ch_num="32"/>
+    <sub id="22" ch_num="32"/>
+    <sub id="23" ch_num="32"/>
+  </device>
+
+  <device id="2" name="TKO2"> 
+    <sub id="0" ch_num="32"/>
+    <sub id="1" ch_num="32"/>
+    <sub id="2" ch_num="32"/>
+    <sub id="3" ch_num="32"/>
+    <sub id="4" ch_num="32"/>
+    <sub id="5" ch_num="32"/>
+    <sub id="6" ch_num="32"/>
+    <sub id="7" ch_num="32"/>
+    <sub id="8" ch_num="32"/>
+    <sub id="9" ch_num="32"/>
+    <sub id="10" ch_num="32"/>
+    <sub id="11" ch_num="32"/>
+    <sub id="12" ch_num="32"/>
+    <sub id="13" ch_num="32"/>
+    <sub id="14" ch_num="32"/>
+    <sub id="15" ch_num="32"/>
+    <sub id="16" ch_num="32"/>
+    <sub id="17" ch_num="32"/>
+    <sub id="18" ch_num="32"/>
+    <sub id="19" ch_num="32"/>
+    <sub id="20" ch_num="32"/>
+    <sub id="21" ch_num="32"/>
+    <sub id="22" ch_num="32"/>
+    <sub id="23" ch_num="32"/>
+  </device>
+
+  <device id="3" name="TKO3"> 
+    <sub id="0" ch_num="32"/>
+    <sub id="1" ch_num="32"/>
+    <sub id="2" ch_num="32"/>
+    <sub id="3" ch_num="32"/>
+    <sub id="4" ch_num="32"/>
+    <sub id="5" ch_num="32"/>
+    <sub id="6" ch_num="32"/>
+    <sub id="7" ch_num="32"/>
+    <sub id="8" ch_num="32"/>
+    <sub id="9" ch_num="32"/>
+    <sub id="10" ch_num="32"/>
+    <sub id="11" ch_num="32"/>
+    <sub id="12" ch_num="32"/>
+    <sub id="13" ch_num="32"/>
+    <sub id="14" ch_num="32"/>
+    <sub id="15" ch_num="32"/>
+    <sub id="16" ch_num="32"/>
+    <sub id="17" ch_num="32"/>
+    <sub id="18" ch_num="32"/>
+    <sub id="19" ch_num="32"/>
+    <sub id="20" ch_num="32"/>
+    <sub id="21" ch_num="32"/>
+    <sub id="22" ch_num="32"/>
+    <sub id="23" ch_num="32"/>
+  </device>
+
+  <device id="4" name="TKO4"> 
+    <sub id="0" ch_num="32"/>
+    <sub id="1" ch_num="32"/>
+    <sub id="2" ch_num="32"/>
+    <sub id="3" ch_num="32"/>
+    <sub id="4" ch_num="32"/>
+    <sub id="5" ch_num="32"/>
+    <sub id="6" ch_num="32"/>
+    <sub id="7" ch_num="32"/>
+    <sub id="8" ch_num="32"/>
+    <sub id="9" ch_num="32"/>
+    <sub id="10" ch_num="32"/>
+    <sub id="11" ch_num="32"/>
+    <sub id="12" ch_num="32"/>
+    <sub id="13" ch_num="32"/>
+    <sub id="14" ch_num="32"/>
+    <sub id="15" ch_num="32"/>
+    <sub id="16" ch_num="32"/>
+    <sub id="17" ch_num="32"/>
+    <sub id="18" ch_num="32"/>
+    <sub id="19" ch_num="32"/>
+    <sub id="20" ch_num="32"/>
+    <sub id="21" ch_num="32"/>
+    <sub id="22" ch_num="32"/>
+    <sub id="23" ch_num="32"/>
+  </device>
+
+
+  <device id="5" name="TKO5">
+    <sub id="0" ch_num="32"/>
+    <sub id="1" ch_num="32"/>
+    <sub id="2" ch_num="32"/>
+    <sub id="3" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="4" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="5" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="6" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="7" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="8" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="9" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="10" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="11" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="12" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="13" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="14" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="15" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="16" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="17" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="18" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="19" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="20" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="21" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="22" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+    <sub id="23" ch_num="130">
+      <data id="0"/>
+      <data id="1"/>
+      <data id="2"/>
+      <data id="3"/>
+      <data id="4"/>
+    </sub>
+  </device>
+
+  <device id="10" name="scaler">
+    <sub id="0" ch_num="32"/>
+    <sub id="1" ch_num="32"/>
+    <sub id="2" ch_num="8">
+      <data id="0" name="each"/>
+      <data id="1" name="pair"/>
+    </sub>
+    <sub id="3" ch_num="8">
+      <data id="0" name="each"/>
+      <data id="1" name="pair"/>
+    </sub>
+    <sub id="4" ch_num="8">
+      <data id="0" name="each"/>
+      <data id="1" name="pair"/>
+    </sub>
+    <sub id="5" ch_num="8">
+      <data id="0" name="each"/>
+      <data id="1" name="pair"/>
+    </sub>
+    <sub id="6" ch_num="8">
+      <data id="0" name="each"/>
+      <data id="1" name="pair"/>
+    </sub>
+    <sub id="7" ch_num="8">
+      <data id="0" name="each"/>
+      <data id="1" name="pair"/>
+    </sub>
+    <sub id="8" ch_num="8">
+      <data id="0" name="each"/>
+      <data id="1" name="pair"/>
+    </sub>
+  </device>
+
+  <device id="11" name="reg">
+    <sub id="0" name="v10io" ch_num="8">
+      <data id="0" name="latch1"/>
+      <data id="1" name="latch2"/>
+      <data id="2" name="flipflop"/>
+      <data id="3" name="through"/>
+    </sub>
+  </device>
+
+
+
+  <device id="101" name="copper01">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+  <device id="102" name="copper02">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+  <device id="103" name="copper03">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+  <device id="104" name="copper04">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+  <device id="105" name="copper05">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+  <device id="106" name="copper06">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+  <device id="107" name="copper07">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+  <device id="108" name="copper08">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+  <device id="109" name="copper09">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+  <device id="110" name="copper10">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+  <device id="111" name="copper11">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+  <device id="112" name="copper12">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+  <device id="113" name="copper13">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+
+  <device id="114" name="copper14">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+
+  <device id="115" name="copper15">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+
+  <device id="116" name="copper16">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+
+  <device id="117" name="copper17">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+
+  <device id="118" name="copper18">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+
+  <device id="119" name="copper19">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+
+  <device id="120" name="copper20">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+
+  <device id="121" name="copper21">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+
+  <device id="122" name="copper22">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+
+  <device id="123" name="copper23">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+
+  <device id="124" name="copper24">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+
+  <device id="125" name="copper25">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+
+  <device id="126" name="copper26">
+    <sub id="0" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="1" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="2" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+    <sub id="3" ch_num="32">
+      <data id="0"/>
+      <data id="1"/>
+    </sub>
+  </device>
+-->
+</digit_data>
+

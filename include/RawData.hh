@@ -44,6 +44,16 @@ private:
   HodoRHitContainer              m_LACRawHC;
   HodoRHitContainer              m_WCRawHC;
   HodoRHitContainer              m_WCSUMRawHC;
+  HodoRHitContainer              m_E72BACRawHC;
+  HodoRHitContainer              m_E72BACSUMRawHC;
+  HodoRHitContainer              m_KVCRawHC;
+  HodoRHitContainer              m_KVCSUMRawHC;
+  HodoRHitContainer              m_E90SACRawHC;
+  HodoRHitContainer              m_E90SACSUMRawHC;
+  HodoRHitContainer              m_T4RawHC;
+  HodoRHitContainer              m_T5RawHC;
+  HodoRHitContainer              m_T6RawHC;
+  HodoRHitContainer              m_T7RawHC;
   std::vector<HodoRHitContainer> m_BFTRawHC;
   std::vector<DCRHitContainer>   m_BcInRawHC;
   std::vector<DCRHitContainer>   m_BcOutRawHC;
@@ -88,6 +98,16 @@ public:
   const HodoRHitContainer& GetScalerRawHC() const;
   const HodoRHitContainer& GetTrigRawHC() const;
   const HodoRHitContainer& GetVmeCalibRawHC() const;
+  const HodoRHitContainer& GetE72BACRawHC() const;
+  const HodoRHitContainer& GetE72BACSUMRawHC() const;
+  const HodoRHitContainer& GetKVCRawHC() const;
+  const HodoRHitContainer& GetKVCSUMRawHC() const;
+  const HodoRHitContainer& GetE90SACRawHC() const;
+  const HodoRHitContainer& GetE90SACSUMRawHC() const;
+  const HodoRHitContainer& GetT4RawHC() const;
+  const HodoRHitContainer& GetT5RawHC() const;
+  const HodoRHitContainer& GetT6RawHC() const;
+  const HodoRHitContainer& GetT7RawHC() const;
 
 private:
   enum EDCDataType { kDcLeading, kDcTrailing, kDcOverflow, kDcNDataType };
@@ -141,6 +161,75 @@ RawData::GetHTOFRawHC() const
 {
   return m_HTOFRawHC;
 }
+
+//_____________________________________________________________________________
+inline const HodoRHitContainer&
+RawData::GetE72BACRawHC() const
+{
+  return m_E72BACRawHC;
+}
+
+//_____________________________________________________________________________
+inline const HodoRHitContainer&
+RawData::GetE72BACSUMRawHC() const
+{
+  return m_E72BACSUMRawHC;
+}
+
+//_____________________________________________________________________________
+inline const HodoRHitContainer&
+RawData::GetKVCRawHC() const
+{
+  return m_KVCRawHC;
+}
+
+inline const HodoRHitContainer&
+RawData::GetKVCSUMRawHC() const
+{
+  return m_KVCSUMRawHC;
+}
+
+//_____________________________________________________________________________
+inline const HodoRHitContainer&
+RawData::GetE90SACRawHC() const
+{
+  return m_E90SACRawHC;
+}
+
+inline const HodoRHitContainer&
+RawData::GetE90SACSUMRawHC() const
+{
+  return m_E90SACSUMRawHC;
+}
+
+//_____________________________________________________________________________
+inline const HodoRHitContainer&
+RawData::GetT4RawHC() const
+{
+  return m_T4RawHC;
+}
+
+//_____________________________________________________________________________
+inline const HodoRHitContainer&
+RawData::GetT5RawHC() const
+{
+  return m_T5RawHC;
+}
+
+//_____________________________________________________________________________
+inline const HodoRHitContainer&
+RawData::GetT6RawHC() const
+{
+  return m_T6RawHC;
+}
+
+//_____________________________________________________________________________
+inline const HodoRHitContainer&
+RawData::GetT7RawHC() const
+{
+  return m_T7RawHC;
+}
+
 
 //_____________________________________________________________________________
 inline const HodoRHitContainer&

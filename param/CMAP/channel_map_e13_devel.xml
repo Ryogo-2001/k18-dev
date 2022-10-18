@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<channel_map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="schema/channel_map.xsd">
+
+
+ <DAQNode node_id="1" name="skseb">
+
+    <!-- Added 20120120 begin -->
+    <VmeMaster node_id="0x203" name="vme03">
+      <VmeRm address="0xfc000000">
+	<for var="ch" from="0" to="1"><for var="data" from="0" to="3">
+	    <FE ch="ch" data="data">
+	      <D Device="VME-RM" Plane="vme03" ch="ch" data="data"/></FE>
+	</for></for>
+      </VmeRm>
+      <VmeCaenV820 address="0x20000000">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch"><D Device="scaler" plane="0" ch="ch"/></FE>
+	</for>
+      </VmeCaenV820> 
+      <VmeCaenV820 address="0x20010000">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch"><D Device="scaler" plane="1" ch="ch"/></FE>
+	</for>
+      </VmeCaenV820>
+      <VmeCaenV775 address="0xbd020000">
+      	<for var="ch" from="0" to="31">
+      	  <FE ch="ch"><D Device="HBJdummy" plane="2 " segment="ch"/></FE>
+      	</for>
+      </VmeCaenV775>
+    </VmeMaster>
+
+    <!--_____________________________________________________________________-->
+  </DAQNode>    
+
+</channel_map>

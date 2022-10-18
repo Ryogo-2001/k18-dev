@@ -1,0 +1,44 @@
+#
+#  user_20170927.txt
+#
+### BH1 TDC gate range
+BH1_TDC 0 1000
+
+### BFT TDC gate range
+#BFT_TDC 720 760
+#BFT_TDC 560 620
+#BFT_TDC 690 730
+BFT_TDC 620 670
+
+### SFT TDC gate range
+SFT_TDC 520 580
+
+### SCH TDC gate range
+SCH_TDC 460 500
+
+### BC3 TDC gate range
+BC3_TDC 250 400
+
+### BC4 TDC gate range
+BC4_TDC 250 400
+
+### BH2 TDC gate range
+BH2_TDC 200 600
+
+### SDC1 TDC gate range
+SDC1_TDC 0 400
+
+### FBT1 TDC gate range
+FBT1_TDC 630 700
+
+### SDC2 TDC gate range
+SDC2_TDC 400 1000
+
+### SDC3 TDC gate range
+SDC3_TDC 200 1200
+
+### FBT2 TDC gate range
+FBT2_TDC 630 700
+
+#### TAEGET
+FF_PLUS 300

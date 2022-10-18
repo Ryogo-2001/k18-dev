@@ -118,6 +118,16 @@ RawData::ClearAll()
   del::ClearContainer(m_LACRawHC);
   del::ClearContainer(m_WCRawHC);
   del::ClearContainer(m_WCSUMRawHC);
+ del::ClearContainer(m_E72BACRawHC);
+  del::ClearContainer(m_E72BACSUMRawHC);
+  del::ClearContainer(m_KVCRawHC);
+  del::ClearContainer(m_KVCSUMRawHC);
+  del::ClearContainer(m_E90SACRawHC);
+  del::ClearContainer(m_E90SACSUMRawHC);
+  del::ClearContainer(m_T4RawHC);
+  del::ClearContainer(m_T5RawHC);
+  del::ClearContainer(m_T6RawHC);
+  del::ClearContainer(m_T7RawHC);
   del::ClearContainerAll(m_BFTRawHC);
   del::ClearContainerAll(m_BcInRawHC);
   del::ClearContainerAll(m_BcOutRawHC);
@@ -306,6 +316,28 @@ RawData::DecodeHits()
   DecodeHodo(DetIdBAC, NumOfSegBAC, kOneSide,  m_BACRawHC);
   // HTOF
   DecodeHodo(DetIdHTOF, NumOfSegHTOF, kBothSide, m_HTOFRawHC);
+  // E72BAC
+  DecodeHodo(DetIdE72BAC, NumOfSegE72BAC, kOneSide, m_E72BACRawHC);
+  // E72BACSUM
+  DecodeHodo(DetIdE72BACSUM, NumOfSegE72BACSUM, kOneSide, m_E72BACSUMRawHC);
+  // KVC
+  DecodeHodo(DetIdKVC, NumOfSegKVC, kOneSide, m_KVCRawHC);
+  // KVCSUM
+  DecodeHodo(DetIdKVCSUM, NumOfSegKVCSUM, kOneSide, m_KVCSUMRawHC);
+  // E90SAC
+  DecodeHodo(DetIdE90SAC, NumOfSegE90SAC, kOneSide, m_E90SACRawHC);
+  // E90SACSUM
+  DecodeHodo(DetIdE90SACSUM, NumOfSegE90SACSUM, kOneSide, m_E90SACSUMRawHC);
+  // T4
+  DecodeHodo(DetIdT4, NumOfSegT4, kOneSide, m_T4RawHC);
+  // T5
+  DecodeHodo(DetIdT5, NumOfSegT5, kOneSide, m_T5RawHC);
+  // T6
+  DecodeHodo(DetIdT6, NumOfSegT6, kOneSide, m_T6RawHC);
+  // T7
+  DecodeHodo(DetIdT7, NumOfSegT7, kOneSide, m_T7RawHC);
+
+
   // SCH
   for(Int_t seg=0; seg<NumOfSegSCH; ++seg){
     UInt_t nhit = gUnpacker.get_entries(DetIdSCH, 0, seg, 0, 0);

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<channel_map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="schema/channel_map.xsd">
+
+  <!--________________________________________________________________-->
+  <DAQNode node_id="1" name="k18eb">
+    <!--________________________________________________________________-->
+    <VmeMaster node_id="0x208" name="vme08">
+      <VmeCaenV792 address="0xad070000">
+	<FE ch="0"><D Device="T4" segment="0" data="0"/></FE>
+	<FE ch="1"><D Device="T5" segment="0" data="0"/></FE>
+	<FE ch="2"><D Device="T6" segment="0" data="0"/></FE>
+	<FE ch="3"><D Device="T7" segment="0" data="0"/></FE>
+    	<for var="ch" from="4" to="8">
+    	  <FE ch="ch"><D Device="VMEdummy" plane="0" segment="ch" data="0"/></FE>
+    	</for>
+	<FE ch="9"><D Device="E72BAC" segment="0" data="0"/></FE>
+	<FE ch="10"><D Device="E72BAC" segment="1" data="0"/></FE>
+	<FE ch="11"><D Device="E72BAC" segment="2" data="0"/></FE>
+	<FE ch="12"><D Device="E72BAC" segment="3" data="0"/></FE>
+	<FE ch="13"><D Device="E72BACSUM" segment="0" data="0"/></FE>
+    	<for var="ch" from="14" to="19">
+    	  <FE ch="ch"><D Device="VMEdummy" plane="0" segment="ch" data="0"/></FE>
+    	</for>
+	<FE ch="20"><D Device="KVC" segment="0" data="0"/></FE>
+	<FE ch="21"><D Device="KVC" segment="1" data="0"/></FE>
+	<FE ch="22"><D Device="KVCSUM" segment="0" data="0"/></FE>
+	<FE ch="23"><D Device="E90SAC" segment="0" data="0"/></FE>
+	<FE ch="24"><D Device="E90SAC" segment="1" data="0"/></FE>
+	<FE ch="25"><D Device="E90SAC" segment="2" data="0"/></FE>
+	<FE ch="26"><D Device="E90SAC" segment="3" data="0"/></FE>
+	<FE ch="27"><D Device="E90SAC" segment="4" data="0"/></FE>
+	<FE ch="28"><D Device="E90SAC" segment="5" data="0"/></FE>
+	<FE ch="29"><D Device="E90SACSUM" segment="0" data="0"/></FE>
+    	<for var="ch" from="30" to="31">
+    	  <FE ch="ch"><D Device="VMEdummy" plane="0" segment="ch" data="0"/></FE>
+    	</for>
+      </VmeCaenV792>
+    </VmeMaster>
+  </DAQNode>
+</channel_map>

@@ -1,0 +1,9 @@
+UNPACKER:	../UNPACK/unpacker.xml
+DIGIT:		../DIGIT/digit_data_e13_20150304.xml
+CMAP:		../CMAP/channel_map_e13_20150406.xml
+DCGEOM:		../DCGEO/DCgeom.param_20121216
+DRFTPM:		../DCDRFT/DCDrift.param_4073
+TDCCALIB:	../DCTDC/DCTdcCalib.param_4073
+HDPRM:		../HDPRM/HodoParam.E13.tmp
+HDPHC:		../HDPHC/HodoPHC.01311.param
+USER:		../USER/param_20150304.txt

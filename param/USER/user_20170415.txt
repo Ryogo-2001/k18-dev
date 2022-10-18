@@ -1,0 +1,28 @@
+#
+#  user_20160422.txt
+#
+
+### BFT TDC gate range
+BFT_TDC 720 760
+#BFT_TDC 690 730
+
+### FBH TDC gate range
+FBH_TDC 630 700
+
+### SCH TDC gate range
+SCH_TDC 635 670
+
+### BC3 TDC gate range
+BC3_TDC 550 730
+
+### BC4 TDC gate range
+BC4_TDC 550 730
+
+### SDC1 TDC gate range
+SDC1_TDC 400 700
+
+### SDC2 TDC gate range
+SDC2_TDC 600 890
+
+### SDC3 TDC gate range
+SDC3_TDC 300 890

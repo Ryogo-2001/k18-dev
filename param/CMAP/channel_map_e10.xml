@@ -1,0 +1,2087 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<channel_map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="schema/channel_map.xsd">
+
+
+ <DAQNode node_id="1" name="skseb">
+
+    <VmeMaster node_id="0x201" name="vme01">
+
+      <!--___________________________________________________________________-->
+      <VmeRpv130 address="0x8f00">
+	<for var="ch" from="0" to="7"><for var="data" from="0" to="3">
+	  <FE ch="ch" data="data"><D Device="reg" plane="0" ch="ch" data="data"/></FE>
+	</for></for>
+      </VmeRpv130>
+
+      <!--___________________________________________________________________-->
+      <VmeRpv100 address="0x100000">
+	<for var="ch" from="0" to="7"><for var="data" from="0" to="1">
+	  <FE ch="ch" data="data"><D Device="scaler" plane="2" ch="ch" data="data"/></FE>
+	</for></for>
+      </VmeRpv100>
+
+      <!--___________________________________________________________________-->
+      <VmeRpv100 address="0x100200">
+	<for var="ch" from="0" to="7"><for var="data" from="0" to="1">
+	  <FE ch="ch" data="data"><D Device="scaler" plane="3" ch="ch" data="data"/></FE>
+	</for></for>
+      </VmeRpv100>
+
+      <!--___________________________________________________________________-->
+      <VmeRpv100 address="0x100400">
+	<for var="ch" from="0" to="7"><for var="data" from="0" to="1">
+	  <FE ch="ch" data="data"><D Device="scaler" plane="4" ch="ch" data="data"/></FE>
+	</for></for>
+      </VmeRpv100>
+
+      <!--___________________________________________________________________-->
+      <VmeRpv100 address="0x100600">
+	<for var="ch" from="0" to="7"><for var="data" from="0" to="1">
+	  <FE ch="ch" data="data"><D Device="scaler" plane="5" ch="ch" data="data"/></FE>
+	</for></for>
+      </VmeRpv100>
+
+      <!--___________________________________________________________________-->
+      <VmeRpv100 address="0x100800">
+	<for var="ch" from="0" to="7"><for var="data" from="0" to="1">
+	  <FE ch="ch" data="data"><D Device="scaler" plane="6" ch="ch" data="data"/></FE>
+	</for></for>
+      </VmeRpv100>
+
+      <!--___________________________________________________________________-->
+      <VmeRpv130 address="0x8ff0">
+        <for var="ch" from="0" to="7">
+          <for var="data" from="0" to="3">
+            <FE ch="ch" data="data">
+              <D Device="reg" plane="1" ch="ch" data="data"/>
+            </FE>
+          </for>
+        </for>
+      </VmeRpv130>
+
+      <!--___________________________________________________________________-->
+      <VmeRpv100 address="0x100A00">
+	<for var="ch" from="0" to="7"><for var="data" from="0" to="1">
+	  <FE ch="ch" data="data"><D Device="scaler" plane="7" ch="ch" data="data"/></FE>
+	</for></for>
+      </VmeRpv100>
+      <!--___________________________________________________________________-->
+      <VmeRpv100 address="0x100C00">
+	<for var="ch" from="0" to="7"><for var="data" from="0" to="1">
+	  <FE ch="ch" data="data"><D Device="scaler" plane="8" ch="ch" data="data"/></FE>
+	</for></for>
+      </VmeRpv100>
+
+
+      <!--___________________________________________________________________-->
+      <VmeSmp address="0x10000000" decode="no"> 
+
+	<Tko ma="1"><for var="sa" from="0" to="31">
+	  <FE ch="sa"><D Device="TKO0" plane="0"/></FE></for>
+	</Tko>
+	<TkoRm ma="2"><for var="ch" from="0" to="3">
+	  <FE ch="ch"><D Device="TKO0" plane="2" ch="ch"/></FE></for>
+	</TkoRm>
+
+	<Tko ma="3">
+	  <FE ch="0"><D Device="TOF" segment="0" ch="0" data="1"/></FE>
+	  <FE ch="1"><D Device="TOF" segment="1" ch="0" data="1"/></FE>
+	  <FE ch="2"><D Device="TOF" segment="2" ch="0" data="1"/></FE>
+	  <FE ch="3"><D Device="TOF" segment="3" ch="0" data="1"/></FE>
+	  <FE ch="4"><D Device="TOF" segment="4" ch="0" data="1"/></FE>
+	  <FE ch="5"><D Device="TOF" segment="5" ch="0" data="1"/></FE>
+	  <FE ch="6"><D Device="TOF" segment="6" ch="0" data="1"/></FE>
+	  <FE ch="7"><D Device="TOF" segment="7" ch="0" data="1"/></FE>
+	  <FE ch="8"><D Device="TOF" segment="8" ch="0" data="1"/></FE>
+	  <FE ch="9"><D Device="TOF" segment="9" ch="0" data="1"/></FE>
+	  <FE ch="10"><D Device="TOF" segment="10" ch="0" data="1"/></FE>
+	  <FE ch="11"><D Device="TOF" segment="11" ch="0" data="1"/></FE>
+	  <FE ch="12"><D Device="TOF" segment="12" ch="0" data="1"/></FE>
+	  <FE ch="13"><D Device="TOF" segment="13" ch="0" data="1"/></FE>
+	  <FE ch="14"><D Device="TOF" segment="14" ch="0" data="1"/></FE>
+	  <FE ch="15"><D Device="TOF" segment="15" ch="0" data="1"/></FE>
+	</Tko>
+
+	<Tko ma="4">
+	  <FE ch="0"><D Device="TOF" segment="16" ch="0" data="1"/></FE>
+	  <FE ch="1"><D Device="TOF" segment="17" ch="0" data="1"/></FE>
+	  <FE ch="2"><D Device="TOF" segment="18" ch="0" data="1"/></FE>
+	  <FE ch="3"><D Device="TOF" segment="19" ch="0" data="1"/></FE>
+	  <FE ch="4"><D Device="TOF" segment="20" ch="0" data="1"/></FE>
+	  <FE ch="5"><D Device="TOF" segment="21" ch="0" data="1"/></FE>
+	  <FE ch="6"><D Device="TOF" segment="22" ch="0" data="1"/></FE>
+	  <FE ch="7"><D Device="TOF" segment="23" ch="0" data="1"/></FE>
+	  <FE ch="8"><D Device="TOF" segment="24" ch="0" data="1"/></FE>
+	  <FE ch="9"><D Device="TOF" segment="25" ch="0" data="1"/></FE>
+	  <FE ch="10"><D Device="TOF" segment="26" ch="0" data="1"/></FE>
+	  <FE ch="11"><D Device="TOF" segment="27" ch="0" data="1"/></FE>
+	  <FE ch="12"><D Device="TOF" segment="28" ch="0" data="1"/></FE>
+	  <FE ch="13"><D Device="TOF" segment="29" ch="0" data="1"/></FE>
+	  <FE ch="14"><D Device="TOF" segment="30" ch="0" data="1"/></FE>
+	  <FE ch="15"><D Device="TOF" segment="31" ch="0" data="1"/></FE>
+	</Tko>
+
+	<Tko ma="5">
+	  <FE ch="0"><D Device="TOF" segment="0" ch="1" data="1"/></FE>
+	  <FE ch="1"><D Device="TOF" segment="1" ch="1" data="1"/></FE>
+	  <FE ch="2"><D Device="TOF" segment="2" ch="1" data="1"/></FE>
+	  <FE ch="3"><D Device="TOF" segment="3" ch="1" data="1"/></FE>
+	  <FE ch="4"><D Device="TOF" segment="4" ch="1" data="1"/></FE>
+	  <FE ch="5"><D Device="TOF" segment="5" ch="1" data="1"/></FE>
+	  <FE ch="6"><D Device="TOF" segment="6" ch="1" data="1"/></FE>
+	  <FE ch="7"><D Device="TOF" segment="7" ch="1" data="1"/></FE>
+	  <FE ch="8"><D Device="TOF" segment="8" ch="1" data="1"/></FE>
+	  <FE ch="9"><D Device="TOF" segment="9" ch="1" data="1"/></FE>
+	  <FE ch="10"><D Device="TOF" segment="10" ch="1" data="1"/></FE>
+	  <FE ch="11"><D Device="TOF" segment="11" ch="1" data="1"/></FE>
+	  <FE ch="12"><D Device="TOF" segment="12" ch="1" data="1"/></FE>
+	  <FE ch="13"><D Device="TOF" segment="13" ch="1" data="1"/></FE>
+	  <FE ch="14"><D Device="TOF" segment="14" ch="1" data="1"/></FE>
+	  <FE ch="15"><D Device="TOF" segment="15" ch="1" data="1"/></FE>
+	</Tko>
+
+	<Tko ma="6"><for var="ch" from="0" to="31">	
+	  <FE ch="ch"><D Device="TKO0" plane="6" ch="ch"/></FE></for>
+	</Tko>
+	<Tko ma="7">
+	  <FE ch="15"><D Device="LC" segment="0" ch="0" data="1"/></FE>
+	  <FE ch="1"><D Device="LC" segment="1" ch="0" data="1"/></FE>
+	  <FE ch="2"><D Device="LC" segment="2" ch="0" data="1"/></FE>
+	  <FE ch="3"><D Device="LC" segment="3" ch="0" data="1"/></FE>
+	  <FE ch="5"><D Device="LC" segment="4" ch="0" data="1"/></FE>
+	  <FE ch="14"><D Device="LC" segment="5" ch="0" data="1"/></FE>
+	  <FE ch="6"><D Device="LC" segment="6" ch="0" data="1"/></FE>
+	  <FE ch="7"><D Device="LC" segment="7" ch="0" data="1"/></FE>
+	  <FE ch="8"><D Device="LC" segment="8" ch="0" data="1"/></FE>
+	  <FE ch="9"><D Device="LC" segment="9" ch="0" data="1"/></FE>
+	  <FE ch="10"><D Device="LC" segment="10" ch="0" data="1"/></FE>
+	  <FE ch="11"><D Device="LC" segment="11" ch="0" data="1"/></FE>
+	  <FE ch="12"><D Device="LC" segment="12" ch="0" data="1"/></FE>
+	  <FE ch="13"><D Device="LC" segment="13" ch="0" data="1"/></FE>
+	    <!--_____ NOT USE CHANNEL _____-->
+	    
+	    <FE ch="0"><D Device="TKO0" plane="7" ch="0" /></FE>	
+	    <FE ch="4"><D Device="TKO0" plane="7" ch="5" /></FE>	
+	    <!--___________________________-->
+	</Tko>
+
+	<Tko ma="8">
+	  <FE ch="0"><D Device="LC" segment="14" ch="0" data="1"/></FE>
+	  <FE ch="1"><D Device="LC" segment="15" ch="0" data="1"/></FE>
+	  <FE ch="2"><D Device="LC" segment="16" ch="0" data="1"/></FE>
+	  <FE ch="3"><D Device="LC" segment="17" ch="0" data="1"/></FE>
+	  <FE ch="4"><D Device="LC" segment="18" ch="0" data="1"/></FE>
+	  <FE ch="5"><D Device="LC" segment="19" ch="0" data="1"/></FE>
+	  <FE ch="6"><D Device="LC" segment="20" ch="0" data="1"/></FE>
+	  <FE ch="7"><D Device="LC" segment="21" ch="0" data="1"/></FE>
+	  <FE ch="8"><D Device="LC" segment="22" ch="0" data="1"/></FE>
+	  <FE ch="9"><D Device="LC" segment="23" ch="0" data="1"/></FE>
+	  <FE ch="10"><D Device="LC" segment="24" ch="0" data="1"/></FE>
+	  <FE ch="11"><D Device="LC" segment="25" ch="0" data="1"/></FE>
+	  <FE ch="12"><D Device="LC" segment="26" ch="0" data="1"/></FE>
+	  <FE ch="13"><D Device="LC" segment="27" ch="0" data="1"/></FE>
+	    <!--_____ NOT USE CHANNEL _____-->
+	    <for var="ma" from="14" to="15">
+	    <FE ch="ma"><D Device="TKO0" plane="1" ch="ma" /></FE>
+	    </for>
+	    <!--___________________________-->
+	</Tko>
+
+	<Tko ma="9">
+	  <FE ch="0"><D Device="LC" segment="0" ch="1" data="1"/></FE>
+	  <FE ch="1"><D Device="LC" segment="1" ch="1" data="1"/></FE>
+	  <FE ch="2"><D Device="LC" segment="2" ch="1" data="1"/></FE>
+	  <FE ch="3"><D Device="LC" segment="3" ch="1" data="1"/></FE>
+	  <FE ch="4"><D Device="LC" segment="4" ch="1" data="1"/></FE>
+	  <FE ch="5"><D Device="LC" segment="5" ch="1" data="1"/></FE>
+	  <FE ch="6"><D Device="LC" segment="6" ch="1" data="1"/></FE>
+	  <FE ch="7"><D Device="LC" segment="7" ch="1" data="1"/></FE>
+	  <FE ch="8"><D Device="LC" segment="8" ch="1" data="1"/></FE>
+	  <FE ch="9"><D Device="LC" segment="9" ch="1" data="1"/></FE>
+	  <FE ch="10"><D Device="LC" segment="10" ch="1" data="1"/></FE>
+	  <FE ch="11"><D Device="LC" segment="11" ch="1" data="1"/></FE>
+	  <FE ch="12"><D Device="LC" segment="12" ch="1" data="1"/></FE>
+	  <FE ch="13"><D Device="LC" segment="13" ch="1" data="1"/></FE>
+	    <!--_____ NOT USE CHANNEL _____-->
+	    <for var="ma" from="14" to="15">
+	    <FE ch="ma"><D Device="TKO0" plane="18" ch="ma" /></FE>
+	    </for>
+	    <!--___________________________-->
+	</Tko>
+
+	<Tko ma="10">
+	  <FE ch="0"><D Device="LC" segment="14" ch="1" data="1"/></FE>
+	  <FE ch="1"><D Device="LC" segment="15" ch="1" data="1"/></FE>
+	  <FE ch="2"><D Device="LC" segment="16" ch="1" data="1"/></FE>
+	  <FE ch="3"><D Device="LC" segment="17" ch="1" data="1"/></FE>
+	  <FE ch="4"><D Device="LC" segment="18" ch="1" data="1"/></FE>
+	  <FE ch="15"><D Device="LC" segment="19" ch="1" data="1"/></FE>
+	  <FE ch="6"><D Device="LC" segment="20" ch="1" data="1"/></FE>
+	  <FE ch="14"><D Device="LC" segment="21" ch="1" data="1"/></FE>
+	  <FE ch="8"><D Device="LC" segment="22" ch="1" data="1"/></FE>
+	  <FE ch="9"><D Device="LC" segment="23" ch="1" data="1"/></FE>
+	  <FE ch="10"><D Device="LC" segment="24" ch="1" data="1"/></FE>
+	  <FE ch="11"><D Device="LC" segment="25" ch="1" data="1"/></FE>
+	  <FE ch="12"><D Device="LC" segment="26" ch="1" data="1"/></FE>
+	  <FE ch="13"><D Device="LC" segment="27" ch="1" data="1"/></FE>
+	    <!--_____ NOT USE CHANNEL _____-->
+            <FE ch="5"><D Device="TKO0" plane="1" ch="5" /></FE>        
+            <FE ch="7"><D Device="TKO0" plane="1" ch="7" /></FE>
+	    <!--___________________________-->
+	</Tko>
+	
+	<Tko ma="11">
+	  <FE ch="0"><D Device="TOF" segment="16" ch="1" data="1"/></FE>
+	  <FE ch="1"><D Device="TOF" segment="17" ch="1" data="1"/></FE>
+	  <FE ch="2"><D Device="TOF" segment="18" ch="1" data="1"/></FE>
+	  <FE ch="3"><D Device="TOF" segment="19" ch="1" data="1"/></FE>
+	  <FE ch="4"><D Device="TOF" segment="20" ch="1" data="1"/></FE>
+	  <FE ch="5"><D Device="TOF" segment="21" ch="1" data="1"/></FE>
+	  <FE ch="6"><D Device="TOF" segment="22" ch="1" data="1"/></FE>
+	  <FE ch="7"><D Device="TOF" segment="23" ch="1" data="1"/></FE>
+	  <FE ch="8"><D Device="TOF" segment="24" ch="1" data="1"/></FE>
+	  <FE ch="9"><D Device="TOF" segment="25" ch="1" data="1"/></FE>
+	  <FE ch="10"><D Device="TOF" segment="26" ch="1" data="1"/></FE>
+	  <FE ch="11"><D Device="TOF" segment="27" ch="1" data="1"/></FE>
+	  <FE ch="12"><D Device="TOF" segment="28" ch="1" data="1"/></FE>
+	  <FE ch="13"><D Device="TOF" segment="29" ch="1" data="1"/></FE>
+	  <FE ch="14"><D Device="TOF" segment="30" ch="1" data="1"/></FE>
+	  <FE ch="15"><D Device="TOF" segment="31" ch="1" data="1"/></FE>
+	</Tko>
+
+	<!--_____NOT USE MODULE_______-->
+	<for var="ma" from="12" to="15">
+	  <Tko ma="ma"><for var="ch" from="0" to="31">	
+	    <FE ch="ch"><D Device="TKO0" plane="ma" ch="ch"/></FE></for>
+	</Tko></for>
+	<!--_________________________-->
+
+	<Tko ma="16">
+	  <FE ch="0"><D Device="LC" segment="0" ch="0" data="0"/></FE>
+	  <FE ch="1"><D Device="LC" segment="1" ch="0" data="0"/></FE>
+	  <FE ch="2"><D Device="LC" segment="2" ch="0" data="0"/></FE>
+	  <FE ch="3"><D Device="LC" segment="3" ch="0" data="0"/></FE>
+	  <FE ch="4"><D Device="LC" segment="4" ch="0" data="0"/></FE>
+	  <FE ch="5"><D Device="LC" segment="5" ch="0" data="0"/></FE>
+	  <FE ch="6"><D Device="LC" segment="6" ch="0" data="0"/></FE>
+	  <FE ch="7"><D Device="LC" segment="7" ch="0" data="0"/></FE>
+	  <FE ch="8"><D Device="LC" segment="8" ch="0" data="0"/></FE>
+	  <FE ch="9"><D Device="LC" segment="9" ch="0" data="0"/></FE>
+	  <FE ch="10"><D Device="LC" segment="10" ch="0" data="0"/></FE>
+	  <FE ch="11"><D Device="LC" segment="11" ch="0" data="0"/></FE>
+	  <FE ch="12"><D Device="LC" segment="12" ch="0" data="0"/></FE>
+	  <FE ch="13"><D Device="LC" segment="13" ch="0" data="0"/></FE>
+
+	  <FE ch="16"><D Device="LC" segment="14" ch="0" data="0"/></FE>
+	  <FE ch="17"><D Device="LC" segment="15" ch="0" data="0"/></FE>
+	  <FE ch="18"><D Device="LC" segment="16" ch="0" data="0"/></FE>
+	  <FE ch="19"><D Device="LC" segment="17" ch="0" data="0"/></FE>
+	  <FE ch="20"><D Device="LC" segment="18" ch="0" data="0"/></FE>
+	  <FE ch="21"><D Device="LC" segment="19" ch="0" data="0"/></FE>
+	  <FE ch="22"><D Device="LC" segment="20" ch="0" data="0"/></FE>
+	  <FE ch="23"><D Device="LC" segment="21" ch="0" data="0"/></FE>
+	  <FE ch="24"><D Device="LC" segment="22" ch="0" data="0"/></FE>
+	  <FE ch="25"><D Device="LC" segment="23" ch="0" data="0"/></FE>
+	  <FE ch="26"><D Device="LC" segment="24" ch="0" data="0"/></FE>
+	  <FE ch="27"><D Device="LC" segment="25" ch="0" data="0"/></FE>
+	  <FE ch="28"><D Device="LC" segment="26" ch="0" data="0"/></FE>
+	  <FE ch="29"><D Device="LC" segment="27" ch="0" data="0"/></FE>
+	  <!--_____ NOT USE CHANNEL _____-->
+	  <for var="sa" from="14" to="15">
+	    <FE ch="sa">
+	      <D Device="TKO0" plane="16" ch="sa" />
+	    </FE>
+	  </for>
+	  <for var="sa" from="30" to="31">
+	    <FE ch="sa">
+	      <D Device="TKO0" plane="16" ch="sa" />
+	    </FE>
+	  </for>
+	  <!--___________________________-->
+	</Tko>
+
+	<Tko ma="17">
+	  <FE ch="0"><D Device="TOF" segment="0" ch="1" data="0"/></FE>
+	  <FE ch="1"><D Device="TOF" segment="1" ch="1" data="0"/></FE>
+	  <FE ch="2"><D Device="TOF" segment="2" ch="1" data="0"/></FE>
+	  <FE ch="3"><D Device="TOF" segment="3" ch="1" data="0"/></FE>
+	  <FE ch="4"><D Device="TOF" segment="4" ch="1" data="0"/></FE>
+	  <FE ch="5"><D Device="TOF" segment="5" ch="1" data="0"/></FE>
+	  <FE ch="6"><D Device="TOF" segment="6" ch="1" data="0"/></FE>
+	  <FE ch="7"><D Device="TOF" segment="7" ch="1" data="0"/></FE>
+	  <FE ch="8"><D Device="TOF" segment="8" ch="1" data="0"/></FE>
+	  <FE ch="9"><D Device="TOF" segment="9" ch="1" data="0"/></FE>
+	  <FE ch="10"><D Device="TOF" segment="10" ch="1" data="0"/></FE>
+	  <FE ch="11"><D Device="TOF" segment="11" ch="1" data="0"/></FE>
+	  <FE ch="12"><D Device="TOF" segment="12" ch="1" data="0"/></FE>
+	  <FE ch="13"><D Device="TOF" segment="13" ch="1" data="0"/></FE>
+	  <FE ch="14"><D Device="TOF" segment="14" ch="1" data="0"/></FE>
+	  <FE ch="15"><D Device="TOF" segment="15" ch="1" data="0"/></FE>
+	  <FE ch="16"><D Device="TOF" segment="16" ch="1" data="0"/></FE>
+	  <FE ch="17"><D Device="TOF" segment="17" ch="1" data="0"/></FE>
+	  <FE ch="18"><D Device="TOF" segment="18" ch="1" data="0"/></FE>
+	  <FE ch="19"><D Device="TOF" segment="19" ch="1" data="0"/></FE>
+	  <FE ch="20"><D Device="TOF" segment="20" ch="1" data="0"/></FE>
+	  <FE ch="21"><D Device="TOF" segment="21" ch="1" data="0"/></FE>
+	  <FE ch="22"><D Device="TOF" segment="22" ch="1" data="0"/></FE>
+	  <FE ch="23"><D Device="TOF" segment="23" ch="1" data="0"/></FE>
+	  <FE ch="24"><D Device="TOF" segment="24" ch="1" data="0"/></FE>
+	  <FE ch="25"><D Device="TOF" segment="25" ch="1" data="0"/></FE>
+	  <FE ch="26"><D Device="TOF" segment="26" ch="1" data="0"/></FE>
+	  <FE ch="27"><D Device="TOF" segment="27" ch="1" data="0"/></FE>
+	  <FE ch="28"><D Device="TOF" segment="28" ch="1" data="0"/></FE>
+	  <FE ch="29"><D Device="TOF" segment="29" ch="1" data="0"/></FE>
+	  <FE ch="30"><D Device="TOF" segment="30" ch="1" data="0"/></FE>
+	  <FE ch="31"><D Device="TOF" segment="31" ch="1" data="0"/></FE>
+	</Tko>
+	<Tko ma="18"><for var="sa" from="0" to="31">
+	  <FE ch="sa"><D Device="TKO0" plane="18"/></FE></for>
+	</Tko>
+	  
+	<Tko ma="19">
+	  <FE ch="0"><D Device="LC" segment="0" ch="1" data="0"/></FE>
+	  <FE ch="1"><D Device="LC" segment="1" ch="1" data="0"/></FE>
+	  <FE ch="2"><D Device="LC" segment="2" ch="1" data="0"/></FE>
+	  <FE ch="3"><D Device="LC" segment="3" ch="1" data="0"/></FE>
+	  <FE ch="4"><D Device="LC" segment="4" ch="1" data="0"/></FE>
+	  <FE ch="5"><D Device="LC" segment="5" ch="1" data="0"/></FE>
+	  <FE ch="6"><D Device="LC" segment="6" ch="1" data="0"/></FE>
+	  <FE ch="7"><D Device="LC" segment="7" ch="1" data="0"/></FE>
+	  <FE ch="8"><D Device="LC" segment="8" ch="1" data="0"/></FE>
+	  <FE ch="9"><D Device="LC" segment="9" ch="1" data="0"/></FE>
+	  <FE ch="10"><D Device="LC" segment="10" ch="1" data="0"/></FE>
+	  <FE ch="11"><D Device="LC" segment="11" ch="1" data="0"/></FE>
+	  <FE ch="12"><D Device="LC" segment="12" ch="1" data="0"/></FE>
+	  <FE ch="13"><D Device="LC" segment="13" ch="1" data="0"/></FE>
+
+	  <FE ch="16"><D Device="LC" segment="14" ch="1" data="0"/></FE>
+	  <FE ch="17"><D Device="LC" segment="15" ch="1" data="0"/></FE>
+	  <FE ch="18"><D Device="LC" segment="16" ch="1" data="0"/></FE>
+	  <FE ch="19"><D Device="LC" segment="17" ch="1" data="0"/></FE>
+	  <FE ch="20"><D Device="LC" segment="18" ch="1" data="0"/></FE>
+	  <FE ch="21"><D Device="LC" segment="19" ch="1" data="0"/></FE>
+	  <FE ch="22"><D Device="LC" segment="20" ch="1" data="0"/></FE>
+	  <FE ch="23"><D Device="LC" segment="21" ch="1" data="0"/></FE>
+	  <FE ch="24"><D Device="LC" segment="22" ch="1" data="0"/></FE>
+	  <FE ch="25"><D Device="LC" segment="23" ch="1" data="0"/></FE>
+	  <FE ch="26"><D Device="LC" segment="24" ch="1" data="0"/></FE>
+	  <FE ch="27"><D Device="LC" segment="25" ch="1" data="0"/></FE>
+	  <FE ch="28"><D Device="LC" segment="26" ch="1" data="0"/></FE>
+	  <FE ch="29"><D Device="LC" segment="27" ch="1" data="0"/></FE>
+	  <!--_____ NOT USE CHANNEL _____-->
+	  <for var="sa" from="14" to="15">
+	    <FE ch="sa"><D Device="TKO0" plane="19" ch="sa" /></FE>
+	  </for>
+	  <for var="sa" from="30" to="31">
+	    <FE ch="sa"><D Device="TKO0" plane="19" ch="sa" /></FE>
+	  </for>
+	  <!--___________________________-->
+	</Tko>
+
+	<Tko ma="20">
+	  <FE ch="0"><D Device="TOF" segment="0" ch="0" data="0"/></FE>
+	  <FE ch="1"><D Device="TOF" segment="1" ch="0" data="0"/></FE>
+	  <FE ch="2"><D Device="TOF" segment="2" ch="0" data="0"/></FE>
+	  <FE ch="3"><D Device="TOF" segment="3" ch="0" data="0"/></FE>
+	  <FE ch="4"><D Device="TOF" segment="4" ch="0" data="0"/></FE>
+	  <FE ch="5"><D Device="TOF" segment="5" ch="0" data="0"/></FE>
+	  <FE ch="6"><D Device="TOF" segment="6" ch="0" data="0"/></FE>
+	  <FE ch="7"><D Device="TOF" segment="7" ch="0" data="0"/></FE>
+	  <FE ch="8"><D Device="TOF" segment="8" ch="0" data="0"/></FE>
+	  <FE ch="9"><D Device="TOF" segment="9" ch="0" data="0"/></FE>
+	  <FE ch="10"><D Device="TOF" segment="10" ch="0" data="0"/></FE>
+	  <FE ch="11"><D Device="TOF" segment="11" ch="0" data="0"/></FE>
+	  <FE ch="12"><D Device="TOF" segment="12" ch="0" data="0"/></FE>
+	  <FE ch="13"><D Device="TOF" segment="13" ch="0" data="0"/></FE>
+	  <FE ch="14"><D Device="TOF" segment="14" ch="0" data="0"/></FE>
+	  <FE ch="15"><D Device="TOF" segment="15" ch="0" data="0"/></FE>
+	  <FE ch="16"><D Device="TOF" segment="16" ch="0" data="0"/></FE>
+	  <FE ch="17"><D Device="TOF" segment="17" ch="0" data="0"/></FE>
+	  <FE ch="18"><D Device="TOF" segment="18" ch="0" data="0"/></FE>
+	  <FE ch="19"><D Device="TOF" segment="19" ch="0" data="0"/></FE>
+	  <FE ch="20"><D Device="TOF" segment="20" ch="0" data="0"/></FE>
+	  <FE ch="21"><D Device="TOF" segment="21" ch="0" data="0"/></FE>
+	  <FE ch="22"><D Device="TOF" segment="22" ch="0" data="0"/></FE>
+	  <FE ch="23"><D Device="TOF" segment="23" ch="0" data="0"/></FE>
+	  <FE ch="24"><D Device="TOF" segment="24" ch="0" data="0"/></FE>
+	  <FE ch="25"><D Device="TOF" segment="25" ch="0" data="0"/></FE>
+	  <FE ch="26"><D Device="TOF" segment="26" ch="0" data="0"/></FE>
+	  <FE ch="27"><D Device="TOF" segment="27" ch="0" data="0"/></FE>
+	  <FE ch="28"><D Device="TOF" segment="28" ch="0" data="0"/></FE>
+	  <FE ch="29"><D Device="TOF" segment="29" ch="0" data="0"/></FE>
+	  <FE ch="30"><D Device="TOF" segment="30" ch="0" data="0"/></FE>
+	  <FE ch="31"><D Device="TOF" segment="31" ch="0" data="0"/></FE>
+	</Tko>
+
+	<for var="ma" from="21" to="23">
+	  <Tko ma="ma"><for var="sa" from="0" to="31">
+	    <FE ch="sa"><D Device="TKO0" plane="ma"/></FE></for>
+	  </Tko>
+	</for>
+
+      </VmeSmp>
+      <!--_____________________ TKO1 _______________________________________-->
+      <VmeSmp address="0x10200000" decode="no">
+
+          <Tko ma="3">
+	    <FE ch="0"><D Device="BH1" segment="0" ch="0" data="1"/></FE>
+	    <FE ch="1"><D Device="BH1" segment="1" ch="0" data="1"/></FE>
+	    <FE ch="2"><D Device="BH1" segment="2" ch="0" data="1"/></FE>
+	    <FE ch="3"><D Device="BH1" segment="3" ch="0" data="1"/></FE>
+	    <FE ch="4"><D Device="BH1" segment="4" ch="0" data="1"/></FE>
+	    <FE ch="5"><D Device="BH1" segment="5" ch="0" data="1"/></FE>
+	    <FE ch="6"><D Device="BH1" segment="6" ch="0" data="1"/></FE>
+	    <FE ch="7"><D Device="BH1" segment="7" ch="0" data="1"/></FE>
+	    <FE ch="8"><D Device="BH1" segment="8" ch="0" data="1"/></FE>
+	    <FE ch="11"><D Device="BH1" segment="9" ch="0" data="1"/></FE>
+	    <FE ch="10"><D Device="BH1" segment="10" ch="0" data="1"/></FE>
+	    <FE ch="12"><D Device="Misc" segment="0" ch="0" data="1"/></FE>
+	    <FE ch="13"><D Device="Misc" segment="1" ch="0" data="1"/></FE>
+	    <FE ch="14"><D Device="Misc" segment="2" ch="0" data="1"/></FE>
+	    <FE ch="15"><D Device="Misc" segment="3" ch="0" data="1"/></FE>
+	    <!--_____ NOT USE CHANNEL _____-->
+	    <FE ch="9"><D Device="TKO1" plane="3" ch="9" /></FE>
+	    <!--___________________________-->
+	  </Tko>
+
+          <Tko ma="4">
+	    <FE ch="0"><D Device="BH1" segment="0" ch="1" data="1"/></FE>
+	    <FE ch="1"><D Device="BH1" segment="1" ch="1" data="1"/></FE>
+	    <FE ch="2"><D Device="BH1" segment="2" ch="1" data="1"/></FE>
+	    <FE ch="3"><D Device="BH1" segment="3" ch="1" data="1"/></FE>
+	    <FE ch="4"><D Device="BH1" segment="4" ch="1" data="1"/></FE>
+	    <FE ch="5"><D Device="BH1" segment="5" ch="1" data="1"/></FE>
+	    <FE ch="6"><D Device="BH1" segment="6" ch="1" data="1"/></FE>
+	    <FE ch="7"><D Device="BH1" segment="7" ch="1" data="1"/></FE>
+	    <FE ch="8"><D Device="BH1" segment="8" ch="1" data="1"/></FE>
+	    <FE ch="9"><D Device="BH1" segment="9" ch="1" data="1"/></FE>
+	    <FE ch="10"><D Device="BH1" segment="10" ch="1" data="1"/></FE>
+	    <FE ch="12"><D Device="Misc" segment="4" ch="0" data="1"/></FE>
+	    <FE ch="13"><D Device="Misc" segment="5" ch="0" data="1"/></FE>
+	    <FE ch="14"><D Device="Misc" segment="6" ch="0" data="1"/></FE>
+	    <FE ch="15"><D Device="Misc" segment="7" ch="0" data="1"/></FE>
+	    <!--_____ NOT USE CHANNEL _____-->
+	    <FE ch="11"><D Device="TKO1" plane="4" ch="11" /></FE>
+	    <!--___________________________-->
+	  </Tko>
+
+          <Tko ma="13">
+	    <FE ch="0"><D Device="BH2" segment="0" ch="0" data="1"/></FE>
+	    <FE ch="1"><D Device="BH2" segment="1" ch="0" data="1"/></FE>
+	    <FE ch="2"><D Device="BH2" segment="2" ch="0" data="1"/></FE>
+	    <FE ch="3"><D Device="BH2" segment="3" ch="0" data="1"/></FE>
+	    <FE ch="4"><D Device="BH2" segment="4" ch="0" data="1"/></FE>
+	    <FE ch="5"><D Device="BH2" segment="5" ch="0" data="1"/></FE>
+	    <FE ch="6"><D Device="BH2" segment="6" ch="0" data="1"/></FE>
+	    <FE ch="14"><D Device="BH2" segment="7" ch="0" data="1"/></FE>
+
+	    <FE ch="7"><D Device="BH2" segment="0" ch="1" data="1"/></FE>
+	    <FE ch="8"><D Device="BH2" segment="1" ch="1" data="1"/></FE>
+	    <FE ch="9"><D Device="BH2" segment="2" ch="1" data="1"/></FE>
+	    <FE ch="10"><D Device="BH2" segment="3" ch="1" data="1"/></FE>
+	    <FE ch="11"><D Device="BH2" segment="4" ch="1" data="1"/></FE>
+	    <FE ch="12"><D Device="BH2" segment="5" ch="1" data="1"/></FE>
+	    <FE ch="13"><D Device="BH2" segment="6" ch="1" data="1"/></FE>
+	    <FE ch="15"><D Device="BH2" segment="7" ch="1" data="1"/></FE>
+	    <!--_____ NOT USE CHANNEL _____-->
+	    <!--___________________________-->
+	  </Tko>
+	
+
+	  <Tko ma="6">
+	    <FE ch="14"><D Device="GC" segment="0" ch="0" data="1"/></FE>
+	    <!--_____ NOT USE CHANNEL _____-->
+	  <for var="sa" from="0" to="13">
+	    <FE ch="sa"><D Device="TKO1" plane="6"/></FE>
+	  </for>
+	    <FE ch="15"><D Device="TKO1" plane="6" ch="15" /></FE>
+	    <!--___________________________-->
+	  </Tko>
+
+	  <Tko ma="7">
+	   <FE ch="0"><D Device="AC" segment="0" ch="0" data="1"/></FE>
+	   <FE ch="1"><D Device="AC" segment="1" ch="0" data="1"/></FE>
+	   <FE ch="2"><D Device="AC" segment="2" ch="0" data="1"/></FE>
+	   <FE ch="3"><D Device="AC" segment="3" ch="0" data="1"/></FE>
+	   <FE ch="4"><D Device="AC" segment="4" ch="0" data="1"/></FE>
+	   <FE ch="5"><D Device="AC" segment="5" ch="0" data="1"/></FE>
+	   <FE ch="6"><D Device="AC" segment="6" ch="0" data="1"/></FE>
+	   <FE ch="7"><D Device="AC" segment="7" ch="0" data="1"/></FE>
+	   <FE ch="8"><D Device="AC" segment="8" ch="0" data="1"/></FE>
+           <FE ch="9"><D Device="AC" segment="9" ch="0" data="1"/></FE>
+           <FE ch="10"><D Device="Misc" segment="17" ch="0" data="1"/></FE>
+	   <FE ch="11"><D Device="Misc" segment="18" ch="0" data="1"/></FE>
+	   <FE ch="12"><D Device="Misc" segment="8" ch="0" data="1"/></FE>
+	   <FE ch="13"><D Device="Misc" segment="9" ch="0" data="1"/></FE>
+	   <FE ch="14"><D Device="Misc" segment="10" ch="0" data="1"/></FE>
+	   <FE ch="15"><D Device="Misc" segment="11" ch="0" data="1"/></FE>
+	  </Tko>
+
+
+	  <Tko ma="8">
+	  <FE ch="0"><D Device="AC" segment="10" ch="0" data="1"/></FE>
+	  <FE ch="1"><D Device="AC" segment="11" ch="0" data="1"/></FE>
+	  <FE ch="2"><D Device="AC" segment="12" ch="0" data="1"/></FE>
+	  <FE ch="3"><D Device="AC" segment="13" ch="0" data="1"/></FE>
+	  <FE ch="4"><D Device="AC" segment="14" ch="0" data="1"/></FE>
+	  <FE ch="5"><D Device="AC" segment="15" ch="0" data="1"/></FE>
+	  <FE ch="6"><D Device="AC" segment="16" ch="0" data="1"/></FE>
+	  <FE ch="7"><D Device="AC" segment="17" ch="0" data="1"/></FE>
+	  <FE ch="8"><D Device="AC" segment="18" ch="0" data="1"/></FE>
+	  <FE ch="9"><D Device="AC" segment="19" ch="0" data="1"/></FE>
+	  <FE ch="11"><D Device="Misc" segment="16" ch="0" data="1"/></FE>
+	  <FE ch="12"><D Device="Matrix" segment="4" ch="0" data="1"/></FE>
+	  <FE ch="13"><D Device="Matrix" segment="3" ch="0" data="1"/></FE>
+	  <FE ch="14"><D Device="Matrix" segment="2" ch="0" data="1"/></FE>
+	  <FE ch="15"><D Device="Matrix" segment="1" ch="0" data="1"/></FE>
+	  <FE ch="15"><D Device="Matrix" segment="0" ch="0" data="1"/></FE>
+	    <!--_____ NOT USE CHANNEL _____-->
+	   <FE ch="10"><D Device="TKO1" plane="8" ch="10" /></FE>
+	    <!--___________________________-->
+	  </Tko>
+
+
+	  <Tko ma="9">
+
+	  <FE ch="0"><D Device="AC" segment="20" ch="0" data="1"/></FE>
+	  <FE ch="1"><D Device="AC" segment="21" ch="0" data="1"/></FE>
+	  <FE ch="2"><D Device="AC" segment="22" ch="0" data="1"/></FE>
+	  <FE ch="3"><D Device="AC" segment="23" ch="0" data="1"/></FE>
+	  <FE ch="4"><D Device="AC" segment="24" ch="0" data="1"/></FE>
+	  <FE ch="5"><D Device="AC" segment="25" ch="0" data="1"/></FE>
+	  <FE ch="6"><D Device="AC" segment="26" ch="0" data="1"/></FE>
+	  <FE ch="7"><D Device="AC" segment="27" ch="0" data="1"/></FE>
+	  <FE ch="8"><D Device="AC" segment="28" ch="0" data="1"/></FE>
+	  <FE ch="9"><D Device="AC" segment="29" ch="0" data="1"/></FE>
+	  <FE ch="10"><D Device="AC1" segment="16" ch="0" data="1"/></FE>
+	  <FE ch="11"><D Device="AC1" segment="17" ch="0" data="1"/></FE>
+	    <!--_____ NOT USE CHANNEL _____-->
+
+	   <FE ch="12"><D Device="TKO1" plane="9" ch="12" /></FE>
+	   <FE ch="13"><D Device="TKO1" plane="9" ch="13" /></FE>
+	   <FE ch="14"><D Device="TKO1" plane="9" ch="14" /></FE>
+	   <FE ch="15"><D Device="TKO1" plane="9" ch="15" /></FE>
+	    <!--___________________________-->
+
+
+	  </Tko>
+
+	  <Tko ma="10">
+	   <FE ch="0"><D Device="AC1" segment="0" ch="0" data="1"/></FE>
+	   <FE ch="1"><D Device="AC1" segment="1" ch="0" data="1"/></FE>
+	   <FE ch="2"><D Device="AC1" segment="2" ch="0" data="1"/></FE>
+	   <FE ch="3"><D Device="AC1" segment="3" ch="0" data="1"/></FE>
+	   <FE ch="4"><D Device="AC1" segment="4" ch="0" data="1"/></FE>
+	   <FE ch="5"><D Device="AC1" segment="5" ch="0" data="1"/></FE>
+	   <FE ch="6"><D Device="AC1" segment="6" ch="0" data="1"/></FE>
+	   <FE ch="7"><D Device="AC1" segment="7" ch="0" data="1"/></FE>
+	   <FE ch="8"><D Device="AC1" segment="8" ch="0" data="1"/></FE>
+           <FE ch="9"><D Device="AC1" segment="9" ch="0" data="1"/></FE>
+           <FE ch="10"><D Device="AC1" segment="10" ch="0" data="1"/></FE>
+	   <FE ch="11"><D Device="AC1" segment="11" ch="0" data="1"/></FE>
+	   <FE ch="12"><D Device="AC1" segment="12" ch="0" data="1"/></FE>
+	   <FE ch="13"><D Device="AC1" segment="13" ch="0" data="1"/></FE>
+	   <FE ch="14"><D Device="AC1" segment="14" ch="0" data="1"/></FE>
+	   <FE ch="15"><D Device="AC1" segment="15" ch="0" data="1"/></FE>
+	  </Tko>
+
+	  <!--______ NOT USE MODULE _______-->
+
+
+
+	  <Tko ma="11">
+	    <for var="ma" from="0" to="31">
+	    <FE ch="ma"><D Device="TKO1" plane="10" ch="ma" /></FE>
+	    </for>	    
+	  </Tko>	
+	  <Tko ma="12">
+	    <for var="ma" from="0" to="31">
+	    <FE ch="ma"><D Device="TKO1" plane="10" ch="ma" /></FE>
+	    </for>	    
+	  </Tko>	
+	  <Tko ma="5">
+	    <for var="ma" from="0" to="31">
+	    <FE ch="ma"><D Device="TKO1" plane="10" ch="ma" /></FE>
+	    </for>	    
+	  </Tko>	
+	  <Tko ma="14">
+	    <for var="ma" from="0" to="31">
+	    <FE ch="ma"><D Device="TKO1" plane="10" ch="ma" /></FE>
+	    </for>	    
+	  </Tko>	
+	  <Tko ma="15">
+	    <for var="ma" from="0" to="31">
+	    <FE ch="ma"><D Device="TKO1" plane="15" ch="ma" /></FE>
+	    </for>
+	  </Tko>
+	  <Tko ma="16">
+	    <for var="ma" from="0" to="31">
+	    <FE ch="ma"><D Device="TKO1" plane="16" ch="ma" /></FE>
+	    </for>	    
+	  </Tko>	
+	  <!--_____________________________-->
+	  <!--____AC_______-->
+	  <Tko ma="17">
+	    <FE ch="0"><D Device="AC" segment="0" ch="0" data="0"/></FE>
+	    <FE ch="1"><D Device="AC" segment="1" ch="0" data="0"/></FE>
+	    <FE ch="2"><D Device="AC" segment="2" ch="0" data="0"/></FE>
+	    <FE ch="3"><D Device="AC" segment="3" ch="0" data="0"/></FE>
+	    <FE ch="4"><D Device="AC" segment="4" ch="0" data="0"/></FE>
+	    <FE ch="5"><D Device="AC" segment="5" ch="0" data="0"/></FE>
+	    <FE ch="6"><D Device="AC" segment="6" ch="0" data="0"/></FE>
+	    <FE ch="7"><D Device="AC" segment="7" ch="0" data="0"/></FE>
+	    <FE ch="8"><D Device="AC" segment="8" ch="0" data="0"/></FE>
+	    <FE ch="9"><D Device="AC" segment="9" ch="0" data="0"/></FE>
+	    <FE ch="10"><D Device="AC" segment="10" ch="0" data="0"/></FE>
+	    <FE ch="11"><D Device="AC" segment="11" ch="0" data="0"/></FE>
+	    <FE ch="12"><D Device="AC" segment="12" ch="0" data="0"/></FE>
+	    <FE ch="13"><D Device="AC" segment="13" ch="0" data="0"/></FE>
+	    <FE ch="14"><D Device="AC" segment="14" ch="0" data="0"/></FE>
+	    <FE ch="15"><D Device="AC" segment="15" ch="0" data="0"/></FE>
+	    <FE ch="16"><D Device="AC" segment="16" ch="0" data="0"/></FE>
+	    <FE ch="17"><D Device="AC" segment="17" ch="0" data="0"/></FE>
+	    <FE ch="18"><D Device="AC" segment="18" ch="0" data="0"/></FE>
+	    <FE ch="19"><D Device="AC" segment="19" ch="0" data="0"/></FE>
+	    <FE ch="20"><D Device="AC" segment="20" ch="0" data="0"/></FE>
+	    <FE ch="21"><D Device="AC" segment="21" ch="0" data="0"/></FE>
+	    <FE ch="22"><D Device="AC" segment="22" ch="0" data="0"/></FE>
+	    <FE ch="23"><D Device="AC" segment="23" ch="0" data="0"/></FE>
+	    <FE ch="24"><D Device="AC" segment="24" ch="0" data="0"/></FE>
+	    <FE ch="25"><D Device="AC" segment="25" ch="0" data="0"/></FE>
+	    <FE ch="26"><D Device="AC" segment="26" ch="0" data="0"/></FE>
+	    <FE ch="27"><D Device="AC" segment="27" ch="0" data="0"/></FE>
+	    <FE ch="28"><D Device="AC" segment="28" ch="0" data="0"/></FE>
+	    <FE ch="29"><D Device="AC" segment="29" ch="0" data="0"/></FE>
+
+	    <FE ch="31"><D Device="AC1" segment="17" ch="0" data="0"/></FE>
+
+	    <!--_____ NOT USE CHANNEL _____-->	    
+            <FE ch="30"><D Device="TKO1" plane="17" ch="30" /></FE>
+
+	    <!--___________________________-->
+	  </Tko>
+	  <!--______ NOT USE MODULE _______-->
+	  <Tko ma="18">
+	    <for var="ma" from="0" to="31">
+	    <FE ch="ma"><D Device="TKO1" plane="18" ch="ma" /></FE>
+	    </for>	    
+	  </Tko>
+          <!--_____________________________-->
+          <Tko ma="19">
+	    <FE ch="0"><D Device="BH2" segment="0" ch="0" data="0"/></FE>
+	    <FE ch="1"><D Device="BH2" segment="1" ch="0" data="0"/></FE>
+	    <FE ch="2"><D Device="BH2" segment="2" ch="0" data="0"/></FE>
+	    <FE ch="3"><D Device="BH2" segment="3" ch="0" data="0"/></FE>
+	    <FE ch="4"><D Device="BH2" segment="4" ch="0" data="0"/></FE>
+	    <FE ch="5"><D Device="BH2" segment="5" ch="0" data="0"/></FE>
+	    <FE ch="6"><D Device="BH2" segment="6" ch="0" data="0"/></FE>
+	    <FE ch="14"><D Device="BH2" segment="7" ch="0" data="0"/></FE>
+	    
+	    <FE ch="7"><D Device="BH2" segment="0" ch="1" data="0"/></FE>
+	    <FE ch="8"><D Device="BH2" segment="1" ch="1" data="0"/></FE>
+	    <FE ch="9"><D Device="BH2" segment="2" ch="1" data="0"/></FE>
+	    <FE ch="10"><D Device="BH2" segment="3" ch="1" data="0"/></FE>
+	    <FE ch="11"><D Device="BH2" segment="4" ch="1" data="0"/></FE>
+	    <FE ch="12"><D Device="BH2" segment="5" ch="1" data="0"/></FE>
+	    <FE ch="13"><D Device="BH2" segment="6" ch="1" data="0"/></FE>
+	    <FE ch="15"><D Device="BH2" segment="7" ch="1" data="0"/></FE>
+	    <!--_____ NOT USE CHANNEL _____-->
+	    <for var="ma" from="16" to="31">
+	    <FE ch="ma"><D Device="TKO1" plane="19" ch="ma" /></FE>
+	    </for>	    
+	    <!--___________________________-->
+	  </Tko>
+	  <Tko ma="20">
+	    <FE ch="14"><D Device="GC"   segment="0" ch="0" data="0"/></FE>
+	    <FE ch="15"><D Device="AC1" segment="0" ch="0" data="0"/></FE>
+	    <FE ch="16"><D Device="AC1" segment="1" ch="0" data="0"/></FE>
+	    <FE ch="17"><D Device="AC1" segment="2" ch="0" data="0"/></FE>
+	    <FE ch="18"><D Device="AC1" segment="3" ch="0" data="0"/></FE>
+	    <FE ch="19"><D Device="AC1" segment="4" ch="0" data="0"/></FE>
+	    <FE ch="20"><D Device="AC1" segment="5" ch="0" data="0"/></FE>
+	    <FE ch="21"><D Device="AC1" segment="6" ch="0" data="0"/></FE>
+	    <FE ch="22"><D Device="AC1" segment="7" ch="0" data="0"/></FE>
+	    <FE ch="23"><D Device="AC1" segment="8" ch="0" data="0"/></FE>
+	    <FE ch="24"><D Device="AC1" segment="9" ch="0" data="0"/></FE>
+	    <FE ch="25"><D Device="AC1" segment="10" ch="0" data="0"/></FE>
+	    <FE ch="26"><D Device="AC1" segment="11" ch="0" data="0"/></FE>
+	    <FE ch="27"><D Device="AC1" segment="12" ch="0" data="0"/></FE>
+	    <FE ch="28"><D Device="AC1" segment="13" ch="0" data="0"/></FE>
+	    <FE ch="29"><D Device="AC1" segment="14" ch="0" data="0"/></FE>
+	    <FE ch="30"><D Device="AC1" segment="15" ch="0" data="0"/></FE>
+	    <FE ch="31"><D Device="AC1" segment="16" ch="0" data="0"/></FE>
+	  <for var="sa" from="0" to="13">
+	    <FE ch="sa"><D Device="TKO1" plane="20"/></FE>
+	  </for>
+	    <!--___________________________-->
+	  </Tko>
+	  <Tko ma="21">
+	    <FE ch="0"><D Device="BH1" segment="0" ch="0" data="0"/></FE>
+	    <FE ch="1"><D Device="BH1" segment="1" ch="0" data="0"/></FE>
+	    <FE ch="11"><D Device="BH1" segment="2" ch="0" data="0"/></FE>
+	    <FE ch="3"><D Device="BH1" segment="3" ch="0" data="0"/></FE>
+	    <FE ch="4"><D Device="BH1" segment="4" ch="0" data="0"/></FE>
+	    <FE ch="5"><D Device="BH1" segment="5" ch="0" data="0"/></FE>
+	    <FE ch="6"><D Device="BH1" segment="6" ch="0" data="0"/></FE>
+	    <FE ch="7"><D Device="BH1" segment="7" ch="0" data="0"/></FE>
+	    <FE ch="8"><D Device="BH1" segment="8" ch="0" data="0"/></FE>
+	    <FE ch="9"><D Device="BH1" segment="9" ch="0" data="0"/></FE>
+	    <FE ch="10"><D Device="BH1" segment="10" ch="0" data="0"/></FE>
+
+	    <FE ch="16"><D Device="BH1" segment="0" ch="1" data="0"/></FE>
+	    <FE ch="17"><D Device="BH1" segment="1" ch="1" data="0"/></FE>
+	    <FE ch="18"><D Device="BH1" segment="2" ch="1" data="0"/></FE>
+	    <FE ch="19"><D Device="BH1" segment="3" ch="1" data="0"/></FE>
+	    <FE ch="20"><D Device="BH1" segment="4" ch="1" data="0"/></FE>
+	    <FE ch="21"><D Device="BH1" segment="5" ch="1" data="0"/></FE>
+	    <FE ch="22"><D Device="BH1" segment="6" ch="1" data="0"/></FE>
+	    <FE ch="23"><D Device="BH1" segment="7" ch="1" data="0"/></FE>
+	    <FE ch="24"><D Device="BH1" segment="8" ch="1" data="0"/></FE>
+	    <FE ch="25"><D Device="BH1" segment="9" ch="1" data="0"/></FE>
+	    <FE ch="26"><D Device="BH1" segment="10" ch="1" data="0"/></FE>
+	    <!--_____ NOT USE CHANNEL _____-->
+	    <FE ch="2"><D Device="TKO1" plane="21" ch="2" /></FE>
+	    <for var="ma" from="12" to="15">
+	      <FE ch="ma"><D Device="TKO1" plane="21" ch="ma" /></FE>
+	    </for>	    
+	    <for var="ma" from="27" to="31">
+	      <FE ch="ma"><D Device="TKO1" plane="21" ch="ma" /></FE>
+	    </for>	    
+	    <!--___________________________-->
+	  </Tko>
+
+      </VmeSmp>
+      <!--__________________________________________________________________-->
+      <VmeSmp address="0x10400000" decode="no">
+	<!--___________SDC3 v1_________________-->
+       <TkoDrTII ma="2">
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="0" to="3">
+	 <FE ch="ch"><D Device="TKO2" plane="2" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+        <for var="ch" from="4" to="31">
+	  <FE ch="ch"><D Device="SDC3" plane="0" ch="ch - 4"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="3">
+	 <for var="ch" from="0" to="31">
+	   <FE ch="ch"><D Device="SDC3" plane="0" ch="ch + 28"/></FE>
+	 </for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="4">
+        <for var="ch" from="0" to="31">
+	  <FE ch="ch"><D Device="SDC3" plane="0" ch="ch + 60"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="5">
+        <for var="ch" from="0" to="27">
+         <FE ch="ch"><D Device="SDC3" plane="0" ch="ch + 92"/></FE>
+	</for> 
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="28" to="31">
+	 <FE ch="ch"><D Device="TKO2" plane="5" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+       </TkoDrTII>
+	<!--___________SDC3 x1_________________-->
+       <TkoDrTII ma="6">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="1" ch="ch"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="7">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="1" ch="ch+32"/> </FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="8">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="1" ch="ch+64"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="9">
+        <for var="ch" from="0" to="11">
+         <FE ch="ch"><D Device="SDC3" plane="1" ch="ch+96"/></FE>
+	</for>
+	<!--___________SDC3 x1_________________-->
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="12" to="15">
+	 <FE ch="ch"><D Device="TKO2" plane="6" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->
+	<!--___________SDC3 u1_________________-->
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="16" to="19">
+	 <FE ch="ch"><D Device="TKO2" plane="9" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+	<for var="ch" from="20" to="31">
+	 <FE ch="ch"><D Device="SDC3" plane="2" ch="ch - 20"/></FE>
+       </for>
+       </TkoDrTII>
+
+       <TkoDrTII ma="10">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="2" ch="ch+12"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="11">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="2" ch="ch+44"/></FE>
+	</for>
+       </TkoDrTII>
+
+       <TkoDrTII ma="12">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="2" ch="ch+76"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="13">
+        <for var="ch" from="0" to="11">
+         <FE ch="ch"><D Device="SDC3" plane="2" ch="ch+108"/></FE>
+	</for> 
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="12" to="19">
+	 <FE ch="ch"><D Device="TKO2" plane="13" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->
+	<!--___________SDC3 v2_________________-->	 
+        <for var="ch" from="20" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="3" ch="ch - 20"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="14">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="3" ch="ch+12"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="15">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="3" ch="ch+44"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="16">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="3" ch="ch+76"/></FE>
+	</for> 
+       </TkoDrTII>
+
+      </VmeSmp>
+      <!--___________________________________________________________________-->
+      <VmeSmp address="0x10600000" decode="no">
+
+       <TkoDrTII ma="2">
+        <for var="ch" from="0" to="11">
+         <FE ch="ch"><D Device="SDC3" plane="3" ch="ch+108"/></FE>
+	</for> 
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="12" to="19">
+	 <FE ch="ch"><D Device="TKO3" plane="2" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->
+	<!--___________SDC3 x2_________________-->	 
+        <for var="ch" from="16" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="4" ch="ch - 16"/></FE>
+	</for>
+       </TkoDrTII>
+
+       <TkoDrTII ma="3">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="4" ch="ch+16"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="4">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="4" ch="ch+48"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="5">
+        <for var="ch" from="0" to="27">
+         <FE ch="ch"><D Device="SDC3" plane="4" ch="ch+80"/></FE>
+	</for> 
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="28" to="31">
+	 <FE ch="ch"><D Device="TKO3" plane="2" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->
+       </TkoDrTII>
+	<!--___________SDC3 u2_________________-->
+       <TkoDrTII ma="6">
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="0" to="3">
+	 <FE ch="ch"><D Device="TKO3" plane="6" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+        <for var="ch" from="4" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="5" ch="ch - 4"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="7">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="5" ch="ch+28"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="8">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC3" plane="5" ch="ch+60"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="9">
+        <for var="ch" from="0" to="27">
+         <FE ch="ch"><D Device="SDC3" plane="5" ch="ch+92"/></FE>
+	</for> 
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="28" to="31">
+	 <FE ch="ch"><D Device="TKO3" plane="9" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+       </TkoDrTII>
+	<!--___________SDC4 v1_________________-->
+       <TkoDrTII ma="10">
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="0" to="3">
+	 <FE ch="ch"><D Device="TKO3" plane="10" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+        <for var="ch" from="4" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="0" ch="120 - (ch - 3)"/></FE>
+	</for>  
+       </TkoDrTII>
+
+       <TkoDrTII ma="11">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="0" ch="120 - (ch+29)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="12">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="0" ch="120 - (ch+61)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="13">
+        <for var="ch" from="0" to="27">
+         <FE ch="ch"><D Device="SDC4" plane="0" ch="120 - (ch+93)"/></FE>
+	</for> 
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="28" to="31">
+	 <FE ch="ch"><D Device="TKO3" plane="13" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+       </TkoDrTII>
+	<!--___________SDC4 x1_________________-->
+       <TkoDrTII ma="14">
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="0" to="3">
+	 <FE ch="ch"><D Device="TKO3" plane="14" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+        <for var="ch" from="4" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="1" ch="108- (ch - 3)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="15">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="1" ch="108 - (ch+29)"/></FE>
+	</for>
+       </TkoDrTII>
+
+       <TkoDrTII ma="16">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="1" ch="108 - (ch+61)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="17">
+        <for var="ch" from="0" to="15">
+         <FE ch="ch"><D Device="SDC4" plane="1" ch="108 - (ch+93)"/></FE>
+	</for> 
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="16" to="31">
+	 <FE ch="ch"><D Device="TKO3" plane="17" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+       </TkoDrTII>
+
+      </VmeSmp>
+      <!--___________________________________________________________________-->
+      <VmeSmp address="0x10800000" decode="no">
+	<!--___________SDC4 u1_________________-->
+       <TkoDrTII ma="2">
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="0" to="3">
+	 <FE ch="ch"><D Device="TKO4" plane="2" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+        <for var="ch" from="4" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="2" ch="120 - (ch - 3)"/></FE>
+	</for>
+       </TkoDrTII>
+
+       <TkoDrTII ma="3">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="2" ch="120 - (ch+29)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="4">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="2" ch="120 - (ch+61)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="5">
+        <for var="ch" from="0" to="27">
+         <FE ch="ch"><D Device="SDC4" plane="2" ch="120 - (ch+93)"/></FE>
+	</for> 
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="28" to="31">
+	 <FE ch="ch"><D Device="TKO4" plane="5" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+       </TkoDrTII>
+	<!--___________SDC4 v2_________________-->
+       <TkoDrTII ma="6">
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="0" to="3">
+	 <FE ch="ch"><D Device="TKO4" plane="6" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+        <for var="ch" from="4" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="3" ch="120 - (ch - 3)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="7">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="3" ch="120 - (ch+29)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="8">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="3" ch="120- (ch+61)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="9">
+        <for var="ch" from="0" to="27">
+         <FE ch="ch"><D Device="SDC4" plane="3" ch="120 - (ch+93)"/></FE>
+	</for> 
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="28" to="31">
+	 <FE ch="ch"><D Device="TKO4" plane="9" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+       </TkoDrTII>
+	<!--___________SDC4 x2_________________-->
+       <TkoDrTII ma="10">
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="0" to="3">
+	 <FE ch="ch"><D Device="TKO4" plane="10" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+        <for var="ch" from="4" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="4" ch="108 - (ch - 3)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="11">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="4" ch="108 - (ch+29)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="12">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="4" ch="108 - (ch+61)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="13">
+        <for var="ch" from="0" to="15">
+         <FE ch="ch"><D Device="SDC4" plane="4" ch="108 - (ch+93)"/></FE>
+	</for>
+	<!--___________SDC4 u2_________________-->
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="16" to="19">
+	 <FE ch="ch"><D Device="TKO4" plane="13" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+        <for var="ch" from="20" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="5" ch="120 - (ch - 19)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="14">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="5" ch="120 - (ch+13)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="15">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="5" ch="120 - (ch+45)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="16">
+        <for var="ch" from="0" to="31">
+         <FE ch="ch"><D Device="SDC4" plane="5" ch="120 - (ch+77)"/></FE>
+	</for> 
+       </TkoDrTII>
+
+       <TkoDrTII ma="17">
+        <for var="ch" from="0" to="11">
+         <FE ch="ch"><D Device="SDC4" plane="5" ch="120 - (ch+109)"/></FE>
+	</for> 
+        <!--_____ NOT USE CHANNEL _____-->
+        <for var="ch" from="12" to="31">
+	 <FE ch="ch"><D Device="TKO4" plane="17" ch="ch"/></FE>
+	</for>
+	<!--___________________________-->	 
+       </TkoDrTII>
+
+      </VmeSmp>
+     </VmeMaster>
+
+
+    <!--__________________AREA_______________________________________________-->
+    <!--_____________________________________________________________________-->
+    <APVDaq node_id="0x205" name="vme05">
+      <for var="ch" from="0" to="383">
+	  <FE ch="ch" data="0"><D Device="SSD" plane="0" ch="ch" data="0"/></FE>
+      </for>
+      <for var="ch" from="0" to="383">
+	  <FE ch="ch" data="1"><D Device="SSD" plane="0" ch="ch+384" data="0"/></FE>
+      </for>
+      <for var="ch" from="0" to="383">
+	  <FE ch="ch" data="2"><D Device="SSD" plane="1" ch="ch" data="0"/></FE>
+      </for>
+      <for var="ch" from="0" to="383">
+	  <FE ch="ch" data="3"><D Device="SSD" plane="1" ch="ch+384" data="0"/></FE>
+      </for>
+    </APVDaq>
+
+    
+    <VmeV1290A node_id="0x204" name="vme04">
+    <!-- V1290A : Module Address 0xee000000-->
+	<FE ch="0" data="0"><D Device="BH1" segment="0" ch="0" data="2"/></FE>
+	<FE ch="1" data="0"><D Device="BH1" segment="1" ch="0" data="2"/></FE>
+	<FE ch="2" data="0"><D Device="BH1" segment="2" ch="0" data="2"/></FE>
+	<FE ch="3" data="0"><D Device="BH1" segment="3" ch="0" data="2"/></FE>
+	<FE ch="4" data="0"><D Device="BH1" segment="4" ch="0" data="2"/></FE>
+	<FE ch="5" data="0"><D Device="BH1" segment="5" ch="0" data="2"/></FE>
+	<FE ch="6" data="0"><D Device="BH1" segment="6" ch="0" data="2"/></FE>
+	<FE ch="7" data="0"><D Device="BH1" segment="7" ch="0" data="2"/></FE>
+	<FE ch="8" data="0"><D Device="BH1" segment="8" ch="0" data="2"/></FE>
+	<FE ch="9" data="0"><D Device="BH1" segment="9" ch="0" data="2"/></FE>
+	<FE ch="10" data="0"><D Device="BH1" segment="10" ch="0" data="2"/></FE>
+
+	<FE ch="11" data="0"><D Device="BH1" segment="0" ch="1" data="2"/></FE>
+	<FE ch="12" data="0"><D Device="BH1" segment="1" ch="1" data="2"/></FE>
+	<FE ch="13" data="0"><D Device="BH1" segment="2" ch="1" data="2"/></FE>
+	<FE ch="14" data="0"><D Device="BH1" segment="3" ch="1" data="2"/></FE>
+	<FE ch="15" data="0"><D Device="GC" segment="1" ch="0" data="2"/></FE>
+
+
+	<!--_____Not Use Channel_____-->
+	<for var="ch" from="16" to="31">
+	<FE ch="ch" data="0"><D Device="null"/></FE>
+	</for>
+
+	<!-- V1290A : Module Address 0xee010000-->
+	<FE ch="0" data="1"><D Device="BH2" segment="0" ch="0" data="2"/></FE>
+	<FE ch="1" data="1"><D Device="BH2" segment="1" ch="0" data="2"/></FE>
+	<FE ch="2" data="1"><D Device="BH2" segment="2" ch="0" data="2"/></FE>
+	<FE ch="3" data="1"><D Device="BH2" segment="3" ch="0" data="2"/></FE>
+	<FE ch="4" data="1"><D Device="BH2" segment="4" ch="0" data="2"/></FE>
+	<FE ch="5" data="1"><D Device="BH2" segment="5" ch="0" data="2"/></FE>
+	<FE ch="6" data="1"><D Device="BH2" segment="6" ch="0" data="2"/></FE>
+	<FE ch="7" data="1"><D Device="BH2" segment="7" ch="0" data="2"/></FE>
+
+	<FE ch="8" data="1"><D Device="BH2" segment="0" ch="1" data="2"/></FE>
+	<FE ch="9" data="1"><D Device="BH2" segment="1" ch="1" data="2"/></FE>
+	<FE ch="10" data="1"><D Device="BH2" segment="2" ch="1" data="2"/></FE>
+	<FE ch="11" data="1"><D Device="BH2" segment="3" ch="1" data="2"/></FE>
+	<FE ch="12" data="1"><D Device="BH2" segment="4" ch="1" data="2"/></FE>
+	<FE ch="13" data="1"><D Device="BH2" segment="5" ch="1" data="2"/></FE>
+	<FE ch="14" data="1"><D Device="BH2" segment="6" ch="1" data="2"/></FE>
+	<FE ch="15" data="1"><D Device="BH2" segment="7" ch="1" data="2"/></FE>
+
+	<FE ch="16" data="1"><D Device="GC" segment="0" ch="0" data="2"/></FE>
+	<FE ch="17" data="1"><D Device="BH1" segment="4" ch="1" data="2"/></FE>
+	<FE ch="18" data="1"><D Device="BH1" segment="5" ch="1" data="2"/></FE>		
+	<FE ch="19" data="1"><D Device="BH1" segment="6" ch="1" data="2"/></FE>		
+	<FE ch="20" data="1"><D Device="BH1" segment="7" ch="1" data="2"/></FE>		
+	<FE ch="21" data="1"><D Device="BH1" segment="8" ch="1" data="2"/></FE>		
+	<FE ch="22" data="1"><D Device="BH1" segment="9" ch="1" data="2"/></FE>
+	<FE ch="23" data="1"><D Device="BH1" segment="10" ch="1" data="2"/></FE>
+	<FE ch="31" data="1"><D Device="GC" segment="2" ch="0" data="2"/></FE>
+
+	<!--_____Not Use Channel_____-->
+	<for var="ch" from="24" to="30">
+	<FE ch="ch" data="1"><D Device="null"/></FE>
+	</for>
+
+
+	<for var="ch" from="0" to="31">
+	<FE ch="ch" data="2"><D Device="null"/></FE>
+	</for>
+
+    </VmeV1290A>
+
+    <CopperLite node_id="131" name="clite01">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="0"><D Device="BC3" plane="0" ch="ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="1"><D Device="BC3" plane="0" ch="ch+32" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="2"><D Device="BC3" plane="1" ch="31 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="3"><D Device="BC3" plane="1" ch="63 - ch" data="0"/></FE>
+	</for>
+    </CopperLite>
+    <CopperLite node_id="132" name="clite02">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="0"><D Device="BC3" plane="2" ch="ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="1"><D Device="BC3" plane="2" ch="ch+32" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="2"><D Device="BC3" plane="3" ch="31 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="3"><D Device="BC3" plane="3" ch="63 - ch" data="0"/></FE>
+	</for>
+    </CopperLite>
+    <CopperLite node_id="133" name="clite03">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="0"><D Device="BC3" plane="4" ch="ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="1"><D Device="BC3" plane="4" ch="ch+32" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="2"><D Device="BC3" plane="5" ch="31 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="3"><D Device="BC3" plane="5" ch="63 - ch" data="0"/></FE>
+	</for>
+    </CopperLite>
+    <CopperLite node_id="134" name="clite04">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="0"><D Device="BC4" plane="4" ch="ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="1"><D Device="BC4" plane="4" ch="ch+32" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="2"><D Device="BC4" plane="5" ch="31 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="3"><D Device="BC4" plane="5" ch="63 - ch" data="0"/></FE>
+	</for>
+    </CopperLite>
+    <CopperLite node_id="135" name="clite05">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="0"><D Device="BC4" plane="2" ch="ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="1"><D Device="BC4" plane="2" ch="ch+32" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="2"><D Device="BC4" plane="3" ch="31 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="3"><D Device="BC4" plane="3" ch="63 - ch" data="0"/></FE>
+	</for>
+    </CopperLite>
+    <CopperLite node_id="136" name="clite06">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="0"><D Device="BC4" plane="0" ch="ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="1"><D Device="BC4" plane="0" ch="ch+32" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="2"><D Device="BC4" plane="1" ch="31 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="3"><D Device="BC4" plane="1" ch="63 - ch" data="0"/></FE>
+	</for>
+    </CopperLite>
+    <CopperLite node_id="137" name="clite07">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="0"><D Device="SDC2" plane="1" ch="31 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="1"><D Device="SDC2" plane="1" ch="63 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="2"><D Device="SDC2" plane="1" ch="95 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="3"><D Device="SDC2" plane="0" ch="ch" data="0"/></FE>
+	</for>
+    </CopperLite>
+    <CopperLite node_id="138" name="clite08">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="0"><D Device="SDC2" plane="0" ch="ch+32" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="1"><D Device="SDC2" plane="0" ch="ch+64" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="2"><D Device="SDC2" plane="3" ch="31 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="3"><D Device="SDC2" plane="3" ch="63 - ch" data="0"/></FE>
+	</for>
+    </CopperLite>
+    <CopperLite node_id="139" name="clite09">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="0"><D Device="SDC2" plane="3" ch="95 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="1"><D Device="SDC2" plane="2" ch="ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="2"><D Device="SDC2" plane="2" ch="ch+32" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="3"><D Device="SDC2" plane="2" ch="ch+64" data="0"/></FE>
+	</for>
+    </CopperLite>
+    <CopperLite node_id="140" name="clite10">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="0"><D Device="SDC2" plane="5" ch="31 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="1"><D Device="SDC2" plane="5" ch="63 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="2"><D Device="SDC2" plane="5" ch="95 - ch" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="3"><D Device="SDC2" plane="4" ch="ch" data="0"/></FE>
+	</for>
+    </CopperLite>
+    <CopperLite node_id="141" name="clite11">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="0"><D Device="SDC2" plane="4" ch="ch+32" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="1"><D Device="SDC2" plane="4" ch="ch+64" data="0"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="2"><D Device="null"/></FE>
+	</for>
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch" data="3"><D Device="null"/></FE>
+	</for>
+    </CopperLite>
+
+<!-- Added 20120120 begin -->
+    <VmeMaster node_id="0x203" name="vme03">
+      <VmeRm address="0xfc000000">
+	<for var="ch" from="0" to="1"><for var="data" from="0" to="3">
+	  <FE ch="ch" data="data">
+	  <D Device="VME-RM" Plane="vme03rm" ch="ch" data="data"/></FE>
+	</for></for>
+      </VmeRm>
+      <!--___________________________________________________________________-->
+      <VmeCaenV820 address="0x20000000">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch"><D Device="scaler" plane="0" ch="ch"/></FE>
+	</for>
+      </VmeCaenV820> 
+      <!--___________________________________________________________________-->
+      <VmeCaenV820 address="0x20010000">
+	<for var="ch" from="0" to="31">
+	  <FE ch="ch"><D Device="scaler" plane="1" ch="ch"/></FE>
+	</for>
+      </VmeCaenV820>
+
+    </VmeMaster>
+<!-- Added 20120120 end -->
+
+    <!--_____________________________________________________________________-->
+   <!-- preamp swapped ? -->
+    <Copper node_id="0x101" name="copper01">
+      <for var="slot" from="0" to="3">
+	<FinesseEncoder slot="slot">
+	  <for var="ch" from="0" to="31"><for var="data" from="0" to="1">
+	    <FE ch="ch" data="data">
+	      <D Device="BC1" plane="0" ch="slot * 64 + ch * 2 + 1" data="data"/>
+	  </FE></for></for>
+      </FinesseEncoder></for>
+    </Copper> 
+    <!--_____________________________________________________________________-->
+    <Copper node_id="0x102" name="copper02">
+      <for var="slot" from="0" to="3">
+	<FinesseEncoder slot="slot">
+	  <for var="ch" from="0" to="31"><for var="data" from="0" to="1">
+	    <FE ch="ch" data="data">
+	      <D Device="BC1" plane="1" ch="64 * slot + 2 * ch + 1" data="data"/>
+	  </FE></for></for>
+      </FinesseEncoder></for>
+    </Copper>
+    <!--_____________________________________________________________________-->
+    <Copper node_id="0x103" name="copper03">
+      <for var="slot" from="0" to="3">
+	<FinesseEncoder slot="slot">
+	  <for var="ch" from="0" to="31"><for var="data" from="0" to="1">
+	    <FE ch="ch" data="data">
+	      <D Device="BC1" plane="2" ch="64 * slot + 2 * ch + 1" data="data"/>
+	    </FE></for></for>
+	</FinesseEncoder></for>
+    </Copper>
+    <!--_____________________________________________________________________-->
+    <Copper node_id="0x104" name="copper04">
+      <for var="slot" from="0" to="3">
+	<FinesseEncoder slot="slot">
+	  <for var="ch" from="0" to="31"><for var="data" from="0" to="1">
+	    <FE ch="ch" data="data">
+	      <D Device="BC1" plane="3" ch="64 * slot + 2 * ch + 1" data="data"/>
+	  </FE></for></for>
+      </FinesseEncoder></for>
+    </Copper>
+    <!--_____________________________________________________________________-->
+    <Copper node_id="0x105" name="copper05">
+      <for var="slot" from="0" to="3">
+	<FinesseEncoder slot="slot">
+	  <for var="ch" from="0" to="31"><for var="data" from="0" to="1">
+	    <FE ch="ch" data="data">
+	      <D Device="BC1" plane="4" ch="64 * slot + 2 * ch + 1" data="data"/>
+	    </FE></for></for>
+	</FinesseEncoder></for>
+    </Copper>
+    <!--_____________________________________________________________________-->
+    <Copper node_id="0x106" name="copper06">
+      <for var="slot" from="0" to="3">
+	<FinesseEncoder slot="slot">
+	  <for var="ch" from="0" to="31"><for var="data" from="0" to="1">
+	    <FE ch="ch" data="data">
+	      <D Device="BC1" plane="5" ch="64 * slot + 2 * ch + 1" data="data"/>
+	    </FE></for></for>
+	</FinesseEncoder></for>
+    </Copper>
+    <!--_____________________________________________________________________-->
+    <Copper node_id="0x107" name="copper07">
+      <for var="slot" from="0" to="3">
+	<FinesseEncoder slot="slot">
+	  <for var="ch" from="0" to="31"><for var="data" from="0" to="1">
+	    <FE ch="ch" data="data">
+	      <D Device="BC1" plane="0" ch="64 * slot + 62 - 2 * ch" data="data"/>
+	    </FE></for></for>
+	</FinesseEncoder></for>
+    </Copper>
+    <!--_____________________________________________________________________-->
+    <Copper node_id="0x108" name="copper08">
+      <for var="slot" from="0" to="3">
+	<FinesseEncoder slot="slot">
+	  <for var="ch" from="0" to="31"><for var="data" from="0" to="1">
+	    <FE ch="ch" data="data">
+	      <D Device="BC1" plane="1" ch="64 * slot - (2 * ch) + 62" data="data"/>
+	    </FE></for></for>
+	</FinesseEncoder></for>
+    </Copper>
+    <!--_____________________________________________________________________-->
+    <Copper node_id="0x109" name="copper09">
+      <for var="slot" from="0" to="3">
+	<FinesseEncoder slot="slot">
+	  <for var="ch" from="0" to="31"><for var="data" from="0" to="1">
+	    <FE ch="ch" data="data">
+	      <D Device="BC1" plane="2" ch="64 * slot + 62 - 2 * ch" data="data"/>
+	    </FE></for></for>
+	</FinesseEncoder></for>
+    </Copper>
+    <!--_____________________________________________________________________-->
+    <Copper node_id="0x10a" name="copper10">
+      <for var="slot" from="0" to="3">
+	<FinesseEncoder slot="slot">
+	  <for var="ch" from="0" to="31"><for var="data" from="0" to="1">
+	    <FE ch="ch" data="data">
+	      <D Device="BC1" plane="3" ch="64 * slot + 62 - 2 * ch" data="data"/>
+	    </FE></for></for>
+	</FinesseEncoder></for>
+    </Copper>
+    <!--_____________________________________________________________________-->
+    <Copper node_id="0x10b" name="copper11">
+      <for var="slot" from="0" to="3">
+	<FinesseEncoder slot="slot">
+	  <for var="ch" from="0" to="31"><for var="data" from="0" to="1">
+	    <FE ch="ch" data="data">
+	      <D Device="BC1" plane="4" ch="64 * slot + 62 - 2 * ch" data="data"/>
+	    </FE></for></for>
+	</FinesseEncoder></for>
+    </Copper>
+    <!--_____________________________________________________________________-->
+    <Copper node_id="0x10c" name="copper12">
+      <for var="slot" from="0" to="3">
+	<FinesseEncoder slot="slot">
+	  <for var="ch" from="0" to="31"><for var="data" from="0" to="1">
+	    <FE ch="ch" data="data">
+	      <D Device="BC1" plane="5" ch="64 * slot + 62 - 2 * ch" data="data"/>
+	    </FE></for></for>
+	</FinesseEncoder></for>
+    </Copper>
+   
+    <!-- Easiroc for BFT 20121125 added-->
+    <!--_____________________________________________________________________-->
+    <Easiroc node_id="0x2b5c" name="easiroc0">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="BFT" plane="0" ch="4 * ch + 1" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="BFT" plane="0" ch="4 * (ch -16) + 3" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b5d" name="easiroc1">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="BFT" plane="0" ch="4 * ch + 0" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="BFT" plane="0" ch="4 * (ch -16) + 2" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b5e" name="easiroc2">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="BFT" plane="1" ch="4 * ch + 0" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="BFT" plane="1" ch="4 * (ch -16) + 2" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b5f" name="easiroc3">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="BFT" plane="1" ch="4 * ch + 1" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="BFT" plane="1" ch="4 * (ch -16) + 3" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b60" name="easiroc4">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="BFT" plane="0" ch="4 * ch + 65" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="BFT" plane="0" ch="4 * (ch -16) + 67" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b61" name="easiroc5">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="BFT" plane="1" ch="4 * ch + 65" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="BFT" plane="1" ch="4 * (ch -16) + 67" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b62" name="easiroc6">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="BFT" plane="1" ch="4 * ch + 64" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="BFT" plane="1" ch="4 * (ch -16) + 66" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b64" name="easiroc8">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="BFT" plane="0" ch="4 * ch + 64" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="BFT" plane="0" ch="4 * (ch -16) + 66" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b63" name="easiroc7">
+      <for var="ch" from="0" to="7"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+	  <D Device="BFT" plane="0" ch="128 + 4 * ch + 2" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="8" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+	  <D Device="BFT" plane="0" ch="128 + 4 * (ch - 8) + 0" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="23"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="BFT" plane="1" ch="128 + 4 * (ch - 16) + 2" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="24" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="BFT" plane="1" ch="128 + 4 * (ch - 24) + 0" data="data"/>
+        </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b65" name="easiroc9">
+      <for var="ch" from="0" to="7"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+	  <D Device="BFT" plane="0" ch="128 + 4 * ch + 3" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="8" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+	  <D Device="BFT" plane="0" ch="128 + 4 * (ch - 8) + 1" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="23"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="BFT" plane="1" ch="128 + 4 * (ch - 16) + 3" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="24" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="BFT" plane="1" ch="128 + 4 * (ch - 24) + 1" data="data"/>
+        </FE></for></for>
+    </Easiroc>
+
+    <!-- Easiroc for SFT-X 20121203 added-->
+    <!--_____________________________________________________________________-->
+    <Easiroc node_id="0x2b66" name="easiroc10">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="0" ch="2 * ch + 0" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="0" ch="2 * (ch -16) + 1" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b67" name="easiroc11">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="0" ch="2 * ch + 32" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="0" ch="2 * (ch -16) + 33" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b68" name="easiroc12">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="1" ch="2 * ch + 32" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="1" ch="2 * (ch -16) + 33" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b69" name="easiroc13">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="0" ch="2 * ch + 96" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="0" ch="2 * (ch -16) + 97" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b6a" name="easiroc14">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="1" ch="2 * ch + 96" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="1" ch="2 * (ch -16) + 97" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b6b" name="easiroc15">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="0" ch="2 * ch + 160" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="0" ch="2 * (ch -16) + 161" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b6c" name="easiroc16">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="1" ch="2 * ch + 160" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="1" ch="2 * (ch -16) + 161" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b6d" name="easiroc17">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="0" ch="2 * ch + 224" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="0" ch="2 * (ch -16) + 225" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b6e" name="easiroc18">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="1" ch="2 * ch + 0" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="1" ch="2 * (ch -16) + 1" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b6f" name="easiroc19">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="0" ch="2 * ch + 64" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="0" ch="2 * (ch -16) + 65" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b70" name="easiroc20">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="1" ch="2 * ch + 64" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="1" ch="2 * (ch -16) + 65" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b71" name="easiroc21">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="0" ch="2 * ch + 128" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="0" ch="2 * (ch -16) + 129" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b72" name="easiroc22">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="1" ch="2 * ch + 128" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="1" ch="2 * (ch -16) + 129" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b73" name="easiroc23">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="0" ch="2 * ch + 192" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="0" ch="2 * (ch -16) + 193" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b74" name="easiroc24">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="1" ch="2 * ch + 192" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="1" ch="2 * (ch -16) + 193" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b75" name="easiroc25">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="1" ch="2 * ch + 224" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="1" ch="2 * (ch -16) + 225" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <!-- Easiroc for SFT-UV 20121203 added-->
+    <!--_____________________________________________________________________-->
+    <Easiroc node_id="0x2b76" name="easiroc26">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="3" ch="2 * ch + 0" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="3" ch="2 * (ch -16) + 1" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b77" name="easiroc27">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="3" ch="2 * ch + 64" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="3" ch="2 * (ch -16) + 65" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b78" name="easiroc28">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="2" ch="2 * ch + 224" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="2" ch="2 * (ch -16) + 225" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b79" name="easiroc29">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="2" ch="2 * ch + 288" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="2" ch="2 * (ch -16) + 289" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b7a" name="easiroc30">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="3" ch="2 * ch + 32" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="3" ch="2 * (ch -16) + 33" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b7b" name="easiroc31">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="3" ch="2 * ch + 96" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="3" ch="2 * (ch -16) + 97" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b7c" name="easiroc32">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="3" ch="2 * ch + 160" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="3" ch="2 * (ch -16) + 161" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b7d" name="easiroc33">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="2" ch="2 * ch + 160" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="2" ch="2 * (ch -16) + 161" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b7e" name="easiroc34">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="2" ch="2 * ch + 97" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="2" ch="2 * (ch -16) + 96" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b7f" name="easiroc35">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="2" ch="2 * ch + 32" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="2" ch="2 * (ch -16) + 33" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b80" name="easiroc36">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="3" ch="2 * ch + 128" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="3" ch="2 * (ch -16) + 129" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b81" name="easiroc37">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="3" ch="2 * ch + 192" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="3" ch="2 * (ch -16) + 193" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b82" name="easiroc38">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="3" ch="2 * ch + 256" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="3" ch="2 * (ch -16) + 257" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b83" name="easiroc39">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="2" ch="2 * ch + 256" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="2" ch="2 * (ch -16) + 257" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b84" name="easiroc40">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="2" ch="2 * ch + 192" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="2" ch="2 * (ch -16) + 193" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b85" name="easiroc41">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="2" ch="2 * ch + 128" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="2" ch="2 * (ch -16) + 129" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b86" name="easiroc42">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="3" ch="2 * ch + 224" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="3" ch="2 * (ch -16) + 225" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b87" name="easiroc43">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="3" ch="2 * ch + 288" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="3" ch="2 * (ch -16) + 289" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b88" name="easiroc44">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="2" ch="2 * ch + 0" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="2" ch="2 * (ch -16) + 1" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+
+    <Easiroc node_id="0x2b89" name="easiroc45">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+          <D Device="SFT" plane="2" ch="2 * ch + 64" data="data"/>
+        </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="1">
+        <FE ch="ch" data="data">
+            <D Device="SFT" plane="2" ch="2 * (ch -16) + 65" data="data"/>
+       </FE></for></for>
+    </Easiroc>
+ 
+    <!--_____________________________________________________________________-->
+  </DAQNode>    
+
+</channel_map>

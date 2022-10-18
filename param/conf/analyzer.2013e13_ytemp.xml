@@ -1,0 +1,12 @@
+UNPACKER: ../UNPACK/unpacker.xml
+#DIGIT:    ../DIGIT/digit_data_e13_tmp.xml
+#CMAP:     ../CMAP/channel_map_e13_tmp.xml
+DIGIT:    ../DIGIT/digit_data_e13_20130310.xml
+CMAP:     ../CMAP/channel_map_e13_20130310.xml
+DCGEOM:   ../DCGEO/DCgeom.param_20121216
+DRFTPM:   ../DCDRFT/DCDrift.param_4073
+TDCCALIB: ../DCTDC/DCTdcCalib.param_4073
+HDPRM: ../HDPRM/HodoParam.E13.tmp
+HDPHC: ../HDPHC/HodoPHC.01311.param
+makehist: ../MKHST/makehist_2013e13.txt
+OFSET: ../OFSET/ofs.01311.csv

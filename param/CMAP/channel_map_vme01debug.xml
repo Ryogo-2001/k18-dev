@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<channel_map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="schema/channel_map.xsd">
+
+  <!--________________________________________________________________-->
+  <DAQNode node_id="1" name="k18eb">
+    <!--________________________________________________________________-->
+    <VmeMaster node_id="0x201" name="vme01">
+      <VmeRm address="0xff010000">
+    	<for var="ch" from="0" to="1"><for var="data" from="0" to="3">
+    	  <FE ch="ch" data="data">
+    	  <D Device="VME-RM" Plane="vme01" ch="ch" data="data"/></FE>
+    	</for></for>
+      </VmeRm>
+      <VmeCaenV792 address="0xad010000">
+    	<for var="ch" from="0" to="31">
+    	  <FE ch="ch"><D Device="v792" plane="0" segment="ch" data="0"/></FE>
+    	</for>
+      </VmeCaenV792>
+      <VmeCaenV792 address="0xad020000">
+    	<for var="ch" from="0" to="31">
+    	  <FE ch="ch"><D Device="v792" plane="1" segment="ch" data="0"/></FE>
+    	</for>
+      </VmeCaenV792>
+      <VmeCaenV792 address="0xad030000">
+    	<for var="ch" from="0" to="31">
+    	  <FE ch="ch"><D Device="v792" plane="2" segment="ch" data="0"/></FE>
+    	</for>
+      </VmeCaenV792>
+      <VmeCaenV792 address="0xad040000">
+    	<for var="ch" from="0" to="31">
+    	  <FE ch="ch"><D Device="v792" plane="3" segment="ch" data="0"/></FE>
+    	</for>
+      </VmeCaenV792>
+      <VmeCaenV792 address="0xad050000">
+    	<for var="ch" from="0" to="31">
+    	  <FE ch="ch"><D Device="v792" plane="4" segment="ch" data="0"/></FE>
+    	</for>
+      </VmeCaenV792>
+    </VmeMaster>
+  </DAQNode>
+</channel_map>

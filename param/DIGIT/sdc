@@ -1,0 +1,748 @@
+[01;34m<?xml[m [32mversion[m[31m=[m[31m"1.0"[m [32mencoding[m[31m=[m[31m"UTF-8"[m [01;34m?>[m
+
+[01;34m<digit_data[m [32mxmlns:xsi[m[31m=[m[31m"http://www.w3.org/2001/XMLSchema-instance"[m
+	    [32mxsi:noNamespaceSchemaLocation[m[31m=[m[31m"schema/digit.xsd"[m[01;34m>[m
+
+  [01;34m<device[m [32mid[m[31m=[m[31m"0xff"[m [32mname[m[31m=[m[31m"null"[m[01;34m/>[m
+
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"110"[m [32mname[m[31m=[m[31m"BFT"[m[01;34m>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"upstream"[m[01;34m><for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"159"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"downstream"[m[01;34m><for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"159"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"116"[m [32mname[m[31m=[m[31m"VMEEASIROC"[m[01;34m>[m
+    [01;34m<for[m [32mvar[m[31m=[m[31m"plane"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"95"[m[01;34m><plane[m [32mid[m[31m=[m[31m"plane"[m[01;34m>[m
+      [01;34m<for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+	[01;34m<ch[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"highgain"[m[01;34m/>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"lowgain"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane></for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"BH1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"10"[m[01;34m>[m
+    [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m><for[m [32mvar[m[31m=[m[31m"UorD"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"1"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"UorD"[m[01;34m>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"adc"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"fpga_leading"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"fpga_trailing"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"fpga_cstop"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"4"[m [32mname[m[31m=[m[31m"fpga_overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</segment></for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"BH2"[m[01;34m><for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"7"[m[01;34m>[m
+    [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m><for[m [32mvar[m[31m=[m[31m"UorD"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"1"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"UorD"[m[01;34m>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"adc"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"fpga_leading"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"fpga_trailing"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"fpga_cstop"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"4"[m [32mname[m[31m=[m[31m"fpga_overflow"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"5"[m [32mname[m[31m=[m[31m"fpga_meantime"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</segment></for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"BAC"[m[01;34m>[m
+    [01;34m<for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"1"[m[01;34m>[m
+      [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"adc"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"tdc"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+    [01;34m</segment></for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"6"[m [32mname[m[31m=[m[31m"SCH"[m[01;34m>[m
+    [01;34m<for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+      [01;34m</segment>[m
+    [01;34m</for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"7"[m [32mname[m[31m=[m[31m"TOF"[m[01;34m><for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"31"[m[01;34m>[m
+    [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m><for[m [32mvar[m[31m=[m[31m"UorD"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"1"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"UorD"[m[01;34m>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"adc"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"fpga_leading"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"fpga_trailing"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"fpga_cstop"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"4"[m [32mname[m[31m=[m[31m"fpga_overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</segment></for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"8"[m [32mname[m[31m=[m[31m"HTOF"[m[01;34m><for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"34"[m[01;34m>[m
+    [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m><for[m [32mvar[m[31m=[m[31m"UorD"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"1"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"UorD"[m[01;34m>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"adc"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"fpga_leading"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"fpga_trailing"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"fpga_cstop"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"4"[m [32mname[m[31m=[m[31m"fpga_overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</segment></for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"9"[m [32mname[m[31m=[m[31m"BVH"[m[01;34m><for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"3"[m[01;34m>[m
+    [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"adc"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"tdc"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+    [01;34m</segment></for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"12"[m [32mname[m[31m=[m[31m"LAC"[m[01;34m><for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"127"[m[01;34m>[m
+    [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"adc"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"tdc"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</segment></for>[m
+  [01;34m</device>[m
+  [36m<!--____________WC____________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"13"[m [32mname[m[31m=[m[31m"WC"[m[01;34m><for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"19"[m[01;34m>[m
+    [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+      [01;34m<for[m [32mvar[m[31m=[m[31m"UorD"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"2"[m[01;34m>[m
+	[01;34m<ch[m [32mid[m[31m=[m[31m"UorD"[m[01;34m>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"adc"[m[01;34m/>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"tdc"[m[01;34m/>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</segment></for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"21"[m [32mname[m[31m=[m[31m"TFlag"[m[01;34m><for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"127"[m[01;34m>[m
+    [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"adc"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"tdc"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</segment></for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"22"[m [32mname[m[31m=[m[31m"Scaler"[m[01;34m>[m
+    [01;34m<for[m [32mvar[m[31m=[m[31m"plane"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"7"[m[01;34m><plane[m [32mid[m[31m=[m[31m"plane"[m[01;34m>[m
+      [01;34m<for[m [32mvar[m[31m=[m[31m"ch"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"127"[m[01;34m><ch[m [32mid[m[31m=[m[31m"ch"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"scaler"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane></for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"25"[m [32mname[m[31m=[m[31m"MsT"[m[01;34m>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"TOF"[m[01;34m>[m
+      [01;34m<for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"31"[m[01;34m>[m
+	[01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+	  [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+            [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"hr_leading"[m[01;34m/>[m
+	  [01;34m</ch>[m
+      [01;34m</segment></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"SCH"[m[01;34m>[m
+      [01;34m<for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+	[01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+	  [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+            [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"lr_leading"[m[01;34m/>[m
+	  [01;34m</ch>[m
+      [01;34m</segment></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"tag"[m[01;34m><ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+      [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"clear"[m[01;34m/>[m
+      [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"accept"[m[01;34m/>[m
+      [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"final_clear"[m[01;34m/>[m
+      [01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"consolation_accept"[m[01;34m/>[m
+      [01;34m<data[m [32mid[m[31m=[m[31m"4"[m [32mname[m[31m=[m[31m"fast_clear"[m[01;34m/>[m
+      [01;34m<data[m [32mid[m[31m=[m[31m"5"[m [32mname[m[31m=[m[31m"level2"[m[01;34m/>[m
+      [01;34m<data[m [32mid[m[31m=[m[31m"6"[m [32mname[m[31m=[m[31m"no_decision"[m[01;34m/>[m
+    [01;34m</ch></plane>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"26"[m [32mname[m[31m=[m[31m"Mtx3D"[m[01;34m>[m
+    [01;34m<for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"tfbh"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"ttof"[m[01;34m/>[m
+        [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"tch"[m[01;34m/>[m
+      [01;34m</segment>[m
+    [01;34m</for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"103"[m [32mname[m[31m=[m[31m"BC3"[m[01;34m>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"x0"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"x1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"u0"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"u1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"4"[m [32mname[m[31m=[m[31m"v0"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"5"[m [32mname[m[31m=[m[31m"v1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"104"[m [32mname[m[31m=[m[31m"BC4"[m[01;34m>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"x0"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"x1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"u0"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"u1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"4"[m [32mname[m[31m=[m[31m"v0"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"5"[m [32mname[m[31m=[m[31m"v1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"105"[m [32mname[m[31m=[m[31m"SDC1"[m[01;34m>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"x1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"x2"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"v1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"v2"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"4"[m [32mname[m[31m=[m[31m"u1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"5"[m [32mname[m[31m=[m[31m"u2"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"106"[m [32mname[m[31m=[m[31m"SDC2"[m[01;34m>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"x1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"69"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"x2"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"69"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"y1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"39"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"y2"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"39"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"107"[m [32mname[m[31m=[m[31m"SDC3"[m[01;34m>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"x1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"127"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"x2"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"127"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"y1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"127"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"y2"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"127"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"108"[m [32mname[m[31m=[m[31m"SDC4"[m[01;34m>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"y1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"y2"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"x1"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"95"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"x2"[m[01;34m><for[m [32mvar[m[31m=[m[31m"wire"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"95"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"wire"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+      [01;34m</ch></for>[m
+    [01;34m</plane>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"70"[m [32mname[m[31m=[m[31m"TPC"[m[01;34m>[m
+    [01;34m<for[m [32mvar[m[31m=[m[31m"plane"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"31"[m[01;34m><plane[m [32mid[m[31m=[m[31m"plane"[m[01;34m>[m
+      [01;34m<for[m [32mvar[m[31m=[m[31m"ch"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"271"[m[01;34m>[m
+	[01;34m<ch[m [32mid[m[31m=[m[31m"ch"[m[01;34m>[m
+	  [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"adc"[m[01;34m/>[m
+	  [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"tdc_high"[m[01;34m/>[m
+	  [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"tdc_low"[m[01;34m/>[m
+	[01;34m</ch>[m
+      [01;34m</for>[m
+    [01;34m</plane></for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"170"[m [32mname[m[31m=[m[31m"TPCdummy"[m[01;34m>[m
+    [01;34m<for[m [32mvar[m[31m=[m[31m"plane"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"31"[m[01;34m><plane[m [32mid[m[31m=[m[31m"plane"[m[01;34m>[m
+      [01;34m<for[m [32mvar[m[31m=[m[31m"ch"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"271"[m[01;34m>[m
+	[01;34m<ch[m [32mid[m[31m=[m[31m"ch"[m[01;34m>[m
+	  [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"adc"[m[01;34m/>[m
+	[01;34m</ch>[m
+      [01;34m</for>[m
+    [01;34m</plane></for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"81"[m [32mname[m[31m=[m[31m"VME-RM"[m[01;34m>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"vme01"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"tag"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"lock_bit"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"vme02"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"tag"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"lock_bit"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"vme03"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"tag"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"lock_bit"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"vme04"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"tag"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"lock_bit"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"4"[m [32mname[m[31m=[m[31m"vme05"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"tag"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"lock_bit"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"5"[m [32mname[m[31m=[m[31m"vme06"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"tag"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"lock_bit"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"6"[m [32mname[m[31m=[m[31m"vme07"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"tag"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"lock_bit"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"7"[m [32mname[m[31m=[m[31m"vme08"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"tag"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"lock_bit"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"8"[m [32mname[m[31m=[m[31m"vme09"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"tag"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"lock_bit"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"9"[m [32mname[m[31m=[m[31m"vme10"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"tag"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"lock_bit"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"10"[m [32mname[m[31m=[m[31m"emc01"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"tag"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"lock_bit"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"serial"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"time"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"82"[m [32mname[m[31m=[m[31m"CAMAC-RM"[m[01;34m>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"ccnet01"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"tag"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"2ndAcc"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"FastClear"[m[01;34m/>[m
+      [01;34m</ch>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"lock_bit"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"2ndAcc"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"FastClear"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"83"[m [32mname[m[31m=[m[31m"HUL-RM"[m[01;34m>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"hul01scr_1"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"sinc"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"lock"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"hul01scr_2"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"sinc"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"lock"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"hul02sdc_1"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"sinc"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"lock"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"hul02mst_1"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"sinc"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"lock"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"4"[m [32mname[m[31m=[m[31m"hulbc10"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"sinc"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"lock"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"5"[m [32mname[m[31m=[m[31m"hulbc11"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"sinc"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"lock"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+    [01;34m<plane[m [32mid[m[31m=[m[31m"6"[m [32mname[m[31m=[m[31m"hul_hbx_scr"[m[01;34m>[m
+      [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"event"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"spill"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"sinc"[m[01;34m/>[m
+	[01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"lock"[m[01;34m/>[m
+      [01;34m</ch>[m
+    [01;34m</plane>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"999"[m [32mname[m[31m=[m[31m"VMEdummy"[m[01;34m>[m
+    [01;34m<for[m [32mvar[m[31m=[m[31m"plane"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"31"[m[01;34m>[m
+      [01;34m<plane[m [32mid[m[31m=[m[31m"plane"[m[01;34m>[m
+	[01;34m<for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+	  [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+	    [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+	      [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"adc"[m[01;34m/>[m
+	      [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"tdc"[m[01;34m/>[m
+	      [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m</ch></segment></for>[m
+    [01;34m</plane></for>[m
+  [01;34m</device>[m
+
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"998"[m [32mname[m[31m=[m[31m"HR-TDCdummy"[m[01;34m>[m
+    [01;34m<for[m [32mvar[m[31m=[m[31m"plane"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"31"[m[01;34m>[m
+      [01;34m<plane[m [32mid[m[31m=[m[31m"plane"[m[01;34m>[m
+	[01;34m<for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"127"[m[01;34m>[m
+	  [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+	    [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+	      [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+	      [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	      [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"stop"[m[01;34m/>[m
+	      [01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+	[01;34m</ch></segment></for>[m
+    [01;34m</plane></for>[m
+  [01;34m</device>[m
+  [36m<!--________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"997"[m [32mname[m[31m=[m[31m"VMEEASIROCdummy"[m[01;34m>[m
+    [01;34m<for[m [32mvar[m[31m=[m[31m"plane"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"99"[m[01;34m>[m
+      [01;34m<plane[m [32mid[m[31m=[m[31m"plane"[m[01;34m>[m
+	[01;34m<for[m [32mvar[m[31m=[m[31m"seg"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"63"[m[01;34m>[m
+	  [01;34m<segment[m [32mid[m[31m=[m[31m"seg"[m[01;34m>[m
+	    [01;34m<ch[m [32mid[m[31m=[m[31m"0"[m[01;34m>[m
+              [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+              [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+              [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"highgain"[m[01;34m/>[m
+              [01;34m<data[m [32mid[m[31m=[m[31m"3"[m [32mname[m[31m=[m[31m"lowgain"[m[01;34m/>[m
+	[01;34m</ch></segment></for>[m
+    [01;34m</plane></for>[m
+  [01;34m</device>[m
+  [36m<!--_________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"996"[m [32mname[m[31m=[m[31m"HULMHTDCdummy"[m[01;34m>[m
+    [01;34m<for[m [32mvar[m[31m=[m[31m"plane"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"31"[m[01;34m>[m
+      [01;34m<plane[m [32mid[m[31m=[m[31m"plane"[m[01;34m>[m [01;34m<for[m [32mvar[m[31m=[m[31m"ch"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"127"[m[01;34m>[m
+	[01;34m<ch[m [32mid[m[31m=[m[31m"ch"[m[01;34m>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"2"[m [32mname[m[31m=[m[31m"overflow"[m[01;34m/>[m
+	[01;34m</ch></for>[m
+    [01;34m</plane></for>[m
+  [01;34m</device>[m
+  [36m<!--_________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"995"[m [32mname[m[31m=[m[31m"Easirocdummy"[m[01;34m>[m
+    [01;34m<for[m [32mvar[m[31m=[m[31m"plane"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"31"[m[01;34m>[m
+      [01;34m<plane[m [32mid[m[31m=[m[31m"plane"[m[01;34m>[m [01;34m<for[m [32mvar[m[31m=[m[31m"ch"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"127"[m[01;34m>[m
+	[01;34m<ch[m [32mid[m[31m=[m[31m"ch"[m[01;34m>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"leading"[m[01;34m/>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"1"[m [32mname[m[31m=[m[31m"trailing"[m[01;34m/>[m
+	[01;34m</ch></for>[m
+    [01;34m</plane></for>[m
+  [01;34m</device>[m
+  [36m<!--_________________________________________________________________-->[m
+  [01;34m<device[m [32mid[m[31m=[m[31m"993"[m [32mname[m[31m=[m[31m"ScalerDummy"[m[01;34m>[m
+    [01;34m<for[m [32mvar[m[31m=[m[31m"plane"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"31"[m[01;34m>[m
+      [01;34m<plane[m [32mid[m[31m=[m[31m"plane"[m[01;34m>[m [01;34m<for[m [32mvar[m[31m=[m[31m"ch"[m [32mfrom[m[31m=[m[31m"0"[m [32mto[m[31m=[m[31m"127"[m[01;34m>[m
+	[01;34m<ch[m [32mid[m[31m=[m[31m"ch"[m[01;34m>[m
+          [01;34m<data[m [32mid[m[31m=[m[31m"0"[m [32mname[m[31m=[m[31m"scaler"[m[01;34m/>[m
+	[01;34m</ch></for>[m
+    [01;34m</plane></for>[m
+  [01;34m</device>[m
+  [36m<!--_________________________________________________________________-->[m
+[01;34m</digit_data>[m

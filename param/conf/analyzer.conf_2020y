@@ -1,0 +1,23 @@
+#
+#  analyzer_20201213.conf
+#
+
+UNPACK:		../UNPACK/unpacker.xml
+DIGIT:		../DIGIT/digit_data_20201209.xml
+CMAP:		../CMAP/channel_map_20201210.xml
+BH2FLT:		../BH2FLT/BH2Filter_20180603
+DCGEO:		../DCGEO/DCGeomParam_E40_2019feb_0
+DCDRFT:		../DCDRFT/DCDriftParam_20190211
+DCTDC:		../DCTDC/DCTdcCalib_20190212
+#HDPRM:		../HDPRM/HodoParam_e03_20201215
+HDPRM:		../HDPRM/HodoParam_e03_20201215y
+HDPHC:		../HDPHC/HodoPHCParam_02189
+FLDMAP:		../KURAMA/KuramaFieldMap_E07_20170907
+# FLDNMR:		0.762269
+# FLDCALC:	0.750080
+# PK18:		1.8
+# K18TM:	../K18TM/K18MatrixParam_0
+MATRIX2D1:	../MATRIX/mtx2d1_e03_GEANT4_normal.txt
+MATRIX2D2:	../MATRIX/mtx2d2_e03_GEANT4_normal.txt
+MATRIX3D:	../MATRIX/mtx3d_e03_GEANT4_normal.txt
+USER:		../USER/UserParam_20201208.txt

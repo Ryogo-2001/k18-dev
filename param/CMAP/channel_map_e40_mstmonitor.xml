@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<channel_map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="schema/channel_map.xsd">
+
+  <!--________________________________________________________________-->
+  <DAQNode node_id="1" name="k18eb">
+    <!--________________________________________________________________-->
+    <VmeMaster node_id="0x201" name="vme01">
+      <VmeRm address="0xff010000">
+    	<for var="ch" from="0" to="1"><for var="data" from="0" to="3">
+    	  <FE ch="ch" data="data">
+    	  <D Device="VME-RM" Plane="vme01" ch="ch" data="data"/></FE>
+    	</for></for>
+      </VmeRm>
+      <VmeCaenV792 address="0xad010000">
+    	<FE ch="0"><D Device="BH1" segment="0" ch="0" data="0"/></FE>
+    	<FE ch="1"><D Device="BH1" segment="1" ch="0" data="0"/></FE>
+    	<FE ch="2"><D Device="BH1" segment="2" ch="0" data="0"/></FE>
+    	<FE ch="3"><D Device="BH1" segment="3" ch="0" data="0"/></FE>
+    	<FE ch="4"><D Device="BH1" segment="4" ch="0" data="0"/></FE>
+    	<FE ch="5"><D Device="BH1" segment="5" ch="0" data="0"/></FE>
+    	<FE ch="6"><D Device="BH1" segment="6" ch="0" data="0"/></FE>
+    	<FE ch="7"><D Device="BH1" segment="7" ch="0" data="0"/></FE>
+    	<FE ch="8"><D Device="BH1" segment="8" ch="0" data="0"/></FE>
+    	<FE ch="9"><D Device="BH1" segment="9" ch="0" data="0"/></FE>
+    	<FE ch="10"><D Device="BH1" segment="10" ch="0" data="0"/></FE>
+    	<!-- FE ch="11"><D Device="BH2" segment="0" ch="0" data="0"/></FE -->
+    	<FE ch="16"><D Device="BH1" segment="0" ch="1" data="0"/></FE>
+    	<FE ch="17"><D Device="BH1" segment="1" ch="1" data="0"/></FE>
+    	<FE ch="18"><D Device="BH1" segment="2" ch="1" data="0"/></FE>
+    	<FE ch="19"><D Device="BH1" segment="3" ch="1" data="0"/></FE>
+    	<FE ch="20"><D Device="BH1" segment="4" ch="1" data="0"/></FE>
+    	<FE ch="21"><D Device="BH1" segment="5" ch="1" data="0"/></FE>
+    	<FE ch="22"><D Device="BH1" segment="6" ch="1" data="0"/></FE>
+    	<FE ch="23"><D Device="BH1" segment="7" ch="1" data="0"/></FE>
+    	<FE ch="24"><D Device="BH1" segment="8" ch="1" data="0"/></FE>
+    	<FE ch="25"><D Device="BH1" segment="9" ch="1" data="0"/></FE>
+    	<FE ch="26"><D Device="BH1" segment="10" ch="1" data="0"/></FE>
+    	<!--FE  ch="27"><D Device="BH2" segment="0" ch="1" data="0"/></FE -->
+    	<for var="ch" from="11" to="15">
+    	  <FE ch="ch"><D Device="VMEdummy" plane="0" segment="ch" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="27" to="31">
+    	  <FE ch="ch"><D Device="VMEdummy" plane="0" segment="ch" data="0"/></FE>
+    	</for>
+      </VmeCaenV792>
+      <VmeCaenV792 address="0xad020000">
+    	<FE ch="0"><D Device="BH2" segment="0" ch="0" data="0"/></FE>
+    	<FE ch="1"><D Device="VMEdummy" plane="1" segment="1" ch="0" data="0"/></FE>
+    	<FE ch="2"><D Device="BH2" segment="7" ch="0" data="0"/></FE>
+    	<FE ch="3"><D Device="BH2" segment="6" ch="1" data="0"/></FE>
+    	<FE ch="4"><D Device="BH2" segment="1" ch="1" data="0"/></FE>
+    	<FE ch="5"><D Device="BH2" segment="4" ch="1" data="0"/></FE>
+    	<FE ch="6"><D Device="BH2" segment="0" ch="1" data="0"/></FE>
+    	<FE ch="7"><D Device="VMEdummy" plane="1" segment="7" ch="0" data="0"/></FE>
+    	<FE ch="8"><D Device="BH2" segment="1" ch="0" data="0"/></FE>
+    	<FE ch="9"><D Device="VMEdummy" plane="1" segment="9" ch="0" data="0"/></FE>
+    	<FE ch="10"><D Device="VMEdummy" plane="1" segment="10" ch="0" data="0"/></FE>
+    	<FE ch="11"><D Device="VMEdummy" plane="1" segment="11" ch="0" data="0"/></FE>
+    	<FE ch="12"><D Device="BH2" segment="7" ch="1" data="0"/></FE>
+    	<FE ch="13"><D Device="BH2" segment="4" ch="0" data="0"/></FE>
+    	<FE ch="14"><D Device="BH2" segment="5" ch="0" data="0"/></FE>
+    	<FE ch="15"><D Device="VMEdummy" plane="1" segment="15" ch="0" data="0"/></FE>
+    	<FE ch="16"><D Device="VMEdummy" plane="1" segment="16" ch="0" data="0"/></FE>
+    	<FE ch="17"><D Device="VMEdummy" plane="1" segment="17" ch="0" data="0"/></FE>
+    	<FE ch="18"><D Device="BH2" segment="2" ch="0" data="0"/></FE>
+    	<FE ch="19"><D Device="BH2" segment="3" ch="0" data="0"/></FE>
+    	<FE ch="20"><D Device="VMEdummy" plane="1" segment="20" ch="0" data="0"/></FE>
+    	<FE ch="21"><D Device="VMEdummy" plane="1" segment="21" ch="0" data="0"/></FE>
+    	<FE ch="22"><D Device="BH2" segment="6" ch="0" data="0"/></FE>
+    	<FE ch="23"><D Device="VMEdummy" plane="1" segment="23" ch="0" data="0"/></FE>
+    	<FE ch="24"><D Device="VMEdummy" plane="1" segment="24" ch="0" data="0"/></FE>
+    	<FE ch="25"><D Device="VMEdummy" plane="1" segment="24" ch="0" data="0"/></FE>
+    	<FE ch="26"><D Device="BH2" segment="2" ch="1" data="0"/></FE>
+    	<FE ch="27"><D Device="BH2" segment="3" ch="1" data="0"/></FE>
+    	<FE ch="28"><D Device="VMEdummy" plane="1" segment="28" ch="0" data="0"/></FE>
+    	<FE ch="29"><D Device="BH2" segment="5" ch="1" data="0"/></FE>
+    	<FE ch="30"><D Device="VMEdummy" plane="1" segment="30" ch="0" data="0"/></FE>
+    	<FE ch="31"><D Device="VMEdummy" plane="1" segment="31" ch="0" data="0"/></FE>
+      </VmeCaenV792>
+      <VmeCaenV792 address="0xad030000">
+        <for var="ch" from="0" to="23">
+          <FE ch="ch"><D Device="TOF" segment="ch" ch="0" data="0"/></FE>
+        </for>
+        <for var="ch" from="24" to="31">
+          <FE ch="ch"><D Device="VMEdummy" plane="2" segment="ch" data="0"/></FE>
+        </for>
+      </VmeCaenV792>
+      <VmeCaenV792 address="0xad040000">
+        <for var="ch" from="0" to="23">
+          <FE ch="ch"><D Device="TOF" segment="ch" ch="1" data="0"/></FE>
+        </for>
+        <for var="ch" from="24" to="31">
+          <FE ch="ch"><D Device="VMEdummy" plane="3" segment="ch" data="0"/></FE>
+        </for>
+      </VmeCaenV792>
+      <VmeCaenV792 address="0xad050000">
+        <FE ch="0"><D Device="VMEdummy" plane="4" segment="0" data="0"/></FE>
+        <FE ch="1"><D Device="SAC" segment="0" ch="0" data="0"/></FE>
+        <FE ch="2"><D Device="SAC" segment="1" ch="0" data="0"/></FE>
+        <FE ch="3"><D Device="SAC" segment="2" ch="0" data="0"/></FE>
+        <FE ch="4"><D Device="SAC" segment="3" ch="0" data="0"/></FE>
+        <for var="ch" from="5" to="31">
+          <FE ch="ch"><D Device="VMEdummy" plane="4" segment="ch" data="0"/></FE>
+        </for>
+      </VmeCaenV792>
+      <!--VmeCaenV775 address="0xbd050000">
+    	<for var="ch" from="0" to="31">
+    	  <FE ch="ch"><D Device="VMEdummy" plane="4" segment="ch" data="1"/></FE>
+    	</for>
+      </VmeCaenV775>-->
+    </VmeMaster>
+
+    <!--________________________________________________________________-->
+    <HulHRTdc node_id="0x606" name="hul01hr-1">
+      <for var="ch" from="0" to="10"><for var="data" from="0" to="3">
+	<FE ch="ch" data="data"><D Device="BH1" segment="ch" ch="0" data="data + 1"/>
+      </FE></for></for>
+      <for var="ch" from="11" to="15"><for var="data" from="0" to="3">
+	<FE ch="ch" data="data"><D Device="HR-TDCdummy" plane="0" segment="ch" ch="0" data="data"/>
+      </FE></for></for>
+      <for var="ch" from="16" to="26"><for var="data" from="0" to="3">
+	<FE ch="ch" data="data"><D Device="BH1" segment="ch - 16" ch="1" data="data + 1"/>
+      </FE></for></for>
+      <for var="ch" from="27" to="31"><for var="data" from="0" to="3">
+	<FE ch="ch" data="data"><D Device="HR-TDCdummy" plane="0" segment="ch" ch="0" data="data"/>
+      </FE></for></for>
+      <for var="ch" from="32" to="39"><for var="data" from="0" to="3">
+	<FE ch="ch" data="data"><D Device="BH2" segment="ch - 32" ch="0" data="data + 1"/>
+      </FE></for></for>
+      <for var="ch" from="40" to="47"><for var="data" from="0" to="3">
+	<FE ch="ch" data="data"><D Device="BH2" segment="ch - 40" ch="1" data="data + 1"/>
+      </FE></for></for>
+      <for var="ch" from="48" to="55">
+	<FE ch="ch" data="0"><D Device="BH2" segment="ch - 48" ch="0" data="5"/>
+      </FE></for>
+      <for var="ch" from="56" to="63"><for var="data" from="0" to="3">
+	<FE ch="ch" data="data"><D Device="HR-TDCdummy" plane="0" segment="ch" ch="0" data="data"/>
+      </FE></for></for>
+    </HulHRTdc>
+    <!-- _____________________________________________________________-->
+    <HulHRTdc node_id="0x607" name="hul01hr-2">
+      <for var="ch" from="0" to="15"><for var="data" from="0" to="3">
+	<FE ch="ch" data="data"><D Device="TOF" segment="ch" ch="0" data="data + 1"/>
+      </FE></for></for>
+      <for var="ch" from="16" to="31"><for var="data" from="0" to="3">
+	<FE ch="ch" data="data"><D Device="TOF" segment="ch - 16" ch="1" data="data + 1"/>
+      </FE></for></for>
+      <for var="ch" from="32" to="39"><for var="data" from="0" to="3">
+	<FE ch="ch" data="data"><D Device="TOF" segment="ch - 16" ch="0" data="data + 1"/>
+      </FE></for></for>
+      <for var="ch" from="40" to="47"><for var="data" from="0" to="3">
+	<FE ch="ch" data="data"><D Device="TOF" segment="ch - 24" ch="1" data="data + 1"/>
+      </FE></for></for>
+      <for var="ch" from="48" to="63"><for var="data" from="0" to="3">
+	<FE ch="ch" data="data"><D Device="HR-TDCdummy" plane="0" segment="ch" ch="0" data="data"/>
+      </FE></for></for>
+    </HulHRTdc>
+
+    <!--________________________________________________________________-->
+    <HulMHTdc node_id="0x631" name="hul02misc-1">
+       <for var="ch" from="0" to="27"><for var="data" from="0" to="2">
+         <FE ch="ch" data="data"><D Device="LC" segment="ch" data="data + 1"/></FE>
+       </for></for>
+       <for var="ch" from="28" to="31"><for var="data" from="0" to="2">
+         <FE ch="ch" data="data"><D Device="SAC" segment="ch - 28" data="data + 1"/></FE>
+       </for></for>
+       <for var="ch" from="32" to="47"><for var="data" from="0" to="2">
+         <FE ch="ch" data="data"><D Device="TOF_HT" segment="ch - 32" data="data + 1"/></FE>
+       </for></for>
+       <for var="ch" from="48" to="51"><for var="data" from="0" to="2">
+         <FE ch="ch" data="data"><D Device="BGO" plane="1" segment="ch - 48" data="data + 1"/></FE>
+       </for></for>
+       <for var="ch" from="52" to="63"><for var="data" from="0" to="2">
+         <FE ch="ch" data="data"><D Device="TFlag" segment="ch" data="data + 1"/></FE>
+       </for></for>
+       <for var="ch" from="64" to="95"><for var="data" from="0" to="2">
+         <FE ch="ch" data="data"><D Device="TFlag" segment="ch - 64" data="data + 1"/></FE>
+       </for></for>
+       <for var="ch" from="96" to="97"><for var="data" from="0" to="2">
+         <FE ch="ch" data="data"><D Device="TFlag" segment="ch" data="data + 1"/></FE>
+       </for></for>
+       <for var="data" from="0" to="2">
+         <FE ch="98" data="data"><D Device="BGO" segment="2" data="data + 1"/></FE>
+         <FE ch="99" data="data"><D Device="TFlag" segment="99" data="data + 1"/></FE>
+         <FE ch="100" data="data"><D Device="BGO" segment="4" data="data + 1"/></FE>
+         <FE ch="101" data="data"><D Device="BGO" segment="5" data="data + 1"/></FE>
+         <FE ch="102" data="data"><D Device="BGO" segment="6" data="data + 1"/></FE>
+         <FE ch="103" data="data"><D Device="BGO" segment="7" data="data + 1"/></FE>
+         <FE ch="104" data="data"><D Device="BGO" segment="8" data="data + 1"/></FE>
+         <FE ch="105" data="data"><D Device="TFlag" segment="106" data="data + 1"/></FE>
+         <FE ch="106" data="data"><D Device="BGO" segment="10" data="data + 1"/></FE>
+         <FE ch="107" data="data"><D Device="BGO" segment="11" data="data + 1"/></FE>
+         <FE ch="108" data="data"><D Device="TFlag" segment="108" data="data + 1"/></FE>
+         <FE ch="109" data="data"><D Device="TFlag" segment="109" data="data + 1"/></FE>
+         <FE ch="110" data="data"><D Device="BGO" segment="3" data="data + 1"/></FE>
+         <FE ch="111" data="data"><D Device="BGO" segment="9" data="data + 1"/></FE>
+       </for>
+       <for var="ch" from="0" to="11"><for var="data" from="0" to="2">
+         <FE ch="ch + 96 +16 " data="data"><D Device="BGO" segment="ch + 12" data="data + 1"/></FE>
+       </for></for>
+       <for var="ch" from="124" to="127"><for var="data" from="0" to="2">
+         <FE ch="ch" data="data"><D Device="TFlag" segment="ch" data="data + 1"/></FE>
+       </for></for>
+    </HulMHTdc>
+    <!--________________________________________________________________-->
+    <HulMsT node_id="0x641" name="hul02mst-1">
+      <for var="ch" from="0" to="31">
+	<FE ch="ch" data="0"><D Device="MsT" plane="0" segment="ch" ch="0" data="0"/></FE>
+      </for>
+      <for var="ch" from="0" to="63">
+	<FE ch="ch" data="1"><D Device="MsT" plane="1" segment="ch" ch="0" data="0"/></FE>
+      </for>
+      <for var="data" from="0" to="6">
+	<FE ch="0" data="data+2"><D Device="MsT" plane="2" segment="0" ch="0" data="data"/></FE>
+      </for>
+      <for var="data" from="0" to="3">
+	<FE ch="0" data="data+9"><D Device="HUL-RM" plane="hul02mst_1" ch="0" data="data"/></FE>
+      </for>
+    </HulMsT>
+   <!-- _________________________________-->
+  </DAQNode>
+
+</channel_map>

@@ -1,0 +1,118 @@
+#
+#  user_20170927.txt
+#
+### BH1 TDC_FPGA gate range
+#BH1_TDC_FPGA 340000 370000 # BH1 timing
+#BH1_TDC_FPGA 380000 395000 # BH2 timing
+#BH1_TDC_FPGA 350000 400000 # ExBH1 test
+#BH1_TDC_FPGA 390000 450000 # Proton timing
+BH1_TDC_FPGA 400000 600000
+
+### BFT TDC gate range
+#BFT_TDC 500 700 # E03
+BFT_TDC 650 690 # BH2 timing
+
+### SCH TDC gate range
+SCH_TDC 440 485
+
+### BAC TDC gate range
+#BAC_TDC 200000 450000
+BAC_TDC 0 4000
+
+### FAC TDC gate range
+#FAC_TDC 200000 450000
+FAC_TDC 0 4000
+
+### PVAC TDC gate range
+#PVAC_TDC 200000 450000
+PVAC_TDC 0 4000
+
+### BC3 TDC gate range
+#BC3_TDC 340 440
+BC3_TDC 340 540 #test with checking source
+
+### BC3 TOT gate range
+BC3_TOT 25
+
+### BC4 TDC gate range
+#BC4_TDC 340 440
+BC4_TDC 340 540 #test with checking source
+
+### BC4 TOT gate range
+BC4_TOT 25
+
+### BH2 TDC_FPGA gate range
+#BH2_TDC_FPGA 315000 330000 # BH1 timing
+#BH2_TDC_FPGA 345000 360000 # BH2 timing
+#BH2_TDC_FPGA 300000 350000
+BH2_TDC_FPGA 200000 400000
+
+### BH2_E42 TDC_FPGA gate range
+#BH2_E42_TDC_FPGA 400000 420000 # same as BH2
+BH2_E42_TDC_FPGA 300000 600000 # same as BH2
+
+### SDC1 TDC gate range
+SDC1_TDC 200 600
+
+### SDC1 TOT gate range
+SDC1_TOT 10
+
+### SDC2 TDC gate range
+SDC2_TDC 200 600
+
+### SDC2 TOT gate range
+SDC2_TOT 50
+
+### SDC3 TDC gate range
+SDC3_TDC 700 1000
+
+### SDC3 TOT gate range
+SDC3_TOT 50
+
+### SDC4 TDC gate range
+SDC4_TDC 200 1200
+
+### SDC4 TOT gate range
+SDC4_TOT 80 1000
+
+### TOF TDC_FPGA gate range
+#TOF_TDC_FPGA 280000 300000 # BH1 timing
+#TOF_TDC_FPGA 310000 330000 # BH2 timing
+#TOF_TDC_FPGA 290000 340000 # BH2_K
+TOF_TDC_FPGA 150000 250000
+
+### TFA TDC range
+TFA_TDC 4400 5400
+
+### CRM TDC range
+CRM_TDC 4400 5400
+
+### LAC TDC gate range
+LAC_TDC 230 280
+
+### WC TDC gate range
+WC_TDC_FPGA 0 4000
+
+### T1 TDC gate range
+#T1_TDC 1050 1100
+
+### T2 TDC gate range
+#T2_TDC 1050 1100
+
+#### TAEGET
+FF_PLUS 300
+
+### DCAnalyzer
+MinLayerBcOut		9
+MinLayerSdcIn		7
+MinLayerSdcOut		6
+MaxMultiHitBcOut	5
+MaxMultiHitSdcIn	5
+MaxMultiHitSdcOut	5
+# MaxMultiHitBcOut	10
+# MaxMultiHitSdcIn	10
+# MaxMultiHitSdcOut	10
+
+### HodoAnalyzer
+DeBH2	0	5
+MtBH2	-1.	1.
