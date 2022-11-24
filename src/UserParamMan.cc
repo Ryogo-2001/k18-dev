@@ -123,7 +123,7 @@ UserParamMan::GetParameter(const TString& key, Int_t i) const
                   << default_value << std::endl;
       return default_value;
     } else {
-      throw std::out_of_range(FUNC_NAME+" No such key : "+key);
+      throw std::out_of_range((FUNC_NAME+" No such key : "+key).Data());
     }
   }
 
@@ -135,7 +135,7 @@ UserParamMan::GetParameter(const TString& key, Int_t i) const
                   << default_value << std::endl;
       return default_value;
     } else {
-      throw std::out_of_range(FUNC_NAME+" No such key : "+key);
+      throw std::out_of_range((FUNC_NAME+" No such key : "+key).Data());
     }
   }
 

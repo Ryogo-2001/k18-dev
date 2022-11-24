@@ -29,7 +29,6 @@
 #include "HodoPHCMan.hh"
 #include "K18TransMatrix.hh"
 #include "MatrixParamMan.hh"
-#include "MsTParamMan.hh"
 #include "UnpackerManager.hh"
 #include "UserParamMan.hh"
 

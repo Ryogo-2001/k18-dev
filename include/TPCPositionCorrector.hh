@@ -5,6 +5,8 @@
 
 #include <string>
 #include <vector>
+
+#include <TString.h>
 #include <TVector3.h>
 
 //_____________________________________________________________________________
