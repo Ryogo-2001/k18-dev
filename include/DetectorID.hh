@@ -8,6 +8,9 @@
 
 #include <TString.h>
 
+const Int_t DetIdCaenV792 = 40;
+const Int_t NumOfSegCaenV792 = 32;
+
 // Counters ___________________________________________________________
 const Int_t DetIdBH1      =  1;
 const Int_t DetIdBH2      =  2;

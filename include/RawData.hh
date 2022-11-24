@@ -34,6 +34,7 @@ private:
 private:
   enum EType { kTPC, kOthers, kNType };
   std::deque<Bool_t>             m_is_decoded;
+  HodoRHitContainer              m_CaenV792RawHC;
   HodoRHitContainer              m_BH1RawHC;
   HodoRHitContainer              m_BH2RawHC;
   HodoRHitContainer              m_BACRawHC;
@@ -77,6 +78,7 @@ public:
   Bool_t                   SelectTPCHits(Bool_t maxadccut,
                                          Bool_t maxadctbcut);
   const TPCRawHit* const   GetBaselineTPC() const { return m_baseline; }
+  const HodoRHitContainer& GetCaenV792RawHC() const;
   const HodoRHitContainer& GetBH1RawHC() const;
   const HodoRHitContainer& GetBH2RawHC() const;
   const HodoRHitContainer& GetBACRawHC() const;
@@ -132,6 +134,13 @@ RawData::ClassName()
 {
   static TString s_name("RawData");
   return s_name;
+}
+
+//_____________________________________________________________________________
+inline const HodoRHitContainer&
+RawData::GetCaenV792RawHC() const
+{
+  return m_CaenV792RawHC;
 }
 
 //_____________________________________________________________________________
