@@ -312,7 +312,7 @@ class SingleRun(object):
       logger.error(e)
       return False
     buf = proc.stdout.decode().split()[0]
-    return (buf == 'G' or buf == 'B' or buf == 'BP')
+    return (buf == 'G' or buf == 'B')
 
   #____________________________________________________________________________
   def kill_all(self):
@@ -539,7 +539,7 @@ class SingleRun(object):
     config.optionxform = lambda option: option
     try:
       config.read_string(buff)
-      tmp_unpack = config.get('dummy', 'UNPACK')
+      tmp_unpack = self.__make_path(config.get('dummy', 'UNPACK'))
     except configparser.Error as e:
       logger.error(f'Invalid format in {self.__conf_path}')
       self.__bjob_status = False
@@ -556,7 +556,7 @@ class SingleRun(object):
       path_conf = os.path.join(self.__dummy_dir.name, item+'.conf')
       with open(path_conf, 'w') as f:
         for option in config.options('dummy'):
-          f.write(option + ':\t' + config.get('dummy', option) + '\n')
+          f.write(option + ':\t' + self.__make_path(config.get('dummy', option)) + '\n')
       self.__conf_list.append(path_conf)
       self.__unpack_list.append(path_unpack)
     self.__dump_log('conf',   self.__conf_list)
@@ -607,6 +607,12 @@ class SingleRun(object):
     self.__dump_log('log', self.__log_list)
     self.__dump_log('mergelog', self.__merge_log_path)
     self.__dump_log(None, '_'*80)
+
+  #____________________________________________________________________________
+  def __make_path(self, path):
+    if not os.path.exists(path):
+      path = os.path.join(os.path.dirname(self.__conf_path), path)
+    return os.path.abspath(path)
 
   #____________________________________________________________________________
   # def __make_prefetch(self):

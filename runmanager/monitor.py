@@ -25,6 +25,7 @@ from utility import pycolor as cl
 
 DISPLAY_PERIOD = 5  # second
 logger = logging.getLogger(__name__)
+parsed = None
 
 #______________________________________________________________________________
 def display(filename):
@@ -59,8 +60,8 @@ def display(filename):
   for key, item in sorted(info.items(),
                           key=lambda x:int(x[0]) if isinstance(x[0], int) else x[0]):
     status = singlerun.SingleRun.decode_status(item)
-    # if 'done' in status:
-    #   continue
+    if parsed.skip and 'done' in status:
+      continue
     n_unfinished += 1
     ptime = singlerun.SingleRun.decode_time(item)
     infile = None
@@ -107,6 +108,8 @@ def main(path):
 #______________________________________________________________________________
 if __name__ == "__main__":
   parser = argparse.ArgumentParser()
+  parser.add_argument('-s', '--skip', help='skip runs with status of "done"',
+                      action='store_true')
   parser.add_argument('stat_json', help='stat json file path')
   parsed, unparsed = parser.parse_known_args()
   log_conf = os.path.join(top_dir, 'logging_config.yml')

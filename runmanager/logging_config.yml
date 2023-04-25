@@ -24,8 +24,8 @@ handlers:
 loggers:
   __main__:
     handlers:
-    # - rich # Rich output; You need to run 'conda install rich' in advance.
-    - consoleHandler
+    - rich # Rich output; You need to run 'conda install rich' in advance.
+    # - consoleHandler
     # - fileHandler
     propagate: false
   lower.sub:

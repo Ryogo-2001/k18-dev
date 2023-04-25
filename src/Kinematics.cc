@@ -12,7 +12,6 @@
 
 #include "FuncName.hh"
 #include "MathTools.hh"
-#include "TPCPadHelper.hh"
 
 namespace
 {
@@ -206,69 +205,6 @@ VertexPointTF2(const TVector3& Xin, const TVector3& Xout,
   Double_t verty = ((y0in+v0in*close_zin)+(y0out+v0out*close_zout))/2.;
   Double_t vertz = (close_zin+close_zout)/2.;
 
-  return TVector3(vertx, verty, vertz);
-}
-
-
-//_____________________________________________________________________________
-TVector3
-VertexPointHelix(const Double_t par1[5], const Double_t par2[5],
-                 Double_t& dist, Double_t& t1, Double_t& t2)
-{
-  //helix function 1
-  //x = [0] + [3]*cos(t);
-  //y = [1] + [3]*sin(t);
-  //z = [2] + [3]*[4]*t;
-
-  //helix function 2
-  //x = [5] + [8]*cos(t);
-  //y = [6] + [8]*sin(t);
-  //z = [7] + [8]*[9]*t;
-
-  static TF2 fvert_helix("fvert_helix",
-                         "pow(([0]+[3]*cos(x))-([5]+[8]*cos(y)),2)+pow(([1]+[3]*sin(x))-([6]+[8]*sin(y)),2)+pow(([2]+[3]*[4]*x)-([7]+[8]*[9]*y),2)",
-                         -5.,5.,-5.,5.);
-
-  fvert_helix.SetParameter(0, par1[0]);
-  fvert_helix.SetParameter(1, par1[1]);
-  fvert_helix.SetParameter(2, par1[2]);
-  fvert_helix.SetParameter(3, par1[3]);
-  fvert_helix.SetParameter(4, par1[4]);
-  fvert_helix.SetParameter(5, par2[0]);
-  fvert_helix.SetParameter(6, par2[1]);
-  fvert_helix.SetParameter(7, par2[2]);
-  fvert_helix.SetParameter(8, par2[3]);
-  fvert_helix.SetParameter(9, par2[4]);
-
-  Double_t close_zin, close_zout;
-  fvert_helix.GetMinimumXY(close_zin, close_zout);
-  t1 = close_zin;
-  t2 = close_zout;
-  dist = TMath::Sqrt(fvert_helix.GetMinimum());
-
-  Double_t xin = par1[0]+par1[3]*cos(close_zin);
-  Double_t xout = par2[0]+par2[3]*cos(close_zout);
-  Double_t yin =  par1[1]+par1[3]*sin(close_zin);
-  Double_t yout = par2[1]+par2[3]*sin(close_zout);
-  Double_t zin = par1[2]+par1[3]*par1[4]*close_zin;
-  Double_t zout =  par2[2]+par2[3]*par2[4]*close_zout;
-
-  // Double_t vx = (par1[0]+par1[3]*cos(close_zin) + par2[0]+par2[3]*cos(close_zout))/2.;
-  // Double_t vy = (par1[1]+par1[3]*sin(close_zin) + par2[1]+par2[3]*sin(close_zout))/2.;
-  // Double_t vz = (par1[2]+par1[3]*par1[4]*close_zin + par2[2]+par2[3]*par2[4]*close_zout)/2.;
-  Double_t vx = (xin+xout)/2.;
-  Double_t vy = (yin+yout)/2.;
-  Double_t vz = (zin+zout)/2.;
-
-  Double_t dist2 = sqrt(pow(xin-xout,2)
-			+pow(yin-yout,2)
-			+pow(zin-zout,2));
-  // std::cout<<"dist ="<<dist<<", dist2="<<dist2<<std::endl;
-  // std::cout<<"close_zin="<<close_zin<<", close_zout="<<close_zout<<std::endl;
-  dist = dist2;
-  Double_t vertx = -1.*vx;
-  Double_t verty = vz;
-  Double_t vertz = vy + tpc::ZTarget;
   return TVector3(vertx, verty, vertz);
 }
 
@@ -714,91 +650,4 @@ Beta(Double_t energy,Double_t mormentum)
   return mormentum/energy;
 }
 
-//_____________________________________________________________________________
-Int_t
-PID_HypTPC_dEdx(const Double_t dEdx, const Double_t mom, const Int_t charge)
-{
-// function for proton
-// [0]+[1]/x+[2]/(x*x) : x= mom (not p/q)
-// Low
-// [0] =0.172461, [1] =-0.12322, [2] =0.442865
-// High
-// [0] =0.51042, [1] =-0.432761, [2] =1.06032
-// Central
-// [0] =0.236399, [1] =-0.181781, [2] =0.559682
-
-// function for pi+
-//   [0]+[1]/x : x= mom (not p/q)
-// Low
-// [0] =0.343343, [1] =0.0584624
-// High
-// [0] =0.580406, [1] =0.169202
-// Central
-// [0] =0.485581, [1] =0.124906
-// function for pi-
-//   [0]+[1]/x : x= mom (not p/q)
-// Low
-// [0] =0.343343, [1] =0.0584624
-// High
-// [0] =0.770056, [1] =0.257794
-// Central
-// [0] =0.485581, [1] =0.124906
-
-  // return value
-  // pi+:1, proton:2, both (inside both pi+ and proton): 3
-  // pi-:-1
-  // no identification: 0
-
-  int pid = 0;
-
-  TF1 * fpid_l = new TF1("fpid_l","[0]+[1]/x+[2]/(x*x)",0.,2.);
-  TF1 * fpid_h = new TF1("fpid_h","[0]+[1]/x+[2]/(x*x)",0.,2.);
-  Double_t para_p_l[3]={0.172461, -0.12322, 0.442865};
-  Double_t para_p_h[3]={0.51042, -0.432761, 1.06032};
-  Double_t para_pip_l[3]={0.343343, 0.0584624, 0.};
-  Double_t para_pip_h[3]={0.580406, 0.169202, 0.};
-  Double_t para_pim_l[3]={0.343343, 0.0584624, 0.};
-  Double_t para_pim_h[3]={0.770056, 0.257794, 0.};
-
-  bool is_proton = false;
-  bool is_pip = false;
-  bool is_pim = false;
-  // pip id
-  fpid_l->SetParameters(para_pip_l);
-  fpid_h->SetParameters(para_pip_h);
-  if(fpid_l->Eval(mom)<dEdx
-     &&dEdx<fpid_h->Eval(mom)
-     &&charge==1)
-    is_pip = true;
-
-  // proton id
-  fpid_l->SetParameters(para_p_l);
-  fpid_h->SetParameters(para_p_h);
-  if(fpid_l->Eval(mom)<dEdx
-     &&dEdx<fpid_h->Eval(mom)
-     &&charge==1)
-    is_proton = true;
-
-  // pim id
-  fpid_l->SetParameters(para_pim_l);
-  fpid_h->SetParameters(para_pim_h);
-  if(fpid_l->Eval(mom)<dEdx
-     &&dEdx<fpid_h->Eval(mom)
-     &&charge==-1)
-    is_pim = true;
-
-  if(is_proton&&is_pip)
-    pid = 3;
-  else if(is_pip)
-    pid = 1;
-  else if(is_proton)
-    pid = 2;
-  if(is_pim)
-    pid = -1;
-
-  delete fpid_l;
-  delete fpid_h;
-
-  return pid;
-}
 }

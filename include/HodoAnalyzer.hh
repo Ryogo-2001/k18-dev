@@ -59,7 +59,6 @@ private:
   Hodo1HitContainer           m_WCSUMCont;
   MultiPlaneFiberHitContainer m_BFTCont;
   FiberHitContainer           m_SCHCont;
-  Hodo1Hit*                   m_TPCClock;
   HodoClusterContainer        m_BH1ClCont;
   BH2ClusterContainer         m_BH2ClCont;
   HodoClusterContainer        m_BACClCont;
@@ -85,7 +84,6 @@ public:
   Bool_t DecodeWCSUMHits(RawData* rawData);
   Bool_t DecodeBFTHits(RawData* rawData);
   Bool_t DecodeSCHHits(RawData* rawData);
-  Bool_t DecodeTPCClock(RawData* rawData);
   Int_t  GetNHitsBH1() const { return m_BH1Cont.size(); };
   Int_t  GetNHitsBH2() const { return m_BH2Cont.size(); };
   Int_t  GetNHitsBAC() const { return m_BACCont.size(); };
@@ -110,7 +108,6 @@ public:
   Hodo1Hit* GetHitWCSUM(UInt_t i) const { return m_WCSUMCont.at(i); }
   FiberHit* GetHitBFT(Int_t plane, UInt_t seg) const { return m_BFTCont.at(plane).at(seg); }
   FiberHit* GetHitSCH(UInt_t seg) const { return m_SCHCont.at(seg); }
-  Hodo1Hit* GetHitTPCClock() const { return m_TPCClock; }
 
   const Hodo2HitContainer& GetHitsBH1() const { return m_BH1Cont; }
   const BH2HitContainer& GetHitsBH2() const { return m_BH2Cont; }
@@ -187,7 +184,6 @@ private:
   void ClearWCSUMHits();
   void ClearBFTHits();
   void ClearSCHHits();
-  void ClearTPCClock();
 
   template<typename TypeCluster>
   void TimeCut(std::vector<TypeCluster>& cont, Double_t tmin, Double_t tmax);

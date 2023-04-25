@@ -67,6 +67,7 @@ main(int argc, char **argv)
     return EXIT_FAILURE;
 
   gUnpacker.set_istream(in_file.Data());
+  gUnpacker.enable_istream_bookmark();
   gUnpacker.initialize();
 
   CatchSignal::Set(SIGINT);

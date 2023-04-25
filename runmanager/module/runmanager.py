@@ -146,7 +146,7 @@ class RunManager(metaclass=classimpl.Singleton):
       logger.error('Number of runs in runlist is too much.')
       exit(1)
     if len(self.__stage_list) > HSTAGE_NMIN:
-      logger.info(f'Put {self.__stage_list_path}')
+      logger.info('Put {self.__stage_list_path}')
       with open(self.__stage_list_path, 'w') as f:
         for item in self.__stage_list:
           f.write(item + '\n')

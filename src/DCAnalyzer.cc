@@ -35,15 +35,6 @@
 #include "RawData.hh"
 #include "UserParamMan.hh"
 #include "DeleteUtility.hh"
-#include "TPCPadHelper.hh"
-#include "TPCParamMan.hh"
-#include "TPCPositionCorrector.hh"
-#include "TPCRawHit.hh"
-#include "TPCHit.hh"
-#include "TPCCluster.hh"
-#include "TPCLocalTrack.hh"
-#include "TPCLocalTrackHelix.hh"
-#include "TPCTrackSearch.hh"
 
 #define DefStatic
 #include "DCParameters.hh"
@@ -59,16 +50,12 @@
 #define SdcIn_XUV         0 // XUV Tracking (not used in KURAMA)
 #define SdcIn_Pair        1 // Pair plane Tracking (fast but bad for large angle track)
 #define SdcIn_Deletion    1 // Deletion method for too many combinations
-/* TPCTracking */
-#define UseTpcCluster     1
 
 namespace
 {
 using namespace K18Parameter;
 const auto& gConf   = ConfMan::GetInstance();
 const auto& gGeom   = DCGeomMan::GetInstance();
-const auto& gTPC  = TPCParamMan::GetInstance();
-const auto& gTPCPos = TPCPositionCorrector::GetInstance();
 const auto& gUser   = UserParamMan::GetInstance();
 
 //_____________________________________________________________________________
@@ -85,9 +72,6 @@ const Double_t MaxTimeDifMWPC       =   100.;
 
 const Double_t kMWPCClusteringWireExtension =  1.0; // [mm]
 const Double_t kMWPCClusteringTimeExtension = 10.0; // [nsec]
-
-const Int_t    MaxNumOfTrackTPC = 20;
-const Int_t    MaxRowDifTPC = 2; // for cluster
 
 //_____________________________________________________________________________
 inline Bool_t /* for MWPCCluster */
@@ -149,9 +133,6 @@ DCAnalyzer::DCAnalyzer()
     m_BcOutHC(NumOfLayersBcOut+2),
     m_SdcInHC(NumOfLayersSdcIn+1),
     m_SdcOutHC(NumOfLayersSdcOut+1),
-    m_TPCHitCont(NumOfLayersTPC+1),
-    m_TempTPCHitCont(NumOfLayersTPC+1),
-    m_TPCClCont(NumOfLayersTPC),
     m_SdcInExTC(NumOfLayersSdcIn+1),
     m_SdcOutExTC(NumOfLayersSdcOut+1)
 {
@@ -176,7 +157,6 @@ DCAnalyzer::~DCAnalyzer()
   ClearTracksBcOut();
   ClearTracksBcOutSdcIn();
   ClearTracksSdcInSdcOut();
-  ClearTracksTPC();
   ClearDCHits();
   ClearVtxHits();
   debug::ObjectCounter::decrease(ClassName());
@@ -303,374 +283,6 @@ DCAnalyzer::DecodeBcOutHits(RawData *rawData)
   }
 
   m_is_decoded[kBcOut] = true;
-  return true;
-}
-
-//_____________________________________________________________________________
-Bool_t
-DCAnalyzer::MakeUpTPCClusters(const TPCHitContainer& HitCont,
-                              TPCClusterContainer& ClCont,
-                              Double_t maxdy)
-{
-  static const Double_t ClusterDeCut = gUser.GetParameter("MinClusterDeTPC");
-  const auto nh = HitCont.size();
-  if(nh==0) return false;
-
-  std::vector<Int_t> joined(nh, 0);
-  for(Int_t i=0; i<nh; ++i){
-    if(joined[i] > 0) continue;
-    TPCHitContainer CandCont;
-    TPCHit* hit = HitCont[i];
-    if(!hit || !hit->IsGood()) continue;
-    Int_t layer = hit->GetLayer();
-    CandCont.push_back(hit);
-    joined[i]++;
-    for(Int_t j=0; j<nh; ++j){
-      if(i==j || joined[j]>0) continue;
-      TPCHit* thit = HitCont[j];
-      if(!thit || !thit->IsGood()) continue;
-      Int_t rowID = thit->GetRow();
-      for(const auto& c_hit: CandCont){
-        Int_t c_rowID = c_hit->GetRow();
-        if(tpc::IsClusterable(layer, rowID, c_rowID, MaxRowDifTPC)
-           && TMath::Abs(thit->GetY() - c_hit->GetY()) < maxdy){
-          CandCont.push_back(thit);
-          joined[j]++;
-          break;
-        }
-      }
-    }
-    TPCCluster* cluster = new TPCCluster(layer, CandCont);
-    if(!cluster) continue;
-    if(cluster->Calculate() && cluster->GetDe()>ClusterDeCut){
-      ClCont.push_back(cluster);
-      // cluster->Print();
-    }else{
-      delete cluster;
-    }
-  }
-
-  return true;
-}
-
-//_____________________________________________________________________________
-Bool_t
-DCAnalyzer::DecodeTPCHits(RawData *rawData, Double_t clock)
-{
-  if(m_is_decoded[kTPC]){
-    hddaq::cout << FUNC_NAME << " "
-                << "already decoded" << std::endl;
-    return true;
-  }
-
-  ClearTPCHits();
-  ClearTPCClusters();
-
-  for(Int_t layer=0; layer<=NumOfLayersTPC; ++layer){
-    for(const auto& rhit: rawData->GetTPCCorHC(layer)){
-      auto hit = new TPCHit(rhit);
-      if(hit->DoFit() && hit->Calculate(clock)){
-        m_TPCHitCont[layer].push_back(hit);
-      }else{
-        delete hit;
-      }
-    }
-  }
-
-#if 0 // Cluster analysis will be done by RecalcTPCHits() in Dst.
-  static const Double_t MaxYDif = gUser.GetParameter("MaxYDifClusterTPC");
-  for(Int_t layer=0; layer<NumOfLayersTPC; ++layer){
-    MakeUpTPCClusters(m_TPCHitCont[layer], m_TPCClCont[layer], MaxYDif);
-  }
-#endif
-
-  m_is_decoded[kTPC] = true;
-  return true;
-}
-
-//_____________________________________________________________________________
-Bool_t
-DCAnalyzer::ReCalcTPCHits(const Int_t nhits,
-                          const std::vector<Int_t>& pad,
-                          const std::vector<Double_t>& time,
-                          const std::vector<Double_t>& de,
-                          Double_t clock,
-			  Int_t ExlayerID /*=-1*/)
-{
-  if(m_is_decoded[kTPC]){
-    hddaq::cerr << FUNC_NAME << " already decoded" << std::endl;
-    return false;
-  }
-
-  ClearTPCHits();
-  ClearTPCClusters();
-
-  if(nhits != pad.size() || nhits != time.size() || nhits != de.size()){
-    hddaq::cerr << FUNC_NAME << " vector size mismatch" << std::endl;
-    return false;
-  }
-
-  for(Int_t ih=0; ih<nhits; ih++){
-    const Int_t layer = tpc::getLayerID(pad[ih]);
-    const Double_t row = tpc::getRowID(pad[ih]);
-    auto hit = new TPCHit(layer, row);
-    hit->AddHit(de[ih], time[ih]);
-    if(hit->Calculate(clock)){
-      m_TPCHitCont[layer].push_back(hit);
-    }else{
-      delete hit;
-    }
-  }
-
-#if 1
-  static const Double_t MaxYDif = gUser.GetParameter("MaxYDifClusterTPC");
-  for(Int_t layer=0; layer<NumOfLayersTPC; ++layer){
-    if(layer==ExlayerID) continue; //exclusive layer
-    MakeUpTPCClusters(m_TPCHitCont[layer], m_TPCClCont[layer], MaxYDif);
-  }
-#endif
-
-  m_is_decoded[kTPC] = true;
-  return true;
-}
-
-
-//_____________________________________________________________________________
-void
-DCAnalyzer::HoughYCut(Double_t min_y, Double_t max_y)
-{
-#if 0
-
-  std::vector<TPCHitContainer>  ValidCand;
-  ValidCand.resize(NumOfLayersTPC+1);
-  std::vector<TPCHitContainer>  DeleteCand;
-  DeleteCand.resize(NumOfLayersTPC+1);
-
-
-  static const Int_t MinLayer = gUser.GetParameter("MinLayerTPC");
-
-  static const Double_t HoughWindowCut = 4.*gUser.GetParameter("HoughWindowCut");
-  // Bool_t status = true;
-
-  //    if(valueHall) { // TODO
-  //    }
-
-  // y = p0 + p1 * x
-  Double_t p0[MaxNumOfTrackTPC];
-  Double_t p1[MaxNumOfTrackTPC];
-  //const Int_t    Li_theta_ndiv = 200;
-  //const Int_t    Li_theta_ndiv = 180;
-  const Int_t    Li_theta_ndiv = 360;
-  const Double_t Li_theta_min  =   0;
-  const Double_t Li_theta_max  = 180;
-  // const Int_t    Li_r_ndiv =  200;
-  // const Double_t Li_r_min  = -600;
-  // const Double_t Li_r_max  =  600;
-  //const Int_t    Li_r_ndiv =  400;
-  //const Int_t    Li_r_ndiv =  600;
-  const Int_t    Li_r_ndiv =  1200;
-  const Double_t Li_r_min  = -900;
-  const Double_t Li_r_max  =  900;
-
-  static const Int_t ClusterSizeCut = gUser.GetParameter("TPCClusterSizeCut");
-
-
-  //for TPC linear track
-  // r = x * cos(theta) + y * sin(theta)
-  TH2D Li_hist_y("hist_linear",";theta (deg.); r (mm)",
-                 Li_theta_ndiv, Li_theta_min, Li_theta_max,
-                 Li_r_ndiv, Li_r_min, Li_r_max);
-
-  std::vector<std::vector<Int_t> > flag;
-  flag.resize(NumOfLayersTPC);
-  for(Int_t layer=0; layer<NumOfLayersTPC; layer++){
-    flag[layer].resize(m_TPCClCont[layer].size(), 0);
-  }
-
-  std::vector<Double_t> hough_x;
-  std::vector<Double_t> hough_y;
-
-  Double_t beam_x = 30.;
-  Double_t beam_y = 30.;
-
-  for(Int_t layer=0; layer<NumOfLayersTPC; layer++){
-    for(Int_t ci=0, n=m_TPCClCont[layer].size(); ci<n; ci++){
-      TPCHit* hit = m_TPCClCont[layer][ci];
-      TVector3 pos = hit->GetPos();
-      if(fabs(pos.X())<beam_x&&
-         fabs(pos.Y())<beam_y&&
-         pos.Z()<tpc::ZTarget){
-        ValidCand[layer].push_back(hit);
-        hit->SetHoughYnum(0);
-        flag[layer][ci]++;
-      }
-    }
-  }
-
-
-
-  for(Int_t tracki=0; tracki<MaxNumOfTrackTPC; tracki++){
-    // std::cout<<"tracki= "<<tracki<<std::endl;
-    // getchar();
-    Li_hist_y.Reset();
-    for(Int_t layer=0; layer<NumOfLayersTPC; layer++){
-      for(Int_t ci=0, n=m_TPCClCont[layer].size(); ci<n; ci++){
-        if(flag[layer][ci]>0) continue;
-        TPCHit* hit = m_TPCClCont[layer][ci];
-        TVector3 pos = hit->GetPos();
-        for(Int_t ti=0; ti<Li_theta_ndiv; ti++){
-          Double_t theta = Li_theta_min+ti*(Li_theta_max-Li_theta_min)/Li_theta_ndiv;
-          Li_hist_y.Fill(theta, cos(theta*acos(-1)/180.)*pos.Z()
-                         +sin(theta*acos(-1)/180.)*pos.Y());
-          if(fabs(cos(theta*acos(-1)/180.)*pos.Z()+sin(theta*acos(-1)/180.)*pos.Y())>Li_r_max)
-            std::cout<<"Hough: out of range:"<<cos(theta*acos(-1)/180.)*pos.Z()+sin(theta*acos(-1)/180.)*pos.Y()<<std::endl;
-        }
-      } // cluster
-    } // layer
-      //      if(Li_hist_y.GetMaximum() < MinNumOfHits){
-    if(Li_hist_y.GetMaximum() < MinLayer/2){
-      //Li_hist_y.Delete();
-      Li_hist_y.Reset();
-      break;
-    }
-
-    Int_t maxbin = Li_hist_y.GetMaximumBin();
-    //std::cout<<"max bin= "<<Li_hist_y.GetMaximum()<<std::endl;
-    Int_t mx,my,mz;
-    Li_hist_y.GetBinXYZ(maxbin, mx, my, mz);
-    Double_t mtheta = Li_hist_y.GetXaxis()->GetBinCenter(mx)*acos(-1)/180.;
-    Double_t mr = Li_hist_y.GetYaxis()->GetBinCenter(my);
-    p0[tracki] = mr/sin(mtheta);
-    p1[tracki] = -cos(mtheta)/sin(mtheta);
-    Double_t y_tgt = p0[tracki]+p1[tracki]*tpc::ZTarget;
-
-    Bool_t hough_flag = true;
-    for(Int_t i=0; i<hough_x.size(); ++i){
-      Int_t bindiff = fabs(mx-hough_x[i])+fabs(my-hough_y[i]);
-      if(bindiff<=4)
-        hough_flag = false;
-    }
-
-    int numhit_hough = 0;
-    for(Int_t layer=0; layer<NumOfLayersTPC; layer++){
-      for(Int_t ci=0, n=m_TPCClCont[layer].size(); ci<n; ci++){
-        //if(flag[layer][ci]>0) continue;
-        TPCHit* hit = m_TPCClCont[layer][ci];
-        TVector3 pos = hit->GetPos();
-        Double_t dist = fabs(p1[tracki]*pos.Z()-pos.Y()+p0[tracki])/sqrt(pow(p1[tracki],2)+1);
-        if(dist < HoughWindowCut && hit->GetClusterSize()>=ClusterSizeCut){
-          ++numhit_hough;
-        }
-      }
-    }
-
-    if(numhit_hough<MinLayer)
-      hough_flag = false;
-
-    hough_x.push_back(mx);
-    hough_y.push_back(my);
-    // if(!hough_flag)
-    //   continue;
-
-
-    for(Int_t layer=0; layer<NumOfLayersTPC; layer++){
-      for(Int_t ci=0, n=m_TPCClCont[layer].size(); ci<n; ci++){
-        //if(flag[layer][ci]>0) continue;
-        TPCHit* hit = m_TPCClCont[layer][ci];
-        TVector3 pos = hit->GetPos();
-        Double_t dist = fabs(p1[tracki]*pos.Z()-pos.Y()+p0[tracki])/sqrt(pow(p1[tracki],2)+1);
-        //std::cout<<"dist= "<<dist<<", y_tgt= "<<y_tgt<<", v="<<p1[tracki]<<std::endl;
-        // if(dist < HoughWindowCut && hit->GetClusterSize()>=ClusterSizeCut){
-        //if(hit->GetHoughY_num_size()>1)
-
-        if(dist < HoughWindowCut && hit->GetClusterSize()>=ClusterSizeCut){
-          if(min_y<y_tgt&&y_tgt<max_y&&hough_flag){
-            if(flag[layer][ci]==0)
-              ValidCand[layer].push_back(hit);
-            hit->SetHoughYnum(tracki+1);
-            //std::cout<<"surv tgt"<<std::endl;
-          }
-          //else if(fabs(p1[tracki])>0.015){
-          else if(fabs(p1[tracki])>0.1&&hough_flag){
-            if(flag[layer][ci]==0&&hough_flag)
-              ValidCand[layer].push_back(hit);
-            hit->SetHoughYnum(tracki+1);
-            //std::cout<<"surv v"<<std::endl;
-          }
-          else{
-            if(flag[layer][ci]==0)
-              DeleteCand[layer].push_back(hit);
-            //std::cout<<"delete"<<std::endl;
-          }
-          flag[layer][ci]++;
-        }
-      }
-    }
-    Li_hist_y.Reset();
-  }//track
-
-  for(Int_t layer=0; layer<NumOfLayersTPC; layer++){
-    for(Int_t ci=0, n=m_TPCClCont[layer].size(); ci<n; ci++){
-      if(flag[layer][ci]==0){
-        TPCHit* hit = m_TPCClCont[layer][ci];
-        ValidCand[layer].push_back(hit);
-        //DeleteCand[layer].push_back(hit);
-      }
-      //std::cout<<"surv none: "<<hit->GetPos()<<std::endl;
-    }
-  }
-
-  del::ClearContainerAll(DeleteCand);
-
-  for(Int_t layer=0; layer<NumOfLayersTPC; layer++){
-    m_TPCClCont[layer].clear();
-    m_TPCClCont[layer].resize(ValidCand[layer].size());
-    std::copy(ValidCand[layer].begin(), ValidCand[layer].end(), m_TPCClCont[layer].begin());
-    ValidCand[layer].clear();
-  }
-#endif
-}
-
-//_____________________________________________________________________________
-Bool_t
-DCAnalyzer::DecodeTPCHitsGeant4(const Int_t nhits,
-                                const Double_t *x, const Double_t *y,
-                                const Double_t *z, const Double_t *de)
-{
-  if(m_is_decoded[kTPC]){
-    hddaq::cout << FUNC_NAME << " "
-                << "already decoded" << std::endl;
-    return true;
-  }
-  ClearTPCClusters();
-  ClearTPCHits();
-
-  for(Int_t i=0; i<nhits; i++){
-    Int_t pad = tpc::findPadID(z[i], x[i]);
-    Int_t layer = tpc::getLayerID(pad);
-    Int_t row = tpc::getRowID(pad);
-    auto hit = new TPCHit(layer, row);
-    hit->AddHit(TMath::QuietNaN(), TMath::QuietNaN()); // allocate hit
-    // tentative treatment
-    if(de[i] == 0. || de[i] == TMath::QuietNaN()){
-      hit->SetDe(1.e-3);
-    }else{
-      hit->SetDe(de[i]);
-    }
-    // end of tentative treatment
-    hit->SetPosition(TVector3(x[i], y[i], z[i]));
-    // hit->Print();
-    m_TPCHitCont[layer].push_back(hit);
-  }
-
-#if 1
-  static const Double_t MaxYDif = gUser.GetParameter("MaxYDifClusterTPC");
-  for(Int_t layer=0; layer<NumOfLayersTPC; ++layer){
-    MakeUpTPCClusters(m_TPCHitCont[layer], m_TPCClCont[layer], MaxYDif);
-  }
-#endif
-
-  m_is_decoded[kTPC] = true;
   return true;
 }
 
@@ -1262,35 +874,6 @@ DCAnalyzer::TrackSearchKurama(Double_t initial_momentum)
 }
 
 //_____________________________________________________________________________
-Bool_t
-DCAnalyzer::TrackSearchTPC()
-{
-  static const Int_t MinLayer = gUser.GetParameter("MinLayerTPC");
-
-#if UseTpcCluster
-  tpc::LocalTrackSearch(m_TPCClCont, m_TPCTC, MinLayer);
-#else
-  tpc::LocalTrackSearch(m_TPCHitCont, m_TPCTC, MinLayer);
-#endif
-  return true;
-}
-
-//_____________________________________________________________________________
-Bool_t
-DCAnalyzer::TrackSearchTPCHelix()
-{
-  static const Int_t MinLayer = gUser.GetParameter("MinLayerTPC");
-
-#if UseTpcCluster
-  tpc::LocalTrackSearchHelix(m_TPCClCont, m_TPCTC_Helix, MinLayer);
-#else
-  tpc::LocalTrackSearchHelix(m_TPCHitCont, m_TPCTC_Helix, MinLayer);
-#endif
-  return true;
-}
-
-
-//_____________________________________________________________________________
 void
 DCAnalyzer::ClearDCHits()
 {
@@ -1301,8 +884,6 @@ DCAnalyzer::ClearDCHits()
   ClearSdcInHits();
   ClearSdcOutHits();
   ClearTOFHits();
-  ClearTPCHits();
-  ClearTPCClusters();
 }
 
 //_____________________________________________________________________________
@@ -1350,22 +931,6 @@ void
 DCAnalyzer::ClearTOFHits()
 {
   del::ClearContainer(m_TOFHC);
-}
-
-//_____________________________________________________________________________
-void
-DCAnalyzer::ClearTPCHits()
-{
-  del::ClearContainerAll(m_TPCHitCont);
-  del::ClearContainerAll(m_TempTPCHitCont);
-
-}
-
-//_____________________________________________________________________________
-void
-DCAnalyzer::ClearTPCClusters()
-{
-  del::ClearContainerAll(m_TPCClCont);
 }
 
 //_____________________________________________________________________________
@@ -1436,15 +1001,6 @@ DCAnalyzer::ClearTracksSdcInSdcOut()
 {
   del::ClearContainer(m_SdcInSdcOutTC);
 }
-
-//_____________________________________________________________________________
-void
-DCAnalyzer::ClearTracksTPC()
-{
-  del::ClearContainer(m_TPCTC);
-  del::ClearContainer(m_TPCTC_Helix);
-}
-
 
 //_____________________________________________________________________________
 Bool_t

@@ -59,7 +59,6 @@
 #include "DeleteUtility.hh"
 #include "HodoParamMan.hh"
 #include "DCTdcCalibMan.hh"
-#include "TPCPadHelper.hh"
 
 #define BH2        0
 #define BcOut      1
@@ -70,7 +69,6 @@
 #define TOF        1
 #define WC         1
 #define Vertex     0
-#define TPC        1
 #define Hist       0
 #define Hist_Timing 0
 #define Hist_SdcOut 0
@@ -117,7 +115,6 @@ EventDisplay::EventDisplay()
     m_geometry(),
     m_node(),
     m_canvas(),
-    // m_canvas_tpc(),
     m_canvas_vertex(),
     m_canvas_hist(),
     m_canvas_hist2(),
@@ -128,9 +125,6 @@ EventDisplay::EventDisplay()
     m_canvas_hist7(),
     m_canvas_hist8(),
     m_canvas_hist9(),
-    m_tpc_adc2d(),
-    m_tpc_tdc2d(),
-    m_htof_2d(),
     m_hist_vertex_x(),
     m_hist_vertex_y(),
     m_hist_p(),
@@ -229,31 +223,6 @@ ConstructionDone(const TString& name, std::ostream& ost=hddaq::cout)
 }
 
 //_____________________________________________________________________________
-void
-EventDisplay::FillTPCADC(Int_t layer, Int_t row, Double_t adc)
-{
-  Int_t pad = tpc::GetPadId(layer, row);
-  // m_tpc_adc->Fill(adc);
-  m_tpc_adc2d->SetBinContent(pad + 1, adc);
-}
-
-//_____________________________________________________________________________
-void
-EventDisplay::FillTPCTDC(Int_t layer, Int_t row, Double_t tdc)
-{
-  Int_t pad = tpc::GetPadId(layer, row);
-  // m_tpc_tdc->Fill(tdc);
-  m_tpc_tdc2d->SetBinContent(pad + 1, tdc);
-}
-
-//_____________________________________________________________________________
-void
-EventDisplay::FillHTOF(Int_t segment)
-{
-  m_htof_2d->SetBinContent(segment, 1);
-}
-
-//_____________________________________________________________________________
 Bool_t
 EventDisplay::Initialize()
 {
@@ -332,96 +301,6 @@ EventDisplay::Initialize()
   ConstructWC();
 #endif
 
-#if TPC
-  // m_tpc_adc = new TH1D("h_tpc_adc", "TPC ADC", 4096, 0, 4096);
-  // m_tpc_tdc = new TH1D("h_tpc_adc", "TPC TDC",
-  //                      NumOfTimeBucket, 0, NumOfTimeBucket);
-  {
-    const Double_t MinX = -400.;
-    const Double_t MaxX =  400.;
-    const Double_t MinZ = -400.;
-    const Double_t MaxZ =  400.;
-    m_tpc_adc2d = new TH2Poly("h_tpc_adc2d", "TPC ADC;Z;X", MinZ, MaxZ, MinX, MaxX);
-    m_tpc_tdc2d = new TH2Poly("h_tpc_tdc2d", "HypTPC Event Display;Z;X;TimeBucket#",
-                              MinZ, MaxZ, MinX, MaxX);
-    Double_t X[5];
-    Double_t Y[5];
-    for (Int_t l=0; l<NumOfLayersTPC; ++l) {
-      Double_t pLength = tpc::padParameter[l][5];
-      Double_t st      = (180.-(360./tpc::padParameter[l][3]) *
-                          tpc::padParameter[l][1]/2.);
-      Double_t sTheta  = (-1+st/180.)*TMath::Pi();
-      Double_t dTheta  = (360./tpc::padParameter[l][3])/180.*TMath::Pi();
-      Double_t cRad    = tpc::padParameter[l][2];
-      Int_t    nPad    = tpc::padParameter[l][1];
-      for (Int_t j=0; j<nPad; ++j) {
-        X[1] = (cRad+(pLength/2.))*TMath::Cos(j*dTheta+sTheta);
-        X[2] = (cRad+(pLength/2.))*TMath::Cos((j+1)*dTheta+sTheta);
-        X[3] = (cRad-(pLength/2.))*TMath::Cos((j+1)*dTheta+sTheta);
-        X[4] = (cRad-(pLength/2.))*TMath::Cos(j*dTheta+sTheta);
-        X[0] = X[4];
-        Y[1] = (cRad+(pLength/2.))*TMath::Sin(j*dTheta+sTheta);
-        Y[2] = (cRad+(pLength/2.))*TMath::Sin((j+1)*dTheta+sTheta);
-        Y[3] = (cRad-(pLength/2.))*TMath::Sin((j+1)*dTheta+sTheta);
-        Y[4] = (cRad-(pLength/2.))*TMath::Sin(j*dTheta+sTheta);
-        Y[0] = Y[4];
-        for (Int_t k=0; k<5; ++k) X[k] += tpc::ZTarget;
-        m_tpc_adc2d->AddBin(5, X, Y);
-        m_tpc_tdc2d->AddBin(5, X, Y);
-      }
-    }
-    m_tpc_adc2d->SetMaximum(0x1000);
-    m_tpc_tdc2d->SetMaximum(NumOfTimeBucket);
-
-    m_htof_2d = new TH2Poly("h_htof_2d", "HTOF;Z;X", MinZ, MaxZ, MinX, MaxX);
-    {
-      const Double_t L = 337;
-      const Double_t t = 10;
-      const Double_t w = 68;
-      Double_t theta[8];
-      Double_t X[5];
-      Double_t Y[5];
-      Double_t seg_X[5];
-      Double_t seg_Y[5];
-      for( Int_t i=0; i<8; i++ ){
-        theta[i] = (-180+45*i)*acos(-1)/180.;
-        for( Int_t j=0; j<4; j++ ){
-          seg_X[1] = L-t/2.;
-          seg_X[2] = L+t/2.;
-          seg_X[3] = L+t/2.;
-          seg_X[4] = L-t/2.;
-          seg_X[0] = seg_X[4];
-          seg_Y[1] = w*j-2*w;
-          seg_Y[2] = w*j-2*w;
-          seg_Y[3] = w*j-1*w;
-          seg_Y[4] = w*j-1*w;
-          seg_Y[0] = seg_Y[4];
-          for( Int_t k=0; k<5; k++ ){
-            X[k] = cos(theta[i])*seg_X[k]-sin(theta[i])*seg_Y[k];
-            Y[k] = sin(theta[i])*seg_X[k]+cos(theta[i])*seg_Y[k];
-          }
-          m_htof_2d->AddBin(5, X, Y);
-        }
-      }
-    }
-    m_htof_2d->SetStats(0);
-
-    // m_canvas_tpc = new TCanvas("Event Display", "TPC Event Display", 1800, 900);
-    // m_canvas_tpc->Divide(2, 1);
-    // m_canvas_tpc->cd(1)->SetLogz();
-    // m_tpc_adc2d->Draw("colz");
-    // m_htof_2d->Draw("same col");
-    // m_canvas_tpc->cd(2);
-    // m_tpc_tdc2d->Draw("colz");
-    // m_htof_2d->Draw("same col");
-    // m_canvas_tpc->cd(3);
-    // m_tpc_adc->Draw("colz");
-    // m_canvas_tpc->cd(4);
-    // m_tpc_tdc->Draw("colz");
-    // m_canvas_tpc->Update();
-  }
-#endif
-
   m_canvas = new TCanvas("canvas", "K1.8 Event Display",
                          1800, 900);
   m_canvas->Divide(2, 1);
@@ -439,8 +318,6 @@ EventDisplay::Initialize()
   gPad->GetView()->ZoomIn();
 
   m_canvas->cd(2);
-  m_tpc_tdc2d->Draw("colz");
-  m_htof_2d->Draw("same col");
   gPad->Update();
 
   m_canvas->Modified();
@@ -2216,56 +2093,6 @@ EventDisplay::DrawBcOutLocalTrack(DCLocalTrack *tp)
     m_BcOutYZ_line.push_back(line);
   }
 #endif
-#if TPC
-  z0 = zK18Target - 400.;
-  z1 = zK18Target + tpc::ZTarget;
-  x0 = tp->GetX(z0); y0 = tp->GetY(z0);
-  x1 = tp->GetX(z1); y1 = tp->GetY(z1);
-  z0 -= zK18Target;
-  z1 -= zK18Target;
-  static const Double_t r = 1.8e9/(0.9*TMath::C())*1e3;
-  Double_t u0 = (x1 - x0)/(z1 - z0);
-  Double_t a = x0 - r/TMath::Sqrt(1+u0*u0);
-  Double_t b = z0 + (x0 - a)*u0;
-  {
-    // TPolyLine *line = new TPolyLine(2);
-    // line->SetPoint(0, z0, x0);
-    // line->SetPoint(1, z1, x1);
-    // line->SetLineColor(kRed);
-    // line->SetLineWidth(1);
-    // m_canvas_tpc->cd(1);
-    // line->Draw();
-    // m_canvas_tpc->cd(2);
-    // line->Draw();
-    // m_BcOutXZ_line_tpc.push_back(line);
-
-    del::DeleteObject(m_BcOutTrackShs);
-    m_BcOutTrackShs = new TF1("bcout", "[0]+sqrt([1]-(x-[2])*(x-[2]))", z0, z1);
-    m_BcOutTrackShs->SetLineWidth(1);
-    m_BcOutTrackShs->SetParameter(0, a);
-    m_BcOutTrackShs->SetParameter(1, r*r);
-    m_BcOutTrackShs->SetParameter(2, b);
-    // m_BcOutTrackShs->SetLineColor(kMagenta);
-    // static const Int_t np = 10000;
-    // m_BcOutTrackShs = new TPolyMarker(np);
-    // Int_t ip = 0;
-    // for(Int_t i=0; i<np; ++i){
-    //   Double_t theta = TMath::Pi()*(np-i)/np;
-    //   Double_t pz = b + r*TMath::Cos(theta);
-    //   Double_t px = a + r*TMath::Sin(theta);
-    //   if(tpc::ZTarget < pz) break;
-    //   if(pz < -400) continue;
-    //   m_BcOutTrackShs->SetPoint(ip++, pz, px);
-    // }
-    // m_BcOutTrackShs->SetMarkerSize(0.4);
-    // m_BcOutTrackShs->SetMarkerColor(kMagenta+1);
-    // m_BcOutTrackShs->SetMarkerStyle(8);
-    // m_canvas_tpc->cd(1);
-    // m_BcOutTrackShs->Draw("same");
-    m_canvas->cd(2);
-    m_BcOutTrackShs->Draw("same");
-  }
-#endif
 }
 
 //_____________________________________________________________________________
@@ -2378,27 +2205,6 @@ EventDisplay::DrawSdcInLocalTrack(DCLocalTrack *tp)
   }
   m_canvas_vertex->Update();
 #endif
-
-// #if TPC
-//   Double_t z0 = zTarget + tpc::ZTarget - 24.1;
-//   Double_t z1 = zTarget + tpc::ZTarget - 24.1 + 400.;
-//   x0 = tp->GetX(z0); y0 = tp->GetY(z0);
-//   x1 = tp->GetX(z1); y1 = tp->GetY(z1);
-//   z0 -= zTarget;
-//   z1 -= zTarget;
-//   {
-//     TPolyLine *line = new TPolyLine(2);
-//     line->SetPoint(0, z0, x0);
-//     line->SetPoint(1, z1, x1);
-//     line->SetLineColor(kRed);
-//     line->SetLineWidth(1);
-//     m_canvas_tpc->cd(1);
-//     line->Draw();
-//     m_canvas_tpc->cd(2);
-//     line->Draw();
-//     m_SdcInXZ_line.push_back(line);
-//   }
-// #endif
 
 }
 
@@ -2519,24 +2325,6 @@ EventDisplay::DrawKuramaTrack(Int_t nStep, const std::vector<TVector3>& StepPoin
   m_kurama_step_mark->Draw();
   m_canvas->Update();
 
-#if TPC
-  del::DeleteObject(m_KuramaMarkVertexXShs);
-  m_KuramaMarkVertexXShs = new TPolyMarker(nStep);
-  for(Int_t i=0; i<nStep; ++i){
-    Double_t x = StepPoint[i].x()-BeamAxis;
-    Double_t z = StepPoint[i].z()-zHS;
-    m_KuramaMarkVertexXShs->SetPoint(i, z, x);
-  }
-  if(!m_is_save_mode){
-    m_KuramaMarkVertexXShs->SetMarkerSize(0.4);
-    m_KuramaMarkVertexXShs->SetMarkerStyle(6);
-  }
-  m_KuramaMarkVertexXShs->SetMarkerColor(color);
-  // m_canvas_tpc->cd(1);
-  // m_KuramaMarkVertexXShs->Draw();
-  m_canvas->cd(2);
-  m_KuramaMarkVertexXShs->Draw();
-#endif
 #if Vertex
   del::DeleteObject(m_KuramaMarkVertexX);
   m_KuramaMarkVertexX = new TPolyMarker(nStep);
@@ -2618,8 +2406,6 @@ EventDisplay::EndOfEvent()
   del::DeleteObject(m_init_step_mark);
   del::DeleteObject(m_BcOutXZ_line);
   del::DeleteObject(m_BcOutYZ_line);
-  del::DeleteObject(m_BcOutXZ_line_tpc);
-  del::DeleteObject(m_BcOutYZ_line_tpc);
   del::DeleteObject(m_SdcInXZ_line);
   del::DeleteObject(m_SdcInYZ_line);
   del::DeleteObject(m_BcInTrack);
@@ -2711,11 +2497,6 @@ EventDisplay::ResetVisibility()
 void
 EventDisplay::ResetHist()
 {
-#if TPC
-  m_tpc_adc2d->Reset("");
-  m_tpc_tdc2d->Reset("");
-  m_htof_2d->Reset("");
-#endif
 #if Hist_Timing
   m_hist_bh2->Reset();
   m_hist_sch->Reset();
@@ -3619,22 +3400,4 @@ EventDisplay::DrawHSTrack(Int_t nStep, const std::vector<TVector3>& StepPoint,
   m_hs_step_mark->Draw();
   m_canvas->Update();
 
-#if TPC
-  del::DeleteObject(m_HSMarkVertexXShs);
-  m_HSMarkVertexXShs = new TPolyMarker(nStep);
-  for(Int_t i=0; i<nStep; ++i){
-    Double_t x = StepPoint[i].x()-BeamAxis;
-    Double_t z = StepPoint[i].z()-zHS;
-    m_HSMarkVertexXShs->SetPoint(i, z, x);
-  }
-  if(!m_is_save_mode){
-    m_HSMarkVertexXShs->SetMarkerSize(0.4);
-    m_HSMarkVertexXShs->SetMarkerStyle(6);
-  }
-  m_HSMarkVertexXShs->SetMarkerColor(color);
-  // m_canvas_tpc->cd(1);
-  // m_HsMarkVertexXShs->Draw();
-  m_canvas->cd(2);
-  m_HSMarkVertexXShs->Draw();
-#endif
 }

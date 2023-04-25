@@ -8,8 +8,6 @@
 #include <vector>
 #include <map>
 
-#include <TString.h>
-
 class DCGeomRecord;
 
 //_____________________________________________________________________________

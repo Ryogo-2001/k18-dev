@@ -59,6 +59,10 @@ namespace Kinematics
   Double_t Gamma(Double_t beta);
   Double_t Beta(Double_t energy, Double_t mormentum);
   Int_t PID_HypTPC_dEdx(const Double_t dEdx, const Double_t mom, const Int_t charge);
+  Double_t HypTPCdEdx(Double_t Z, Double_t *x, Double_t *p);
+  Double_t HypTPCBethe(Double_t *x, Double_t *p);
+  Int_t HypTPCdEdxPID_temp(Double_t dedx, Double_t poq);
+  void HypTPCPID_PDGCode(Int_t charge, Int_t pid, std::vector<Int_t>& pdg);
 }
 
 //_____________________________________________________________________________

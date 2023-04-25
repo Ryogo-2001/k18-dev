@@ -8,9 +8,6 @@
 
 #include <TString.h>
 
-const Int_t DetIdCaenV792 = 40;
-const Int_t NumOfSegCaenV792 = 32;
-
 // Counters ___________________________________________________________
 const Int_t DetIdBH1      =  1;
 const Int_t DetIdBH2      =  2;
@@ -31,28 +28,6 @@ const Int_t NumOfSegHTOF  = 34;
 const Int_t NumOfSegBVH   =  4;
 const Int_t NumOfSegLAC   = 30;
 const Int_t NumOfSegWC    = 20;
-const Int_t DetIdE72BAC      =  201;
-const Int_t DetIdE72BACSUM   =  202;
-const Int_t DetIdKVC         =  203;
-const Int_t DetIdKVCSUM      =  204;
-const Int_t DetIdE90SAC      =  205;
-const Int_t DetIdE90SACSUM   =  206;
-const Int_t DetIdT4          =  207;
-const Int_t DetIdT5          =  208;
-const Int_t DetIdT6          =  209;
-const Int_t DetIdT7          =  210;
-const Int_t NumOfSegE72BAC      =  4;
-const Int_t NumOfSegE72BACSUM   =  1;
-const Int_t NumOfSegKVC         =  2;
-const Int_t NumOfSegKVCSUM      =  1;
-const Int_t NumOfSegE90SAC      =  6;
-const Int_t NumOfSegE90SACSUM   =  1;
-const Int_t NumOfSegT4          =  1;
-const Int_t NumOfSegT5          =  1;
-const Int_t NumOfSegT6          =  1;
-const Int_t NumOfSegT7          =  1;
-
-
 
 // Misc _______________________________________________________________
 const Int_t DetIdTrig       = 21;
@@ -65,123 +40,83 @@ const Int_t DetIdHulRM      = 83;
 const Int_t NumOfSegScaler  = 96;
 const Int_t NumOfPlaneVmeRm = 2;
 
-
-
 // Trigger Flag
 namespace trigger
 {
   enum ETriggerFlag
-    {
-      kTrigAPS,
-      kTrigBPS,
-      kClockPS,
-      kLevel1OR,
-      kTrigB,
-      kL1SpillOn,
-      kL1SpillOff,
-      kSpillEnd,
-      kSpillOnEnd,
-      //      kTrigEPS,
-      //kTrigFPS,
-      kBeamA,
-      kCommonStopSdcOut,
-      NTriggerFlag
-      
-    };
+  {
+    kL1SpillOn,
+    kL1SpillOff,
+    kSpillEnd,
+    kSpillOnEnd,
+    kCommonStopSdcOut,
+    kMatrix2D1,
+    kMatrix2D2,
+    kMatrix3D,
+    kBeamA,
+    kBeamB,
+    kBeamC,
+    kBeamD,
+    kBeamE,
+    kBeamF,
+    kTrigA,
+    kTrigB,
+    kTrigC,
+    kTrigD,
+    kTrigE,
+    kTrigF,
+    kTrigAPS,
+    kTrigBPS,
+    kTrigCPS,
+    kTrigDPS,
+    kTrigEPS,
+    kTrigFPS,
+    kLevel1A,
+    kLevel1B,
+    kClockPS,
+    kReserve2PS,
+    kLevel1OR,
+    kEssDischarge,
+    NTriggerFlag
+  };
+
   const std::vector<TString> STriggerFlag =
     {
-      "TrigA-PS",
-      "TrigB-PS",
-      "Clock-PS",
-      "Level1OR",
-      "TrigB",
-      "L1SpillOn",
-      "L1SpillOff",
-      "SpillEnd",
-      "SpillOnEnd",
-      //"TrigE-PS",
-      //"TrigF-PS",
-      "BeamA",
-      "CommonStopSdcOut",
+     "L1SpillOn",
+     "L1SpillOff",
+     "SpillEnd",
+     "SpillOnEnd",
+     "CommonStopSdcOut",
+     "Matrix2D1",
+     "Matrix2D2",
+     "Matrix3D",
+     "BeamA",
+     "BeamB",
+     "BeamC",
+     "BeamD",
+     "BeamE",
+     "BeamF",
+     "TrigA",
+     "TrigB",
+     "TrigC",
+     "TrigD",
+     "TrigE",
+     "TrigF",
+     "TrigA-PS",
+     "TrigB-PS",
+     "TrigC-PS",
+     "TrigD-PS",
+     "TrigE-PS",
+     "TrigF-PS",
+     "Level1A",
+     "Level1B",
+     "Clock-PS",
+     "Reserve2-PS",
+     "Level1OR",
+     "EssDischarge",
     };
-
-
-
-  // enum ETriggerFlag
-  // {
-  //   kL1SpillOn,
-  //   kL1SpillOff,
-  //   kSpillEnd,
-  //   kSpillOnEnd,
-  //   kCommonStopSdcOut,
-  //   kMatrix2D1,
-  //   kMatrix2D2,
-  //   kMatrix3D,
-  //   kBeamA,
-  //   kBeamB,
-  //   kBeamC,
-  //   kBeamD,
-  //   kBeamE,
-  //   kBeamF,
-  //   kTrigA,
-  //   kTrigB,
-  //   kTrigC,
-  //   kTrigD,
-  //   kTrigE,
-  //   kTrigF,
-  //   kTrigAPS,
-  //   kTrigBPS,
-  //   kTrigCPS,
-  //   kTrigDPS,
-  //   kTrigEPS,
-  //   kTrigFPS,
-  //   kLevel1A,
-  //   kLevel1B,
-  //   kClockPS,
-  //   kReserve2PS,
-  //   kLevel1OR,
-  //   kEssDischarge,
-  //   NTriggerFlag
-  // };
-
-  // const std::vector<TString> STriggerFlag =
-  //   {
-  //    "L1SpillOn",
-  //    "L1SpillOff",
-  //    "SpillEnd",
-  //    "SpillOnEnd",
-  //    "CommonStopSdcOut",
-  //    "Matrix2D1",
-  //    "Matrix2D2",
-  //    "Matrix3D",
-  //    "BeamA",
-  //    "BeamB",
-  //    "BeamC",
-  //    "BeamD",
-  //    "BeamE",
-  //    "BeamF",
-  //    "TrigA",
-  //    "TrigB",
-  //    "TrigC",
-  //    "TrigD",
-  //    "TrigE",
-  //    "TrigF",
-  //    "TrigA-PS",
-  //    "TrigB-PS",
-  //    "TrigC-PS",
-  //    "TrigD-PS",
-  //    "TrigE-PS",
-  //    "TrigF-PS",
-  //    "Level1A",
-  //    "Level1B",
-  //    "Clock-PS",
-  //    "Reserve2-PS",
-  //    "Level1OR",
-  //    "EssDischarge",
-  //   };
 }
 const Int_t NumOfSegTrig = trigger::NTriggerFlag;
-const Int_t NumOfSegTFlagElph = 5;
 
 const Int_t DetIdVmeCalib      = 999;
 const Int_t NumOfPlaneVmeCalib =   5;
@@ -194,6 +129,7 @@ const Int_t DetIdSDC1 = 105;
 const Int_t DetIdSDC2 = 106;
 const Int_t DetIdSDC3 = 107;
 const Int_t DetIdSDC4 = 108;
+const Int_t DetIdSDC5 = 109;
 const Int_t DetIdBFT  = 110;
 
 const Int_t PlMinBcIn        =   1;
@@ -203,13 +139,13 @@ const Int_t PlMaxBcOut       =  24;
 const Int_t PlMinSdcIn       =   1;
 const Int_t PlMaxSdcIn       =  10;
 const Int_t PlMinSdcOut      =  31;
-const Int_t PlMaxSdcOut      =  38;
-const Int_t PlMInTOF         =  41;
-const Int_t PlMaxTOF         =  44;
+const Int_t PlMaxSdcOut      =  42;
+const Int_t PlMInTOF         =  51; // need to change
+const Int_t PlMaxTOF         =  54; // need to change
 const Int_t PlOffsBc         = 100;
 const Int_t PlOffsSdcIn      =   0;
 const Int_t PlOffsSdcOut     =  30;
-const Int_t PlOffsTOF        =  40;
+const Int_t PlOffsTOF        =  50;
 const Int_t PlOffsVP         =  20;
 const Int_t PlOffsTPCX       = 600;
 const Int_t PlOffsTPCY       = 650;
@@ -219,6 +155,7 @@ const Int_t NumOfLayersSDC1   = 6;
 const Int_t NumOfLayersSDC2   = 4;
 const Int_t NumOfLayersSDC3   = 4;
 const Int_t NumOfLayersSDC4   = 4;
+const Int_t NumOfLayersSDC5   = 4;
 const Int_t NumOfLayersBcIn   = PlMaxBcIn   - PlMinBcIn   + 1;
 const Int_t NumOfLayersBcOut  = PlMaxBcOut  - PlMinBcOut  + 1;
 const Int_t NumOfLayersSdcIn  = PlMaxSdcIn  - PlMinSdcIn  + 1;
@@ -233,11 +170,14 @@ const Int_t MaxWireBC3      =  64;
 const Int_t MaxWireBC4      =  64;
 
 const Int_t MaxWireSDC1     =  64;
-const Int_t MaxWireSDC2X    =  70;
-const Int_t MaxWireSDC2Y    =  40;
+const Int_t MaxWireSDC2X    =  44;
+const Int_t MaxWireSDC2Y    =  44;
 const Int_t MaxWireSDC3     = 128;
-const Int_t MaxWireSDC4X    =  96;
-const Int_t MaxWireSDC4Y    =  64;
+const Int_t MaxWireSDC4X    = 128;
+const Int_t MaxWireSDC4Y    = 128;
+const Int_t MaxWireSDC4     = 128;
+const Int_t MaxWireSDC5X    = 128;
+const Int_t MaxWireSDC5Y    =  96;
 
 // MaxDriftLength = CellSize/2
 const Double_t CellSizeBC3 = 3.0;
@@ -245,7 +185,8 @@ const Double_t CellSizeBC4 = 3.0;
 const Double_t CellSizeSDC1 =  6.0;
 const Double_t CellSizeSDC2 = 10.0;
 const Double_t CellSizeSDC3 =  9.0;
-const Double_t CellSizeSDC4 = 20.0;
+const Double_t CellSizeSDC4 =  9.0;
+const Double_t CellSizeSDC5 =  9.0;
 
 const Int_t NumOfPlaneBFT   =   2;
 const Int_t NumOfSegBFT     = 160;

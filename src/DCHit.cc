@@ -208,11 +208,12 @@ DCHit::CalcDCObservables()
       }
       break;
 
-      // SDC1,2,3
+      // SDC1,2,3,4,5
     case 1: case 2: case 3: case 4: case 5: case 6:
     case 7: case 8: case 9: case 10:
     case 31: case 32: case 33: case 34:
     case 35: case 36: case 37: case 38:
+    case 39: case 40: case 41: case 42:
       //      m_pair_cont.at(i).dl_range = true;
       if(MinDLSdc[m_layer] < m_pair_cont.at(i).drift_length && m_pair_cont.at(i).drift_length < MaxDLSdc[m_layer]){
       	m_pair_cont.at(i).dl_range = true;

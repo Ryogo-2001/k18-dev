@@ -7,6 +7,8 @@
 #include <sstream>
 #include <cmath>
 
+#include <TSystem.h>
+
 #include <DAQNode.hh>
 #include <Unpacker.hh>
 #include <UnpackerManager.hh>
@@ -87,15 +89,24 @@ UserBookMark::ProcessingBegin()
 Bool_t
 UserBookMark::ProcessingNormal()
 {
+  static TString stream_type = gUnpacker.get_istream();
+  if (stream_type.Contains(".dat.gz"))
+    gSystem->Exit(0);
+    // return true;
+
   static const TString OutputDir(
-    "/group/had/sks/E42/JPARC2021May/e42_2021may/bookmark");
+    "/group/had/sks/E70/JPARC2023May/e70_bench/bookmark");
   static std::ofstream ofs(Form("%s/run%05d_bookmark.dat",
                                 OutputDir.Data(),
-                                gUnpacker.get_root()->get_run_number()),
+                                gUnpacker.get_run_number()),
                            std::ios::binary);
   static ULong64_t first_bookmark = gUnpacker.get_istream_bookmark();
   static ULong64_t buf;
-  buf = gUnpacker.get_istream_bookmark() - first_bookmark;
+  buf = gUnpacker.get_istream_bookmark();// - first_bookmark;
+  if (buf == first_bookmark) {
+    ULong64_t tmp = 0;
+    ofs.write(reinterpret_cast<char*>(&tmp), sizeof(buf));
+  }
   ofs.write(reinterpret_cast<char*>(&buf), sizeof(buf));
 
   event.runnum = gUnpacker.get_run_number();

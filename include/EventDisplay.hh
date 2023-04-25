@@ -67,7 +67,6 @@ private:
   TGeometry                 *m_geometry;
   TNode                     *m_node;
   TCanvas                   *m_canvas;
-  // TCanvas                   *m_canvas_tpc;
   TCanvas                   *m_canvas_vertex;
   TCanvas                   *m_canvas_hist;
   TCanvas                   *m_canvas_hist2;
@@ -78,9 +77,6 @@ private:
   TCanvas                   *m_canvas_hist7;
   TCanvas                   *m_canvas_hist8;
   TCanvas                   *m_canvas_hist9;
-  TH2Poly*                   m_tpc_adc2d;
-  TH2Poly*                   m_tpc_tdc2d;
-  TH2Poly*                   m_htof_2d;
   TH1                       *m_hist_vertex_x;
   TH1                       *m_hist_vertex_y;
   TH1                       *m_hist_p;
@@ -207,12 +203,8 @@ private:
   TMarker                   *m_VertexPointYZ;
   std::vector<TPolyLine*>    m_BcOutXZ_line;
   std::vector<TPolyLine*>    m_BcOutYZ_line;
-  std::vector<TPolyLine*>    m_BcOutXZ_line_tpc;
-  std::vector<TPolyLine*>    m_BcOutYZ_line_tpc;
   std::vector<TPolyLine*>    m_SdcInXZ_line;
   std::vector<TPolyLine*>    m_SdcInYZ_line;
-  std::vector<TPolyLine*>    m_SdcInXZ_line_tpc;
-  std::vector<TPolyLine*>    m_SdcInYZ_line_tpc;
   TPolyMarker               *m_HSMarkVertexXShs;
   TPolyMarker               *m_KuramaMarkVertexXShs;
   TPolyMarker               *m_KuramaMarkVertexX;
@@ -261,9 +253,6 @@ public:
   void FillMassSquare(Double_t mass_square);
   void FillMissMass(Double_t mass_square);
   void FillBH1(Int_t seg, Int_t tdc);
-  void   FillTPCADC(Int_t layer, Int_t row, Double_t adc);
-  void   FillTPCTDC(Int_t layer, Int_t row, Double_t tdc);
-  void   FillHTOF(Int_t seg);
   void SetCorrectTimeBH1(Int_t seg, Double_t de);
   void FillBFT(Int_t layer, Int_t seg, Int_t tdc);
   void SetCorrectTimeBFT(Double_t pos);

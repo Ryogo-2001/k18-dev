@@ -29,6 +29,7 @@
 #include "HodoPHCMan.hh"
 #include "K18TransMatrix.hh"
 #include "MatrixParamMan.hh"
+#include "MsTParamMan.hh"
 #include "UnpackerManager.hh"
 #include "UserParamMan.hh"
 
@@ -119,10 +120,6 @@ ConfMan::Initialize()
   }
 
   AddObject();
-
-  // For E42
-  //  gUnpacker.enable_istream_bookmark();
-  //
 
   if(!InitializeParameterFiles() || !InitializeHistograms()){
     return false;
