@@ -1,0 +1,161 @@
+#
+#  UserParam_E42_2021May_default.txt
+#
+### BH1
+TdcBH1 510000 540000
+DeBH1 0.3 4
+
+### BH2
+TdcBH2 320000 350000
+DeBH2 0.3 4
+
+### BH2 Mt gate (for Time0)
+MtBH2 -2 2
+
+### BTOF gate
+BTOF -2 2
+
+### BAC
+TdcBAC 1140 1180
+
+### HTOF
+TdcHTOF		960000 1120000
+TimeHTOF	0 2000
+
+### BVH
+TdcBVH		1140 1240
+
+### TOF
+TdcTOF 230000 330000
+DeTOF 0.3 4
+
+### TOF time range
+TimeTOF 7 25
+
+### LAC
+TdcLAC		170 290
+
+### WC
+TdcWC		150 350
+
+### BFT TDC gate range
+TdcBFT 650 710
+
+### BFT Time gate range
+TimeBFT -5 5
+
+### SCH TDC gate range
+TdcSCH 470 510
+
+### SCH Time gate range
+TimeSCH -5 15
+
+### BC3 TDC gate range
+TdcBC3 250 470
+
+### BC4 TDC gate range
+TdcBC4 250 470
+
+### SDC1 TDC gate range
+TdcSDC1 250 470
+
+### SDC2 TDC gate range
+TdcSDC2 200 1000
+
+### SDC3 TDC gate range
+TdcSDC3 200 920
+
+### SDC4 TDC gate range
+TdcSDC4 200 920
+
+### SDC1 Trailing gate range
+TrailingSDC1 200 450
+
+### SDC2 Trailing gate range
+TrailingSDC2 0 1000
+
+### SDC3 Trailing gate range
+TrailingSDC3 300 900
+
+### SDC4 Trailing gate range
+TrailingSDC4 0 900
+
+### BC/SDC TOT cut
+MinTotBcOut 15
+MinTotSDC1 20
+MinTotSDC2 50
+MinTotSDC3 50
+MinTotSDC4 80
+
+### BCOUT multiplicity gate
+MaxMultiHitBcOut 16
+
+### BCOUT plane multiplicity gate
+MinLayerBcOut 8
+
+### SDCIN multiplicity gate
+MaxMultiHitSdcIn 16
+
+### SDCIN plane multiplicity gate
+MinLayerSdcIn 8
+
+### SDCOUT multiplicity gate
+MaxMultiHitSdcOut 16
+
+### SDCOUT plane multiplicity gate (+2 in SdcOutTracking)
+MinLayerSdcOut 6
+
+### CommonStop timing of "L1" for SdcOut
+StopTimingSdcOut 360 400
+
+### SdcOut dT offset for L1 stop timing
+StopTimeDiffSdcOut 150
+
+### STOF offset between BH2-Target
+StofOffset	-2.0378
+
+### BcOutSdcInTracking
+MinLayerBcOutSdcIn 22
+
+### TPCHit
+BaselineCorrectionTPC	1
+MaxMultiHitTPC		2000
+#MinDeTPC		40
+MinDeTPC		60
+MinRmsTPC		10
+# before change num of tbi
+#TimeBucketTPC		10 140
+# after change num of tbi
+TimeBucketTPC		25 155
+#temporary (ch) -> should be ns unit
+#Time0TPC   	   	  79.0
+#HIMAC value mm/ns
+#DriftVelocityTPC	0.05
+
+### TPC Cluster Y cut
+#ClusterYCut 3
+ClusterYCut 10
+
+### TPC Hough Window cut
+HoughWindowCut 10
+TPCClusterSizeCut 1
+#TPCMaxLayerCut 28
+TPCMaxLayerCut 33
+#DECut_TPCTrack 100
+#DECut_TPCTrack 0.5
+DECut_TPCTrack 0.2
+
+### TPC resolution parameter
+### at 1T
+TPC_Dt 0.18
+### at 0T
+#TPC_Dt 0.57
+### HIMAC val
+TPC_sigma0 0.204
+### tmp val
+#TPC_sigma0 0.7
+
+### TPC
+##for the beam through
+#MinLayerTPC 10
+MinLayerTPC 6

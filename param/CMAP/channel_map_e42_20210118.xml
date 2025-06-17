@@ -1,0 +1,2728 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<channel_map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="schema/channel_map.xsd">
+
+  <!--________________________________________________________________-->
+  <DAQNode node_id="1" name="k18eb">
+    <!--________________________________________________________________-->
+    <VmeMaster node_id="0x208" name="vme08">
+      <VmeRm address="0x7f040000">
+    	<for var="ch" from="0" to="1"><for var="data" from="0" to="3">
+    	  <FE ch="ch" data="data">
+    	  <D Device="VME-RM" Plane="vme08" ch="ch" data="data"/></FE>
+    	</for></for>
+      </VmeRm>
+      <VmeCaenV820 address="0xcd010000">
+    	<for var="ch" from="0" to="31">
+    	  <FE ch="ch" data="0">
+    	  <D Device="Scaler" plane="0" ch="ch" data="0"/></FE>
+    	</for>
+      </VmeCaenV820>
+    </VmeMaster>
+    <!--________________________________________________________________-->
+    <GetCoBoMaster node_id="0xcb0" name="cobo0">
+      <GetAsAd address="0">
+	<FE ch="0" data="1"><D Device="TPC" plane="0" ch="0" data="1"/></FE>
+	<FE ch="0" data="2"><D Device="TPC" plane="0" ch="0" data="2"/></FE>
+	<!-- AGET-0 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="1" ch="22-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="11" data="0"><D Device="TPCdummy" plane="0" ch="11" data="0"/></FE>
+	<FE ch="12" data="0"><D Device="TPC" plane="1" ch="0" data="0"/></FE>
+	<for var="ch" from="13" to="21">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="3" ch="46-(ch-13)*2" data="0"/></FE>
+	</for>
+	<FE ch="22" data="0"><D Device="TPCdummy" plane="0" ch="22" data="0"/></FE>
+	<for var="ch" from="23" to="37">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="3" ch="28-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="38" to="67">
+	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="0" ch="ch" data="0"/></FE>
+	</for>
+	<!-- AGET-1 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="1" ch="23-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="79" data="0"><D Device="TPCdummy" plane="0" ch="79" data="0"/></FE>
+	<FE ch="80" data="0"><D Device="TPC" plane="1" ch="1" data="0"/></FE>
+	<for var="ch" from="13" to="21">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="3" ch="47-(ch-13)*2" data="0"/></FE>
+	</for>
+	<FE ch="90" data="0"><D Device="TPCdummy" plane="0" ch="90" data="0"/></FE>
+	<for var="ch" from="23" to="37">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="3" ch="29-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="38" to="67">
+	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="0" ch="ch+68" data="0"/></FE>
+	</for>
+	<!-- AGET-2 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="0" ch="22-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="147" data="0"><D Device="TPCdummy" plane="0" ch="147" data="0"/></FE>
+	<FE ch="148" data="0"><D Device="TPC" plane="0" ch="0" data="0"/></FE>
+	<for var="ch" from="13" to="21">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="2" ch="34-(ch-13)*2" data="0"/></FE>
+	</for>
+	<FE ch="158" data="0"><D Device="TPCdummy" plane="0" ch="158" data="0"/></FE>
+	<for var="ch" from="23" to="31">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="2" ch="16-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="32" to="67">
+	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="0" ch="ch+68*2" data="0"/></FE>
+	</for>
+	<!-- AGET-3 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="0" ch="23-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="215" data="0"><D Device="TPCdummy" plane="0" ch="215" data="0"/></FE>
+	<FE ch="216" data="0"><D Device="TPC" plane="0" ch="1" data="0"/></FE>
+	<for var="ch" from="13" to="21">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="2" ch="35-(ch-13)*2" data="0"/></FE>
+	</for>
+	<FE ch="226" data="0"><D Device="TPCdummy" plane="0" ch="226" data="0"/></FE>
+	<for var="ch" from="23" to="31">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="2" ch="17-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="32" to="67">
+	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="0" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+      <GetAsAd address="1">
+	<FE ch="0" data="1"><D Device="TPC" plane="1" ch="0" data="1"/></FE>
+	<FE ch="0" data="2"><D Device="TPC" plane="1" ch="0" data="2"/></FE>
+	<!-- AGET-0 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="1" ch="47-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="11" data="0"><D Device="TPCdummy" plane="1" ch="11" data="0"/></FE>
+	<FE ch="12" data="0"><D Device="TPC" plane="1" ch="25" data="0"/></FE>
+	<for var="ch" from="13" to="21">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="3" ch="95-(ch-13)*2" data="0"/></FE>
+	</for>
+	<FE ch="22" data="0"><D Device="TPCdummy" plane="1" ch="22" data="0"/></FE>
+	<for var="ch" from="23" to="37">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="3" ch="77-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="38" to="67">
+	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="1" ch="ch" data="0"/></FE>
+	</for>
+	<!-- AGET-1 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="1" ch="46-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="79" data="0"><D Device="TPCdummy" plane="1" ch="79" data="0"/></FE>
+	<FE ch="80" data="0"><D Device="TPC" plane="1" ch="24" data="0"/></FE>
+	<for var="ch" from="13" to="21">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="3" ch="94-(ch-13)*2" data="0"/></FE>
+	</for>
+	<FE ch="90" data="0"><D Device="TPCdummy" plane="1" ch="90" data="0"/></FE>
+	<for var="ch" from="23" to="37">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="3" ch="76-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="38" to="67">
+	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="1" ch="ch+68" data="0"/></FE>
+	</for>
+	<!-- AGET-2 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="0" ch="47-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="147" data="0"><D Device="TPCdummy" plane="1" ch="147" data="0"/></FE>
+	<FE ch="148" data="0"><D Device="TPC" plane="0" ch="25" data="0"/></FE>
+	<for var="ch" from="13" to="21">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="2" ch="71-(ch-13)*2" data="0"/></FE>
+	</for>
+	<FE ch="158" data="0"><D Device="TPCdummy" plane="1" ch="158" data="0"/></FE>
+	<for var="ch" from="23" to="31">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="2" ch="53-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="32" to="67">
+	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="1" ch="ch+68*2" data="0"/></FE>
+	</for>
+	<!-- AGET-3 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="0" ch="46-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="215" data="0"><D Device="TPCdummy" plane="1" ch="215" data="0"/></FE>
+	<FE ch="216" data="0"><D Device="TPC" plane="0" ch="24" data="0"/></FE>
+	<for var="ch" from="13" to="21">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="2" ch="70-(ch-13)*2" data="0"/></FE>
+	</for>
+	<FE ch="226" data="0"><D Device="TPCdummy" plane="1" ch="226" data="0"/></FE>
+	<for var="ch" from="23" to="31">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="2" ch="52-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="32" to="67">
+	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="1" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+      <GetAsAd address="2">
+	<FE ch="0" data="1"><D Device="TPC" plane="2" ch="0" data="1"/></FE>
+	<FE ch="0" data="2"><D Device="TPC" plane="2" ch="0" data="2"/></FE>
+	<!-- AGET-0 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="5" ch="22-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="11" data="0"><D Device="TPCdummy" plane="2" ch="11" data="0"/></FE>
+	<FE ch="12" data="0"><D Device="TPC" plane="5" ch="0" data="0"/></FE>
+	<for var="ch" from="13" to="21">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="5" ch="143-(ch-13)*2" data="0"/></FE>
+	</for>
+	<FE ch="22" data="0"><D Device="TPCdummy" plane="2" ch="22" data="0"/></FE>
+	<for var="ch" from="23" to="25">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="5" ch="125-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="26" to="67">
+	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="2" ch="ch" data="0"/></FE>
+	</for>
+	<!-- AGET-1 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="5" ch="23-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="79" data="0"><D Device="TPCdummy" plane="2" ch="79" data="0"/></FE>
+	<FE ch="80" data="0"><D Device="TPC" plane="5" ch="1" data="0"/></FE>
+	<for var="ch" from="13" to="21">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="5" ch="142-(ch-13)*2" data="0"/></FE>
+	</for>
+	<FE ch="90" data="0"><D Device="TPCdummy" plane="2" ch="90" data="0"/></FE>
+	<for var="ch" from="23" to="25">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="5" ch="124-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="26" to="67">
+	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="2" ch="ch+68" data="0"/></FE>
+	</for>
+	<!-- AGET-2 -->
+	<for var="ch" from="0" to="9">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="4" ch="18-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="146" data="0"><D Device="TPC" plane="4" ch="119" data="0"/></FE>
+	<FE ch="147" data="0"><D Device="TPCdummy" plane="2" ch="147" data="0"/></FE>
+	<for var="ch" from="12" to="20">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="4" ch="117-(ch-12)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="21" to="67">
+	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="2" ch="ch+68*2" data="0"/></FE>
+	</for>
+	<!-- AGET-3 -->
+	<for var="ch" from="0" to="9">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="4" ch="19-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="214" data="0"><D Device="TPC" plane="4" ch="118" data="0"/></FE>
+	<FE ch="215" data="0"><D Device="TPCdummy" plane="2" ch="215" data="0"/></FE>
+	<for var="ch" from="12" to="20">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="4" ch="116-(ch-12)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="21" to="67">
+	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="2" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+      <GetAsAd address="3">
+	<FE ch="0" data="1"><D Device="TPC" plane="3" ch="0" data="1"/></FE>
+	<FE ch="0" data="2"><D Device="TPC" plane="3" ch="0" data="2"/></FE>
+	<!-- AGET-0 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="5" ch="24+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="11" data="0"><D Device="TPCdummy" plane="3" ch="11" data="0"/></FE>
+	<for var="ch" from="12" to="21">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="5" ch="46+(ch-12)*2" data="0"/></FE>
+	</for>
+	<FE ch="22" data="0"><D Device="TPCdummy" plane="3" ch="22" data="0"/></FE>
+	<for var="ch" from="23" to="25">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="5" ch="66+(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="26" to="67">
+	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="3" ch="ch" data="0"/></FE>
+	</for>
+	<!-- AGET-1 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="5" ch="25+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="79" data="0"><D Device="TPCdummy" plane="3" ch="79" data="0"/></FE>
+	<for var="ch" from="12" to="21">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="5" ch="47+(ch-12)*2" data="0"/></FE>
+	</for>
+	<FE ch="90" data="0"><D Device="TPCdummy" plane="3" ch="90" data="0"/></FE>
+	<for var="ch" from="23" to="25">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="5" ch="67+(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="26" to="67">
+	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="3" ch="ch+68" data="0"/></FE>
+	</for>
+	<!-- AGET-2 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="4" ch="20+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="147" data="0"><D Device="TPCdummy" plane="3" ch="147" data="0"/></FE>
+	<for var="ch" from="12" to="20">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="4" ch="42+(ch-12)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="21" to="67">
+	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="3" ch="ch+68*2" data="0"/></FE>
+	</for>
+	<!-- AGET-3 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="4" ch="21+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="215" data="0"><D Device="TPCdummy" plane="3" ch="215" data="0"/></FE>
+	<for var="ch" from="12" to="20">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="4" ch="43+(ch-12)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="21" to="67">
+	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="3" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+    </GetCoBoMaster>
+    <!--________________________________________________________________-->
+    <GetCoBoMaster node_id="0xcb1" name="cobo1">
+      <GetAsAd address="4">
+	<FE ch="0" data="1"><D Device="TPC" plane="4" ch="0" data="1"/></FE>
+	<FE ch="0" data="2"><D Device="TPC" plane="4" ch="0" data="2"/></FE>
+	<!-- AGET-0 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="5" ch="73+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="11" data="0"><D Device="TPCdummy" plane="4" ch="11" data="0"/></FE>
+	<for var="ch" from="12" to="21">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="5" ch="95+(ch-12)*2" data="0"/></FE>
+	</for>
+	<FE ch="22" data="0"><D Device="TPCdummy" plane="4" ch="22" data="0"/></FE>
+	<for var="ch" from="23" to="25">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="5" ch="115+(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="26" to="67">
+	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="4" ch="ch" data="0"/></FE>
+	</for>
+	<!-- AGET-1 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="5" ch="72+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="79" data="0"><D Device="TPCdummy" plane="4" ch="79" data="0"/></FE>
+	<for var="ch" from="12" to="21">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="5" ch="94+(ch-12)*2" data="0"/></FE>
+	</for>
+	<FE ch="90" data="0"><D Device="TPCdummy" plane="4" ch="90" data="0"/></FE>
+	<for var="ch" from="23" to="25">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="5" ch="114+(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="26" to="67">
+	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="4" ch="ch+68" data="0"/></FE>
+	</for>
+	<!-- AGET-2 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="4" ch="61+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="147" data="0"><D Device="TPCdummy" plane="4" ch="147" data="0"/></FE>
+	<for var="ch" from="12" to="20">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="4" ch="83+(ch-12)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="21" to="67">
+	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="4" ch="ch+68*2" data="0"/></FE>
+	</for>
+	<!-- AGET-3 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="4" ch="60+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="215" data="0"><D Device="TPCdummy" plane="4" ch="215" data="0"/></FE>
+	<for var="ch" from="12" to="20">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="4" ch="82+(ch-12)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="21" to="67">
+	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="4" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+      <GetAsAd address="5">
+	<FE ch="0" data="1"><D Device="TPC" plane="5" ch="0" data="1"/></FE>
+	<FE ch="0" data="2"><D Device="TPC" plane="5" ch="0" data="2"/></FE>
+	<!-- AGET-0 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="7" ch="30-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="11" data="0"><D Device="TPCdummy" plane="5" ch="11" data="0"/></FE>
+	<for var="ch" from="12" to="16">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="7" ch="8-(ch-12)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="17" to="21">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="7" ch="191-(ch-17)*2" data="0"/></FE>
+	</for>
+	<FE ch="22" data="0"><D Device="TPCdummy" plane="5" ch="22" data="0"/></FE>
+	<for var="ch" from="23" to="33">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="7" ch="181-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="34" to="67">
+	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="5" ch="ch" data="0"/></FE>
+	</for>
+	<!-- AGET-1 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="7" ch="31-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="79" data="0"><D Device="TPCdummy" plane="5" ch="79" data="0"/></FE>
+	<for var="ch" from="12" to="16">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="7" ch="9-(ch-12)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="17" to="21">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="7" ch="190-(ch-17)*2" data="0"/></FE>
+	</for>
+	<FE ch="90" data="0"><D Device="TPCdummy" plane="5" ch="90" data="0"/></FE>
+	<for var="ch" from="23" to="33">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="7" ch="180-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="34" to="67">
+	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="5" ch="ch+68" data="0"/></FE>
+	</for>
+	<!-- AGET-2 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="6" ch="26-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="147" data="0"><D Device="TPCdummy" plane="5" ch="147" data="0"/></FE>
+	<for var="ch" from="12" to="14">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="6" ch="4-(ch-12)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="15" to="21">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="6" ch="167-(ch-15)*2" data="0"/></FE>
+	</for>
+	<FE ch="158" data="0"><D Device="TPCdummy" plane="5" ch="158" data="0"/></FE>
+	<for var="ch" from="23" to="29">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="6" ch="153-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="30" to="67">
+	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="5" ch="ch+68*2" data="0"/></FE>
+	</for>
+	<!-- AGET-3 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="6" ch="27-ch*2" data="0"/></FE>
+	</for>
+	<FE ch="215" data="0"><D Device="TPCdummy" plane="5" ch="215" data="0"/></FE>
+	<for var="ch" from="12" to="14">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="6" ch="5-(ch-12)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="15" to="21">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="6" ch="166-(ch-15)*2" data="0"/></FE>
+	</for>
+	<FE ch="226" data="0"><D Device="TPCdummy" plane="5" ch="226" data="0"/></FE>
+	<for var="ch" from="23" to="29">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="6" ch="152-(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="30" to="67">
+	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="5" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+      <GetAsAd address="6">
+	<FE ch="0" data="1"><D Device="TPC" plane="6" ch="0" data="1"/></FE>
+	<FE ch="0" data="2"><D Device="TPC" plane="6" ch="0" data="2"/></FE>
+	<!-- AGET-0 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="7" ch="32+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="11" data="0"><D Device="TPCdummy" plane="6" ch="11" data="0"/></FE>
+	<for var="ch" from="12" to="21">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="7" ch="54+(ch-12)*2" data="0"/></FE>
+	</for>
+	<FE ch="22" data="0"><D Device="TPCdummy" plane="6" ch="22" data="0"/></FE>
+	<for var="ch" from="23" to="33">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="7" ch="74+(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="34" to="67">
+	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="6" ch="ch" data="0"/></FE>
+	</for>
+	<!-- AGET-1 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="7" ch="33+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="79" data="0"><D Device="TPCdummy" plane="6" ch="79" data="0"/></FE>
+	<for var="ch" from="12" to="21">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="7" ch="55+(ch-12)*2" data="0"/></FE>
+	</for>
+	<FE ch="90" data="0"><D Device="TPCdummy" plane="6" ch="90" data="0"/></FE>
+	<for var="ch" from="23" to="33">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="7" ch="75+(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="34" to="67">
+	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="6" ch="ch+68" data="0"/></FE>
+	</for>
+	<!-- AGET-2 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="6" ch="28+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="147" data="0"><D Device="TPCdummy" plane="6" ch="147" data="0"/></FE>
+	<for var="ch" from="12" to="21">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="6" ch="50+(ch-12)*2" data="0"/></FE>
+	</for>
+	<FE ch="158" data="0"><D Device="TPCdummy" plane="6" ch="158" data="0"/></FE>
+	<for var="ch" from="23" to="29">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="6" ch="70+(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="30" to="67">
+	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="6" ch="ch+68*2" data="0"/></FE>
+	</for>
+	<!-- AGET-3 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="6" ch="29+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="215" data="0"><D Device="TPCdummy" plane="6" ch="215" data="0"/></FE>
+	<for var="ch" from="12" to="21">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="6" ch="51+(ch-12)*2" data="0"/></FE>
+	</for>
+	<FE ch="226" data="0"><D Device="TPCdummy" plane="6" ch="226" data="0"/></FE>
+	<for var="ch" from="23" to="29">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="6" ch="71+(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="30" to="67">
+	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="6" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+      <GetAsAd address="7">
+	<FE ch="0" data="1"><D Device="TPC" plane="7" ch="0" data="1"/></FE>
+	<FE ch="0" data="2"><D Device="TPC" plane="7" ch="0" data="2"/></FE>
+	<!-- AGET-0 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="7" ch="97+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="11" data="0"><D Device="TPCdummy" plane="7" ch="11" data="0"/></FE>
+	<for var="ch" from="12" to="21">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="7" ch="119+(ch-12)*2" data="0"/></FE>
+	</for>
+	<FE ch="22" data="0"><D Device="TPCdummy" plane="7" ch="22" data="0"/></FE>
+	<for var="ch" from="23" to="33">
+	  <FE ch="ch" data="0"><D Device="TPC" plane="7" ch="139+(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="34" to="67">
+	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="7" ch="ch" data="0"/></FE>
+	</for>
+	<!-- AGET-1 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="7" ch="96+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="79" data="0"><D Device="TPCdummy" plane="7" ch="79" data="0"/></FE>
+	<for var="ch" from="12" to="21">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="7" ch="118+(ch-12)*2" data="0"/></FE>
+	</for>
+	<FE ch="90" data="0"><D Device="TPCdummy" plane="7" ch="90" data="0"/></FE>
+	<for var="ch" from="23" to="33">
+	  <FE ch="ch+68" data="0"><D Device="TPC" plane="7" ch="138+(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="34" to="67">
+	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="7" ch="ch+68" data="0"/></FE>
+	</for>
+	<!-- AGET-2 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="6" ch="85+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="147" data="0"><D Device="TPCdummy" plane="7" ch="147" data="0"/></FE>
+	<for var="ch" from="12" to="21">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="6" ch="107+(ch-12)*2" data="0"/></FE>
+	</for>
+	<FE ch="158" data="0"><D Device="TPCdummy" plane="7" ch="158" data="0"/></FE>
+	<for var="ch" from="23" to="29">
+	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="6" ch="127+(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="30" to="67">
+	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="7" ch="ch+68*2" data="0"/></FE>
+	</for>
+	<!-- AGET-3 -->
+	<for var="ch" from="0" to="10">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="6" ch="84+ch*2" data="0"/></FE>
+	</for>
+	<FE ch="215" data="0"><D Device="TPCdummy" plane="7" ch="215" data="0"/></FE>
+	<for var="ch" from="12" to="21">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="6" ch="106+(ch-12)*2" data="0"/></FE>
+	</for>
+	<FE ch="226" data="0"><D Device="TPCdummy" plane="7" ch="226" data="0"/></FE>
+	<for var="ch" from="23" to="29">
+	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="6" ch="126+(ch-23)*2" data="0"/></FE>
+	</for>
+	<for var="ch" from="30" to="67">
+	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="7" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+    </GetCoBoMaster>
+    <!--________________________________________________________________-->
+    <GetCoBoMaster node_id="0xcb2" name="cobo2">
+      <GetAsAd address="8">
+    	<FE ch="0" data="1"><D Device="TPC" plane="8" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="8" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="9" ch="ch*2" data="0"/></FE>
+    	</for>
+	<FE ch="11" data="0"><D Device="TPCdummy" plane="8" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="9" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+	<FE ch="22" data="0"><D Device="TPCdummy" plane="8" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="9" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+	<FE ch="45" data="0"><D Device="TPCdummy" plane="8" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="9" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+	<FE ch="56" data="0"><D Device="TPCdummy" plane="8" ch="56" data="0"/></FE>
+    	<for var="ch" from="57" to="63">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="9" ch="106+(ch-57)*2" data="0"/></FE>
+    	</for>
+	<for var="ch" from="64" to="67">
+	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="8" ch="ch" data="0"/></FE>
+	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="9" ch="1+ch*2" data="0"/></FE>
+    	</for>
+	<FE ch="79" data="0"><D Device="TPCdummy" plane="8" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="9" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+	<FE ch="90" data="0"><D Device="TPCdummy" plane="8" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="9" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+	<FE ch="113" data="0"><D Device="TPCdummy" plane="8" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="9" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+	<FE ch="124" data="0"><D Device="TPCdummy" plane="8" ch="124" data="0"/></FE>
+    	<for var="ch" from="57" to="63">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="9" ch="107+(ch-57)*2" data="0"/></FE>
+    	</for>
+	<for var="ch" from="64" to="67">
+	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="8" ch="ch+68" data="0"/></FE>
+	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="8" ch="ch*2" data="0"/></FE>
+    	</for>
+	<FE ch="147" data="0"><D Device="TPCdummy" plane="8" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="8" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+	<FE ch="158" data="0"><D Device="TPCdummy" plane="8" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="8" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+	<FE ch="181" data="0"><D Device="TPCdummy" plane="8" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="8" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+	<FE ch="192" data="0"><D Device="TPCdummy" plane="8" ch="192" data="0"/></FE>
+    	<FE ch="193" data="0"><D Device="TPC" plane="8" ch="106" data="0"/></FE>
+	<for var="ch" from="58" to="67">
+	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="8" ch="ch+68*2" data="0"/></FE>
+	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="8" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="8" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="8" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="8" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="8" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="8" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="8" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="260" data="0"><D Device="TPCdummy" plane="8" ch="260" data="0"/></FE>
+    	<FE ch="261" data="0"><D Device="TPC" plane="8" ch="107" data="0"/></FE>
+	<for var="ch" from="58" to="67">
+	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="8" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+      <GetAsAd address="9">
+    	<FE ch="0" data="1"><D Device="TPC" plane="9" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="9" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="9" ch="121+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="9" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="9" ch="143+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="9" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="9" ch="163+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="9" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="9" ch="207+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="56" data="0"><D Device="TPCdummy" plane="9" ch="56" data="0"/></FE>
+    	<for var="ch" from="57" to="63">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="9" ch="227+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="64" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="9" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="9" ch="120+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="9" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="9" ch="142+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="9" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="9" ch="162+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="9" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="9" ch="206+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="124" data="0"><D Device="TPCdummy" plane="9" ch="124" data="0"/></FE>
+    	<for var="ch" from="57" to="63">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="9" ch="226+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="64" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="9" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="8" ch="109+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="9" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="8" ch="131+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="9" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="8" ch="151+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="9" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="8" ch="195+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="192" data="0"><D Device="TPCdummy" plane="9" ch="192" data="0"/></FE>
+    	<FE ch="193" data="0"><D Device="TPC" plane="8" ch="215" data="0"/></FE>
+    	<for var="ch" from="58" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="9" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="8" ch="108+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="9" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="8" ch="130+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="9" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="8" ch="150+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="9" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="8" ch="194+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="260" data="0"><D Device="TPCdummy" plane="9" ch="260" data="0"/></FE>
+    	<FE ch="261" data="0"><D Device="TPC" plane="8" ch="214" data="0"/></FE>
+    	<for var="ch" from="58" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="9" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+      <GetAsAd address="10">
+    	<FE ch="0" data="1"><D Device="TPC" plane="10" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="10" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="11" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="10" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="11" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="10" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="11" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="10" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="11" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="56" data="0"><D Device="TPCdummy" plane="10" ch="56" data="0"/></FE>
+    	<FE ch="57" data="0"><D Device="TPC" plane="11" ch="107" data="0"/></FE>
+    	<for var="ch" from="58" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="10" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="11" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="10" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="11" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="10" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="24">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="11" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="25" to="27">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="10" ch="ch+68" data="0"/></FE>
+	</for>
+    	<for var="ch" from="28" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="11" ch="52+(ch-28)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="10" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="52">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="11" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="53" to="56">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="10" ch="ch+68" data="0"/></FE>
+	</for>
+    	<for var="ch" from="57" to="58">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="11" ch="106+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="59" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="10" ch="ch+68" data="0"/></FE>
+	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="10" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="10" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="10" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="10" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="30">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="10" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="167" data="0"><D Device="TPCdummy" plane="10" ch="167" data="0"/></FE>
+    	<for var="ch" from="32" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="10" ch="60+(ch-32)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="10" ch="181" data="0"/></FE>
+    	<FE ch="182" data="0"><D Device="TPC" plane="10" ch="86" data="0"/></FE>
+    	<FE ch="183" data="0"><D Device="TPCdummy" plane="10" ch="183" data="0"/></FE>
+    	<FE ch="184" data="0"><D Device="TPCdummy" plane="10" ch="184" data="0"/></FE>
+    	<for var="ch" from="49" to="54">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="10" ch="92+(ch-49)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="55" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="10" ch="ch+68*2" data="0"/></FE>
+	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="10" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="10" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="10" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="10" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="25">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="10" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="230" data="0"><D Device="TPCdummy" plane="10" ch="230" data="0"/></FE>
+    	<for var="ch" from="27" to="29">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="10" ch="51+(ch-27)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="30" to="31">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="10" ch="ch+68*3" data="0"/></FE>
+	</for>
+    	<for var="ch" from="32" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="10" ch="61+(ch-32)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="10" ch="249" data="0"/></FE>
+    	<FE ch="250" data="0"><D Device="TPC" plane="10" ch="87" data="0"/></FE>
+    	<FE ch="251" data="0"><D Device="TPCdummy" plane="10" ch="251" data="0"/></FE>
+    	<for var="ch" from="48" to="54">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="10" ch="91+(ch-48)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="55" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="10" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+      <GetAsAd address="11">
+    	<FE ch="0" data="1"><D Device="TPC" plane="11" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="11" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="1">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="11" ch="110+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="2" data="0"><D Device="TPCdummy" plane="11" ch="2" data="0"/></FE>
+    	<FE ch="3" data="0"><D Device="TPCdummy" plane="11" ch="3" data="0"/></FE>
+    	<for var="ch" from="4" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="11" ch="118+(ch-4)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="11" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="11" ch="132+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="11" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="30">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="11" ch="152+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="31" data="0"><D Device="TPCdummy" plane="11" ch="31" data="0"/></FE>
+    	<FE ch="32" data="0"><D Device="TPCdummy" plane="11" ch="32" data="0"/></FE>
+    	<for var="ch" from="33" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="11" ch="172+(ch-33)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="11" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="11" ch="196+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="56" data="0"><D Device="TPCdummy" plane="11" ch="56" data="0"/></FE>
+    	<FE ch="57" data="0"><D Device="TPC" plane="11" ch="216" data="0"/></FE>
+    	<for var="ch" from="58" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="11" ch="ch" data="0"/></FE>
+	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="1">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="11" ch="109+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="70" data="0"><D Device="TPCdummy" plane="11" ch="70" data="0"/></FE>
+    	<FE ch="71" data="0"><D Device="TPCdummy" plane="11" ch="71" data="0"/></FE>
+    	<FE ch="72" data="0"><D Device="TPCdummy" plane="11" ch="72" data="0"/></FE>
+    	<for var="ch" from="5" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="11" ch="119+(ch-5)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="11" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="11" ch="131+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="11" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="30">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="11" ch="151+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="99" data="0"><D Device="TPCdummy" plane="11" ch="99" data="0"/></FE>
+    	<FE ch="100" data="0"><D Device="TPCdummy" plane="11" ch="100" data="0"/></FE>
+    	<FE ch="101" data="0"><D Device="TPCdummy" plane="11" ch="101" data="0"/></FE>
+    	<for var="ch" from="34" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="11" ch="173+(ch-34)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="11" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="11" ch="195+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="124" data="0"><D Device="TPCdummy" plane="11" ch="124" data="0"/></FE>
+    	<for var="ch" from="57" to="58">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="11" ch="215+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="59" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="11" ch="ch+68" data="0"/></FE>
+	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="5">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="10" ch="105+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="142" data="0"><D Device="TPCdummy" plane="11" ch="142" data="0"/></FE>
+    	<FE ch="143" data="0"><D Device="TPCdummy" plane="11" ch="143" data="0"/></FE>
+    	<for var="ch" from="8" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="10" ch="121+(ch-8)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="11" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="10" ch="127+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="11" ch="158" data="0"/></FE>
+    	<FE ch="159" data="0"><D Device="TPC" plane="10" ch="147" data="0"/></FE>
+    	<FE ch="160" data="0"><D Device="TPCdummy" plane="11" ch="160" data="0"/></FE>
+    	<for var="ch" from="25" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="10" ch="151+(ch-25)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="11" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="54">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="10" ch="191+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="55" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="11" ch="ch+68*2" data="0"/></FE>
+	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="6">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="10" ch="104+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="211" data="0"><D Device="TPCdummy" plane="11" ch="211" data="0"/></FE>
+    	<for var="ch" from="8" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="10" ch="120+(ch-8)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="11" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="10" ch="126+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="11" ch="226" data="0"/></FE>
+    	<FE ch="227" data="0"><D Device="TPC" plane="10" ch="146" data="0"/></FE>
+    	<FE ch="228" data="0"><D Device="TPCdummy" plane="11" ch="228" data="0"/></FE>
+    	<FE ch="229" data="0"><D Device="TPCdummy" plane="11" ch="229" data="0"/></FE>
+    	<for var="ch" from="26" to="28">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="10" ch="152+(ch-26)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="233" data="0"><D Device="TPCdummy" plane="11" ch="233" data="0"/></FE>
+    	<for var="ch" from="30" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="10" ch="160+(ch-30)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="11" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="54">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="10" ch="190+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="55" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="11" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+    </GetCoBoMaster>
+    <!--________________________________________________________________-->
+    <GetCoBoMaster node_id="0xcb3" name="cobo3">
+      <GetAsAd address="12">
+    	<FE ch="0" data="1"><D Device="TPC" plane="12" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="12" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="9">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="13" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="10" data="0"><D Device="TPCdummy" plane="12" ch="10" data="0"/></FE>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="12" ch="11" data="0"/></FE>
+    	<FE ch="12" data="0"><D Device="TPCdummy" plane="12" ch="12" data="0"/></FE>
+    	<for var="ch" from="13" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="13" ch="25+(ch-13)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="12" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="13" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="12" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="54">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="13" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="55" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="12" ch="ch" data="0"/></FE>
+	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="9">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="13" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="78" data="0"><D Device="TPCdummy" plane="12" ch="78" data="0"/></FE>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="12" ch="79" data="0"/></FE>
+    	<FE ch="80" data="0"><D Device="TPCdummy" plane="12" ch="80" data="0"/></FE>
+    	<for var="ch" from="13" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="13" ch="24+(ch-13)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="12" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="13" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="12" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="54">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="13" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="55" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="12" ch="ch+68" data="0"/></FE>
+	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="12" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="12" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="12" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="12" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="12" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="12" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="12" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="192" data="0"><D Device="TPCdummy" plane="12" ch="192" data="0"/></FE>
+    	<FE ch="193" data="0"><D Device="TPCdummy" plane="12" ch="193" data="0"/></FE>
+    	<for var="ch" from="58" to="59">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="12" ch="109+(ch-58)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="60" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="12" ch="ch+68*2" data="0"/></FE>
+	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="12" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="12" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="12" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="12" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="12" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="12" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="12" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="260" data="0"><D Device="TPCdummy" plane="12" ch="260" data="0"/></FE>
+    	<FE ch="261" data="0"><D Device="TPCdummy" plane="12" ch="261" data="0"/></FE>
+    	<for var="ch" from="58" to="59">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="12" ch="108+(ch-58)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="60" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="12" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+      <GetAsAd address="13">
+    	<FE ch="0" data="1"><D Device="TPC" plane="13" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="13" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<FE ch="0" data="0"><D Device="TPCdummy" plane="13" ch="0" data="0"/></FE>
+    	<for var="ch" from="1" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="13" ch="110+(ch-1)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="13" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="13" ch="130+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="13" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="42">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="13" ch="150+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="43" data="0"><D Device="TPCdummy" plane="13" ch="43" data="0"/></FE>
+    	<FE ch="44" data="0"><D Device="TPCdummy" plane="13" ch="44" data="0"/></FE>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="13" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="13" ch="194+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="56" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="13" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<FE ch="68" data="0"><D Device="TPCdummy" plane="13" ch="68" data="0"/></FE>
+    	<FE ch="69" data="0"><D Device="TPCdummy" plane="13" ch="69" data="0"/></FE>
+    	<for var="ch" from="2" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="13" ch="111+(ch-2)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="13" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="13" ch="129+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="13" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="43">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="13" ch="149+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="112" data="0"><D Device="TPCdummy" plane="13" ch="112" data="0"/></FE>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="13" ch="113" data="0"/></FE>
+    	<FE ch="114" data="0"><D Device="TPCdummy" plane="13" ch="114" data="0"/></FE>
+    	<for var="ch" from="47" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="13" ch="195+(ch-47)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="124" data="0"><D Device="TPCdummy" plane="13" ch="124" data="0"/></FE>
+    	<FE ch="125" data="0"><D Device="TPC" plane="13" ch="213" data="0"/></FE>
+    	<for var="ch" from="58" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="13" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<FE ch="136" data="0"><D Device="TPCdummy" plane="13" ch="136" data="0"/></FE>
+    	<FE ch="137" data="0"><D Device="TPC" plane="12" ch="118" data="0"/></FE>
+    	<FE ch="138" data="0"><D Device="TPC" plane="12" ch="120" data="0"/></FE>
+    	<FE ch="139" data="0"><D Device="TPCdummy" plane="13" ch="139" data="0"/></FE>
+    	<for var="ch" from="4" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="12" ch="124+(ch-4)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="13" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="12" ch="138+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="13" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="12" ch="158+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="13" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="12" ch="202+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="192" data="0"><D Device="TPCdummy" plane="13" ch="192" data="0"/></FE>
+    	<for var="ch" from="57" to="60">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="12" ch="222+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="61" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="13" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<FE ch="204" data="0"><D Device="TPCdummy" plane="13" ch="204" data="0"/></FE>
+    	<FE ch="205" data="0"><D Device="TPCdummy" plane="13" ch="205" data="0"/></FE>
+    	<FE ch="206" data="0"><D Device="TPC" plane="12" ch="119" data="0"/></FE>
+    	<FE ch="207" data="0"><D Device="TPC" plane="12" ch="121" data="0"/></FE>
+    	<FE ch="208" data="0"><D Device="TPCdummy" plane="13" ch="208" data="0"/></FE>
+    	<for var="ch" from="5" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="12" ch="125+(ch-5)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="13" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="12" ch="137+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="13" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="12" ch="157+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="13" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="12" ch="201+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="260" data="0"><D Device="TPCdummy" plane="13" ch="260" data="0"/></FE>
+    	<for var="ch" from="57" to="61">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="12" ch="221+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="62" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="13" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+      <GetAsAd address="14">
+    	<FE ch="0" data="1"><D Device="TPC" plane="14" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="14" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="15" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="14" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="15" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="14" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="15" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="14" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="15" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="56" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="14" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="15" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="14" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="15" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="14" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="15" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="14" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="15" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="124" data="0"><D Device="TPCdummy" plane="14" ch="124" data="0"/></FE>
+    	<FE ch="125" data="0"><D Device="TPC" plane="15" ch="106" data="0"/></FE>
+    	<for var="ch" from="58" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="14" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="14" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="14" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="14" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="14" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="14" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="14" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="51">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="14" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="188" data="0"><D Device="TPCdummy" plane="14" ch="188" data="0"/></FE>
+    	<FE ch="189" data="0"><D Device="TPCdummy" plane="14" ch="189" data="0"/></FE>
+    	<for var="ch" from="54" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="14" ch="102+(ch-54)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="56" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="14" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="14" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="14" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="14" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="14" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="14" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="14" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="50">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="14" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="255" data="0"><D Device="TPCdummy" plane="14" ch="255" data="0"/></FE>
+    	<FE ch="256" data="0"><D Device="TPCdummy" plane="14" ch="256" data="0"/></FE>
+    	<FE ch="257" data="0"><D Device="TPCdummy" plane="14" ch="257" data="0"/></FE>
+    	<for var="ch" from="54" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="14" ch="103+(ch-54)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="56" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="14" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+      <GetAsAd address="15">
+    	<FE ch="0" data="1"><D Device="TPC" plane="15" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="15" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="15" ch="108+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="15" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="15" ch="130+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="15" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="15" ch="150+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="15" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="15" ch="194+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="56" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="15" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="15" ch="107+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="15" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="15" ch="129+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="15" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="15" ch="149+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="15" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="15" ch="193+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="124" data="0"><D Device="TPCdummy" plane="15" ch="124" data="0"/></FE>
+    	<FE ch="125" data="0"><D Device="TPC" plane="15" ch="213" data="0"/></FE>
+    	<for var="ch" from="58" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="15" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<FE ch="136" data="0"><D Device="TPC" plane="14" ch="107" data="0"/></FE>
+    	<FE ch="137" data="0"><D Device="TPC" plane="14" ch="109" data="0"/></FE>
+    	<FE ch="138" data="0"><D Device="TPCdummy" plane="15" ch="138" data="0"/></FE>
+    	<FE ch="139" data="0"><D Device="TPCdummy" plane="15" ch="139" data="0"/></FE>
+    	<for var="ch" from="4" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="14" ch="115+(ch-4)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="15" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="14" ch="129+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="15" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="14" ch="149+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="15" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="14" ch="193+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="56" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="15" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<FE ch="204" data="0"><D Device="TPC" plane="14" ch="106" data="0"/></FE>
+    	<FE ch="205" data="0"><D Device="TPC" plane="14" ch="108" data="0"/></FE>
+    	<FE ch="206" data="0"><D Device="TPCdummy" plane="15" ch="206" data="0"/></FE>
+    	<FE ch="207" data="0"><D Device="TPCdummy" plane="15" ch="207" data="0"/></FE>
+    	<FE ch="208" data="0"><D Device="TPCdummy" plane="15" ch="208" data="0"/></FE>
+    	<for var="ch" from="5" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="14" ch="116+(ch-5)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="15" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="14" ch="128+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="15" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="14" ch="148+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="15" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="14" ch="192+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="56" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="15" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+    </GetCoBoMaster>
+    <!--________________________________________________________________-->
+    <GetCoBoMaster node_id="0xcb4" name="cobo4">
+      <GetAsAd address="16">
+    	<FE ch="0" data="1"><D Device="TPC" plane="16" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="16" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="17" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="16" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="17" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="16" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="17" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="16" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="17" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="56" data="0"><D Device="TPCdummy" plane="16" ch="56" data="0"/></FE>
+    	<for var="ch" from="57" to="59">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="17" ch="106+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="60" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="16" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="17" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="16" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="17" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="16" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="17" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="16" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="17" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="124" data="0"><D Device="TPCdummy" plane="16" ch="124" data="0"/></FE>
+    	<for var="ch" from="57" to="59">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="17" ch="107+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="60" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="16" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="16" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="16" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="16" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="16" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="16" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="16" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="49">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="16" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="186" data="0"><D Device="TPCdummy" plane="16" ch="186" data="0"/></FE>
+    	<FE ch="187" data="0"><D Device="TPCdummy" plane="16" ch="187" data="0"/></FE>
+    	<for var="ch" from="52" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="16" ch="98+(ch-52)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="192" data="0"><D Device="TPCdummy" plane="16" ch="192" data="0"/></FE>
+    	<for var="ch" from="57" to="58">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="16" ch="106+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="59" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="16" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="16" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="16" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="16" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="16" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="16" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="16" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="48">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="16" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="49" to="51">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="16" ch="ch+68*3" data="0"/></FE>
+	</for>
+    	<for var="ch" from="52" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="16" ch="99+(ch-52)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="260" data="0"><D Device="TPCdummy" plane="16" ch="260" data="0"/></FE>
+    	<FE ch="261" data="0"><D Device="TPC" plane="16" ch="107" data="0"/></FE>
+    	<FE ch="262" data="0"><D Device="TPC" plane="16" ch="109" data="0"/></FE>
+    	<for var="ch" from="59" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="16" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+      <GetAsAd address="17">
+    	<FE ch="0" data="1"><D Device="TPC" plane="17" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="17" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="17" ch="113+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="17" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="17" ch="135+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="17" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="17" ch="155+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="17" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="17" ch="199+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="56" data="0"><D Device="TPCdummy" plane="17" ch="56" data="0"/></FE>
+    	<for var="ch" from="57" to="59">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="17" ch="219+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="60" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="17" ch="ch" data="0"/></FE>
+	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="17" ch="112+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="17" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="17" ch="134+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="17" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="17" ch="154+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="17" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="17" ch="198+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="126" data="0"><D Device="TPCdummy" plane="17" ch="126" data="0"/></FE>
+    	<for var="ch" from="57" to="59">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="17" ch="218+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="60" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="17" ch="ch+68" data="0"/></FE>
+	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="5">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="16" ch="111+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="142" data="0"><D Device="TPCdummy" plane="17" ch="142" data="0"/></FE>
+    	<FE ch="143" data="0"><D Device="TPCdummy" plane="17" ch="143" data="0"/></FE>
+    	<for var="ch" from="8" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="16" ch="127+(ch-8)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="17" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="16" ch="133+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="17" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="16" ch="153+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="17" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="16" ch="197+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="192" data="0"><D Device="TPCdummy" plane="17" ch="192" data="0"/></FE>
+    	<FE ch="193" data="0"><D Device="TPC" plane="16" ch="217" data="0"/></FE>
+    	<FE ch="194" data="0"><D Device="TPC" plane="16" ch="219" data="0"/></FE>
+    	<for var="ch" from="59" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="17" ch="ch+68*2" data="0"/></FE>
+	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="5">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="16" ch="110+ch*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="6" to="8">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="17" ch="ch+68*3" data="0"/></FE>
+	</for>
+    	<for var="ch" from="9" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="16" ch="128+(ch-9)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="17" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="16" ch="132+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="17" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="16" ch="152+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="17" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="16" ch="196+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="260" data="0"><D Device="TPCdummy" plane="17" ch="260" data="0"/></FE>
+    	<for var="ch" from="57" to="58">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="16" ch="216+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="59" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="17" ch="ch+68*3" data="0"/></FE>
+	</for>
+      </GetAsAd>
+      <GetAsAd address="18">
+    	<FE ch="0" data="1"><D Device="TPC" plane="18" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="18" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="19" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="18" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="19" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="18" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="19" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="18" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="19" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="56" data="0"><D Device="TPCdummy" plane="18" ch="56" data="0"/></FE>
+    	<for var="ch" from="57" to="62">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="19" ch="107+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="63" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="18" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="19" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="18" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="19" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="18" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="19" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="18" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="19" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="124" data="0"><D Device="TPCdummy" plane="18" ch="124" data="0"/></FE>
+    	<for var="ch" from="57" to="63">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="19" ch="106+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="64" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="18" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="18" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="18" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="18" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="18" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="18" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="18" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="18" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="192" data="0"><D Device="TPCdummy" plane="18" ch="192" data="0"/></FE>
+    	<for var="ch" from="57" to="61">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="18" ch="106+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="62" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="18" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="18" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="18" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="18" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="18" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="18" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="18" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="18" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="260" data="0"><D Device="TPCdummy" plane="18" ch="260" data="0"/></FE>
+    	<for var="ch" from="57" to="61">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="18" ch="107+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="62" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="18" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+      <GetAsAd address="19">
+    	<FE ch="0" data="1"><D Device="TPC" plane="19" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="19" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="19" ch="120+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="19" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="19" ch="142+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="19" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="19" ch="162+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="19" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="19" ch="206+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="56" data="0"><D Device="TPCdummy" plane="19" ch="56" data="0"/></FE>
+    	<for var="ch" from="57" to="62">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="19" ch="226+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="63" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="19" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="19" ch="119+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="19" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="19" ch="141+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="19" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="19" ch="161+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="19" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="19" ch="205+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="124" data="0"><D Device="TPCdummy" plane="19" ch="124" data="0"/></FE>
+    	<for var="ch" from="57" to="63">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="19" ch="225+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="64" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="19" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="18" ch="117+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="19" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="18" ch="139+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="19" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="18" ch="159+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="19" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="18" ch="203+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="192" data="0"><D Device="TPCdummy" plane="19" ch="192" data="0"/></FE>
+    	<for var="ch" from="57" to="61">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="18" ch="223+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="62" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="19" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="18" ch="116+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="19" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="18" ch="138+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="19" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="18" ch="158+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="19" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="18" ch="202+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="260" data="0"><D Device="TPCdummy" plane="19" ch="260" data="0"/></FE>
+    	<for var="ch" from="57" to="61">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="18" ch="222+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="62" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="19" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+    </GetCoBoMaster>
+    <!--________________________________________________________________-->
+    <GetCoBoMaster node_id="0xcb5" name="cobo5">
+      <GetAsAd address="20">
+    	<FE ch="0" data="1"><D Device="TPC" plane="20" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="20" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="21" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="20" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="21" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="20" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="21" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="20" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="21" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="56" data="0"><D Device="TPCdummy" plane="20" ch="56" data="0"/></FE>
+    	<for var="ch" from="57" to="61">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="21" ch="106+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="62" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="20" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="21" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="20" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="21" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="20" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="21" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="20" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="21" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="124" data="0"><D Device="TPCdummy" plane="20" ch="124" data="0"/></FE>
+    	<for var="ch" from="57" to="61">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="21" ch="107+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="62" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="20" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="20" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="20" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="20" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="20" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="20" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="20" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="20" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="192" data="0"><D Device="TPCdummy" plane="20" ch="192" data="0"/></FE>
+    	<for var="ch" from="57" to="64">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="20" ch="106+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="65" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="20" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="20" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="20" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="20" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="20" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="20" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="20" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="20" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="260" data="0"><D Device="TPCdummy" plane="20" ch="260" data="0"/></FE>
+    	<for var="ch" from="57" to="64">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="20" ch="107+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="65" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="20" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+      <GetAsAd address="21">
+    	<FE ch="0" data="1"><D Device="TPC" plane="21" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="21" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="21" ch="117+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="21" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="21" ch="139+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="21" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="21" ch="159+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="21" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="21" ch="203+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="56" data="0"><D Device="TPCdummy" plane="21" ch="56" data="0"/></FE>
+    	<for var="ch" from="57" to="61">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="21" ch="223+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="62" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="21" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="21" ch="116+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="21" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="21" ch="138+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="21" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="21" ch="158+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="21" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="21" ch="202+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="124" data="0"><D Device="TPCdummy" plane="21" ch="124" data="0"/></FE>
+    	<for var="ch" from="57" to="61">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="21" ch="222+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="62" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="21" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="20" ch="123+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="21" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="20" ch="145+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="21" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="20" ch="165+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="21" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="20" ch="209+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="192" data="0"><D Device="TPCdummy" plane="21" ch="192" data="0"/></FE>
+    	<for var="ch" from="57" to="64">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="20" ch="229+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="65" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="21" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="20" ch="122+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="21" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="20" ch="144+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="21" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="20" ch="164+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="21" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="20" ch="208+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="260" data="0"><D Device="TPCdummy" plane="21" ch="260" data="0"/></FE>
+    	<for var="ch" from="57" to="64">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="20" ch="228+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="65" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="21" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+      <GetAsAd address="22">
+    	<FE ch="0" data="1"><D Device="TPC" plane="22" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="22" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="23" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="22" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="23" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="22" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="23" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="22" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="54">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="23" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="55" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="22" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="23" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="22" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="23" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="22" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="23" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="22" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="23" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="56" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="22" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="22" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="22" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="22" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="22" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="35">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="22" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="36" to="38">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="22" ch="ch+68*2" data="0"/></FE>
+	</for>
+    	<for var="ch" from="39" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="22" ch="75+(ch-39)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="22" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="22" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="192" data="0"><D Device="TPCdummy" plane="22" ch="192" data="0"/></FE>
+    	<FE ch="193" data="0"><D Device="TPC" plane="22" ch="107" data="0"/></FE>
+    	<for var="ch" from="58" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="22" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="22" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="22" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="22" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="22" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="36">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="22" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="241" data="0"><D Device="TPCdummy" plane="22" ch="241" data="0"/></FE>
+    	<FE ch="242" data="0"><D Device="TPCdummy" plane="22" ch="242" data="0"/></FE>
+    	<for var="ch" from="39" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="22" ch="74+(ch-39)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="22" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="22" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="260" data="0"><D Device="TPCdummy" plane="22" ch="260" data="0"/></FE>
+    	<for var="ch" from="57" to="58">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="22" ch="106+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="59" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="22" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+      <GetAsAd address="23">
+    	<FE ch="0" data="1"><D Device="TPC" plane="23" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="23" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="23" ch="106+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="23" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="23" ch="128+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="23" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="23" ch="148+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="23" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="54">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="23" ch="192+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="55" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="23" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="23" ch="105+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="23" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="23" ch="127+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="23" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="23" ch="147+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="23" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="23" ch="191+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="56" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="23" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="22" ch="110+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="23" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="17">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="22" ch="132+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="18" to="20">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="23" ch="ch+68*2" data="0"/></FE>
+	</for>
+    	<FE ch="157" data="0"><D Device="TPC" plane="22" ch="150" data="0"/></FE>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="23" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="22" ch="152+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="23" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="22" ch="196+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="192" data="0"><D Device="TPCdummy" plane="23" ch="192" data="0"/></FE>
+    	<FE ch="193" data="0"><D Device="TPC" plane="22" ch="216" data="0"/></FE>
+    	<for var="ch" from="58" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="23" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="22" ch="109+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="23" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="18">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="22" ch="131+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="223" data="0"><D Device="TPCdummy" plane="23" ch="223" data="0"/></FE>
+    	<FE ch="224" data="0"><D Device="TPCdummy" plane="23" ch="224" data="0"/></FE>
+    	<FE ch="225" data="0"><D Device="TPC" plane="22" ch="149" data="0"/></FE>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="23" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="22" ch="151+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="23" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="22" ch="195+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="260" data="0"><D Device="TPCdummy" plane="23" ch="260" data="0"/></FE>
+    	<for var="ch" from="57" to="58">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="22" ch="215+(ch-57)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="59" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="23" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+    </GetCoBoMaster>
+    <!--________________________________________________________________-->
+    <GetCoBoMaster node_id="0xcb6" name="cobo6">
+      <GetAsAd address="24">
+    	<FE ch="0" data="1"><D Device="TPC" plane="24" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="24" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="25" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="24" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="25" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="24" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="25" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="24" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="52">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="25" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="53" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="24" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="25" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="24" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="25" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="24" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="25" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="24" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="53">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="25" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="54" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="24" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="24" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="24" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="24" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="24" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="28">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="24" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="29" to="31">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="24" ch="ch+68*2" data="0"/></FE>
+	</for>
+    	<for var="ch" from="32" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="24" ch="61+(ch-32)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="24" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="53">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="24" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="54" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="24" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="24" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="24" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="24" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="24" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="29">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="24" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="30" to="32">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="24" ch="ch+68*3" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="33" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="24" ch="62+(ch-33)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="24" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="54">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="24" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="55" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="24" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+      <GetAsAd address="25">
+    	<FE ch="0" data="1"><D Device="TPC" plane="25" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="25" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="25" ch="102+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="25" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="25" ch="124+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="25" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="25" ch="144+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="25" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="52">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="25" ch="188+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="53" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="25" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="25" ch="101+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="25" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="25" ch="123+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="25" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="25" ch="143+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="25" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="53">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="25" ch="187+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="54" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="25" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="24" ch="104+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="25" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="24" ch="126+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="22" to="25">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="25" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="26" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="24" ch="152+(ch-26)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="25" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="53">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="24" ch="190+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="54" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="25" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="24" ch="103+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="25" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="24" ch="125+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="22" to="25">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="25" ch="ch+68*3" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="26" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="24" ch="151+(ch-26)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="25" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="54">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="24" ch="189+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="55" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="25" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+      <GetAsAd address="26">
+    	<FE ch="0" data="1"><D Device="TPC" plane="26" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="26" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="27" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="26" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="20">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="27" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="21" to="23">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="26" ch="ch" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="24" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="27" ch="44+(ch-24)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="26" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="51">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="27" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="52" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="26" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="27" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="26" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="19">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="27" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="88" data="0"><D Device="TPCdummy" plane="26" ch="88" data="0"/></FE>
+    	<FE ch="89" data="0"><D Device="TPC" plane="27" ch="41" data="0"/></FE>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="26" ch="90" data="0"/></FE>
+    	<FE ch="91" data="0"><D Device="TPCdummy" plane="26" ch="91" data="0"/></FE>
+    	<for var="ch" from="24" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="27" ch="45+(ch-24)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="26" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="51">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="27" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="52" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="26" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="26" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="26" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="26" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="26" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="26" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="26" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="52">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="26" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="53" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="26" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="26" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="26" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="26" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="26" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="26" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="26" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="52">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="26" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="53" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="26" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+      <GetAsAd address="27">
+    	<FE ch="0" data="1"><D Device="TPC" plane="27" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="27" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="27" ch="99+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="27" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="27" ch="121+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="27" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="28">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="27" ch="141+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="29" to="30">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="27" ch="ch" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="31" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="27" ch="157+(ch-31)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="27" ch="45" data="0"/></FE>
+    	<for var="ch" from="46" to="51">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="27" ch="185+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="52" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="27" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="27" ch="98+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="27" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="27" ch="120+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="27" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="28">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="27" ch="140+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="97" data="0"><D Device="TPCdummy" plane="27" ch="97" data="0"/></FE>
+    	<FE ch="98" data="0"><D Device="TPC" plane="27" ch="154" data="0"/></FE>
+    	<FE ch="99" data="0"><D Device="TPCdummy" plane="27" ch="99" data="0"/></FE>
+    	<for var="ch" from="32" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="27" ch="158+(ch-32)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="27" ch="113" data="0"/></FE>
+    	<for var="ch" from="46" to="51">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="27" ch="184+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="52" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="27" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="26" ch="101+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="27" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="26" ch="123+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="27" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="26" ch="143+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="27" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="52">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="26" ch="187+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="53" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="27" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="26" ch="100+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="27" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="26" ch="122+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="27" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="26" ch="142+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="27" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="52">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="26" ch="186+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="53" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="27" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+    </GetCoBoMaster>
+    <!--________________________________________________________________-->
+    <GetCoBoMaster node_id="0xcb7" name="cobo7">
+      <GetAsAd address="28">
+    	<FE ch="0" data="1"><D Device="TPC" plane="28" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="28" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="29" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="28" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="29" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="28" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="33">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="29" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="34" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="28" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="29" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="28" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="29" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="28" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="34">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="29" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="35" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="28" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="28" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="28" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="28" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="28" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="28" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="28" ch="181" data="0"/></FE>
+    	<FE ch="182" data="0"><D Device="TPC" plane="28" ch="87" data="0"/></FE>
+    	<for var="ch" from="47" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="28" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="28" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="28" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="28" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="28" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="28" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="28" ch="249" data="0"/></FE>
+    	<FE ch="250" data="0"><D Device="TPC" plane="28" ch="86" data="0"/></FE>
+    	<FE ch="251" data="0"><D Device="TPC" plane="28" ch="88" data="0"/></FE>
+    	<for var="ch" from="48" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="28" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+      <GetAsAd address="29">
+    	<FE ch="0" data="1"><D Device="TPC" plane="29" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="29" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="29" ch="66+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="29" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="29" ch="88+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="29" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="33">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="29" ch="108+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="34" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="29" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="29" ch="65+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="29" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="29" ch="87+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="29" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="34">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="29" ch="107+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<for var="ch" from="35" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="29" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="28" ch="90+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="29" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="28" ch="112+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="29" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="28" ch="132+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="29" ch="181" data="0"/></FE>
+    	<FE ch="182" data="0"><D Device="TPC" plane="28" ch="176" data="0"/></FE>
+    	<for var="ch" from="47" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="29" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="28" ch="89+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="29" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="28" ch="111+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="29" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="28" ch="131+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="29" ch="249" data="0"/></FE>
+    	<FE ch="250" data="0"><D Device="TPC" plane="28" ch="175" data="0"/></FE>
+    	<FE ch="251" data="0"><D Device="TPC" plane="28" ch="177" data="0"/></FE>
+    	<for var="ch" from="48" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="29" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+      <GetAsAd address="30">
+    	<FE ch="0" data="1"><D Device="TPC" plane="30" ch="0" data="1"/></FE>
+    	<FE ch="0" data="2"><D Device="TPC" plane="30" ch="0" data="2"/></FE>
+    	<!-- AGET-0 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="31" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="11" data="0"><D Device="TPCdummy" plane="30" ch="11" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="31" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="22" data="0"><D Device="TPCdummy" plane="30" ch="22" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch" data="0"><D Device="TPC" plane="31" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="45" data="0"><D Device="TPCdummy" plane="30" ch="45" data="0"/></FE>
+    	<FE ch="46" data="0"><D Device="TPC" plane="31" ch="87" data="0"/></FE>
+    	<FE ch="47" data="0"><D Device="TPC" plane="31" ch="89" data="0"/></FE>
+    	<for var="ch" from="48" to="67">
+    	  <FE ch="ch" data="0"><D Device="TPCdummy" plane="30" ch="ch" data="0"/></FE>
+    	</for>
+    	<!-- AGET-1 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="31" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="79" data="0"><D Device="TPCdummy" plane="30" ch="79" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="31" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="90" data="0"><D Device="TPCdummy" plane="30" ch="90" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68" data="0"><D Device="TPC" plane="31" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="113" data="0"><D Device="TPCdummy" plane="30" ch="113" data="0"/></FE>
+    	<FE ch="114" data="0"><D Device="TPC" plane="31" ch="86" data="0"/></FE>
+    	<FE ch="115" data="0"><D Device="TPC" plane="31" ch="88" data="0"/></FE>
+    	<for var="ch" from="48" to="67">
+    	  <FE ch="ch+68" data="0"><D Device="TPCdummy" plane="30" ch="ch+68" data="0"/></FE>
+    	</for>
+    	<!-- AGET-2 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="30" ch="ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="147" data="0"><D Device="TPCdummy" plane="30" ch="147" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="30" ch="22+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="158" data="0"><D Device="TPCdummy" plane="30" ch="158" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="30" ch="42+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="181" data="0"><D Device="TPCdummy" plane="30" ch="181" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPC" plane="30" ch="86+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="192" data="0"><D Device="TPCdummy" plane="30" ch="192" data="0"/></FE>
+    	<FE ch="193" data="0"><D Device="TPC" plane="30" ch="106" data="0"/></FE>
+    	<for var="ch" from="58" to="67">
+    	  <FE ch="ch+68*2" data="0"><D Device="TPCdummy" plane="30" ch="ch+68*2" data="0"/></FE>
+    	</for>
+    	<!-- AGET-3 -->
+    	<for var="ch" from="0" to="10">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="30" ch="1+ch*2" data="0"/></FE>
+    	</for>
+    	<FE ch="215" data="0"><D Device="TPCdummy" plane="30" ch="215" data="0"/></FE>
+    	<for var="ch" from="12" to="21">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="30" ch="23+(ch-12)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="226" data="0"><D Device="TPCdummy" plane="30" ch="226" data="0"/></FE>
+    	<for var="ch" from="23" to="44">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="30" ch="43+(ch-23)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="249" data="0"><D Device="TPCdummy" plane="30" ch="249" data="0"/></FE>
+    	<for var="ch" from="46" to="55">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPC" plane="30" ch="87+(ch-46)*2" data="0"/></FE>
+    	</for>
+    	<FE ch="260" data="0"><D Device="TPCdummy" plane="30" ch="260" data="0"/></FE>
+    	<FE ch="261" data="0"><D Device="TPC" plane="30" ch="107" data="0"/></FE>
+    	<for var="ch" from="58" to="67">
+    	  <FE ch="ch+68*3" data="0"><D Device="TPCdummy" plane="30" ch="ch+68*3" data="0"/></FE>
+    	</for>
+      </GetAsAd>
+      <GetAsAd address="31" /> <!-- unused -->
+    </GetCoBoMaster>
+    <!-- ________________________________________________________________ -->
+  </DAQNode>
+</channel_map>
