@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define/>
+
+  <materials>
+    <isotope N="12" Z="6" name="C120x47c19b0">
+      <atom unit="g/mole" value="12"/>
+    </isotope>
+    <isotope N="13" Z="6" name="C130x47c1a00">
+      <atom unit="g/mole" value="13.0034"/>
+    </isotope>
+    <element name="Carbon0x47c1850">
+      <fraction n="0.9893" ref="C120x47c19b0"/>
+      <fraction n="0.0107" ref="C130x47c1a00"/>
+    </element>
+    <isotope N="1" Z="1" name="H10x47bf7f0">
+      <atom unit="g/mole" value="1.00782503081372"/>
+    </isotope>
+    <isotope N="2" Z="1" name="H20x47c1770">
+      <atom unit="g/mole" value="2.01410199966617"/>
+    </isotope>
+    <element name="Hydrogen0x47c1630">
+      <fraction n="0.999885" ref="H10x47bf7f0"/>
+      <fraction n="0.000115" ref="H20x47c1770"/>
+    </element>
+    <material name="CH20x47d93a0" state="solid">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="56.5182975271737"/>
+      <D unit="g/cm3" value="1.13"/>
+      <fraction n="0.856284505178629" ref="Carbon0x47c1850"/>
+      <fraction n="0.143715494821372" ref="Hydrogen0x47c1630"/>
+    </material>
+    <isotope N="36" Z="18" name="Ar360x47d53a0">
+      <atom unit="g/mole" value="35.9675"/>
+    </isotope>
+    <isotope N="38" Z="18" name="Ar380x47d53f0">
+      <atom unit="g/mole" value="37.9627"/>
+    </isotope>
+    <isotope N="40" Z="18" name="Ar400x47d5440">
+      <atom unit="g/mole" value="39.9624"/>
+    </isotope>
+    <element name="Ar0x47d54c0">
+      <fraction n="0.003365" ref="Ar360x47d53a0"/>
+      <fraction n="0.000632" ref="Ar380x47d53f0"/>
+      <fraction n="0.996003" ref="Ar400x47d5440"/>
+    </element>
+    <material name="P100x47d7130" state="gas">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="173.09902016064"/>
+      <D unit="g/cm3" value="0.00156118991983626"/>
+      <fraction n="0.957206803939123" ref="Ar0x47d54c0"/>
+      <fraction n="0.0320386939583462" ref="Carbon0x47c1850"/>
+      <fraction n="0.0107545021025312" ref="Hydrogen0x47c1630"/>
+    </material>
+    <material name="Scintillator0x47d8700" state="solid">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="65.9436601819466"/>
+      <D unit="g/cm3" value="1.032"/>
+      <fraction n="0.922578950360014" ref="Carbon0x47c1850"/>
+      <fraction n="0.077421049639986" ref="Hydrogen0x47c1630"/>
+    </material>
+    <isotope N="14" Z="7" name="N140x47c1c60">
+      <atom unit="g/mole" value="14.0031"/>
+    </isotope>
+    <isotope N="15" Z="7" name="N150x47c1d00">
+      <atom unit="g/mole" value="15.0001"/>
+    </isotope>
+    <element name="Nitrogen0x47c1b20">
+      <fraction n="0.99632" ref="N140x47c1c60"/>
+      <fraction n="0.00368" ref="N150x47c1d00"/>
+    </element>
+    <isotope N="16" Z="8" name="O160x47c1f60">
+      <atom unit="g/mole" value="15.9949"/>
+    </isotope>
+    <isotope N="17" Z="8" name="O170x47c1fb0">
+      <atom unit="g/mole" value="16.9991"/>
+    </isotope>
+    <isotope N="18" Z="8" name="O180x47c2000">
+      <atom unit="g/mole" value="17.9992"/>
+    </isotope>
+    <element name="Oxygen0x47c1e20">
+      <fraction n="0.99757" ref="O160x47c1f60"/>
+      <fraction n="0.00038" ref="O170x47c1fb0"/>
+      <fraction n="0.00205" ref="O180x47c2000"/>
+    </element>
+    <isotope N="36" Z="18" name="Ar360x47c2f80">
+      <atom unit="g/mole" value="35.9675"/>
+    </isotope>
+    <isotope N="38" Z="18" name="Ar380x47c2fd0">
+      <atom unit="g/mole" value="37.9627"/>
+    </isotope>
+    <isotope N="40" Z="18" name="Ar400x47c3020">
+      <atom unit="g/mole" value="39.9624"/>
+    </isotope>
+    <element name="Argon0x47c2e40">
+      <fraction n="0.003365" ref="Ar360x47c2f80"/>
+      <fraction n="0.000632" ref="Ar380x47c2fd0"/>
+      <fraction n="0.996003" ref="Ar400x47c3020"/>
+    </element>
+    <material name="Air0x47cba20" state="gas">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="85.6718922256864"/>
+      <D unit="g/cm3" value="0.0012929"/>
+      <fraction n="0.755077538769385" ref="Nitrogen0x47c1b20"/>
+      <fraction n="0.232116058029014" ref="Oxygen0x47c1e20"/>
+      <fraction n="0.0128064032016008" ref="Argon0x47c2e40"/>
+    </material>
+  </materials>
+
+  <solids>
+    <box lunit="mm" name="Target0x47fa0b0" x="30" y="20" z="20"/>
+    <polyhedra aunit="deg" deltaphi="360" lunit="mm" name="TpcOutSolid0x47fa580" numsides="8" startphi="22.5">
+      <zplane rmax="287" rmin="0" z="-302"/>
+      <zplane rmax="287" rmin="0" z="302"/>
+    </polyhedra>
+    <subtraction name="TpcSolid0x4800650">
+      <first ref="TpcOutSolid0x47fa580"/>
+      <second ref="Target0x47fa0b0"/>
+      <position name="TpcSolid0x4800650_pos" unit="mm" x="0" y="143" z="-8.75622461390358e-15"/>
+    </subtraction>
+    <polyhedra aunit="deg" deltaphi="360" lunit="mm" name="FcSolid0x4800a20" numsides="8" startphi="22.5">
+      <zplane rmax="327" rmin="287" z="-400"/>
+      <zplane rmax="327" rmin="287" z="400"/>
+    </polyhedra>
+    <box lunit="mm" name="HtofScint0x48038b0" x="68" y="800" z="10"/>
+    <arb8 dz="50" lunit="mm" name="HtofLG_upper0x48039f0" v1x="-34" v1y="-5" v2x="-34" v2y="5" v3x="34" v3y="5" v4x="34" v4y="-5" v5x="-17.5" v5y="-5" v6x="-17.5" v6y="-3" v7x="17.5" v7y="-3" v8x="17.5" v8y="-5"/>
+    <union name="dummysolid0x4803db0">
+      <first ref="HtofScint0x48038b0"/>
+      <second ref="HtofLG_upper0x48039f0"/>
+      <position name="dummysolid0x4803db0_pos" unit="mm" x="0" y="450" z="0"/>
+      <rotation name="dummysolid0x4803db0_rot" unit="deg" x="90" y="0" z="180"/>
+    </union>
+    <arb8 dz="50" lunit="mm" name="HtofLG_lower0x4803c30" v1x="-34" v1y="-5" v2x="-34" v2y="5" v3x="34" v3y="5" v4x="34" v4y="-5" v5x="-17.5" v5y="3" v6x="-17.5" v6y="5" v7x="17.5" v7y="5" v8x="17.5" v8y="3"/>
+    <union name="HtofSolid0x4803fd0">
+      <first ref="dummysolid0x4803db0"/>
+      <second ref="HtofLG_lower0x4803c30"/>
+      <position name="HtofSolid0x4803fd0_pos" unit="mm" x="0" y="-450" z="0"/>
+      <rotation name="HtofSolid0x4803fd0_rot" unit="deg" x="-90" y="0" z="180"/>
+    </union>
+    <box lunit="mm" name="window_dummy0x48042e0" x="68" y="345" z="10"/>
+    <union name="HtofSolid_upper0x4804360">
+      <first ref="window_dummy0x48042e0"/>
+      <second ref="HtofLG_upper0x48039f0"/>
+      <position name="HtofSolid_upper0x4804360_pos" unit="mm" x="0" y="222.5" z="0"/>
+      <rotation name="HtofSolid_upper0x4804360_rot" unit="deg" x="90" y="0" z="180"/>
+    </union>
+    <union name="HtofSolid_lower0x4804670">
+      <first ref="window_dummy0x48042e0"/>
+      <second ref="HtofLG_lower0x4803c30"/>
+      <position name="HtofSolid_lower0x4804670_pos" unit="mm" x="0" y="-222.5" z="0"/>
+      <rotation name="HtofSolid_lower0x4804670_rot" unit="deg" x="-90" y="0" z="180"/>
+    </union>
+    <box lunit="mm" name="WorldSolid0x47da620" x="1000" y="1200" z="1000"/>
+  </solids>
+
+  <structure>
+    <volume name="TargetLV0x47fa240">
+      <materialref ref="CH20x47d93a0"/>
+      <solidref ref="Target0x47fa0b0"/>
+    </volume>
+    <volume name="TpcLV0x4800890">
+      <materialref ref="P100x47d7130"/>
+      <solidref ref="TpcSolid0x4800650"/>
+    </volume>
+    <volume name="FcLV0x4803470">
+      <materialref ref="P100x47d7130"/>
+      <solidref ref="FcSolid0x4800a20"/>
+    </volume>
+    <volume name="HtofLV0x48041f0">
+      <materialref ref="Scintillator0x47d8700"/>
+      <solidref ref="HtofSolid0x4803fd0"/>
+    </volume>
+    <volume name="HtofUpperLV0x4804580">
+      <materialref ref="Scintillator0x47d8700"/>
+      <solidref ref="HtofSolid_upper0x4804360"/>
+    </volume>
+    <volume name="HtofLowerLV0x4804890">
+      <materialref ref="Scintillator0x47d8700"/>
+      <solidref ref="HtofSolid_lower0x4804670"/>
+    </volume>
+    <volume name="WorldLV0x47db950">
+      <materialref ref="Air0x47cba20"/>
+      <solidref ref="WorldSolid0x47da620"/>
+      <physvol name="TargetPV0x47fa3b0">
+        <volumeref ref="TargetLV0x47fa240"/>
+        <position name="TargetPV0x47fa3b0_pos" unit="mm" x="0" y="0" z="-143"/>
+      </physvol>
+      <physvol name="TpcPV0x4800940">
+        <volumeref ref="TpcLV0x4800890"/>
+        <rotation name="TpcPV0x4800940_rot" unit="deg" x="90" y="0" z="0"/>
+      </physvol>
+      <physvol name="FieldCagePV0x4803570">
+        <volumeref ref="FcLV0x4803470"/>
+        <rotation name="FieldCagePV0x4803570_rot" unit="deg" x="90" y="0" z="0"/>
+      </physvol>
+      <physvol name="HtofPV00x48049d0">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV00x48049d0_pos" unit="mm" x="106.5" y="12" z="-348.6"/>
+      </physvol>
+      <physvol copynumber="1" name="HtofPV10x4804a80">
+        <volumeref ref="HtofUpperLV0x4804580"/>
+        <position name="HtofPV10x4804a80_pos" unit="mm" x="35.5" y="239.5" z="-348.6"/>
+      </physvol>
+      <physvol copynumber="2" name="HtofPV20x4804b30">
+        <volumeref ref="HtofLowerLV0x4804890"/>
+        <position name="HtofPV20x4804b30_pos" unit="mm" x="35.5" y="-215.5" z="-348.6"/>
+      </physvol>
+      <physvol copynumber="3" name="HtofPV20x4804be0">
+        <volumeref ref="HtofUpperLV0x4804580"/>
+        <position name="HtofPV20x4804be0_pos" unit="mm" x="-35.5" y="239.5" z="-348.6"/>
+      </physvol>
+      <physvol copynumber="4" name="HtofPV330x4804c70">
+        <volumeref ref="HtofLowerLV0x4804890"/>
+        <position name="HtofPV330x4804c70_pos" unit="mm" x="-35.5" y="-215.5" z="-348.6"/>
+      </physvol>
+      <physvol copynumber="5" name="HtofPV50x4804d50">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV50x4804d50_pos" unit="mm" x="-106.5" y="12" z="-348.6"/>
+      </physvol>
+      <physvol copynumber="6" name="HtofPV60x4804e70">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV60x4804e70_pos" unit="mm" x="-171.190551725263" y="12" z="-321.804296117998"/>
+        <rotation name="HtofPV60x4804e70_rot" unit="deg" x="0" y="-45" z="0"/>
+      </physvol>
+      <physvol copynumber="7" name="HtofPV70x4804f50">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV70x4804f50_pos" unit="mm" x="-221.395133189508" y="12" z="-271.599714653753"/>
+        <rotation name="HtofPV70x4804f50_rot" unit="deg" x="0" y="-45" z="0"/>
+      </physvol>
+      <physvol copynumber="8" name="HtofPV80x4805030">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV80x4805030_pos" unit="mm" x="-271.599714653753" y="12" z="-221.395133189508"/>
+        <rotation name="HtofPV80x4805030_rot" unit="deg" x="0" y="-45" z="0"/>
+      </physvol>
+      <physvol copynumber="9" name="HtofPV90x4805110">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV90x4805110_pos" unit="mm" x="-321.804296117998" y="12" z="-171.190551725263"/>
+        <rotation name="HtofPV90x4805110_rot" unit="deg" x="0" y="-45" z="0"/>
+      </physvol>
+      <physvol copynumber="10" name="HtofPV100x48051f0">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV100x48051f0_pos" unit="mm" x="-348.6" y="12" z="-106.5"/>
+        <rotation name="HtofPV100x48051f0_rot" unit="deg" x="0" y="-90" z="0"/>
+      </physvol>
+      <physvol copynumber="11" name="HtofPV110x48052d0">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV110x48052d0_pos" unit="mm" x="-348.6" y="12" z="-35.5"/>
+        <rotation name="HtofPV110x48052d0_rot" unit="deg" x="0" y="-90" z="0"/>
+      </physvol>
+      <physvol copynumber="12" name="HtofPV120x48053b0">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV120x48053b0_pos" unit="mm" x="-348.6" y="12" z="35.5"/>
+        <rotation name="HtofPV120x48053b0_rot" unit="deg" x="0" y="-90" z="0"/>
+      </physvol>
+      <physvol copynumber="13" name="HtofPV130x4805490">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV130x4805490_pos" unit="mm" x="-348.6" y="12" z="106.5"/>
+        <rotation name="HtofPV130x4805490_rot" unit="deg" x="0" y="-90" z="0"/>
+      </physvol>
+      <physvol copynumber="14" name="HtofPV140x4805630">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV140x4805630_pos" unit="mm" x="-321.804296117998" y="12" z="171.190551725263"/>
+        <rotation name="HtofPV140x4805630_rot" unit="deg" x="180" y="-45" z="180"/>
+      </physvol>
+      <physvol copynumber="15" name="HtofPV150x48056e0">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV150x48056e0_pos" unit="mm" x="-271.599714653753" y="12" z="221.395133189508"/>
+        <rotation name="HtofPV150x48056e0_rot" unit="deg" x="180" y="-45" z="180"/>
+      </physvol>
+      <physvol copynumber="16" name="HtofPV160x48057c0">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV160x48057c0_pos" unit="mm" x="-221.395133189508" y="12" z="271.599714653753"/>
+        <rotation name="HtofPV160x48057c0_rot" unit="deg" x="180" y="-45" z="180"/>
+      </physvol>
+      <physvol copynumber="17" name="HtofPV170x48058a0">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV170x48058a0_pos" unit="mm" x="-171.190551725263" y="12" z="321.804296117998"/>
+        <rotation name="HtofPV170x48058a0_rot" unit="deg" x="180" y="-45" z="180"/>
+      </physvol>
+      <physvol copynumber="18" name="HtofPV180x4805980">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV180x4805980_pos" unit="mm" x="-106.5" y="12" z="348.6"/>
+        <rotation name="HtofPV180x4805980_rot" unit="deg" x="180" y="0" z="180"/>
+      </physvol>
+      <physvol copynumber="19" name="HtofPV190x4805a60">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV190x4805a60_pos" unit="mm" x="-35.5" y="12" z="348.6"/>
+        <rotation name="HtofPV190x4805a60_rot" unit="deg" x="180" y="0" z="180"/>
+      </physvol>
+      <physvol copynumber="20" name="HtofPV200x4805b40">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV200x4805b40_pos" unit="mm" x="35.5" y="12" z="348.6"/>
+        <rotation name="HtofPV200x4805b40_rot" unit="deg" x="180" y="0" z="180"/>
+      </physvol>
+      <physvol copynumber="21" name="HtofPV210x4805c20">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV210x4805c20_pos" unit="mm" x="106.5" y="12" z="348.6"/>
+        <rotation name="HtofPV210x4805c20_rot" unit="deg" x="180" y="0" z="180"/>
+      </physvol>
+      <physvol copynumber="22" name="HtofPV220x4805d00">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV220x4805d00_pos" unit="mm" x="171.190551725263" y="12" z="321.804296117998"/>
+        <rotation name="HtofPV220x4805d00_rot" unit="deg" x="180" y="45" z="180"/>
+      </physvol>
+      <physvol copynumber="23" name="HtofPV230x4805de0">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV230x4805de0_pos" unit="mm" x="221.395133189508" y="12" z="271.599714653753"/>
+        <rotation name="HtofPV230x4805de0_rot" unit="deg" x="180" y="45" z="180"/>
+      </physvol>
+      <physvol copynumber="24" name="HtofPV240x4805ec0">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV240x4805ec0_pos" unit="mm" x="271.599714653753" y="12" z="221.395133189508"/>
+        <rotation name="HtofPV240x4805ec0_rot" unit="deg" x="180" y="45" z="180"/>
+      </physvol>
+      <physvol copynumber="25" name="HtofPV250x4805fa0">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV250x4805fa0_pos" unit="mm" x="321.804296117998" y="12" z="171.190551725263"/>
+        <rotation name="HtofPV250x4805fa0_rot" unit="deg" x="180" y="45" z="180"/>
+      </physvol>
+      <physvol copynumber="26" name="HtofPV260x4806080">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV260x4806080_pos" unit="mm" x="348.6" y="12" z="106.5"/>
+        <rotation name="HtofPV260x4806080_rot" unit="deg" x="0" y="90" z="0"/>
+      </physvol>
+      <physvol copynumber="27" name="HtofPV270x4806160">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV270x4806160_pos" unit="mm" x="348.6" y="12" z="35.5000000000001"/>
+        <rotation name="HtofPV270x4806160_rot" unit="deg" x="0" y="90" z="0"/>
+      </physvol>
+      <physvol copynumber="28" name="HtofPV280x4806240">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV280x4806240_pos" unit="mm" x="348.6" y="12" z="-35.4999999999999"/>
+        <rotation name="HtofPV280x4806240_rot" unit="deg" x="0" y="90" z="0"/>
+      </physvol>
+      <physvol copynumber="29" name="HtofPV290x4806320">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV290x4806320_pos" unit="mm" x="348.6" y="12" z="-106.5"/>
+        <rotation name="HtofPV290x4806320_rot" unit="deg" x="0" y="90" z="0"/>
+      </physvol>
+      <physvol copynumber="30" name="HtofPV300x4805570">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV300x4805570_pos" unit="mm" x="321.804296117998" y="12" z="-171.190551725263"/>
+        <rotation name="HtofPV300x4805570_rot" unit="deg" x="0" y="45" z="0"/>
+      </physvol>
+      <physvol copynumber="31" name="HtofPV310x4806610">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV310x4806610_pos" unit="mm" x="271.599714653753" y="12" z="-221.395133189508"/>
+        <rotation name="HtofPV310x4806610_rot" unit="deg" x="0" y="45" z="0"/>
+      </physvol>
+      <physvol copynumber="32" name="HtofPV320x48066c0">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV320x48066c0_pos" unit="mm" x="221.395133189508" y="12" z="-271.599714653753"/>
+        <rotation name="HtofPV320x48066c0_rot" unit="deg" x="0" y="45" z="0"/>
+      </physvol>
+      <physvol copynumber="33" name="HtofPV330x48067a0">
+        <volumeref ref="HtofLV0x48041f0"/>
+        <position name="HtofPV330x48067a0_pos" unit="mm" x="171.190551725263" y="12" z="-321.804296117998"/>
+        <rotation name="HtofPV330x48067a0_rot" unit="deg" x="0" y="45" z="0"/>
+      </physvol>
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="WorldLV0x47db950"/>
+  </setup>
+
+</gdml>

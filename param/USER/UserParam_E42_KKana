@@ -1,0 +1,199 @@
+#
+#  UserParam_E42_2021May_default.txt
+#
+
+### BH1
+TdcBH1 510000 540000
+DeBH1 0.3 4
+
+### BH2
+TdcBH2 320000 350000
+DeBH2 0.3 4
+
+### BH2 Mt gate (for Time0)
+MtBH2 -2 2
+
+### BTOF gate
+BTOF -2 2
+#BTOF -10 10
+
+### BAC
+TdcBAC 1140 1180
+
+### HTOF
+TdcHTOF		960000 1120000
+#TimeHTOF	0 2000
+
+### BVH
+TdcBVH		1140 1240
+
+### TOF
+TdcTOF 230000 330000
+DeTOF 0.3 4
+
+### TOF time range
+TimeTOF 7 25
+
+### LAC
+TdcLAC		170 290
+
+### WC
+TdcWC		150 350
+
+### BFT TDC gate range
+TdcBFT 650 710
+
+### BFT Time gate range
+TimeBFT -5 5
+
+### SCH TDC gate range
+TdcSCH 470 510
+
+### SCH Time gate range
+TimeSCH -5 15
+
+### BC3/4 TDC gate range
+TdcBC3 250 470
+TdcBC4 250 470
+
+### SDC TDC gate range OK
+TdcSDC1 300 470
+TdcSDC2 500 1000
+TdcSDC3 600 920
+TdcSDC4 400 920
+
+### SDC1 Trailing gate range
+TrailingSDC1 200 450
+TrailingSDC2 0 1000
+TrailingSDC3 300 900
+TrailingSDC4 0 900
+
+### BC TOT cut
+MinTotBcOut 15
+### SDC TOT cut #OK
+MinTotSDC1 20
+MinTotSDC2 90
+MinTotSDC3 50
+#MinTotSDC4 70
+MinTotSDC4 20
+
+### BC/SDC Chisqr cut
+MaxChisqrBcOut 30
+MaxChisqrSdcIn 30
+MaxChisqrSdcOut 40
+MaxChisqrKurama 40
+
+### BC3/4 Drifttime range
+DriftTimeBC34 -10 50
+### SDC Drifttime range OK
+DriftTimeSDC1 -10 100
+DriftTimeSDC2 -10 200
+DriftTimeSDC3 -20 150
+DriftTimeSDC4 -20 360
+
+### BCOUT multiplicity gate
+MaxMultiHitBcOut 16
+
+### BCOUT plane multiplicity gate
+MinLayerBcOut 8
+#MinLayerBcOut 10
+
+### SDCIN multiplicity gate
+MaxMultiHitSdcIn 16
+
+### SDCIN plane multiplicity gate
+MinLayerSdcIn 8
+
+### SDCOUT multiplicity gate
+MaxMultiHitSdcOut 16
+
+### SDCOUT plane multiplicity gate (+2 in SdcOutTracking)
+MinLayerSdcOut 6
+
+### CommonStop timing of "L1" for SdcOut
+StopTimingSdcOut 360 400
+
+### SdcOut dT offset for L1 stop timing
+StopTimeDiffSdcOut 150
+
+### STOF offset between BH2-Target
+StofOffset	-2.0378
+
+### BcOutSdcInTracking
+MinLayerBcOutSdcIn 20
+
+### TPC
+#MinLayerTPC 8
+MinLayerTPC 6 #ref
+#MinLayerTPC 5
+BeamThroughTPC 		0
+#BeamThroughTPC 	1
+#KuramaChargeCut	0
+KuramaChargeCut		1
+ExclusiveTracking 	0
+#ExclusiveTracking 	1
+
+### Reaction
+#KKEvent		0
+KKEvent 		1
+KPEvent			0
+#KPEvent 		1
+KHeavyEvent		0
+#KHeavyEvent		1
+
+### TPCHit
+#BaselineCorrectionTPC	0
+BaselineCorrectionTPC	1
+MaxMultiHitTPC		2000
+MinDeTPC		20
+#MinDeTPC		60
+MinCDeTPC		90
+#MinCDeTPC		60
+MinRmsTPC		10
+MinBaseRmsTPC		10
+#TimeBucketTPC		10 140 # before change num of tbi
+TimeBucketTPC		25 155 # after change num of tbi
+#NumOfTimeBucket	140 # before change num of tbi
+NumOfTimeBucket		170 # after change num of tbi
+
+### TPC Clustering cut
+#MaxYDifClusterTPC 3
+MaxYDifClusterTPC 10
+#MinClusterDeTPC 60
+MinClusterDeTPC 90
+MinClusterSizeTPC 1
+MaxClusterYPosTPC 300
+MinClusterYPosTPC -250
+
+### TPC Hough Window cut
+MaxHoughWindow 10
+#MaxHoughWindowY 30
+MaxHoughWindowY 10
+
+#VertexScanRange 50
+VertexScanRange 100
+
+### TPC resolution parameter
+### at 1T
+TPC_Dt 0.18
+### at 0T
+#TPC_Dt 0.57
+### HIMAC val
+TPC_sigma0 0.204
+### tmp val
+#TPC_sigma0 0.7
+### TPC Momentum resolution scale
+MomResScale 1.35
+dZResScale 1.5
+PhiResScale 1
+
+### Conversion parameters(timediff to hitposition)
+PropagationBH2 137.815
+PropagationHTOF 138.515
+
+#GenFit
+Fitter 0 #KalmanFitterRefTrack
+#Fitter 1 #KalmanFitter
+#Fitter 2 #DAF w/ RefTrack
+#Fitter 3 #DAF w/o RefTrack
+nIteration 5 20
