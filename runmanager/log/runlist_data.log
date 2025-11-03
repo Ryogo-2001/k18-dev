@@ -1,0 +1,34 @@
+start:          Mon Jun 23 17:06:17 2025
+________________________________________________________________________________
+key:            1199
+________________________________________________________________________________
+bin:            ./bin/Rayraw
+conf:           ./param/conf/analyzer_rayraw_20250623.conf
+data:           /ghi/fs02/orig_root_fs02/had/sks/E86/tohoku/rayraw_bench/run01199.dat
+unit:           100000
+nevent:         102227
+out:            /gpfs/group/had/sks/Users/akao/RAYRAW/data
+nproc:          18
+buff_path:      /group/had/sks/Users/akao/buffer
+queue:          s
+qmerge:         s
+dirdummy:       /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/tmp/tmpqevvsnvv
+________________________________________________________________________________
+elem(0):        runlist_data_0
+elem(1):        runlist_data_1
+________________________________________________________________________________
+conf(0):        /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/tmp/tmpqevvsnvv/runlist_data_0.conf
+conf(1):        /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/tmp/tmpqevvsnvv/runlist_data_1.conf
+unpack(0):      /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/tmp/tmpqevvsnvv/runlist_data_0.xml
+unpack(1):      /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/tmp/tmpqevvsnvv/runlist_data_1.xml
+________________________________________________________________________________
+out(0):         /gpfs/group/had/sks/Users/akao/RAYRAW/runlist_data_0.root
+out(1):         /gpfs/group/had/sks/Users/akao/RAYRAW/runlist_data_1.root
+________________________________________________________________________________
+log(0):         /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/log/runlist_data_0.log
+log(1):         /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/log/runlist_data_1.log
+mergelog:       /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/log/runlist_data_merge.log
+________________________________________________________________________________
+pid[bjob(0)]:   3304829
+pid[bjob(1)]:   3304830
+________________________________________________________________________________

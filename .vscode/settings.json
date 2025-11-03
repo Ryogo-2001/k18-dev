@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "hodocluster.hh": "c",
+        "c.C": "cpp",
+        "show_rayraw_final.C": "cpp",
+        "show_rayraw_overlay.C": "cpp"
+    }
+}

@@ -21,7 +21,7 @@
 #include "HodoParamMan.hh"
 #include "HodoPHCMan.hh"
 #include "HodoRawHit.hh"
-#include "S2sLib.hh"
+//#include "S2sLib.hh"
 #include "RawData.hh"
 #include "UnpackerManager.hh"
 

@@ -1,0 +1,167 @@
+Sender: LSF System <lsfadmin@cb058>
+Subject: Job 85193919: <./bin/Rayraw /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/tmp/tmpqevvsnvv/runlist_data_1.conf /ghi/fs02/orig_root_fs02/had/sks/E86/tohoku/rayraw_bench/run01199.dat /gpfs/group/had/sks/Users/akao/RAYRAW/runlist_data_1.root > in cluster <centralcluster> Done
+
+Job <./bin/Rayraw /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/tmp/tmpqevvsnvv/runlist_data_1.conf /ghi/fs02/orig_root_fs02/had/sks/E86/tohoku/rayraw_bench/run01199.dat /gpfs/group/had/sks/Users/akao/RAYRAW/runlist_data_1.root > was submitted from host <cw08> by user <ryogo> in cluster <centralcluster> at Mon Jun 23 17:06:22 2025
+Job was executed on host(s) <cb058>, in queue <s>, as user <ryogo> in cluster <centralcluster> at Mon Jun 23 17:06:28 2025
+</home/had/ryogo> was used as the home directory.
+</home/had/ryogo/work/RAYRAW/k18-analyzer/dev> was used as the working directory.
+Started at Mon Jun 23 17:06:28 2025
+Terminated at Mon Jun 23 17:06:39 2025
+Results reported at Mon Jun 23 17:06:39 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+./bin/Rayraw /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/tmp/tmpqevvsnvv/runlist_data_1.conf /ghi/fs02/orig_root_fs02/had/sks/E86/tohoku/rayraw_bench/run01199.dat /gpfs/group/had/sks/Users/akao/RAYRAW/runlist_data_1.root 
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   8.63 sec.
+    Max Memory :                                 200 MB
+    Average Memory :                             150.50 MB
+    Total Requested Memory :                     4000.00 MB
+    Delta Memory :                               3800.00 MB
+    Max Swap :                                   -
+    Max Processes :                              3
+    Max Threads :                                4
+    Run time :                                   12 sec.
+    Turnaround time :                            17 sec.
+
+The output (if any) follows:
+
+[::main()] recreate root file : /gpfs/group/had/sks/Users/akao/RAYRAW/runlist_data_1.root
+[ConfMan::Initialize()] /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/tmp/tmpqevvsnvv/runlist_data_1.conf
+ key = UNPACK     value = /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/tmp/tmpqevvsnvv/runlist_data_1.xml
+ key = DIGIT      value = /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/param/DIGIT/digit_data_rayraw_20250531.xml
+ key = CMAP       value = /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/param/CMAP/channel_map_rayrawbench_20240719.xml
+ key = BH2FLT     value = /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/param/BH2FLT/BH2Filter_20180603
+ key = DCGEO      value = /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/param/DCGEO/DCGeomParam_e70_20230810
+ key = DCDRFT     value = /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/param/DCDRFT/DCDriftParam_e70_20230620
+ key = DCTDC      value = /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/param/DCTDC/DCTdcCalib_e70_20230621
+ key = HDPRM      value = /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/param/HDPRM/HodoParam_rayraw_20250531
+ key = HDPHC      value = /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/param/HDPHC/HodoPHCParam_rayraw_skelton
+ key = USER       value = /gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/param/USER/UserParam_rayraw_20250108.txt
+ [DCGeomMan]            -> Initialized
+ [HodoParamMan]         -> Initialized
+ [HodoPHCMan]           -> Initialized
+ [UserParamMan]         -> Initialized
+#D HPrint() 
+ h1       h101000  h101001  h101002  h101003  h101004  h101005  h101006  h101007  h101010 
+ h101011  h102000  h102001  h102002  h102003  h102004  h102005  h102006  h102007  h102010 
+ h102011  h103000  h103001  h103002  h103003  h103004  h103005  h103006  h103007  h103010 
+ h103011  h104000  h104001  h104002  h104003  h104004  h104005  h104006  h104007  h104010 
+ h104011  h105000  h105001  h105002  h105003  h105004  h105005  h105006  h105007  h105010 
+ h105011  h106000  h106001  h106002  h106003  h106004  h106005  h106006  h106007  h106010 
+ h106011  h107000  h107001  h107002  h107003  h107004  h107005  h107006  h107007  h107010 
+ h107011  h108000  h108001  h108002  h108003  h108004  h108005  h108006  h108007  h108010 
+ h108011  h109000  h109001  h109002  h109003  h109004  h109005  h109006  h109007  h109010 
+ h109011  h110000  h110001  h110002  h110003  h110004  h110005  h110006  h110007  h110010 
+ h110011  h111000  h111001  h111002  h111003  h111004  h111005  h111006  h111007  h111010 
+ h111011  h112000  h112001  h112002  h112003  h112004  h112005  h112006  h112007  h112010 
+ h112011  h113000  h113001  h113002  h113003  h113004  h113005  h113006  h113007  h113010 
+ h113011  h114000  h114001  h114002  h114003  h114004  h114005  h114006  h114007  h114010 
+ h114011  h115000  h115001  h115002  h115003  h115004  h115005  h115006  h115007  h115010 
+ h115011  h116000  h116001  h116002  h116003  h116004  h116005  h116006  h116007  h116010 
+ h116011  h117000  h117001  h117002  h117003  h117004  h117005  h117006  h117007  h117010 
+ h117011  h118000  h118001  h118002  h118003  h118004  h118005  h118006  h118007  h118010 
+ h118011  h119000  h119001  h119002  h119003  h119004  h119005  h119006  h119007  h119010 
+ h119011  h120000  h120001  h120002  h120003  h120004  h120005  h120006  h120007  h120010 
+ h120011  h121000  h121001  h121002  h121003  h121004  h121005  h121006  h121007  h121010 
+ h121011  h122000  h122001  h122002  h122003  h122004  h122005  h122006  h122007  h122010 
+ h122011  h123000  h123001  h123002  h123003  h123004  h123005  h123006  h123007  h123010 
+ h123011  h124000  h124001  h124002  h124003  h124004  h124005  h124006  h124007  h124010 
+ h124011  h125000  h125001  h125002  h125003  h125004  h125005  h125006  h125007  h125010 
+ h125011  h126000  h126001  h126002  h126003  h126004  h126005  h126006  h126007  h126010 
+ h126011  h127000  h127001  h127002  h127003  h127004  h127005  h127006  h127007  h127010 
+ h127011  h128000  h128001  h128002  h128003  h128004  h128005  h128006  h128007  h128010 
+ h128011  h129000  h129001  h129002  h129003  h129004  h129005  h129006  h129007  h129010 
+ h129011  h130000  h130001  h130002  h130003  h130004  h130005  h130006  h130007  h130010 
+ h130011  h131000  h131001  h131002  h131003  h131004  h131005  h131006  h131007  h131010 
+ h131011  h132000  h132001  h132002  h132003  h132004  h132005  h132006  h132007  h132010 
+ h132011  tree    
+ NObject : 322
+[UserParamMan::Print()] 
+ key = RangeRAYRAW         2 :    40    60 
+ key = TdcRAYRAW           2 :  2750  2850 
+#D children size = 1
+#D  parsing XML DOM Element control
+
+#D UnpackerConfig::read_control()
+ reading <control>
+#D children size = 8
+#D skip
+   skip: 100000
+#D max_loop
+   max_loop: 2227
+#D cout
+   cout: std::cout
+#D cerr
+   cerr: std::cerr
+#D tout
+   tout: std::cerr
+#D esc
+   esc: on
+#D print_cycle
+   print_cycle: 10000
+#D error_check
+   check : data format 
+   check : local tag disagreement
+   show all module
+   cout = std::cout
+   cerr = std::cerr
+   tag_summary = std::cerr
+
+#D UnpackerXMLReadDigit::UnpackerXMLReadDigit()
+    reading <digit_data> 
+ found device id =      255 ( .size() =   0), ref =         null, type = 
+ found device id =       31 ( .size() = 256), ref =       RAYRAW, type = Fiber
+#D resize DigitList
+. ->  finished
+#D build digit name map
+ ->  finished
+#D UnpackerXMLChannelMap::UnpackerXMLChannelMap()
+ reading <channel_map>
+
+....
+#D UnpackerXMLChannelMap constructor  finished
+#D UnpackerManager::set_parameter()
+ key = skip, value = 100000
+ skip = 100000
+#D UnpackerManager::set_parameter()
+ key = max_loop, value = 2227
+ max_loop = 2227
+ (last = 102227)
+#D UnpackerManager::set_parameter()
+ key = esc, value = on
+#D UnpackerManager::set_parameter()
+ key = print_cycle, value = 10000
+#D check mode = 01001001
+
+#D ___________ GUnpacker::set_istream() __________
+   input stream = /ghi/fs02/orig_root_fs02/had/sks/E86/tohoku/rayraw_bench/run01199.dat
+
+#D GUnpacker::initialize()
+[0m
+#D EventReader::open()  data stream /ghi/fs02/orig_root_fs02/had/sks/E86/tohoku/rayraw_bench/run01199.dat
+#D EventReader::set_bookmark() bookmark /ghi/fs02/orig_root_fs02/had/sks/E86/tohoku/rayraw_bench/bookmark/run01199_bookmark.dat
+#D skipping to 1287600308 ...
+#D GUnpacker skipped 100000 events
+#D GUnpacker::initialize() ----> finished
+
+#E EventReader::read() no data
+#D EventReader::read()
+ close stream
+#D IStream /ghi/fs02/orig_root_fs02/had/sks/E86/tohoku/rayraw_bench/run01199.dat closed
+
+#E null stream
+    n unpacked =  2226 (0x8b2)
+#D GUnpacker::operator++()   exit loop
+    n unpacked =  2226 (0x8b2)
+#DTimer [::main()] End of Analyzer 
+   Process Start   : Mon Jun 23 17:06:30 2025
+   Process Stop    : Mon Jun 23 17:06:39 2025
+   Processing Time : 0:00:09

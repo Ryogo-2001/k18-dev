@@ -1,0 +1,21 @@
+<unpacker xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/gpfs/home/had/ryogo/work/RAYRAW/k18-analyzer/dev/runmanager/tmp/tmpqevvsnvv/runlist_data.xsd">
+
+  <control>
+    <skip>100000</skip>
+    <max_loop>2227</max_loop>
+    <cout>        std::cout </cout>
+    <cerr>        std::cerr </cerr>
+    <tout>        std::cerr </tout>
+    <esc>         on        </esc>
+    <print_cycle> 10000     </print_cycle>
+
+    <error_check>
+      <format check="true" />
+      <slip check="false" />
+      <disagreement local="true" event="false" spill="false" />
+      <show all="true" always="false" char_true="!" char_false="." />
+    </error_check>
+
+  </control>
+
+</unpacker>

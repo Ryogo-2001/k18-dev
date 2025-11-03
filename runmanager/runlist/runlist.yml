@@ -1,0 +1,84 @@
+# RUN LIST (YAML format)
+#
+# （中略）
+#
+# Some problems will happen if there is no default setting declaration.
+#
+
+#____________________________________________________
+# work directory path
+# The following paths must be relative to this path
+
+WORKDIR: ~/work/RAYRAW/k18-analyzer/dev
+
+#____________________________________________________
+# default setting
+# default setting MUST have all items.
+# This setting will be inherited unless you explicitly set values for the individual cases.
+
+DEFAULT:
+  queue: s
+  qmerge: s
+  unit:  100
+  nproc: 18
+  buff:  /group/had/sks/Users/akao/buffer
+  bin:   ./bin/Hodoscope
+  conf:  ./param/conf/analyzer_default.conf
+  data:  ./data
+  root:  ./root
+
+#____________________________________________________
+# Individual settings
+# If you want to adapt the default setting to some runs,
+# you only have to list keys.
+
+RUN:
+  1371:
+    bin:  ./bin/Rayraw
+    conf: ./param/conf/analyzer_rayraw_run1371.conf
+    #data: ./test.dat.gz
+    #root: ./test.root
+  1372:
+    bin:  ./bin/Rayraw
+    conf: ./param/conf/analyzer_rayraw_run1372.conf
+    #data: ./test.dat.gz
+    #root: ./test.root
+  1373:
+    bin:  ./bin/Rayraw
+    conf: ./param/conf/analyzer_rayraw_run1373.conf
+    #data: ./test.dat.gz
+    #root: ./test.root
+  1374:
+    bin:  ./bin/Rayraw
+    conf: ./param/conf/analyzer_rayraw_run1374.conf
+    #data: ./test.dat.gz
+    #root: ./test.root
+
+  1375:
+    bin:  ./bin/Rayraw
+    conf: ./param/conf/analyzer_rayraw_run1375.conf
+    #data: ./test.dat.gz
+    #root: ./test.root
+
+  1376:
+    bin:  ./bin/Rayraw
+    conf: ./param/conf/analyzer_rayraw_run1376.conf
+    #data: ./test.dat.gz
+    #root: ./test.root
+
+  1377:
+    bin:  ./bin/Rayraw
+    conf: ./param/conf/analyzer_rayraw_run1377.conf
+    #data: ./test.dat.gz
+    #root: ./test.root
+
+  1378:
+    bin:  ./bin/Rayraw
+    conf: ./param/conf/analyzer_rayraw_run1378.conf
+    #data: ./test.dat.gz
+    #root: ./test.root
+  1383:
+    bin:  ./bin/Rayraw
+    conf: ./param/conf/analyzer_rayraw_run1383.conf
+    #data: ./test.dat.gz
+    #root: ./test.root
