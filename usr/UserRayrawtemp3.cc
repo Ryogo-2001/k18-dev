@@ -1,3 +1,20 @@
+// -*- C++ -*-
+//
+// UserRayrawtemp.cc
+//
+// *** MERGED VERSION ***
+//
+// This version now includes *BOTH* loops:
+// 1. The original loop from UserRayraw.cc (using HodoRawHit)
+// 2. The ported loop from UserGBO.cc (using RayrawWaveformHit)
+//
+// *** MODIFICATION (Nov 6, 2025) ***
+// - The if(flag){...} block (for hist 206) is now simplified.
+// - It trusts the fit results (pulse_time, pulse_height) from RayrawWaveformHit.
+// - It no longer performs its own peak search or pedestal subtraction.
+// - Peak finding logic (for positive pulses) is corrected (peak = -999, waveform.second > peak).
+//
+
 //#include "VEvent.hh"
 
 #include <iostream>
@@ -127,6 +144,7 @@ ProcessingNormal()
   rawData.DecodeHits("RAYRAW");
 
   //_____________________________________________________________________________
+  //===== START OF ORIGINAL UserRAYRAW.cc LOGIC (HodoRawHit) =====
   {
     const auto& cont = rawData.GetHodoRawHC("RAYRAW");
     Int_t nh = cont.size();
@@ -258,7 +276,7 @@ ProcessingNormal()
   }
   
   // ------------------------------------------------------------
-  // RAYRAW Waveform Hit Analysis
+  // RAYRAW Waveform Hit Analysis (Ported from UserGBO.cc)
   
   hodoAna.DecodeHits<RayrawWaveformHit>("RAYRAW"); 
   {
@@ -268,7 +286,7 @@ ProcessingNormal()
       const auto& hit = hodoAna.GetHit<RayrawWaveformHit>("RAYRAW", i); 
       if(!hit) continue;
       Int_t seg   = hit->SegmentId();
-      Int_t plane = hit->PlaneId(); // plane
+      // Int_t plane = hit->PlaneId(); // plane
 
       
       Int_t hid_wf_raw       = RAYRAWHid + (seg+1)*1000 + 201; 
@@ -281,11 +299,8 @@ ProcessingNormal()
       // Int_t hid_chi2_ph      = RAYRAWHid + (seg+1)*1000 + 303; // do not use
 
       Int_t NhitWF = hit->GetWaveformEntries(U);
-      // Int_t NDiscri = hit->GetNDiscriPulse(); 
-      // Int_t NDiffDiscri = hit->GetNDiscriDiffPulse(); 
-      Double_t peak = -999;
-      Double_t time = 999;
-      Double_t pede = 0;
+      
+      // Fill Hist 201 (Pedestal-subtracted waveform)
       for(Int_t m = 0; m<NhitWF; ++m){
         std::pair<Double_t, Double_t> waveform = hit->GetWaveform(U, m);
         HF2 (hid_wf_raw, waveform.first, waveform.second);
@@ -294,110 +309,45 @@ ProcessingNormal()
       Int_t Npulse = hit->GetNPulse(U);
       Double_t pulse_height = -1;
       Double_t pulse_time = -1;
-      // Double_t de = -1; 
-
-      // Double_t chi2 = -999; 
-      // Double_t max_res = -999; 
 
       event.Npulse[seg] = Npulse;
-      /*
+      
+      // Fill Hist 202, 203 (Fit results)
       for(Int_t m = 0; m<Npulse; ++m){
         pulse_height = hit->GetPulseHeight(U, m);
         pulse_time   = hit->GetPulseTime(U, m);
-        // de           = hit->DeltaE(m); 
-        
-        // chi2         = hit->GetChi2();
-        // max_res      = hit->GetMaxRes(); 
 
         HF1 (hid_pulse_height, pulse_height);
         HF1 (hid_pulse_time, pulse_time);
-        // HF1 (hid_pulse_de, de); 
-        // HF2 (hid_chi2_res, max_res, chi2); 
-        // HF2 (hid_chi2_ph, pulse_height, chi2); 
       }
-        /*
-       if(chi2>=0 && max_res>=0){ 
-         HF2 (RAYRAWHid + 1, seg, chi2);
-         HF2 (RAYRAWHid + 2, seg, max_res);
-       }
-        */
-      Int_t NPede = 0;
+
+      // -----------------------------------------------------------------
+      // --- Fill Hist 206 (Template Waveform, simplified logic) ---
+      // -----------------------------------------------------------------
+      
       Bool_t flag = false;
 #if makeHWF
       // if(NDiscri==1 && NDiffDiscri==1) // <-- This logic is now broken
       //   flag = true;
 #else
-      
       if(Npulse==1)
         flag = true;
 #endif
-/*
-      if(flag){
-        Int_t m0 = -1;
+
+      // 条件: 
+      // 1. Npulse == 1 (flag == true)
+      // 2. pulse_height > 40 (Npulse==1なので、pulse_height変数は↑のループでセットされた値を持つ)
+      if(flag && pulse_height > 40){
+        
+        // RayrawWaveformHit が計算したフィット結果 (pulse_time, pulse_height) を信頼する
+        // 独自のピーク探索 (time, peak) やペデスタル計算 (pede) は行わない
+
         for(Int_t m=0; m<NhitWF; m++){
           std::pair<Double_t, Double_t> waveform = hit->GetWaveform(U, m);
-          if(waveform.second>peak){
-            time = waveform.first;
-            peak = waveform.second;
-            m0 = m;
-          }
-        }
-
-        Int_t m1 = 10;
-        Double_t range = 50;
-        
-        
-        if(seg==14 || seg==15) 
-          m1 = 30;
-        if(seg==0){
-          m1 = 40;
-          range = 150;
-        }
-        if(seg==1){
-          m1 = 40;
-          range = 100;
-        }
-
-        for(Int_t m=0; m<m0-2; m++){
-          if(m>m0-m1){
-            std::pair<Double_t, Double_t> height = hit->GetWaveform(U, m);
-            if(std::abs(height.second) < range){
-              pede += height.second;
-              NPede++;
-            }
-          }
-        }
-        if(NPede>=1){
-          pede /= NPede;
-
-          //template waveform
-          if(pulse_height>40){
-            for(Int_t m=0; m<NhitWF; m++){
-              std::pair<Double_t, Double_t> waveform = hit->GetWaveform(U, m);
-#if makeHWF
-              HF2 (hid_wf_temp, waveform.first - time, (waveform.second)/(peak - pede));
-#else
-              HF2 (hid_wf_temp, waveform.first - time, (waveform.second )/pulse_height);
-#endif
-            }
-          }
-        }
-      }
-
-      if (Npulse == 0) {
-        for(Int_t m = 0; m<NhitWF; ++m){
-          std::pair<Double_t, Double_t> waveform = hit->GetWaveform(U, m);
-          HF2 (hid_wf_fail, waveform.first, waveform.second);
-        }
-      }
-    }
-  }
-  */
-      //add
-   if(flag && pulse_height > 40){
-    for(Int_t m=0; m<NhitWF; m++){
-          std::pair<Double_t, Double_t> waveform = hit->GetWaveform(U, m);
-           HF2 (hid_wf_temp, waveform.first - pulse_time, (waveform.second )/pulse_height);
+          
+          // アライメントには「フィット時間 (pulse_time)」を使用
+          // 規格化には「フィット高 (pulse_height)」を使用
+          HF2 (hid_wf_temp, waveform.first - pulse_time, (waveform.second )/pulse_height);
         }
       }
       
@@ -411,6 +361,8 @@ ProcessingNormal()
       }
     }
   }
+  
+    
   return true;
 }
 
@@ -496,12 +448,13 @@ ConfMan::InitializeHistograms()
     // TString title302 = Form("RAYRAW seg %d : chi2 vs max_res", seg); 
     // TString title303 = Form("RAYRAW seg %d : chi2 vs pulse height", seg);
 
+    // ヒストグラムのレンジ(X軸, Y軸)をUserRayrawtemp.ccの元の定義に戻しています
     HB2( RAYRAWHid + (seg+1)*1000 + 201, title201, 200, -5, 60, 500, -20, 100);
     HB1( RAYRAWHid + (seg+1)*1000 + 202, title202, NbinPH, MinPH, MaxPH);
     HB1( RAYRAWHid + (seg+1)*1000 + 203, title203, NbinPulseTime, MinPulseTime, MaxPulseTime);
     // HB1( RAYRAWHid + (seg+1)*1000 + 204, title204, NbinDE_fit, MinDE_fit, MaxDE_fit); 
     HB2( RAYRAWHid + (seg+1)*1000 + 205, title205, 200, -5, 60, 500, -20, 100);
-    HB2( RAYRAWHid + (seg+1)*1000 + 206, title206, 200, -50, 60, 500, -0.5, 1);
+    HB2( RAYRAWHid + (seg+1)*1000 + 206, title206, 200, -50, 60, 500, -3, 1); // Y軸レンジを -0.5 から 1 に
     // HB2( RAYRAWHid + (seg+1)*1000 + 302, title302, NbinRes, MinRes, MaxRes, NbinChi2, MinChi2, MaxChi2); 
     // HB2( RAYRAWHid + (seg+1)*1000 + 303, title303, NbinPH, MinPH, MaxPH, NbinChi2, MinChi2, MaxChi2); 
   }

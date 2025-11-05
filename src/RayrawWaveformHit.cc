@@ -43,11 +43,11 @@ const auto& gTempFit = TemplateFitMan::GetInstance();
 const auto& gUnpacker = hddaq::unpacker::GUnpacker::get_instance(); 
 
 // param
-const double graphStart = 0.0;    // [ns]
-const double graphEnd   = 70.0;   // [ns]
+const double graphStart = -50.0;    // [ns]
+const double graphEnd   = 50.0;   // [ns]
 const double y_err      = 1.0;    // FADC's error 
 const double fitStart = 0.0;    // [ns]
-const double fitEnd   = 70.0;   // [ns]
+const double fitEnd   = 100.0;   // [ns]
 const int ParaMax = 64;
 const double TrigTimeReso = 1.00; // [ns], timing resolution for fitting
 
@@ -105,7 +105,7 @@ RayrawWaveformHit::Calculate()
   if(!HodoHit::Calculate())
     ;
 
-  // gUser and SAMPLING_INTERVAL_NS
+  
   static const auto& gUser = UserParamMan::GetInstance();
   static const auto SAMPLING_INTERVAL_NS = gUser.GetParameter("SamplingInterval");
 
@@ -505,6 +505,9 @@ Bool_t RayrawWaveformHit::SetFitParam(FitParam *fp, std::vector<Double_t> &inix,
 }
 
 //_____________________________________________________________________________
+//Fit1
+//m_func RAYRAWTEMP
+//m_TGraphC data
 
 void RayrawWaveformHit::Fit1(FitParam *fp)
 {

@@ -19,7 +19,7 @@ struct FitParam {
   Double_t FitEnd;
   Int_t    wavenum;
   Int_t    ParaNum;
-  Double_t par[64]; // (ParaMax と同じサイズ)
+  Double_t par[64]; // (max 64 parameters)
   Double_t FitParam[64];
   Double_t Residual;
 };

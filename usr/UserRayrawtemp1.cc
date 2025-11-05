@@ -1,3 +1,19 @@
+// -*- C++ -*-
+//
+// UserRAYRAWtemp.cc
+//
+// *** MERGED VERSION ***
+//
+// This version now includes *BOTH* loops:
+// 1. The original loop from UserRAYRAW.cc (using HodoRawHit)
+// 2. The ported loop from UserGBO.cc (using RayrawWaveformHit)
+//
+// *** MODIFICATION ***
+// Removed the redundant pedestal calculation logic (the if(flag){...} block)
+// from the RayrawWaveformHit loop.
+// We now trust the pedestal subtraction and fitting done *inside* RayrawWaveformHit.
+//
+
 //#include "VEvent.hh"
 
 #include <iostream>
@@ -26,7 +42,7 @@
 // Added from UserGBO.cc logic
 #include "RayrawWaveformHit.hh" 
 #include "TemplateFitMan.hh"
-// #include "RAYRAWCalibMan.hh" // <-- don't need 
+// #include "RAYRAWCalibMan.hh" // <-- COMMENTED OUT (does not exist)
 
 namespace
 {
@@ -55,7 +71,7 @@ struct Event
   std::vector<Double_t>              dE;
   std::vector<Double_t>              dE_q;
 
-  //
+  // Added from UserGBO.cc
   Int_t Npulse[NumOfSegRayraw]; // Use NumOfSegRayraw
 
   void clear();
@@ -78,7 +94,7 @@ Event::clear()
   dE.clear();
   dE_q.clear();
 
-  // template fit pulses
+  // Added from UserGBO.cc
   for(Int_t it=0; it<NumOfSegRayraw; ++it){
     Npulse[it] = 0;
   }
@@ -108,7 +124,7 @@ ProcessingBegin()
 Bool_t
 ProcessingNormal()
 {
-  // Parameters from UserRayraw.cc
+  // Parameters from UserRAYRAW.cc
   static const auto MinRange    = gUser.GetParameter("RangeRAYRAW", 0);
   static const auto MaxRange    = gUser.GetParameter("RangeRAYRAW", 1);
   static const auto CorrectionTdcMin = gUser.GetParameter("TdcRAYRAW", 0);
@@ -124,14 +140,19 @@ ProcessingNormal()
 
   const auto& phcMan = HodoPHCMan::GetInstance();
 
+  // *** Must decode raw hits FIRST ***
   rawData.DecodeHits("RAYRAW");
 
-  //_____________________________________________________________________________
+  //==================================================================
+  //===== START OF ORIGINAL UserRAYRAW.cc LOGIC (HodoRawHit) =====
+  //==================================================================
+  // This loop fills hists 0-11 and the main tree branches
   {
     const auto& cont = rawData.GetHodoRawHC("RAYRAW");
     Int_t nh = cont.size();
 
-    
+    // Resize vectors based on number of hits *in this event*
+    // This logic might need review if NumOfSegRayraw is the intended size
     event.waveform.resize(nh);
     event.leading.resize(nh);
     event.trailing.resize(nh);
@@ -145,10 +166,11 @@ ProcessingNormal()
       Int_t plid = hit->PlaneId();
       Int_t seg  = hit->SegmentId();
       
-      
+      // Ensure seg is a valid index before resizing/pushing
       if(seg < 0 || seg >= NumOfSegRayraw) continue;
 
-     
+      // Make sure vectors are large enough (if seg indexing is used)
+      // This is safer than resizing to 'nh'
       if(event.waveform.size() <= seg) event.waveform.resize(NumOfSegRayraw);
       if(event.leading.size() <= seg) event.leading.resize(NumOfSegRayraw);
       if(event.trailing.size() <= seg) event.trailing.resize(NumOfSegRayraw);
@@ -197,18 +219,18 @@ ProcessingNormal()
       }
 
       HF1(hid_adc, max_adc);
-      event.max_adc[seg] = max_adc; //  [seg]
+      event.max_adc[seg] = max_adc; // Use [seg]
       HF1(hid_integral, integral);
-      event.integral[seg] = integral; //  [seg]
+      event.integral[seg] = integral; // Use [seg]
       HF1(hid_integral_ped, integral_ped);
-      event.integral_ped[seg] = integral_ped; //  [seg]
+      event.integral_ped[seg] = integral_ped; // Use [seg]
 
       Double_t dE = ((Double_t)max_adc - ped) / (gain - ped);
       HF1(hid_dE, dE);
-      event.dE[seg] = dE; //  [seg]
+      event.dE[seg] = dE; // Use [seg]
       Double_t dE_q = ((Double_t)integral - ped_q) / (gain_q - ped_q);
       HF1(hid_dE_q, dE_q);
-      event.dE_q[seg] = dE_q; //  [seg]
+      event.dE_q[seg] = dE_q; // Use [seg]
 
       // TDC Leading
       for (const auto& tdc_l : hit->GetArrayTdcLeading() ) {
@@ -231,7 +253,7 @@ ProcessingNormal()
         event.leading_corr[seg].push_back(corrected_tdc);
       }
       HF1(hid_tdc_first, tdc_first);
-      event.tdc_first[seg] = tdc_first; //  [seg]
+      event.tdc_first[seg] = tdc_first; // Use [seg]
 
       Double_t tdc_first_corr = qnan;
       if (tdc_first != -10) { 
@@ -247,7 +269,7 @@ ProcessingNormal()
           }
         }
       }
-      event.tdc_first_corr[seg] = tdc_first_corr; //  [seg]
+      event.tdc_first_corr[seg] = tdc_first_corr; // Use [seg]
 
       // TDC Trailing
       for (const auto& tdc_t : hit->GetArrayTdcTrailing() ) {
@@ -256,9 +278,15 @@ ProcessingNormal()
       }
     } 
   }
-  
-  // ------------------------------------------------------------
-  // RAYRAW Waveform Hit Analysis
+  //==================================================================
+  //=====  END OF ORIGINAL UserRAYRAW.cc LOGIC   =====
+  //==================================================================
+
+
+  //==================================================================
+  //===== START OF PORTED LOGIC from UserGBO.cc (RayrawWaveformHit) =====
+  //==================================================================
+  // This loop fills hists 201+ and the Npulse branch
   
   hodoAna.DecodeHits<RayrawWaveformHit>("RAYRAW"); 
   {
@@ -268,24 +296,25 @@ ProcessingNormal()
       const auto& hit = hodoAna.GetHit<RayrawWaveformHit>("RAYRAW", i); 
       if(!hit) continue;
       Int_t seg   = hit->SegmentId();
-      Int_t plane = hit->PlaneId(); // plane
+      // Int_t plane = hit->PlaneId(); // 'plane' is unused, this is fine.
 
-      
+      // Define Histogram IDs using RAYRAW scheme
       Int_t hid_wf_raw       = RAYRAWHid + (seg+1)*1000 + 201; 
       Int_t hid_pulse_height = RAYRAWHid + (seg+1)*1000 + 202; 
       Int_t hid_pulse_time   = RAYRAWHid + (seg+1)*1000 + 203; 
-      // Int_t hid_pulse_de     = RAYRAWHid + (seg+1)*1000 + 204; // do not use
+      // Int_t hid_pulse_de     = RAYRAWHid + (seg+1)*1000 + 204; // <-- COMMENTED OUT
       Int_t hid_wf_fail      = RAYRAWHid + (seg+1)*1000 + 205; 
-      Int_t hid_wf_temp      = RAYRAWHid + (seg+1)*1000 + 206; 
-      // Int_t hid_chi2_res     = RAYRAWHid + (seg+1)*1000 + 302; // do not use
-      // Int_t hid_chi2_ph      = RAYRAWHid + (seg+1)*1000 + 303; // do not use
+      // Int_t hid_wf_temp      = RAYRAWHid + (seg+1)*1000 + 206; // <-- This will no longer be filled
+      // Int_t hid_chi2_res     = RAYRAWHid + (seg+1)*1000 + 302; // <-- COMMENTED OUT
+      // Int_t hid_chi2_ph      = RAYRAWHid + (seg+1)*1000 + 303; // <-- COMMENTED OUT
 
       Int_t NhitWF = hit->GetWaveformEntries(U);
-      // Int_t NDiscri = hit->GetNDiscriPulse(); 
-      // Int_t NDiffDiscri = hit->GetNDiscriDiffPulse(); 
-      Double_t peak = -999;
-      Double_t time = 999;
-      Double_t pede = 0;
+
+      // Double_t peak = 999; // <-- Not needed
+      // Double_t time = 999; // <-- Not needed
+      // Double_t pede = 0; // <-- Not needed
+      
+      // hist 201: Fill the pedestal-subtracted waveform (calculated by RayrawWaveformHit)
       for(Int_t m = 0; m<NhitWF; ++m){
         std::pair<Double_t, Double_t> waveform = hit->GetWaveform(U, m);
         HF2 (hid_wf_raw, waveform.first, waveform.second);
@@ -294,96 +323,24 @@ ProcessingNormal()
       Int_t Npulse = hit->GetNPulse(U);
       Double_t pulse_height = -1;
       Double_t pulse_time = -1;
-      // Double_t de = -1; 
-
-      // Double_t chi2 = -999; 
-      // Double_t max_res = -999; 
 
       event.Npulse[seg] = Npulse;
-      /*
+      
+      // hist 202, 203: Fill the fit results
       for(Int_t m = 0; m<Npulse; ++m){
         pulse_height = hit->GetPulseHeight(U, m);
         pulse_time   = hit->GetPulseTime(U, m);
-        // de           = hit->DeltaE(m); 
-        
-        // chi2         = hit->GetChi2();
-        // max_res      = hit->GetMaxRes(); 
 
         HF1 (hid_pulse_height, pulse_height);
         HF1 (hid_pulse_time, pulse_time);
-        // HF1 (hid_pulse_de, de); 
-        // HF2 (hid_chi2_res, max_res, chi2); 
-        // HF2 (hid_chi2_ph, pulse_height, chi2); 
       }
-        /*
-       if(chi2>=0 && max_res>=0){ 
-         HF2 (RAYRAWHid + 1, seg, chi2);
-         HF2 (RAYRAWHid + 2, seg, max_res);
-       }
-        */
-      Int_t NPede = 0;
-      Bool_t flag = false;
-#if makeHWF
-      // if(NDiscri==1 && NDiffDiscri==1) // <-- This logic is now broken
-      //   flag = true;
-#else
+
+      // *** REMOVED BLOCK ***
+      // The logic block "if(flag){...}" (which calculated 'pede' and filled hist 206)
+      // has been removed, as it was performing a redundant and incorrect
+      // double pedestal subtraction.
       
-      if(Npulse==1)
-        flag = true;
-#endif
-/*
-      if(flag){
-        Int_t m0 = -1;
-        for(Int_t m=0; m<NhitWF; m++){
-          std::pair<Double_t, Double_t> waveform = hit->GetWaveform(U, m);
-          if(waveform.second>peak){
-            time = waveform.first;
-            peak = waveform.second;
-            m0 = m;
-          }
-        }
-
-        Int_t m1 = 10;
-        Double_t range = 50;
-        
-        
-        if(seg==14 || seg==15) 
-          m1 = 30;
-        if(seg==0){
-          m1 = 40;
-          range = 150;
-        }
-        if(seg==1){
-          m1 = 40;
-          range = 100;
-        }
-
-        for(Int_t m=0; m<m0-2; m++){
-          if(m>m0-m1){
-            std::pair<Double_t, Double_t> height = hit->GetWaveform(U, m);
-            if(std::abs(height.second) < range){
-              pede += height.second;
-              NPede++;
-            }
-          }
-        }
-        if(NPede>=1){
-          pede /= NPede;
-
-          //template waveform
-          if(pulse_height>40){
-            for(Int_t m=0; m<NhitWF; m++){
-              std::pair<Double_t, Double_t> waveform = hit->GetWaveform(U, m);
-#if makeHWF
-              HF2 (hid_wf_temp, waveform.first - time, (waveform.second)/(peak - pede));
-#else
-              HF2 (hid_wf_temp, waveform.first - time, (waveform.second )/pulse_height);
-#endif
-            }
-          }
-        }
-      }
-
+      // hist 205: Fill waveforms where the fit failed (Npulse == 0)
       if (Npulse == 0) {
         for(Int_t m = 0; m<NhitWF; ++m){
           std::pair<Double_t, Double_t> waveform = hit->GetWaveform(U, m);
@@ -392,25 +349,10 @@ ProcessingNormal()
       }
     }
   }
-  */
-      //add
-   if(flag && pulse_height > 40){
-    for(Int_t m=0; m<NhitWF; m++){
-          std::pair<Double_t, Double_t> waveform = hit->GetWaveform(U, m);
-           HF2 (hid_wf_temp, waveform.first - pulse_time, (waveform.second )/pulse_height);
-        }
-      }
-      
-      // --- End of Hist 206 logic ---
-
-      if (Npulse == 0) {
-        for(Int_t m = 0; m<NhitWF; ++m){
-          std::pair<Double_t, Double_t> waveform = hit->GetWaveform(U, m);
-          HF2 (hid_wf_fail, waveform.first, waveform.second);
-        }
-      }
-    }
-  }
+  //==================================================================
+  //=====  END OF PORTED LOGIC for RAYRAW from UserGBO.cc  =====
+  //==================================================================
+    
   return true;
 }
 
@@ -426,7 +368,7 @@ ProcessingEnd()
 Bool_t
 ConfMan::InitializeHistograms()
 {
-  //same UserRayraw.cc
+  // Definitions from UserRAYRAW.cc
   const Int_t    NbinFADC_X     = 500;
   const Int_t    NbinFADC_Y     = 1024;
   const Double_t MinIntegral    = 0;
@@ -441,7 +383,7 @@ ConfMan::InitializeHistograms()
 
   HB1( 1, "Status",  20,   0., 20.);
 
-  // waveform histograms
+  // Definitions from UserGBO.cc (for ranges)
   const Double_t MinTime = -100.;
   const Double_t MaxTime = 100.;
   const Int_t    NbinTime = 4000;
@@ -463,7 +405,7 @@ ConfMan::InitializeHistograms()
 
 
   for (Int_t seg=0; seg<NumOfSegRayraw; ++seg) {
-    // --- same UserRayraw.cc ---
+    // --- Histograms from original UserRAYRAW.cc ---
     TString title0  = Form("RAYRAW seg%d - Raw Waveform (HodoRawHit)",      seg);
     TString title1  = Form("RAYRAW seg%d - Max ADC (HodoRawHit)",           seg);
     TString title2  = Form("RAYRAW seg%d - Integral (HodoRawHit)",          seg);
@@ -486,31 +428,31 @@ ConfMan::InitializeHistograms()
     HB1( RAYRAWHid + (seg+1)*1000 + 10, title10, NbindE,       MindE,       MaxdE );
     HB1( RAYRAWHid + (seg+1)*1000 + 11, title11, NbindE,       MindE,       MaxdE );
     
-    // --- WaveformFit ---
-    TString title201 = Form("RAYRAW seg %d : Waveform (from HWF)", seg);
+    // --- Histograms from UserGBO.cc logic (WaveformFit) ---
+    TString title201 = Form("RAYRAW seg %d : Waveform (from HWF, Pede-Subtracted)", seg);
     TString title202 = Form("RAYRAW seg %d : Pulse Height (from Fit)", seg);
     TString title203 = Form("RAYRAW seg %d : Pulse Time (us) (from Fit)", seg);
-    // TString title204 = Form("RAYRAW seg %d : dE (MeV) (from Fit)", seg); 
+    // TString title204 = Form("RAYRAW seg %d : dE (MeV) (from Fit)", seg); // <-- COMMENTED OUT
     TString title205 = Form("RAYRAW seg %d : Waveform (Failure at Pulse Search)", seg);
-    TString title206 = Form("RAYRAW seg %d : Template Waveform", seg);
-    // TString title302 = Form("RAYRAW seg %d : chi2 vs max_res", seg); 
-    // TString title303 = Form("RAYRAW seg %d : chi2 vs pulse height", seg);
+    TString title206 = Form("RAYRAW seg %d : Template Waveform (REMOVED)", seg); // <-- No longer filled
+    // TString title302 = Form("RAYRAW seg %d : chi2 vs max_res", seg); // <-- COMMENTED OUT
+    // TString title303 = Form("RAYRAW seg %d : chi2 vs pulse height", seg); // <-- COMMENTED OUT
 
-    HB2( RAYRAWHid + (seg+1)*1000 + 201, title201, 200, -5, 60, 500, -20, 100);
+    HB2( RAYRAWHid + (seg+1)*1000 + 201, title201, 200, -5, 5, 500, -20000, 10000);
     HB1( RAYRAWHid + (seg+1)*1000 + 202, title202, NbinPH, MinPH, MaxPH);
     HB1( RAYRAWHid + (seg+1)*1000 + 203, title203, NbinPulseTime, MinPulseTime, MaxPulseTime);
-    // HB1( RAYRAWHid + (seg+1)*1000 + 204, title204, NbinDE_fit, MinDE_fit, MaxDE_fit); 
-    HB2( RAYRAWHid + (seg+1)*1000 + 205, title205, 200, -5, 60, 500, -20, 100);
-    HB2( RAYRAWHid + (seg+1)*1000 + 206, title206, 200, -50, 60, 500, -0.5, 1);
-    // HB2( RAYRAWHid + (seg+1)*1000 + 302, title302, NbinRes, MinRes, MaxRes, NbinChi2, MinChi2, MaxChi2); 
-    // HB2( RAYRAWHid + (seg+1)*1000 + 303, title303, NbinPH, MinPH, MaxPH, NbinChi2, MinChi2, MaxChi2); 
+    // HB1( RAYRAWHid + (seg+1)*1000 + 204, title204, NbinDE_fit, MinDE_fit, MaxDE_fit); // <-- COMMENTED OUT
+    HB2( RAYRAWHid + (seg+1)*1000 + 205, title205, 200, -5, 5, 500, -20000, 10000);
+    HB2( RAYRAWHid + (seg+1)*1000 + 206, title206, 200, -5, 5, 500, -20000, 10000); // Def remains, but will be empty
+    // HB2( RAYRAWHid + (seg+1)*1000 + 302, title302, NbinRes, MinRes, MaxRes, NbinChi2, MinChi2, MaxChi2); // <-- COMMENTED OUT
+    // HB2( RAYRAWHid + (seg+1)*1000 + 303, title303, NbinPH, MinPH, MaxPH, NbinChi2, MinChi2, MaxChi2); // <-- COMMENTED OUT
   }
 
   // Summary Histograms from UserGBO.cc logic
-  // TString title300 = Form("RAYRAW chi2 vs seg"); 
-  // TString title301 = Form("RAYRAW max_res vs seg"); 
-  // HB2( RAYRAWHid + 1, title300, NumOfSegRayraw, 0, NumOfSegRayraw, NbinChi2, MinChi2, MaxChi2); 
-  // HB2( RAYRAWHid + 2, title301, NumOfSegRayraw, 0, NumOfSegRayraw, NbinRes, MinRes, MaxRes); 
+  // TString title300 = Form("RAYRAW chi2 vs seg"); // <-- COMMENTED OUT
+  // TString title301 = Form("RAYRAW max_res vs seg"); // <-- COMMENTED OUT
+  // HB2( RAYRAWHid + 1, title300, NumOfSegRayraw, 0, NumOfSegRayraw, NbinChi2, MinChi2, MaxChi2); // <-- COMMENTED OUT
+  // HB2( RAYRAWHid + 2, title301, NumOfSegRayraw, 0, NumOfSegRayraw, NbinRes, MinRes, MaxRes); // <-- COMMENTED OUT
 
 
   //Tree
@@ -528,7 +470,7 @@ ConfMan::InitializeHistograms()
   tree->Branch("dE(MaxADC)",     &event.dE);
   tree->Branch("dE(Integral)",   &event.dE_q);
 
-  // add Npulse
+  // Added from UserGBO.cc
   tree->Branch("Npulse",   event.Npulse,  Form("Npulse[%d]/I", NumOfSegRayraw));
 
   HPrint();
@@ -546,7 +488,7 @@ ConfMan::InitializeParameterFiles()
      InitializeParameter<UserParamMan>("USER")  &&
      // Added from UserGBO.cc
      InitializeParameter<TemplateFitMan>("RAYRAWTEMP") 
-     // && InitializeParameter<RAYRAWCalibMan>("RAYRAWCALIB") // <- don't need
+     // && InitializeParameter<RAYRAWCalibMan>("RAYRAWCALIB") // <-- COMMENTED OUT
      );
 }
 
