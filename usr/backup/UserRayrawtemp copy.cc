@@ -1,3 +1,18 @@
+// -*- C++ -*-
+//
+// UserRayrawtemp.cc
+//
+// *** MERGED VERSION ***
+//
+// This version now includes *BOTH* loops:
+// 1. The original loop from UserRayraw.cc (using HodoRawHit)
+// 2. The ported loop from UserGBO.cc (using RayrawWaveformHit)
+//
+// *** MODIFICATION (Nov 6, 2025) ***
+// - Re-enabled the loop (346-361) to correctly get pulse_height/pulse_time.
+// - Kept the old/incorrect BGO logic (383-449) commented out.
+// - The new (correct) logic at line 452 now functions correctly.
+//
 
 //#include "VEvent.hh"
 
@@ -303,7 +318,10 @@ ProcessingNormal()
 
       event.Npulse[seg] = Npulse;
       
-    
+      // ======================================================
+      // ===          ↓↓↓ このコメントを外しました ↓↓↓          ===
+      // ======================================================
+      
       for(Int_t m = 0; m<Npulse; ++m){
         pulse_height = hit->GetPulseHeight(U, m); // <--- ★値を取得
         pulse_time   = hit->GetPulseTime(U, m);   // <--- ★値を取得
@@ -319,6 +337,17 @@ ProcessingNormal()
         // HF2 (hid_chi2_ph, pulse_height, chi2); 
       }
       
+      // ======================================================
+      // ===          ↑↑↑ このコメントを外しました ↑↑↑          ===
+      // ======================================================
+
+      /*
+       if(chi2>=0 && max_res>=0){ 
+         HF2 (RAYRAWHid + 1, seg, chi2);
+         HF2 (RAYRAWHid + 2, seg, max_res);
+       }
+      */
+      
       Int_t NPede = 0;
       Bool_t flag = false;
 #if makeHWF
@@ -330,9 +359,15 @@ ProcessingNormal()
         flag = true;
 #endif
 
-      
+      /* <--- この古いブロック (383行目〜449行目) はコメントアウトしたままにする
+      if(flag){
+        Int_t m0 = -1;
+        // ... (古いロジック) ...
+      }
+      */
 
-
+      //add (これが正しいロジック)
+      // (pulse_height と pulse_time は 346行目からのループでセットされている)
       if(flag && pulse_height > 30){
         for(Int_t m=0; m<NhitWF; m++){
               std::pair<Double_t, Double_t> waveform = hit->GetWaveform(U, m);

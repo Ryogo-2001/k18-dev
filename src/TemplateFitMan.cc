@@ -163,7 +163,7 @@ bool TemplateFitMan::Initialize( void )
       m_file_name == "RAYRAW_TEMP") {
     
     // param/RAYRAWTEMP/RAYRAWTEMP.<seg>
-    m_file_name = "param/RAYRAWTEMP/RAYRAWTEMP";
+    m_file_name = "param/RAYRAWTEMP/RAYRAWTEMP_NEW";
   }
 
   {

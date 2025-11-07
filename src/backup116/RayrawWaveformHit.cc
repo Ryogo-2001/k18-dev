@@ -26,33 +26,32 @@
 #include "RawData.hh"
 #include "BGODiscriminator.hh"
 #include "TemplateFitMan.hh"
-// #include "BGOCalibMan.hh"   // BGO
+// #include "BGOCalibMan.hh" // BGO
 // #include "RayrawCalibMan.hh" // RAYRAW
+
 
 typedef std::vector<std::vector<Double_t>> data_t;
 
 namespace
 {
 const auto qnan = TMath::QuietNaN();
-const auto& gGeom    = DCGeomMan::GetInstance();
-const auto& gHodo    = HodoParamMan::GetInstance();
-const auto& gPHC     = HodoPHCMan::GetInstance();
+const auto& gGeom = DCGeomMan::GetInstance();
+const auto& gHodo = HodoParamMan::GetInstance();
+const auto& gPHC  = HodoPHCMan::GetInstance();
 const auto& gTempFit = TemplateFitMan::GetInstance();
+//show debug info
+const auto& gUnpacker = hddaq::unpacker::GUnpacker::get_instance(); 
 
-// debug
-const auto& gUnpacker = hddaq::unpacker::GUnpacker::get_instance();
+// param
+const double graphStart = -50.0;    // [ns]
+const double graphEnd   = 50.0;   // [ns]
+const double y_err      = 2.0;    // FADC's error 
+const double fitStart = -10.0;    // [ns]
+const double fitEnd   = 70.0;   // [ns]
+const int ParaMax = 64;
+const double TrigTimeReso = 2.00; // [ns], timing resolution for fitting
 
-// Display and fit range
-const double graphStart = -50.0;   // [ns] Discard left of here (MakeGraph)
-const double graphEnd   =  50.0;   // [ns]
-const double y_err      =   2.0;   // FADC error (applied only to RAYRAW)
-
-const double fitStart =  -10.0;    // [ns] Lower bounds on fit integrals etc.
-const double fitEnd   =   70.0;    // [ns]
-const int    ParaMax  =   64;
-const double TrigTimeReso = 2.00;  // [ns] Trigger time resolution
-
-// pedestal
+// ped
 const int PEDESTAL_BIN_START = 0;
 const int PEDESTAL_BIN_END   = 10;
 }
@@ -72,16 +71,18 @@ RayrawWaveformHit::RayrawWaveformHit(HodoRawHit *rhit)
 {
   debug::ObjectCounter::increase(ClassName());
 
+  
   if (DetectorName()=="RAYRAW") {
     auto &cont = gTempFit.GetHitContainer(DetectorName());
     if (cont.empty() || SegmentId() >= (int)cont.size()) { 
-      std::cerr << "RayrawWaveformHit Error: Template for "
-                << DetectorName() << " seg " << SegmentId() << " not found!" << std::endl;
-      return;
+        std::cerr << "RayrawWaveformHit Error: Template for "
+                  << DetectorName() << " seg " << SegmentId() << " not found!" << std::endl;
+        return;
     }
     TemplateFitFunction *tempFunc = cont.at(SegmentId());
     m_func = new TF1(DetectorName()+"-"+std::to_string(SegmentId()),
-                     tempFunc, fitStart, fitEnd, ParaMax );
+         tempFunc,
+         fitStart, fitEnd, ParaMax );
   }
 }
 
@@ -89,17 +90,22 @@ RayrawWaveformHit::RayrawWaveformHit(HodoRawHit *rhit)
 RayrawWaveformHit::~RayrawWaveformHit()
 {
   del::ClearContainer( m_TGraphC );
-  if (m_func) delete m_func;
+
+  if (m_func)
+    delete m_func;
+
   m_func = 0;
   debug::ObjectCounter::decrease(ClassName());
 }
 
 //_____________________________________________________________________________
-bool RayrawWaveformHit::Calculate()
+bool
+RayrawWaveformHit::Calculate()
 {
   if(!HodoHit::Calculate())
-    ; // keep behavior
+    ;
 
+  
   static const auto& gUser = UserParamMan::GetInstance();
   static const auto SAMPLING_INTERVAL_NS = gUser.GetParameter("SamplingInterval");
 
@@ -107,17 +113,19 @@ bool RayrawWaveformHit::Calculate()
   for(Int_t ch=0; ch<m_n_ch; ++ch){
     m_de_high.at(ch).clear();
   }
+  
+  Int_t seg   = m_raw->SegmentId();
+  
+  
+  Int_t ch = HodoRawHit::kUp; // (ch=0)
 
-  const Int_t seg = m_raw->SegmentId();
-  const Int_t ch  = HodoRawHit::kUp; // ch=0
-
-  // Get raw ADC (RAYRAW is a 1-channel array)
-  const auto& fadc_samples = m_raw->GetArrayAdc();
-  if (fadc_samples.empty() || (int)fadc_samples.size() <= PEDESTAL_BIN_END) {
-    return true; 
+  //  (GetArrayAdc(ch) -> GetArrayAdc()) 
+  const auto& fadc_samples = m_raw->GetArrayAdc(); 
+  if (fadc_samples.empty() || fadc_samples.size() <= PEDESTAL_BIN_END) {
+      return true; 
   }
 
-  // pedestal calculation
+  // calculate pedestal
   double pedestal = 0;
   int ped_counts = 0;
   for (int i = PEDESTAL_BIN_START; i < PEDESTAL_BIN_END; ++i) {
@@ -125,49 +133,45 @@ bool RayrawWaveformHit::Calculate()
     ped_counts++;
   }
   if (ped_counts > 0) pedestal /= ped_counts;
-  else return true;
-
-  // Search for the peak of the positive pulse → t_peak is the origin
-  int    m_peak   = -1;
-  double peak_val = -1e300;                 // Positive pulse → Maximum value
-  for (int i = 0; i < (int)fadc_samples.size(); ++i) {
-    const double de = (double)fadc_samples[i] - pedestal;
-    if (de > peak_val) {
-      peak_val = de;
-      m_peak   = i;
-    }
+  else {
+      return true; 
   }
-  const double t_peak = (m_peak >= 0) ? m_peak * SAMPLING_INTERVAL_NS : 0.0;
 
-  // Waveform save: Shift time to peak reference (t - t_peak)
-  m_waveform.at(ch).clear();
+  
   Int_t ns = 0; 
-  for (const auto& adc_raw : fadc_samples){
-    const Double_t time = (double)ns * SAMPLING_INTERVAL_NS - t_peak; // shifted time
-    const Double_t de   = (Double_t)adc_raw - pedestal;
-    m_waveform.at(ch).push_back({time, de});
-    ++ns;
-  }
+  for(const auto& adc_raw : fadc_samples){
+    Double_t time = (double)ns * SAMPLING_INTERVAL_NS;
+    Double_t de = (Double_t)adc_raw - pedestal; 
 
-  // pedestal 
-  Int_t    Nped_evt = 0;
-  Double_t event_pedestal = 0.0;
+    std::pair<Double_t, Double_t> wf_pair(time, de);
+    m_waveform.at(ch).push_back(wf_pair);
+    ns++;
+  }
+  /*
+  // debug info
+  if (seg == 0 && !m_waveform.at(ch).empty()) {
+      std::cout << "!!! DEBUG [Calculate]  : (Evt " << gUnpacker.get_event_number() << ", Seg 0) Waveform filled. Size = " << m_waveform.at(ch).size() << std::endl;
+  }
+  */
+  
+  Int_t Nped=0;
+  Double_t event_pedestal=0;
   for(const auto& wf: m_waveform.at(ch)){
-    const Double_t t = wf.first;
-    if (t >= 0.0 && t < 5.0) { // 0.5ns sampling interval 0〜5ns
-      event_pedestal += wf.second;
-      ++Nped_evt;
+    Double_t time = wf.first;
+    if (time >= 0.0 && time < 5.0) { // 0.5ns * 10bin
+      event_pedestal += wf.second; 
+      Nped++;
     }
   }
-  if (Nped_evt > 0) event_pedestal /= Nped_evt;
-  else              event_pedestal  = 0.0;
+  if (Nped > 0) event_pedestal /= Nped;
+  else event_pedestal = 0;
 
-  // integration (fitStart〜fitEnd）
+  // (ADC integral)
   m_adc_integral = 0.;
   for(const auto& wf: m_waveform.at(ch)){
-    const Double_t t = wf.first;
-    if (t >= fitStart && t <= fitEnd) {
-      m_adc_integral += (wf.second - event_pedestal);
+    Double_t time = wf.first;
+    if (time >= fitStart && time <= fitEnd) {
+      m_adc_integral += (wf.second - event_pedestal); 
     }
   }
 
@@ -186,13 +190,13 @@ Bool_t RayrawWaveformHit::PulseSearch( void )
   MakeDifGraph(index_original_graph);
   Int_t index_diff_graph = 1;
  
-  Double_t threshold = 10.0;  // ADC threshold
-  Double_t width     = 0.05;  // not used
-  Double_t risetime  = 0.01;  // not used
+  Double_t threshold = 10.0;  
+  Double_t width     = 0.05;   
+  Double_t risetime  = 0.01;   
   
   SearchParam sp1={"sp1", {index_original_graph, index_diff_graph},
-                   fitStart, fitEnd, fitStart, fitEnd,
-                   threshold, width, risetime};
+    fitStart, fitEnd, fitStart, fitEnd,
+    threshold, width, risetime};
 
   Bool_t flagPresearch = PreSearch(&sp1);
   if (!flagPresearch)
@@ -208,19 +212,20 @@ Bool_t RayrawWaveformHit::PulseSearch( void )
   Fit1(&fp1);
 
   Double_t trigx = FittedTrigX(fp1,1.0);
+  
   if(std::abs(trigx)<TrigTimeReso){
     Double_t max_res = 0;
-    fp1.Residual = RisingResidual(index_original_graph, trigx, max_res);
+    fp1.Residual=  RisingResidual(index_original_graph, trigx, max_res);
     
-    if(fp1.Residual < 50 || std::fabs(max_res) < 50){ 
-      const Int_t waveNum = fp1.wavenum;
+    if(fp1.Residual < 50 || fabs(max_res) < 50){ 
+      Int_t waveNum = fp1.wavenum;
       for (Int_t nw=0; nw<waveNum; nw++) {
-        const Double_t time   = fp1.FitParam[2*nw+2];
-        const Double_t height = fp1.FitParam[2*nw+3];
+        Double_t time = fp1.FitParam[2*nw+2];
+        Double_t height = fp1.FitParam[2*nw+3];
         m_pulse_time.at(HodoRawHit::kUp).push_back(time);
         m_pulse_height.at(HodoRawHit::kUp).push_back(height);
-
-        Double_t energy = -999.;
+        Double_t energy=-999.;
+        
         if (GetName() == "RAYRAW") {
           energy = height; 
           m_de_high.at(HodoRawHit::kUp).push_back(energy);
@@ -237,18 +242,31 @@ Bool_t RayrawWaveformHit::MakeGraph()
   Int_t nc = GetWaveformEntries(HodoRawHit::kUp);
   Int_t n_range = 0;
   for (Int_t i=0; i<nc; i++) {
-    const auto fadc = GetWaveform(HodoRawHit::kUp, i);
+    std::pair<Double_t, Double_t> fadc = GetWaveform(HodoRawHit::kUp, i);
     if ( fadc.first >= graphStart && fadc.first <= graphEnd )
-      ++n_range;
+      n_range++;
   }
 
-  if (n_range<=0)
+  /*
+  // debug info
+  if (SegmentId() == 0 && nc > 0) {
+      std::cout << "!!! DEBUG [MakeGraph]    : (Seg 0, Evt " << gUnpacker.get_event_number() << ") Found " << nc << " raw samples." << std::endl;
+      std::cout << "!!! DEBUG [MakeGraph]    : (Seg 0, Evt " << gUnpacker.get_event_number() << ") Time range cut (" << graphStart << " ns to " << graphEnd << " ns) passed " << n_range << " samples." << std::endl;
+      if (n_range == 0) {
+          std::cout << "!!! ERROR: MakeGraph cut ALL samples! Check graphStart/End parameters in namespace." << std::endl;
+      }
+  }
+  */
+
+
+  if (n_range<=0) {
     return false;
+  }
   
   TGraphErrors *gr = new TGraphErrors(n_range);
   Int_t index = 0;
   for (Int_t i=0; i<nc; i++) {
-    const auto fadc = GetWaveform(HodoRawHit::kUp, i);
+    std::pair<Double_t, Double_t> fadc = GetWaveform(HodoRawHit::kUp, i);
     if ( fadc.first >= graphStart && fadc.first <= graphEnd ) {
       if ( index<n_range ) {
         gr->SetPoint(index, fadc.first, fadc.second);
@@ -257,7 +275,7 @@ Bool_t RayrawWaveformHit::MakeGraph()
         } else {
           gr->SetPointError(index, 0, 0); 
         }
-        ++index;
+        index++;
       }
     }
   }
@@ -275,8 +293,7 @@ Bool_t RayrawWaveformHit::MakeDifGraph(Int_t index_org)
 
   Double_t *refx = gr->GetX();
   Double_t *refy = gr->GetY();
-  Double_t *x    = new Double_t[n];
-  Double_t *y    = new Double_t[n];
+  Double_t x[n], y[n];
 
   for (Int_t i=0; i<n; i++) {
     x[i] = refx[i];
@@ -284,19 +301,26 @@ Bool_t RayrawWaveformHit::MakeDifGraph(Int_t index_org)
   }
   TGraphErrors *gr_diff = new TGraphErrors(n, x, y);
   m_TGraphC.push_back(gr_diff);
-
-  delete [] x;
-  delete [] y;
   return true;
 }
 
 //_____________________________________________________________________________
+// (BGO PreSearch
+/*Bool_t RayrawWaveformHit::PreSearch(struct SearchParam *sp)
+{
+  ...
+}*/
+
+
 Bool_t RayrawWaveformHit::PreSearch(struct SearchParam *sp)
 {
+  static const std::string func_name(std::string("[")+ClassName()+"::"+__func__+"()]");
+  
   if (m_TGraphC.empty() || !m_TGraphC[0]) return false;
   TGraphErrors *gr = m_TGraphC[0];
   if (gr->GetN() < 1) return false;
   
+  //param
   const double ADC_THRESHOLD = 10.0; 
 
   double max_val = -1e9;
@@ -308,24 +332,36 @@ Bool_t RayrawWaveformHit::PreSearch(struct SearchParam *sp)
       peak_time = gr->GetX()[i];
     }
   }
+  /*
+  // debug info
+  if (SegmentId() == 0) {
+      std::cout << "!!! DEBUG [PreSearch]    : (Seg 0, Evt " << gUnpacker.get_event_number() << ") Max value in TGraph = " << max_val << std::endl;
+      if (max_val <= ADC_THRESHOLD) {
+          std::cout << "!!! INFO: PreSearch failed. Max value (" << max_val << ") <= Threshold (" << ADC_THRESHOLD << ")" << std::endl;
+      } else {
+          std::cout << "!!! SUCCESS: PreSearch PASSED. Max value (" << max_val << ") > Threshold (" << ADC_THRESHOLD << ")" << std::endl;
+      }
+  }
+  */
 
   if (max_val > ADC_THRESHOLD) {
     sp->foundx.push_back(peak_time);
     sp->foundy.push_back(max_val);
   }
   
-  if (sp->foundx.empty())
+  if (sp->foundx.empty()) {
     return false;
+  }
 
   return true;
 }
 
 //_____________________________________________________________________________
 Bool_t RayrawWaveformHit::WidthCut(std::vector<Double_t> rise,
-                                   std::vector<Double_t> fall,
-                                   Double_t width, std::vector<Double_t> &outrise)
+         std::vector<Double_t> fall,
+         Double_t width, std::vector<Double_t> &outrise)
 {
-  // 未使用
+  // do not use 
   if(rise.size() != fall.size()){
     std::cout<<"RayrawWaveformHit::WidthCut rise num != fall num"<<std::endl;
     return false;
@@ -342,10 +378,10 @@ Bool_t RayrawWaveformHit::WidthCut(std::vector<Double_t> rise,
 
 //_____________________________________________________________________________
 void RayrawWaveformHit::CompareRise(std::vector<Double_t> rise1,
-                                    std::vector<Double_t> rise2,
-                                    Double_t width, std::vector<Double_t> &outrise)
+          std::vector<Double_t> rise2,
+          Double_t width, std::vector<Double_t> &outrise)
 {
-  // 未使用
+  // do not use
   for(int i=0; i<(int)rise2.size(); i++){
     int t=0;
     for(int j=0; j<(int)rise1.size(); j++){
@@ -363,10 +399,10 @@ void RayrawWaveformHit::CompareRise(std::vector<Double_t> rise1,
 
 //_____________________________________________________________________________
 void RayrawWaveformHit::SetInitial(std::vector<Double_t> &v,
-                                   Double_t begin, Double_t end,
-                                   Double_t thre, Double_t rise)
+         Double_t begin, Double_t end,
+         Double_t thre, Double_t rise)
 {
-  // 未使用
+  // do not use
   Int_t size=v.size();
   Double_t SepaLimit = 1.0; 
   
@@ -402,9 +438,11 @@ void RayrawWaveformHit::SetInitial(std::vector<Double_t> &v,
   if(it!=v.end())
     v.erase(it,v.end());
   std::sort(v.begin(),v.end());
+  size=v.size();
 }
 
 //_____________________________________________________________________________
+
 Double_t RayrawWaveformHit::GXtoGY(Int_t index_graph, Double_t gx)
 {
   Int_t point=-1;
@@ -416,12 +454,12 @@ Double_t RayrawWaveformHit::GXtoGY(Int_t index_graph, Double_t gx)
   Double_t *GX = m_TGraphC[index_graph]->GetX();
   Double_t *GY = m_TGraphC[index_graph]->GetY();
 
-  if (gx < GX[0])              return GY[0];
-  if (gx > GX[sample_size-1])  return GY[sample_size-1];
+  if (gx < GX[0]) return GY[0];
+  if (gx > GX[sample_size-1]) return GY[sample_size-1];
 
   for(Int_t i=1;i<sample_size;i++){ 
     if(gx<=GX[i]){
-      point = i;
+      point = i ;
       break;
     }
   }
@@ -431,6 +469,7 @@ Double_t RayrawWaveformHit::GXtoGY(Int_t index_graph, Double_t gx)
   else{
     k = GX[point-1];
     l = GX[point];
+    
     if (std::abs(l-k) < 1e-9) return GY[point-1];
 
     Double_t r =(gx-k)/(l-k);
@@ -442,8 +481,9 @@ Double_t RayrawWaveformHit::GXtoGY(Int_t index_graph, Double_t gx)
 }
 
 //_____________________________________________________________________________
+
 Bool_t RayrawWaveformHit::SetFitParam(FitParam *fp, std::vector<Double_t> &inix,
-                                      std::vector<Double_t> &iniy)
+            std::vector<Double_t> &iniy)
 {
   Int_t wm = inix.size();
   fp->wavenum = wm;
@@ -455,7 +495,7 @@ Bool_t RayrawWaveformHit::SetFitParam(FitParam *fp, std::vector<Double_t> &inix,
   }
 
   fp->par[0]=wm;
-  fp->par[1]=0; // 予備
+  fp->par[1]=0; 
 
   for(Int_t i=0;i<wm;i++){
     fp->par[2+2*i]=inix[i];
@@ -465,7 +505,10 @@ Bool_t RayrawWaveformHit::SetFitParam(FitParam *fp, std::vector<Double_t> &inix,
 }
 
 //_____________________________________________________________________________
-// Fit1: m_func (RAYRAWTEMP)  m_TGraphC[fp->tgen] fit
+//Fit1
+//m_func RAYRAWTEMP
+//m_TGraphC data
+
 void RayrawWaveformHit::Fit1(FitParam *fp)
 {
   Int_t wavenum = fp->wavenum;
@@ -476,16 +519,16 @@ void RayrawWaveformHit::Fit1(FitParam *fp)
   for(Int_t i=0;i<ParaNum;i++){
     m_func -> ReleaseParameter(i);
     par[i] = fp->par[i];
-    if (i>=3 && i%2 == 1) { 
-      m_func -> SetParLimits(i, 0, 100000);
-    }
+    
+    if (i>=3 && i%2 == 1) 
+      m_func -> SetParLimits(i, 0, 100000); 
   }
 
   m_func -> SetNpx(1000);
   m_func -> SetParameters(&par[0]);
   m_func -> FixParameter(0,par[0]); 
   m_func -> SetLineColor(fp->color);
-  for(Int_t nine= ParaNum; nine<ParaMax; nine++)
+  for(Int_t nine= ParaNum;nine<ParaMax;nine++)
     m_func -> FixParameter(nine,0);
 
   m_TGraphC[fp->tgen] -> Fit(m_func,"qN","",fp->FitStart,fp->FitEnd);
@@ -498,14 +541,15 @@ void RayrawWaveformHit::Fit1(FitParam *fp)
 //_____________________________________________________________________________
 Double_t RayrawWaveformHit::FittedTrigX(FitParam fp, Double_t allowance)
 {
+ 
   Int_t num = fp.wavenum; 
-  Double_t reso = TrigTimeReso * allowance;
+  Double_t reso = TrigTimeReso *allowance;
   Int_t inrange=0;
   std::vector<Double_t> xx;
   for(Int_t i=0;i<num;i++){
-    Double_t x = fp.FitParam[2+2*i]; 
-    if(x > -reso && x< reso ){
-      ++inrange;
+    Double_t x =fp.FitParam[2+2*i]; 
+    if(x > - reso && x< reso ){
+      inrange++;
       xx.push_back(x);
     }
   }
@@ -519,34 +563,40 @@ Double_t RayrawWaveformHit::FittedTrigX(FitParam fp, Double_t allowance)
       sub.push_back(std::abs(xx[i]));
     std::sort(sub.begin(),sub.end());
     for(Int_t i=0;i<inrange;i++){
-      if(std::abs(-sub[0] - xx[i]) <0.0001) return xx[i];
-      if(std::abs( sub[0] - xx[i]) <0.0001) return xx[i];
+      if(std::abs(-sub[0] - xx[i]) <0.0001) 
+        return xx[i];
+      if(std::abs(sub[0] - xx[i]) <0.0001) 
+        return xx[i];
     }
     return -9999.;
   }
 }
 
 //_____________________________________________________________________________
+
 Double_t RayrawWaveformHit::RisingResidual(Int_t tge_No, Double_t trig, Double_t &res_max)
 {
   if(trig <0)
     return -1;
 
   Double_t Residual = 0, max_res = 0;
+  Double_t a,b;
 
-  for(Int_t i =0; i<10; i++){
+  
+  for(Int_t i =0; i<10;i++){
     Double_t x = trig - 0.05 + i*0.01; 
-    Double_t a = GXtoGY(tge_No, x);
-    Double_t b = m_func->Eval(x);
-    if (std::abs(a) > 1e-9) {
-      Residual += std::sqrt((a-b)*(a-b))/ y_err ;
+    a = GXtoGY(tge_No, x);
+    b = m_func->Eval(x);
+    if(std::abs(a) > 1e-9) { 
+      Residual += sqrt((a-b)*(a-b))/ y_err ;
       if (std::abs(max_res) < std::abs(a-b))
         max_res = a-b;
     }
   }
 
-  if (std::abs(GXtoGY(tge_No, trig)) > 1e-9) {
-    Residual /= GXtoGY(tge_No, trig);
+  
+  if (std::abs(GXtoGY(tge_No, trig)) > 1e-9) { 
+    Residual /= GXtoGY(tge_No, trig); 
     Residual *= 100;
   } else {
     Residual = 9999.;
@@ -557,8 +607,11 @@ Double_t RayrawWaveformHit::RisingResidual(Int_t tge_No, Double_t trig, Double_t
 }
 
 //_____________________________________________________________________________
-void RayrawWaveformHit::Print(Option_t* arg) const
+
+void
+RayrawWaveformHit::Print(Option_t* arg) const
 {
+ 
   PrintHelper helper(3, std::ios::fixed);
   hddaq::cout << FUNC_NAME << " " << arg << std::endl
         << "detector_name = " << m_raw->DetectorName() << std::endl
@@ -566,12 +619,12 @@ void RayrawWaveformHit::Print(Option_t* arg) const
         << "plane_name    = " << m_raw->PlaneName()  << std::endl 
         << "plane_id      = " << m_raw->PlaneId()    << std::endl
         << "segment_id    = " << m_raw->SegmentId()  << std::endl
-        << "n_ch          = " << m_n_ch              << std::endl
-        << "de            = " << DeltaE() << std::endl
-        << "mt/cmt        = " << MeanTime()
-        << " / " << CMeanTime() << std::endl
-        << "tdiff/ctdiff  = " << TimeDiff()
-        << " / " << CTimeDiff() << std::endl;
+              << "n_ch          = " << m_n_ch              << std::endl
+              << "de            = " << DeltaE() << std::endl
+              << "mt/cmt        = " << MeanTime()
+              << " / " << CMeanTime() << std::endl
+              << "tdiff/ctdiff  = " << TimeDiff()
+              << " / " << CTimeDiff() << std::endl;
   for(const auto data_map: std::map<TString, data_t>
         {{"de-hi  ", m_de_high},      {"de-lo  ", m_de_low},
          {"time-l ", m_time_leading}, {"time-t ", m_time_trailing},
